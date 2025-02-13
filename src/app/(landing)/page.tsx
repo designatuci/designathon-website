@@ -1,7 +1,5 @@
-import React from "react";
+import Landing2025 from "@components/seasons/2025/landing/landing-2025";
 
-function Page() {
-  return <div>Page</div>;
+export default function LandingPage() {
+  return <Landing2025 />;
 }
-
-export default Page;
