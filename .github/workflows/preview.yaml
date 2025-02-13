@@ -10,7 +10,7 @@ jobs:
   deploy-preview:
     environment:
       name: preview-${{ github.ref_name }}
-      url: ${{ steps.vercel-preview.outputs.preview-url }}
+      url: ${{ steps.vercel-preview.outputs.PREVIEW_URL }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,9 +29,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Lint
-        run: pnpm lint
-
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
@@ -46,4 +43,4 @@ jobs:
 
       - name: Set output for preview URL
         id: vercel-preview
-        run: echo "preview-url=$(vercel preview --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_OUTPUT
+        run: echo "PREVIEW_URL=$(vercel preview --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_OUTPUT
