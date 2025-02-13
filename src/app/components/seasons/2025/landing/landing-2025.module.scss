@@ -1,6 +1,5 @@
-@import "@styles/theme";
+@import "@styles/2025/typography";
 
 .landing {
-  font-family: $font-family;
-  font-size: 2rem;
+  @include text-default-body;
 }
