@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import React from "react";
 
-// Font files can be colocated inside of `app`
 const satoshi = localFont({
   src: "./fonts/Satoshi-Variable.woff2",
   display: "swap",
