@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-primary: var(--theme-font-primary);
+
+    --color-blue: var(--theme-color-blue);
+  }
+
+  /* 2025 themes */
+  [data-theme="2025"] {
+    --theme-font-primary: "Satoshi", sans-serif;
+    --theme-color-blue: #354f99;
+  }
+}
+
+@theme inline {
+  --font-primary: var(--theme-font-primary);
+
+  --color-blue: var(--theme-color-blue);
+}
