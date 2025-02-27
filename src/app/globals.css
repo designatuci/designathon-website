@@ -12,7 +12,7 @@
 
   /* 2025 themes */
   [data-theme="2025"] {
-    --theme-font-primary: "Satoshi", sans-serif;
+    --theme-font-primary: var(--font-satoshi);
 
     --blue: #354f99;
     --tan: #fffced;
