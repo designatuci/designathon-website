@@ -1,5 +1,3 @@
-import React from "react";
-
 function Stats() {
   return <section className="w-full bg-(--tan)">Stats</section>;
 }
