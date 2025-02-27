@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
+/* Global utility classes to be re-used across seasons */
+@theme inline {
+  --font-primary: var(--theme-font-primary);
+}
+
 @layer base {
   :root {
     --font-primary: var(--theme-font-primary);
-
-    --color-blue: var(--theme-color-blue);
   }
 
   /* 2025 themes */
   [data-theme="2025"] {
     --theme-font-primary: "Satoshi", sans-serif;
-    --theme-color-blue: #354f99;
+
+    --blue: #354f99;
+    --tan: #fffced;
+    --pink: #f984a9;
+    --peach: #fac9b4;
+    --sky: #a6cdf6;
   }
-}
-
-@theme inline {
-  --font-primary: var(--theme-font-primary);
-
-  --color-blue: var(--theme-color-blue);
 }

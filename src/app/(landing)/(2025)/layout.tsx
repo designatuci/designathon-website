@@ -5,7 +5,7 @@ type Props = {
 };
 
 function Layout({ children }: Props) {
-  return <main data-theme="2025">{children}</main>;
+  return <div data-theme="2025">{children}</div>;
 }
 
 export default Layout;
