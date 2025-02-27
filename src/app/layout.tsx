@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./styles/globals.scss";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "UCI Design-a-thon 2025 | Design at UCI",
