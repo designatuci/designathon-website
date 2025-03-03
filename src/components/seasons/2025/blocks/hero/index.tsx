@@ -2,7 +2,7 @@ import DOTImage from "@components/common/dot-image";
 
 function Hero() {
   return (
-    <section className="flex h-svh max-h-[800px] min-h-[400px] w-full flex-col bg-(--sky) pt-14 font-primary">
+    <section className="flex h-svh max-h-[1000px] min-h-[640px] w-full flex-col bg-(--sky) pt-14 font-primary">
       <div className="relative z-10 flex items-center justify-center">
         <span className="relative inline-block h-[300px] w-[1000px] overflow-hidden">
           <DOTImage
@@ -14,12 +14,12 @@ function Hero() {
           />
         </span>
       </div>
-      <div className="relative -mt-16 flex w-full flex-grow items-center justify-center">
+      <div className="relative -mt-16 flex w-full flex-grow items-center justify-center overflow-hidden">
         <video
           className="h-full w-full object-cover object-bottom"
           style={{
             maskImage:
-              "linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 95%, transparent 100%)",
+              "linear-gradient(to top, rgba(0, 0, 0, 1.0) 0%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)",
           }}
           src="https://res.cloudinary.com/ucidesignathon/video/upload/f_auto,q_auto/v1740974663/ROLLERCOASTER2_outhyj.mp4"
           poster="https://res.cloudinary.com/ucidesignathon/video/upload/f_auto,q_auto,so_0/v1740974663/ROLLERCOASTER2_outhyj.jpg"
