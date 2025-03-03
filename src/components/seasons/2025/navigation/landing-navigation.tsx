@@ -17,7 +17,7 @@ import Link from "next/link";
 export default function LandingNavigation() {
   return (
     <div className="sticky top-0 h-0">
-      <div className="py-3 px-4 flex justify-between items-center">
+      <div className="flex items-center justify-between px-4 py-3">
         <Link href="/">
           <Image
             src="/images/seasons/2025/landing/designathon-logo.png"
@@ -26,7 +26,9 @@ export default function LandingNavigation() {
             height={40}
           />
         </Link>
-        <LandingNavigationMobile />
+        <div>
+          <LandingNavigationMobile />
+        </div>
       </div>
     </div>
   );
@@ -38,7 +40,7 @@ function LandingNavigationMobile() {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="hover:bg-transparent text-(--tan) hover:text-(--tan) size-fit !p-0"
+          className="size-fit !p-0 text-(--tan) hover:bg-transparent hover:text-(--tan) md:hidden"
         >
           <Menu className="size-10" />
         </Button>
