@@ -13,9 +13,9 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <div data-theme="2025" className={`${satoshi.variable}`}>
+    <body data-theme="2025" className={`${satoshi.variable}`}>
       {children}
-    </div>
+    </body>
   );
 }
 

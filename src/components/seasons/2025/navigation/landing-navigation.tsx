@@ -1,8 +1,6 @@
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -26,8 +24,8 @@ const navigationLinks: NavigationLink[] = [
 
 export default function LandingNavigation() {
   return (
-    <div className="sticky top-0 z-50 mx-auto h-0 max-w-1920">
-      <div className="flex items-center justify-between px-4 py-3">
+    <div className="sticky top-0 z-50 h-0 lg:mx-auto lg:max-w-7xl">
+      <div className="flex items-center justify-between px-4 py-3 lg:px-8 lg:pt-6">
         <Link href="/">
           <Image
             src="/images/seasons/2025/landing/designathon-logo.png"
@@ -56,12 +54,21 @@ function LandingNavigationMobile() {
           <Menu className="size-10" />
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Title</SheetTitle>
-          <SheetDescription>Description</SheetDescription>
-        </SheetHeader>
-        <div className="grid gap-4 py-4"></div>
+      <SheetContent data-theme="2025" className="w-full border-0 bg-(--blue)">
+        <SheetTitle className="sr-only">Navigation</SheetTitle>
+        <div className="grid h-full place-items-center">
+          <div className="flex flex-col items-center gap-4">
+            {navigationLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-xl font-medium text-(--tan) hover:text-(--tan)"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
       </SheetContent>
     </Sheet>
   );
@@ -69,7 +76,7 @@ function LandingNavigationMobile() {
 
 function LandingNavigationDesktop() {
   return (
-    <div className="hidden gap-8 lg:flex">
+    <div className="mx-auto hidden gap-8 lg:flex">
       {navigationLinks.map((link) => (
         <Link
           key={link.name}
