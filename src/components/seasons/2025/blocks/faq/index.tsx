@@ -1,3 +1,6 @@
+"use client";
+
+import { cn } from "@/lib/utils";
 import TriggerIcon from "@components/seasons/2025/blocks/faq/trigger-icon";
 import {
   Accordion,
@@ -5,6 +8,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@components/ui/accordion";
+import { useInView } from "motion/react";
+import { useRef } from "react";
 
 interface FAQItem {
   question: React.ReactNode;
@@ -60,8 +65,8 @@ const faqItems: FAQItem[] = [
 
 function FAQ() {
   return (
-    <section className="flex justify-center bg-(--blue) px-4 py-8 text-white">
-      <div className="flex flex-col lg:w-full lg:max-w-[720px]">
+    <section className="flex justify-center bg-(--blue) py-8 text-white">
+      <div className="flex w-full max-w-[800px] flex-col px-8 lg:max-w-[1200px] lg:px-12">
         <h2>FAQ</h2>
         <Accordion
           type="single"
@@ -78,10 +83,27 @@ function FAQ() {
 }
 
 function FAQItem({ item, index }: { item: FAQItem; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    amount: 0.5,
+    once: true,
+  });
+
   return (
-    <AccordionItem value={`question-${index}`} className="border-none">
+    <AccordionItem
+      value={`question-${index}`}
+      className="border-none"
+      ref={ref}
+    >
       <AccordionTrigger
-        className="cursor-pointer flex-row-reverse items-center justify-end text-base font-bold tracking-wide sm:text-lg lg:text-xl xl:text-2xl [&[data-state=open]]:underline [&[data-state=open]>svg]:rotate-0"
+        className={cn(
+          "cursor-pointer flex-row-reverse items-center justify-end text-base font-bold tracking-wide sm:text-lg lg:text-xl xl:text-2xl [&[data-state=open]]:underline [&[data-state=open]>svg]:rotate-0",
+          "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 not-motion-reduce:transition-all not-motion-reduce:duration-500",
+          {
+            "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
+              isInView,
+          },
+        )}
         customIcon={<TriggerIcon />}
       >
         {item.question}
