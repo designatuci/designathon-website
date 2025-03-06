@@ -1,5 +1,5 @@
 function PastEvents() {
-  return <div className="bg-(--blue)">PastEvents</div>;
+  return <div className="min-h-[200vh] bg-(--blue)">PastEvents</div>;
 }
 
 export default PastEvents;

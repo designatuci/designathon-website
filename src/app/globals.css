@@ -46,6 +46,28 @@
   --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --breakpoint-3xl: 120rem;
+  --animate-accordion-up: accordion-up 0.5s var(--ease-out-quart);
+  --animate-accordion-down: accordion-down 0.5s var(--ease-out-quart);
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
 }
 
 @layer utilities {
