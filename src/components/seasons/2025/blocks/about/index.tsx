@@ -3,12 +3,12 @@ import AboutText from "@components/seasons/2025/blocks/about/about-text";
 
 function About() {
   return (
-    <section className="flex justify-center md:-mt-10 lg:-mt-16 xl:-mt-0 xl:bg-gradient-to-b xl:from-white xl:via-(--blue) xl:via-40% xl:to-(--blue)">
-      <div className="mask-sides relative flex min-h-[600px] max-w-[1920px] flex-col justify-end bg-white">
+    <section className="flex justify-center md:-mt-10 lg:-mt-16 xl:mt-0 xl:bg-gradient-to-b xl:from-white xl:via-(--blue) xl:via-40% xl:to-(--blue)">
+      <div className="relative flex min-h-[600px] flex-grow flex-col justify-end bg-white">
         <DOTImage
           src="https://res.cloudinary.com/ucidesignathon/image/upload/v1741053627/about-background_ifrrid.png"
           alt=""
-          className="mask-top"
+          className="mask-top w-full"
           width={1920}
           height={1080}
           unoptimized
