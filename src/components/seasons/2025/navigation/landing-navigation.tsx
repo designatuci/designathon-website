@@ -1,6 +1,7 @@
 import {
   Sheet,
   SheetContent,
+  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -56,6 +57,7 @@ function LandingNavigationMobile() {
       </SheetTrigger>
       <SheetContent data-theme="2025" className="w-full border-0 bg-(--blue)">
         <SheetTitle className="sr-only">Navigation</SheetTitle>
+        <SheetDescription className="sr-only">Navigation Menu</SheetDescription>
         <div className="grid h-full place-items-center">
           <div className="flex flex-col items-center gap-4">
             {navigationLinks.map((link) => (
