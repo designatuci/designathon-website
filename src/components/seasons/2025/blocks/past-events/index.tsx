@@ -104,8 +104,8 @@ function PastEvents() {
                 <div className="h-full">
                   <Card
                     className={cn(
-                      "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white opacity-80 lg:min-h-[500px]",
-                      "not-motion-reduce:translate-x-8 not-motion-reduce:translate-y-16 not-motion-reduce:scale-95 not-motion-reduce:transition-all not-motion-reduce:duration-700 not-motion-reduce:ease-out-quart",
+                      "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white lg:min-h-[500px]",
+                      "not-motion-reduce:translate-x-8 not-motion-reduce:translate-y-16 not-motion-reduce:scale-95 not-motion-reduce:opacity-80 not-motion-reduce:transition-all not-motion-reduce:duration-700 not-motion-reduce:ease-out-quart",
                       {
                         "not-motion-reduce:translate-x-0 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
                           isInView,

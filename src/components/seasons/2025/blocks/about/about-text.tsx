@@ -36,7 +36,7 @@ const ChallengeListItemDesktop = ({
     <div className="relative" ref={rootRef}>
       <motion.span
         style={{ backgroundSize: backgroundSize }}
-        className="inline w-fit bg-gradient-to-r from-(--blue) to-(--blue) bg-clip-text bg-no-repeat pb-1 text-[hsl(0_0%_100%/0)]"
+        className="inline w-fit bg-gradient-to-r from-(--blue) to-(--blue) bg-clip-text bg-no-repeat pb-1 text-[hsl(0_0%_100%/0)] motion-reduce:!bg-[length:100%_100%]"
       >
         {children}
       </motion.span>
