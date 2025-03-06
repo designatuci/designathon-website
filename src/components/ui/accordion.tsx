@@ -33,8 +33,6 @@ function AccordionTrigger({
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger> & {
   customIcon?: React.ReactNode;
 }) {
-  console.log(customIcon);
-
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
