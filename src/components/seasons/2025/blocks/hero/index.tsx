@@ -29,6 +29,8 @@ function Hero() {
             playsInline
             muted
           ></video>
+          {/* TODO: add video scrolling */}
+          {/* <canvas className="h-full w-full object-cover object-bottom" /> */}
         </div>
       </div>
     </section>
