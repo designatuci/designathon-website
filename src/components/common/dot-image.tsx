@@ -5,7 +5,7 @@ function DOTImage({ alt, className, ...props }: ImageProps) {
   return (
     <Image
       alt={alt}
-      className={cn("pointer-events-none", className)}
+      className={cn("pointer-events-none select-none", className)}
       {...props}
     />
   );
