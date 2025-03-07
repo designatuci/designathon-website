@@ -39,7 +39,7 @@ const SkillsMarquee = ({
           {[...sponsors, ...sponsors].map((sponsor, index) => (
             <li
               key={`${sponsor.id}-${index}`}
-              className="group/cart relative flex w-[30vw] flex-col overflow-y-visible"
+              className="group/cart relative flex w-[30vw] flex-col overflow-y-visible 2xl:max-w-[400px] 3xl:max-w-[450px]"
             >
               <DOTImage
                 src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305137/cart-back_bxbecl.png"

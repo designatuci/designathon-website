@@ -20,7 +20,7 @@ const ChallengeListItemDesktop = ({
 
   const { scrollYProgress } = useScroll({
     target: rootRef,
-    offset: ["0% 150%", "0% 100%"],
+    offset: ["0% 170%", "0% 100%"],
   });
 
   const revealProgress = useTransform(scrollYProgress, [0, 1], [0, 100]);

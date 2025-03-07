@@ -88,7 +88,7 @@ function PastEvents() {
   return (
     <section className="flex justify-center overflow-x-hidden bg-(--blue) py-16">
       <div
-        className="relative flex w-full max-w-[800px] flex-col gap-4 px-8 py-8 text-white lg:max-w-[1200px] lg:px-12"
+        className="relative flex w-full max-w-[800px] flex-col gap-4 px-8 py-8 text-white lg:max-w-[1200px] lg:px-12 3xl:max-w-[1600px]"
         ref={ref}
       >
         <h2>Past Events</h2>
@@ -100,11 +100,14 @@ function PastEvents() {
         >
           <CarouselContent>
             {eventsList.map((event, index) => (
-              <CarouselItem key={index} className="max-w-2xs md:max-w-xs">
+              <CarouselItem
+                key={index}
+                className="max-w-2xs md:max-w-xs xl:max-w-sm"
+              >
                 <div className="h-full">
                   <Card
                     className={cn(
-                      "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white lg:min-h-[500px]",
+                      "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white lg:min-h-[500px] xl:min-h-[600px] xl:pb-8 xl:pl-8",
                       "not-motion-reduce:translate-x-8 not-motion-reduce:translate-y-16 not-motion-reduce:scale-95 not-motion-reduce:opacity-80 not-motion-reduce:transition-all not-motion-reduce:duration-700 not-motion-reduce:ease-out-quart",
                       {
                         "not-motion-reduce:translate-x-0 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":

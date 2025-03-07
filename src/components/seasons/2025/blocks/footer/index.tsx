@@ -17,7 +17,7 @@ function Footer() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end end"],
+    offset: ["20% end", "70% end"],
   });
 
   const [cachedImages, setCachedImages] = useState<HTMLImageElement[]>([]);
@@ -57,7 +57,7 @@ function Footer() {
       ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
       if (cachedImages[index - 1]) {
-        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1920, 1400);
+        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1920, 2500);
       }
     },
     [cachedImages],
@@ -68,7 +68,7 @@ function Footer() {
     damping: 50,
   });
 
-  const currentIndex = useTransform(scrollYSpring, [0, 1], [1, NUM_FRAMES]);
+  const currentIndex = useTransform(scrollYSpring, [0, 1], [13, NUM_FRAMES]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -77,7 +77,7 @@ function Footer() {
   useEffect(() => {
     if (!cachedImages.length) return;
 
-    renderFrame(1);
+    renderFrame(13);
   }, [cachedImages.length, renderFrame]);
 
   return (
@@ -87,13 +87,13 @@ function Footer() {
     >
       <div
         className={cn(
-          "mask-top relative flex w-full flex-grow items-center justify-center overflow-hidden",
+          "relative flex w-full flex-grow items-center justify-center overflow-hidden",
         )}
       >
         <canvas
           className="h-full w-full object-cover object-bottom"
           width={1920}
-          height={1400}
+          height={2500}
           ref={canvasRef}
         />
       </div>

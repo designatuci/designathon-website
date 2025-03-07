@@ -69,6 +69,7 @@ function Hero() {
   });
 
   const currentIndex = useTransform(scrollYSpring, [0, 1], [1, 120]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -82,7 +83,7 @@ function Hero() {
 
   return (
     <section
-      className="flex justify-center bg-(--sky) xl:bg-gradient-to-b xl:from-(--sky) xl:to-(--tan) 2xl:min-h-[1500px]"
+      className="z-10 flex justify-center bg-(--sky) xl:bg-gradient-to-b xl:from-(--sky) xl:to-(--tan) 2xl:min-h-[1500px]"
       ref={sectionRef}
     >
       <div className="relative flex h-svh max-h-[800px] min-h-[640px] w-full justify-center overflow-hidden pt-14 font-primary sm:min-h-[900px] md:min-h-[1000px] lg:min-h-[1200px] xl:h-fit xl:max-h-none xl:min-h-[1200px] 3xl:min-h-[1600px]">
@@ -105,6 +106,7 @@ function Hero() {
               duration: 6,
               ease: "easeInOut",
             }}
+            style={{ opacity: headerOpacity }}
             className="relative inline-block h-[300px] w-[400px] overflow-hidden sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24"
           >
             {/* Motion reduce */}
@@ -129,7 +131,7 @@ function Hero() {
         </div>
         <div
           className={cn(
-            "mask-top relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden opacity-0 transition-all duration-1000 ease-out-quart xl:mt-16 2xl:mt-0 3xl:-mt-16",
+            "mask-top relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden opacity-0 transition-all duration-1000 ease-out-quart xl:mt-16 2xl:mt-0 3xl:-mt-[5vw]",
             "not-motion-reduce:translate-y-24 not-motion-reduce:scale-105",
             {
               "opacity-100 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100":

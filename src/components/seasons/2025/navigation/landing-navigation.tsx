@@ -25,7 +25,7 @@ const navigationLinks: NavigationLink[] = [
 
 export default function LandingNavigation() {
   return (
-    <div className="sticky top-0 z-50 h-0 lg:mx-auto lg:max-w-7xl">
+    <div className="sticky top-0 z-50 h-0 lg:mx-auto lg:max-w-7xl 3xl:max-w-[1920px]">
       <div className="flex items-center justify-between px-4 py-3 lg:px-8 lg:pt-6">
         <Link href="/">
           <Image

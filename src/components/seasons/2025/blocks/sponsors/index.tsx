@@ -12,9 +12,9 @@ export interface Sponsor {
 function Sponsors() {
   return (
     <section className="flex justify-center bg-(--blue) py-12 text-white">
-      <div className="flex w-full flex-col">
-        <div>
-          <h2>Sponsors</h2>
+      <div className="flex w-full flex-col 3xl:max-w-[1920px]">
+        <div className="relative">
+          <h2 className="absolute top-0 left-0 z-10">Sponsors</h2>
           <SponsorsMarquee
             reverse
             sponsors={[
@@ -45,7 +45,7 @@ function Sponsors() {
             ]}
           />
         </div>
-        <div className="-mt-20 sm:-mt-40 lg:-mt-64">
+        <div className="-mt-20 sm:-mt-40 lg:-mt-64 2xl:-mt-[400px] 3xl:-mt-[400px]">
           <h2>Partners</h2>
           <SponsorsMarquee
             sponsors={[
