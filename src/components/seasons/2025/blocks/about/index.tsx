@@ -11,7 +11,6 @@ function About() {
           className="mask-top w-full"
           width={1920}
           height={1080}
-          unoptimized
         />
         <div className="absolute top-[65%] left-[30%] flex w-[65%] max-w-[300px] -translate-x-1/2 -translate-y-full flex-col items-center gap-2 pb-8 pl-8 text-center font-bold text-(--blue) sm:top-[60%] sm:max-w-[350px] md:top-[50%] md:max-w-[400px] lg:max-w-[450px]">
           {/* TODO: change font */}
