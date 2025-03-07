@@ -5,6 +5,7 @@ function About() {
   return (
     <section className="flex justify-center bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0">
       <div className="relative flex min-h-[600px] flex-grow flex-col justify-end">
+        <div className="flex-grow bg-gradient-to-b from-white to-(--tan)"></div>
         <DOTImage
           src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741317473/2025/landing-page/assets/about/about-background.gif"
           alt=""

@@ -74,7 +74,7 @@ const SkillsMarquee = ({
                     width={512}
                     height={512}
                     sizes="(min-width: 0px) 30vw"
-                    className="rounded-lg"
+                    className="rounded-lg object-cover"
                   />
                 </div>
               )}

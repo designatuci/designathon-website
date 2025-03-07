@@ -45,7 +45,7 @@ function Sponsors() {
             ]}
           />
         </div>
-        <div className="-mt-20">
+        <div className="-mt-20 sm:-mt-40 lg:-mt-64">
           <h2>Partners</h2>
           <SponsorsMarquee
             sponsors={[
