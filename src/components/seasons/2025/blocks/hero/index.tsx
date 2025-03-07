@@ -57,7 +57,7 @@ function Hero() {
       ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
       if (cachedImages[index - 1]) {
-        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1000, 938);
+        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1920, 1800);
       }
     },
     [cachedImages],
@@ -139,8 +139,8 @@ function Hero() {
         >
           <canvas
             className="h-full w-full object-cover object-bottom"
-            width={1000}
-            height={938}
+            width={1920}
+            height={1800}
             ref={canvasRef}
           />
         </div>
