@@ -32,52 +32,6 @@ interface AwardEntry {
   description: string;
 }
 
-const eventsList: EventCard[] = [
-  {
-    title: "True to You 2024",
-    className: "bg-gradient-to-b from-[#EB9977] to-[#DA306F]",
-    modalContent: {
-      title: "True to You 2024",
-      theme: "Community & Inclusivity",
-      participants: "300+",
-      entries: [
-        {
-          imageURL: "https://via.placeholder.com/150",
-          placement: "1st Place",
-          title: "Colorful",
-          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
-        },
-        {
-          imageURL: "https://via.placeholder.com/150",
-          placement: "2nd Place",
-          title: "Colorful",
-          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
-        },
-      ],
-    },
-  },
-  {
-    title: "Design-a-thon 2023",
-    className: "bg-[#2A0F52]",
-    modalContent: {
-      title: "Design-a-thon 2023",
-      theme: "",
-      participants: "",
-      entries: [],
-    },
-  },
-  {
-    title: "Design-a-thon 2022",
-    className: "bg-gradient-to-b from-[#96DAC2] to-[#D8BFE8] text-black",
-    modalContent: {
-      title: "Design-a-thon 2023",
-      theme: "",
-      participants: "",
-      entries: [],
-    },
-  },
-];
-
 function PastEvents() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
@@ -88,7 +42,7 @@ function PastEvents() {
   return (
     <section className="flex justify-center overflow-x-hidden bg-(--blue) py-16">
       <div
-        className="relative flex w-full max-w-[800px] flex-col gap-4 px-8 py-8 text-white lg:max-w-[1200px] lg:px-12 3xl:max-w-[1600px]"
+        className="relative container flex w-full flex-col gap-4 py-8 text-white"
         ref={ref}
       >
         <h2 className="font-title text-3xl font-bold">Past Events</h2>
@@ -136,3 +90,49 @@ function PastEvents() {
 }
 
 export default PastEvents;
+
+const eventsList: EventCard[] = [
+  {
+    title: "True to You 2024",
+    className: "bg-gradient-to-b from-[#EB9977] to-[#DA306F]",
+    modalContent: {
+      title: "True to You 2024",
+      theme: "Community & Inclusivity",
+      participants: "300+",
+      entries: [
+        {
+          imageURL: "https://via.placeholder.com/150",
+          placement: "1st Place",
+          title: "Colorful",
+          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
+        },
+        {
+          imageURL: "https://via.placeholder.com/150",
+          placement: "2nd Place",
+          title: "Colorful",
+          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
+        },
+      ],
+    },
+  },
+  {
+    title: "Design-a-thon 2023",
+    className: "bg-[#2A0F52]",
+    modalContent: {
+      title: "Design-a-thon 2023",
+      theme: "",
+      participants: "",
+      entries: [],
+    },
+  },
+  {
+    title: "Design-a-thon 2022",
+    className: "bg-gradient-to-b from-[#96DAC2] to-[#D8BFE8] text-black",
+    modalContent: {
+      title: "Design-a-thon 2023",
+      theme: "",
+      participants: "",
+      entries: [],
+    },
+  },
+];

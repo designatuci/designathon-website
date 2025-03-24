@@ -66,7 +66,7 @@ const faqItems: FAQItem[] = [
 function FAQ() {
   return (
     <section className="flex justify-center bg-(--blue) py-8 text-white">
-      <div className="flex w-full max-w-[800px] flex-col px-8 lg:max-w-[1200px] lg:px-12 3xl:max-w-[1600px]">
+      <div className="container flex w-full flex-col">
         <h2 className="font-title text-3xl font-bold">FAQ</h2>
         <Accordion
           type="single"

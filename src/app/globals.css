@@ -80,38 +80,6 @@
   }
 }
 
-@layer utilities {
-  .mask-top {
-    mask-image: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-
-  .mask-bottom {
-    mask-image: linear-gradient(
-      to top,
-      transparent 0%,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 1) 100%
-    );
-  }
-
-  @media screen and (min-width: 1920px) {
-    .mask-sides {
-      mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0, 0, 0, 1) 3%,
-        rgba(0, 0, 0, 1) 97%,
-        transparent 100%
-      );
-    }
-  }
-}
-
 @layer base {
   :root {
     --font-primary: var(--theme-font-primary);
@@ -173,5 +141,47 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@utility container {
+  @apply max-w-[800px] px-8;
+
+  @variant lg {
+    @apply max-w-[1200px] px-12;
+  }
+
+  @variant 3xl {
+    @apply max-w-[1600px];
+  }
+}
+
+@utility mask-top {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+@utility mask-bottom {
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+@utility mask-sides {
+  @variant 3xl {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(0, 0, 0, 1) 3%,
+      rgba(0, 0, 0, 1) 97%,
+      transparent 100%
+    );
   }
 }

@@ -15,15 +15,17 @@ function Sponsors() {
       <div className="flex w-full flex-col 3xl:max-w-[1920px]">
         <div className="relative">
           <div className="absolute top-0 left-0 z-10 flex w-full justify-center">
-            <h2 className="flex w-full max-w-[800px] flex-col px-8 font-title text-3xl font-bold lg:max-w-[1200px] lg:px-12 3xl:max-w-[1600px]">
+            <h2 className="container font-title text-3xl font-bold">
               Sponsors
             </h2>
           </div>
           <SponsorsMarquee reverse organizations={sponsors} />
         </div>
         <div className="relative sm:-mt-32 lg:-mt-64 2xl:-mt-[400px] 3xl:-mt-[400px]">
-          <div className="absolute top-0 left-0 z-10 px-8">
-            <h2 className="font-title text-3xl font-bold">Partners</h2>
+          <div className="absolute top-0 left-0 z-10 flex w-full justify-center px-8">
+            <h2 className="container font-title text-3xl font-bold">
+              Partners
+            </h2>
           </div>
           <SponsorsMarquee organizations={partners} />
         </div>
