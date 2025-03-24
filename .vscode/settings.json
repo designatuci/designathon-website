@@ -1,3 +1,9 @@
 {
-  "typescript.preferences.importModuleSpecifier": "non-relative"
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  // There's a lot of repetitive file names because of app router, so tab labels help with
+  // distinguishing the files.
+  "workbench.editor.customLabels.patterns": {
+    "**/app/**/page.tsx": "${dirname} [page.tsx]",
+    "**/index.tsx": "${dirname} [index.tsx]"
+  }
 }
