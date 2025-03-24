@@ -45,7 +45,9 @@ function PastEvents() {
         className="relative container flex w-full flex-col gap-4 py-8 text-white"
         ref={ref}
       >
-        <h2 className="font-title text-3xl font-bold">Past Events</h2>
+        <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+          Past Events
+        </h2>
         <Carousel
           opts={{
             align: "start",

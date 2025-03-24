@@ -10,36 +10,31 @@ type SponsorsMarqueeProps = {
 };
 
 const SponsorsMarquee = ({
-  reverse = false,
+  reverse: isReversed = false,
   className,
   organizations,
 }: SponsorsMarqueeProps) => {
   return (
-    <div
-      className={cn(
-        "relative flex h-full items-center overflow-x-hidden overflow-y-hidden",
-        className,
-      )}
-    >
+    <div className={cn("relative flex h-full items-center", className)}>
       <DOTImage
-        src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305137/train-tracks_bsxccr.png"
+        src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1742780771/2025/landing-page/assets/sponsors/train-tracks.png"
         alt="Train Tracks"
         width={2388}
         height={1668}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover mask-sides"
       />
-      <div className="absolute top-[60%] left-0 flex -translate-y-full overflow-y-visible">
+      <div className="pointer-events-none absolute top-[80%] left-0 flex max-w-full -translate-y-full overflow-x-hidden">
         <ul
           className={cn(
-            "relative flex h-fit animate-marquee overflow-y-visible [--duration:15s] data-[ui=disabled]:[animation-play-state:paused] motion-reduce:animate-none",
-            { "direction-reverse": reverse },
+            "relative flex animate-marquee pt-96 [--duration:15s] data-[ui=disabled]:[animation-play-state:paused] motion-reduce:animate-none",
+            { "direction-reverse": isReversed },
           )}
-          //   data-ui={marqueePaused && "disabled"}
+          // data-ui={"disabled"}
         >
           {[...organizations, ...organizations].map((sponsor, index) => (
             <li
               key={`${sponsor.id}-${index}`}
-              className="group/cart relative flex w-[30vw] flex-col overflow-y-visible 2xl:max-w-[400px] 3xl:max-w-[450px]"
+              className="group/cart pointer-events-auto relative flex w-[30vw] flex-col 2xl:max-w-[400px] 3xl:max-w-[450px]"
             >
               <DOTImage
                 src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305137/cart-back_bxbecl.png"

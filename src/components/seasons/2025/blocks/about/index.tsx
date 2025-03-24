@@ -9,7 +9,7 @@ function About() {
         <DOTImage
           src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741317473/2025/landing-page/assets/about/about-background.gif"
           alt=""
-          className="w-full"
+          className="h-auto w-full"
           width={1920}
           height={1080}
         />

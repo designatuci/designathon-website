@@ -1,3 +1,4 @@
+import DOTImage from "@components/common/dot-image";
 import SponsorsMarquee from "@components/seasons/2025/blocks/sponsors/sponsors-marquee";
 
 export interface Organization {
@@ -11,23 +12,39 @@ export interface Organization {
 
 function Sponsors() {
   return (
-    <section className="flex justify-center bg-(--blue) py-12 text-white">
-      <div className="flex w-full flex-col 3xl:max-w-[1920px]">
-        <div className="relative">
-          <div className="absolute top-0 left-0 z-10 flex w-full justify-center">
-            <h2 className="container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
-              Sponsors
-            </h2>
-          </div>
+    <section className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96">
+      <div className="flex w-full flex-col gap-20 3xl:max-w-[1920px]">
+        <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
+          <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+            Sponsors
+          </h2>
           <SponsorsMarquee reverse organizations={sponsors} />
-        </div>
-        <div className="relative sm:-mt-32 lg:-mt-64 2xl:-mt-[400px] 3xl:-mt-[400px]">
-          <div className="absolute top-0 left-0 z-10 flex w-full justify-center">
-            <h2 className="container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
-              Partners
-            </h2>
+          <div className="absolute right-0 bottom-0 w-1/2 translate-x-1/4 translate-y-1/2">
+            <DOTImage
+              width={1659}
+              height={790}
+              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305138/clouds-right_atevno.png"
+              alt="clouds"
+              className="animate-hover duration-[5s]"
+              sizes="(min-width: 0px) 50vw"
+            />
           </div>
+        </div>
+        <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
+          <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+            Partners
+          </h2>
           <SponsorsMarquee organizations={partners} />
+          <div className="absolute bottom-0 left-0 w-1/2 -translate-x-1/4 translate-y-1/2">
+            <DOTImage
+              width={1659}
+              height={790}
+              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305136/clouds-left_diyuid.png"
+              alt="clouds"
+              className="animate-hover delay-[-2s] duration-[5s]"
+              sizes="(min-width: 0px) 50vw"
+            />
+          </div>
         </div>
       </div>
     </section>
