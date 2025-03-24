@@ -42,7 +42,7 @@ function PastEvents() {
   return (
     <section
       id="past-events"
-      className="flex justify-center overflow-x-hidden bg-(--blue) py-16"
+      className="noise flex justify-center overflow-x-hidden bg-(--blue) py-16"
     >
       <div
         className="relative container flex w-full flex-col gap-4 py-8 text-white"

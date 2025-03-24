@@ -67,7 +67,7 @@ function FAQ() {
   return (
     <section
       id="faq"
-      className="flex justify-center bg-(--blue) py-8 text-white"
+      className="noise flex justify-center bg-(--blue) py-8 text-white"
     >
       <div className="container flex w-full flex-col">
         <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">

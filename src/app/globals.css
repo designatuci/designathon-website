@@ -213,3 +213,14 @@
     cursor: pointer;
   }
 }
+
+@layer utilities {
+  .noise {
+    position: relative;
+  }
+
+  .noise::before {
+    @apply pointer-events-none absolute inset-0 block opacity-80 content-[''];
+    background-image: url("/images/common/noise.png");
+  }
+}
