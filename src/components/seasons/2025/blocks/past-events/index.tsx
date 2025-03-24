@@ -40,7 +40,10 @@ function PastEvents() {
   });
 
   return (
-    <section className="flex justify-center overflow-x-hidden bg-(--blue) py-16">
+    <section
+      id="past-events"
+      className="flex justify-center overflow-x-hidden bg-(--blue) py-16"
+    >
       <div
         className="relative container flex w-full flex-col gap-4 py-8 text-white"
         ref={ref}

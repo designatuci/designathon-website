@@ -65,7 +65,10 @@ const faqItems: FAQItem[] = [
 
 function FAQ() {
   return (
-    <section className="flex justify-center bg-(--blue) py-8 text-white">
+    <section
+      id="faq"
+      className="flex justify-center bg-(--blue) py-8 text-white"
+    >
       <div className="container flex w-full flex-col">
         <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           FAQ

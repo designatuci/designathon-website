@@ -3,7 +3,10 @@ import AboutText from "@components/seasons/2025/blocks/about/about-text";
 
 function About() {
   return (
-    <section className="flex justify-center overflow-hidden bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0">
+    <section
+      id="about"
+      className="flex justify-center overflow-hidden bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0"
+    >
       <div className="relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end mask-sides">
         <div className="flex-grow bg-gradient-to-b from-[#FCFBF9] to-[#FCF9F7]"></div>
         <DOTImage

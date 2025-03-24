@@ -12,7 +12,10 @@ export interface Organization {
 
 function Sponsors() {
   return (
-    <section className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96">
+    <section
+      id="sponsors"
+      className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96"
+    >
       <div className="flex w-full flex-col gap-20 3xl:max-w-[1920px]">
         <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
           <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
