@@ -35,6 +35,7 @@
   --color-foreground: var(--foreground);
   --color-background: var(--background);
   --font-primary: var(--theme-font-primary);
+  --font-title: var(--theme-font-title);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -114,11 +115,13 @@
 @layer base {
   :root {
     --font-primary: var(--theme-font-primary);
+    --font-title: var(--theme-font-title);
   }
 
   /* 2025 themes */
   [data-theme="2025"] {
     --theme-font-primary: var(--font-satoshi);
+    --theme-font-title: var(--font-radey);
 
     --blue: #354f99;
     --tan: #fffced;

@@ -37,8 +37,6 @@ function Hero() {
       img.onload = () => {
         numImagesLoaded++;
 
-        console.log(numImagesLoaded);
-
         if (numImagesLoaded === 120) {
           setCachedImages(loadedImages);
         }

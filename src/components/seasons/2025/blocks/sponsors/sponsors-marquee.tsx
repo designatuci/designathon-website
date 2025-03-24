@@ -1,19 +1,19 @@
 "use client";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Sponsor } from "@components/seasons/2025/blocks/sponsors";
+import { Organization } from "@components/seasons/2025/blocks/sponsors";
 
-type SkillsMarqueeProps = {
+type SponsorsMarqueeProps = {
   reverse?: boolean;
   className?: string;
-  sponsors: Sponsor[];
+  organizations: Organization[];
 };
 
-const SkillsMarquee = ({
+const SponsorsMarquee = ({
   reverse = false,
   className,
-  sponsors,
-}: SkillsMarqueeProps) => {
+  organizations,
+}: SponsorsMarqueeProps) => {
   return (
     <div
       className={cn(
@@ -36,7 +36,7 @@ const SkillsMarquee = ({
           )}
           //   data-ui={marqueePaused && "disabled"}
         >
-          {[...sponsors, ...sponsors].map((sponsor, index) => (
+          {[...organizations, ...organizations].map((sponsor, index) => (
             <li
               key={`${sponsor.id}-${index}`}
               className="group/cart relative flex w-[30vw] flex-col overflow-y-visible 2xl:max-w-[400px] 3xl:max-w-[450px]"
@@ -100,4 +100,4 @@ const SkillsMarquee = ({
   );
 };
 
-export default SkillsMarquee;
+export default SponsorsMarquee;

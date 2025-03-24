@@ -37,8 +37,6 @@ function Footer() {
       img.onload = () => {
         numImagesLoaded++;
 
-        console.log("footer", numImagesLoaded);
-
         if (numImagesLoaded === NUM_FRAMES) {
           setCachedImages(loadedImages);
         }
