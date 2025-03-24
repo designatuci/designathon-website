@@ -129,7 +129,7 @@ function Hero() {
         </div>
         <div
           className={cn(
-            "mask-top relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden opacity-0 transition-all duration-1000 ease-out-quart xl:mt-16 2xl:mt-0 3xl:-mt-[5vw]",
+            "relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden opacity-0 transition-all duration-1000 ease-out-quart mask-top xl:mt-16 2xl:mt-0 3xl:-mt-[5vw]",
             "not-motion-reduce:translate-y-24 not-motion-reduce:scale-105",
             {
               "opacity-100 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100":

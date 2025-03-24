@@ -4,7 +4,7 @@ import AboutText from "@components/seasons/2025/blocks/about/about-text";
 function About() {
   return (
     <section className="flex justify-center overflow-hidden bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0">
-      <div className="mask-sides relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end">
+      <div className="relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end mask-sides">
         <div className="flex-grow bg-gradient-to-b from-[#FCFBF9] to-[#FCF9F7]"></div>
         <DOTImage
           src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741317473/2025/landing-page/assets/about/about-background.gif"
@@ -14,7 +14,6 @@ function About() {
           height={1080}
         />
         <div className="absolute top-[65%] left-[30%] flex w-[65%] max-w-[300px] -translate-x-1/2 -translate-y-full flex-col items-center gap-2 pb-8 pl-8 text-center font-bold text-(--blue) sm:top-[60%] sm:max-w-[350px] md:top-[50%] md:max-w-[400px] lg:max-w-[450px]">
-          {/* TODO: change font */}
           <h2 className="mx-auto font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
             About
           </h2>
