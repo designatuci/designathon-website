@@ -7,6 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const NUM_FRAMES = 26;
@@ -80,12 +81,12 @@ function Footer() {
 
   return (
     <section
-      className="flex justify-center overflow-hidden bg-(--sky) xl:bg-gradient-to-b xl:from-(--sky) xl:to-(--tan)"
+      className="flex justify-center overflow-hidden bg-(--blue)"
       ref={sectionRef}
     >
       <div
         className={cn(
-          "relative flex w-full flex-grow items-center justify-center overflow-hidden",
+          "relative flex w-full flex-grow items-center justify-center overflow-hidden mask-top",
         )}
       >
         <canvas
@@ -94,6 +95,20 @@ function Footer() {
           height={2500}
           ref={canvasRef}
         />
+        <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 flex-col items-center gap-2 px-4 pb-12 text-center">
+          <div className="flex gap-1 text-lg font-bold text-(--blue) [&_a]:underline">
+            {/* TODO: add URL */}
+            <Link href="/">Apply</Link>
+            <span>·</span>
+            {/* TODO: add URL */}
+            <Link href="/">Sponsor Us</Link>
+          </div>
+          <div className="flex font-bold text-(--blue)">
+            <p>
+              &copy; 2025 Design at UCI • Made with &#128149; by UCI Designathon
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
