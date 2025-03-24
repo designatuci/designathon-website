@@ -45,7 +45,7 @@ function PastEvents() {
       className="noise flex justify-center overflow-x-hidden bg-(--blue) py-16"
     >
       <div
-        className="relative container flex w-full flex-col gap-4 py-8 text-white"
+        className="relative container flex w-full flex-col gap-8 py-8 text-white"
         ref={ref}
       >
         <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">

@@ -7,7 +7,7 @@ function About() {
       id="about"
       className="noise flex justify-center overflow-hidden bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0"
     >
-      <div className="relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end mask-sides">
+      <div className="relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end">
         <div className="flex-grow bg-gradient-to-b from-[#FCFBF9] to-[#FCF9F7]"></div>
         <DOTImage
           src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741317473/2025/landing-page/assets/about/about-background.gif"
