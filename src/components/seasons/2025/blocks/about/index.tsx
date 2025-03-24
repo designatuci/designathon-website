@@ -5,7 +5,7 @@ function About() {
   return (
     <section
       id="about"
-      className="flex justify-center overflow-hidden bg-(--blue) noise md:-mt-10 lg:-mt-16 xl:mt-0"
+      className="noise flex justify-center overflow-hidden bg-(--blue) md:-mt-10 lg:-mt-16 xl:mt-0"
     >
       <div className="relative flex min-h-[600px] max-w-[1920px] flex-grow flex-col justify-end mask-sides">
         <div className="flex-grow bg-gradient-to-b from-[#FCFBF9] to-[#FCF9F7]"></div>
