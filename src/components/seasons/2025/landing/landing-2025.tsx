@@ -9,7 +9,7 @@ import LandingNavigation from "@components/seasons/2025/navigation/landing-navig
 
 export default function Landing2025() {
   return (
-    <main className="min-h-[200vh] font-primary">
+    <main className="font-primary">
       <LandingNavigation />
       <Hero />
       <Stats />

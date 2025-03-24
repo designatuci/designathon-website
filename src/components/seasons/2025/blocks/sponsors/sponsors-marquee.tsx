@@ -21,7 +21,7 @@ const SponsorsMarquee = ({
         alt="Train Tracks"
         width={2388}
         height={1668}
-        className="h-full w-full object-cover mask-sides"
+        className="h-full w-full object-cover"
       />
       <div className="pointer-events-none absolute top-[80%] left-0 flex max-w-full -translate-y-full overflow-x-hidden">
         <ul

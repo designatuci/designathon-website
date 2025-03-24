@@ -52,10 +52,10 @@ function Hero() {
 
       if (!ctx) return;
 
-      ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
       if (cachedImages[index - 1]) {
-        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1920, 1800);
+        ctx.drawImage(cachedImages[index - 1], 0, 0, 1920, 1800);
       }
     },
     [cachedImages],
@@ -66,7 +66,7 @@ function Hero() {
     damping: 50,
   });
 
-  const currentIndex = useTransform(scrollYSpring, [0, 1], [1, 120]);
+  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 120]);
   const headerOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
@@ -76,7 +76,7 @@ function Hero() {
   useEffect(() => {
     if (!cachedImages.length) return;
 
-    renderFrame(1);
+    renderFrame(3);
   }, [cachedImages.length, renderFrame]);
 
   return (

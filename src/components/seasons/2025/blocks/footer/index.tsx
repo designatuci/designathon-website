@@ -53,10 +53,10 @@ function Footer() {
 
       if (!ctx) return;
 
-      ctx?.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
       if (cachedImages[index - 1]) {
-        ctx?.drawImage(cachedImages[index - 1], 0, 0, 1920, 2500);
+        ctx.drawImage(cachedImages[index - 1], 0, 0, 1920, 2500);
       }
     },
     [cachedImages],
@@ -81,7 +81,7 @@ function Footer() {
 
   return (
     <section
-      className="flex justify-center overflow-hidden bg-(--blue)"
+      className="flex items-start justify-center overflow-hidden bg-(--blue)"
       ref={sectionRef}
     >
       <div
@@ -90,7 +90,7 @@ function Footer() {
         )}
       >
         <canvas
-          className="h-full w-full object-cover object-bottom"
+          className="h-full w-full object-cover object-bottom 3xl:!h-[2500px] 3xl:object-top"
           width={1920}
           height={2500}
           ref={canvasRef}
