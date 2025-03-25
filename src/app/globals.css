@@ -224,3 +224,29 @@
     background-image: url("/images/common/noise.png");
   }
 }
+
+a[href="#undefined"] {
+  position: relative;
+}
+
+a[href="#undefined"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  outline: 4px solid red;
+  outline-offset: 4px;
+}
+
+a[href="#undefined"]::after {
+  content: "MISSING URL";
+  color: red;
+  text-wrap: nowrap;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}

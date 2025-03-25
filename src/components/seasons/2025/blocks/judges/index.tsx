@@ -31,32 +31,32 @@ const judges: Judge[] = [
   {
     name: "Charithra Sathyanarayan",
     position: "UX Design Lead @ SAP",
-    websiteURL: "/",
-    linkedInURL: "/",
+    websiteURL: "#undefined",
+    linkedInURL: "#undefined",
     imageURL:
       "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1742792000/2025/landing-page/assets/judges/Charithra_Sathyanarayan.png",
   },
   {
     name: "Jacky Dittkowski",
     position: "UX Design Lead @ SAP",
-    websiteURL: "/",
-    linkedInURL: "/",
+    websiteURL: "#undefined",
+    linkedInURL: "#undefined",
     imageURL:
       "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1742792000/2025/landing-page/assets/judges/Jacky_Dittkowski.png",
   },
   {
     name: "Shana Sanford",
     position: "Product Designer @ Uber",
-    websiteURL: "/",
-    linkedInURL: "/",
+    websiteURL: "#undefined",
+    linkedInURL: "#undefined",
     imageURL:
       "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1742792000/2025/landing-page/assets/judges/Shana_Sanford.png",
   },
   {
     name: "Nikhil Mehrotra",
     position: "UX Designer @ Indeed",
-    websiteURL: "/",
-    linkedInURL: "/",
+    websiteURL: "#undefined",
+    linkedInURL: "#undefined",
     imageURL:
       "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1742792000/2025/landing-page/assets/judges/Nikhil_Mehrotra.png",
   },

@@ -21,7 +21,7 @@ function Stats() {
           className="h-fit w-fit rounded-full bg-(--pink) px-8 py-2 text-lg font-bold text-white transition-all duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink) sm:text-xl lg:text-2xl"
         >
           {/* TODO: add URL */}
-          <Link href="/">sponsor 2025</Link>
+          <Link href="#undefined">sponsor 2025</Link>
         </Button>
       </div>
     </section>
