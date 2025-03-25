@@ -225,11 +225,13 @@
   }
 }
 
-a[href="#undefined"] {
+.__debug [data-status="incomplete"],
+.__debug a[href="#undefined"] {
   position: relative;
 }
 
-a[href="#undefined"]::before {
+.__debug a[href="#undefined"]::before,
+.__debug [data-status="incomplete"]::before {
   content: "";
   display: block;
   position: absolute;
@@ -241,12 +243,20 @@ a[href="#undefined"]::before {
   outline-offset: 4px;
 }
 
-a[href="#undefined"]::after {
-  content: "MISSING URL";
+.__debug a[href="#undefined"]::after,
+.__debug [data-status="incomplete"]::after {
   color: red;
   text-wrap: nowrap;
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.__debug a[href="#undefined"]::after {
+  content: "MISSING URL";
+}
+
+.__debug [data-status="incomplete"]::after {
+  content: "INCOMPLETE";
 }

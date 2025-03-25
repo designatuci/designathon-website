@@ -16,7 +16,7 @@ function JudgeCard({ judge }: Props) {
           alt={judge.name}
           src={judge.imageURL}
           fill
-          sizes="(min-width: 0px) 50vw, (min-width: 768px) 25vw"
+          sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
         />
       </CardHeader>
       <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-[#824A32]">

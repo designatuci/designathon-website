@@ -112,7 +112,7 @@ function Hero() {
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.gif"
               alt="Designathon 2025: Beyond Our Horizons"
               className="hidden object-contain not-motion-reduce:block"
-              sizes="(min-width: 0px) 100vw, (min-width: 768px) 50vw, 33vw"
+              sizes="(min-width: 0px) 100vw; (min-width: 768px) 50vw, 33vw"
               priority
               fill
             />
@@ -121,7 +121,7 @@ function Hero() {
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.jpg"
               alt="Designathon 2025: Beyond Our Horizons"
               className="object-contain not-motion-reduce:hidden"
-              sizes="(min-width: 0px) 100vw, (min-width: 768px) 50vw, 33vw"
+              sizes="(min-width: 0px) 100vw; (min-width: 768px) 50vw, 33vw"
               priority
               fill
             />

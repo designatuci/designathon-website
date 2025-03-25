@@ -99,6 +99,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
       value={`question-${index}`}
       className="border-none"
       ref={ref}
+      data-status="incomplete"
     >
       <AccordionTrigger
         className={cn(

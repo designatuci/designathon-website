@@ -8,7 +8,10 @@ export default function Prizes() {
         <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Prizes
         </h2>
-        <div className="relative grid grid-cols-12 gap-2">
+        <div
+          className="relative grid grid-cols-12 gap-2"
+          data-status="incomplete"
+        >
           <Card
             className={cn(
               "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-(--pink) text-[#743C4D]",

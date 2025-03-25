@@ -62,6 +62,7 @@ function PastEvents() {
               <CarouselItem
                 key={index}
                 className="max-w-2xs md:max-w-xs xl:max-w-sm"
+                data-status="incomplete"
               >
                 <div className="h-full">
                   <Card

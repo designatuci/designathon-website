@@ -14,7 +14,7 @@ function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="noise flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white mask-bottom xl:pb-96"
+      className="noise flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96"
     >
       <div className="flex w-full flex-col gap-20 3xl:max-w-[1920px]">
         <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
