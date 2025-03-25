@@ -10,7 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@components/ui/carousel";
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { useInView } from "motion/react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
 function Rules() {
   const [api, setApi] = useState<CarouselApi>();
@@ -33,8 +34,15 @@ function Rules() {
     [],
   );
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "0px 0px -300px 0px",
+  });
+
   return (
-    <section className="noise flex justify-center bg-(--blue) py-12">
+    <section ref={ref} className="noise flex justify-center bg-(--blue) py-12">
       <div className="container text-white">
         <h2 className="font-title text-3xl leading-loose font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Rules
@@ -42,7 +50,7 @@ function Rules() {
         <p className="mb-8 text-lg font-medium lg:text-2xl">
           Here are the guidelines for the 2025 Design-a-thon!
         </p>
-        <div className="lg:grid lg:grid-cols-12 lg:gap-4">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-12">
           <div className="relative rounded-lg bg-black/20 lg:col-span-8 lg:rounded-3xl">
             <Carousel
               opts={{
@@ -58,11 +66,11 @@ function Rules() {
                     key={index}
                     className="h-full basis-full px-10 py-8 lg:py-12 3xl:py-20"
                   >
-                    <div className="flex h-full w-full flex-col items-center gap-2 select-none">
-                      <span className="text-sm font-medium tracking-wide lg:text-base">
+                    <div className="flex h-full w-full flex-col items-center gap-2 select-none lg:gap-8">
+                      <span className="text-sm font-medium tracking-wide lg:text-base 3xl:text-lg">
                         RULE NUMBER ({index + 1} / {rules.length})
                       </span>
-                      <div className="max-w-sm space-y-2 text-lg sm:text-xl lg:max-w-lg lg:space-y-3 lg:text-2xl 3xl:text-3xl">
+                      <div className="max-w-sm space-y-2 text-lg sm:text-xl lg:max-w-lg lg:space-y-3 lg:text-2xl 3xl:space-y-5 3xl:text-4xl">
                         {rule}
                       </div>
                     </div>
@@ -92,12 +100,19 @@ function Rules() {
               </div>
             </Carousel>
           </div>
-          <div className="relative hidden lg:col-span-4 lg:block">
+          <div className="relative hidden overflow-hidden rounded-3xl lg:col-span-4 lg:block">
             <DOTImage
               alt="Rules Graphic"
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1742889146/2025/landing-page/assets/rules/rules.jpg"
               sizes="(min-width: 0px) 0vw; (min-width: 1024px) 33vw"
-              className="rounded-3xl object-cover object-top"
+              className={cn(
+                "object-cover object-top",
+                "transition-transform duration-[2s] ease-out-quart not-motion-reduce:-translate-y-4 not-motion-reduce:scale-125",
+                {
+                  "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100":
+                    isInView,
+                },
+              )}
               fill
             />
           </div>

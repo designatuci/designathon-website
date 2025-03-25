@@ -5,7 +5,7 @@ export default function Prizes() {
   return (
     <section className="noise flex justify-center bg-(--blue)">
       <div className="container text-white">
-        <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+        <h2 className="font-title text-3xl leading-loose font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Prizes
         </h2>
         <div
