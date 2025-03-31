@@ -8,20 +8,22 @@ import { useRef } from "react";
 
 function Stats() {
   return (
-    <section className="mask-bottom relative z-10 flex w-full flex-col items-center justify-center gap-8 bg-gradient-to-b from-(--tan) to-white px-4 py-8 sm:pt-16 lg:pt-28">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <StatsCard stats={189} label="projects" />
-        <StatsCard stats={1100} label="attendees" />
-        <StatsCard stats={1680} label="prizes" />
-        <StatsCard stats={65000} label="social media outreach" />
+    <section className="relative z-10 flex w-full flex-col items-center justify-center gap-8 bg-gradient-to-b from-[#FEFBEE] to-(--blue)">
+      <div className="relative z-10 flex w-full max-w-[1920px] flex-col items-center justify-center gap-8 bg-gradient-to-b from-[#FEFBEE] to-[#FCFBF9] px-4 py-8 sm:pt-16 lg:pt-28">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <StatsCard stats={189} label="projects" />
+          <StatsCard stats={1100} label="attendees" />
+          <StatsCard stats={1680} label="prizes" />
+          <StatsCard stats={65000} label="social media outreach" />
+        </div>
+        <Button
+          asChild
+          className="h-fit w-fit rounded-full bg-(--pink) px-8 py-2 text-lg font-bold text-white transition-all duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink) sm:text-xl lg:text-2xl"
+        >
+          {/* TODO: add URL */}
+          <Link href="#undefined">sponsor 2025</Link>
+        </Button>
       </div>
-      <Button
-        asChild
-        className="h-fit w-fit rounded-full bg-(--pink) px-8 py-2 text-lg font-bold text-white transition-all duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink) sm:text-xl lg:text-2xl"
-      >
-        {/* TODO: add URL */}
-        <Link href="/">sponsor 2025</Link>
-      </Button>
     </section>
   );
 }

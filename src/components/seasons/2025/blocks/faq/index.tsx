@@ -65,13 +65,18 @@ const faqItems: FAQItem[] = [
 
 function FAQ() {
   return (
-    <section className="flex justify-center bg-(--blue) py-8 text-white">
-      <div className="flex w-full max-w-[800px] flex-col px-8 lg:max-w-[1200px] lg:px-12">
-        <h2>FAQ</h2>
+    <section
+      id="faq"
+      className="noise flex justify-center bg-(--blue) py-8 text-white"
+    >
+      <div className="container flex w-full flex-col gap-8">
+        <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+          FAQ
+        </h2>
         <Accordion
           type="single"
           collapsible
-          className="w-full max-w-80 lg:max-w-[450px]"
+          className="w-full max-w-80 lg:max-w-[550px] 3xl:max-w-[600px]"
         >
           {faqItems.map((item, index) => (
             <FAQItem key={index} item={item} index={index} />
@@ -94,10 +99,11 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
       value={`question-${index}`}
       className="border-none"
       ref={ref}
+      data-status="incomplete"
     >
       <AccordionTrigger
         className={cn(
-          "cursor-pointer flex-row-reverse items-center justify-end text-base font-bold tracking-wide sm:text-lg lg:text-xl xl:text-2xl [&[data-state=open]]:underline [&[data-state=open]>svg]:rotate-0",
+          "cursor-pointer flex-row-reverse items-center justify-end text-base font-bold tracking-wide sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl [&[data-state=open]]:underline [&[data-state=open]>svg]:rotate-0",
           "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 not-motion-reduce:transition-all not-motion-reduce:duration-500",
           {
             "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":

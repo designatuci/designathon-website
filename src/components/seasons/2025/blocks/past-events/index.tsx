@@ -7,7 +7,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import DOTImage from "@components/common/dot-image";
 import { Card, CardContent } from "@components/ui/card";
 import { useInView } from "motion/react";
 import { useRef } from "react";
@@ -32,26 +41,162 @@ interface AwardEntry {
   description: string;
 }
 
+function PastEvents() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    amount: 0.5,
+    once: true,
+  });
+
+  return (
+    <section
+      id="past-events"
+      className="noise flex justify-center overflow-x-hidden bg-(--blue) py-16"
+    >
+      <div
+        className="relative container flex w-full flex-col gap-8 py-8 text-white"
+        ref={ref}
+      >
+        <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+          Past Events
+        </h2>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="w-full *:overflow-visible"
+        >
+          <CarouselContent>
+            {eventsList.map((event, index) => (
+              <CarouselItem
+                key={index}
+                className="max-w-2xs md:max-w-xs xl:max-w-sm"
+                data-status="incomplete"
+              >
+                <Dialog>
+                  <DialogTrigger>
+                    <div className="h-full text-start">
+                      <Card
+                        className={cn(
+                          "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white lg:min-h-[500px] xl:min-h-[600px] xl:pb-8 xl:pl-8",
+                          "not-motion-reduce:translate-x-8 not-motion-reduce:translate-y-16 not-motion-reduce:scale-95 not-motion-reduce:opacity-80 not-motion-reduce:transition-all not-motion-reduce:duration-700 not-motion-reduce:ease-out-quart",
+                          {
+                            "not-motion-reduce:translate-x-0 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
+                              isInView,
+                          },
+                          event.className,
+                        )}
+                        style={{ transitionDelay: `${index * 50}ms` }}
+                      >
+                        <CardContent className="flex p-0">
+                          <span className="text-3xl font-bold lg:text-4xl lg:leading-tight">
+                            {event.title}
+                          </span>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-h-[90svh] overflow-y-auto">
+                    <DialogHeader className="items-start text-start">
+                      <DialogTitle className="text-3xl font-semibold text-(--blue) sm:text-4xl">
+                        {event.modalContent.title}
+                      </DialogTitle>
+                      <DialogDescription className="sr-only">
+                        Information about {event.modalContent.title}
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="text-lg">
+                      <div className="flex gap-2">
+                        <h3 className="font-semibold text-(--pink)">Theme</h3>
+                        <p>{event.modalContent.theme}</p>
+                      </div>
+                      <div className="flex gap-2">
+                        <h3 className="font-semibold text-(--pink)">
+                          Participants
+                        </h3>
+                        <p>{event.modalContent.participants}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <h2 className="text-3xl font-semibold text-(--blue)">
+                        Awarded Entries
+                      </h2>
+                      <div className="space-y-4">
+                        {event.modalContent.entries.map((entry, index) => (
+                          <div
+                            key={index}
+                            className="flex flex-col items-center rounded-xl border-[1px] border-zinc-300 p-4"
+                          >
+                            <h3 className="mb-2 text-lg font-semibold text-(--pink)">
+                              {entry.placement}
+                            </h3>
+                            <div className="relative mb-4 h-40 w-full rounded-lg border-[1px] border-zinc-200">
+                              <DOTImage
+                                fill
+                                src={entry.imageURL}
+                                alt={entry.title}
+                                className="rounded-md object-cover"
+                              />
+                            </div>
+                            <div className="space-y-2 text-center">
+                              <h4 className="text-xl font-semibold text-(--blue)">
+                                {entry.title}
+                              </h4>
+                              <p className="text-sm leading-tight">
+                                {entry.description}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-0 text-black disabled:opacity-0" />
+          <CarouselNext className="right-0 text-black disabled:opacity-0" />
+        </Carousel>
+      </div>
+    </section>
+  );
+}
+
+export default PastEvents;
+
 const eventsList: EventCard[] = [
   {
     title: "True to You 2024",
     className: "bg-gradient-to-b from-[#EB9977] to-[#DA306F]",
     modalContent: {
       title: "True to You 2024",
-      theme: "Community & Inclusivity",
-      participants: "300+",
+      theme: "",
+      participants: "215",
       entries: [
         {
-          imageURL: "https://via.placeholder.com/150",
+          imageURL:
+            "https://res.cloudinary.com/ucidesignathon/image/upload/v1743406526/winners/daily_doodle.png",
           placement: "1st Place",
-          title: "Colorful",
-          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
+          title: "Daily Doodle",
+          description:
+            "Created by Lazim Jarif, Sia Harisingani, Lucy Yang, and Jade Nguyen",
         },
         {
-          imageURL: "https://via.placeholder.com/150",
+          imageURL:
+            "https://res.cloudinary.com/ucidesignathon/image/upload/v1743406526/winners/flair.png",
           placement: "2nd Place",
-          title: "Colorful",
-          description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
+          title: "Flair",
+          description:
+            "Created by Kaiwen Tang, Alexis Chew, and Richie Sarinana",
+        },
+        {
+          imageURL:
+            "https://res.cloudinary.com/ucidesignathon/image/upload/v1743406526/winners/quilted.png",
+          placement: "2nd Place",
+          title: "Quilted",
+          description:
+            "Created by Sun Graham, Jocelyn Le, Ethan Zhao, and Sasha Shor",
         },
       ],
     },
@@ -77,59 +222,3 @@ const eventsList: EventCard[] = [
     },
   },
 ];
-
-function PastEvents() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, {
-    amount: 0.5,
-    once: true,
-  });
-
-  return (
-    <section className="flex justify-center overflow-x-hidden bg-(--blue) py-16">
-      <div
-        className="relative flex w-full max-w-[800px] flex-col gap-4 px-8 py-8 text-white lg:max-w-[1200px] lg:px-12"
-        ref={ref}
-      >
-        <h2>Past Events</h2>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="w-full *:overflow-visible"
-        >
-          <CarouselContent>
-            {eventsList.map((event, index) => (
-              <CarouselItem key={index} className="max-w-2xs md:max-w-xs">
-                <div className="h-full">
-                  <Card
-                    className={cn(
-                      "h-full min-h-96 justify-end border-none p-0 px-6 pr-12 pb-6 text-white lg:min-h-[500px]",
-                      "not-motion-reduce:translate-x-8 not-motion-reduce:translate-y-16 not-motion-reduce:scale-95 not-motion-reduce:opacity-80 not-motion-reduce:transition-all not-motion-reduce:duration-700 not-motion-reduce:ease-out-quart",
-                      {
-                        "not-motion-reduce:translate-x-0 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
-                          isInView,
-                      },
-                      event.className,
-                    )}
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <CardContent className="flex p-0">
-                      <span className="text-3xl font-bold lg:text-4xl lg:leading-tight">
-                        {event.title}
-                      </span>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="left-0 text-black disabled:opacity-0" />
-          <CarouselNext className="right-0 text-black disabled:opacity-0" />
-        </Carousel>
-      </div>
-    </section>
-  );
-}
-
-export default PastEvents;

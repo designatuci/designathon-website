@@ -1,45 +1,40 @@
 "use client";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Sponsor } from "@components/seasons/2025/blocks/sponsors";
+import { Organization } from "@components/seasons/2025/blocks/sponsors";
 
-type SkillsMarqueeProps = {
+type SponsorsMarqueeProps = {
   reverse?: boolean;
   className?: string;
-  sponsors: Sponsor[];
+  organizations: Organization[];
 };
 
-const SkillsMarquee = ({
-  reverse = false,
+const SponsorsMarquee = ({
+  reverse: isReversed = false,
   className,
-  sponsors,
-}: SkillsMarqueeProps) => {
+  organizations,
+}: SponsorsMarqueeProps) => {
   return (
-    <div
-      className={cn(
-        "relative flex h-full items-center overflow-x-hidden overflow-y-hidden",
-        className,
-      )}
-    >
+    <div className={cn("relative flex h-full items-center", className)}>
       <DOTImage
-        src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305137/train-tracks_bsxccr.png"
+        src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1742780771/2025/landing-page/assets/sponsors/train-tracks.png"
         alt="Train Tracks"
         width={2388}
         height={1668}
         className="h-full w-full object-cover"
       />
-      <div className="absolute top-[60%] left-0 flex -translate-y-full overflow-y-visible">
+      <div className="pointer-events-none absolute top-[80%] left-0 flex max-w-full -translate-y-full overflow-x-hidden">
         <ul
           className={cn(
-            "relative flex h-fit animate-marquee overflow-y-visible [--duration:15s] data-[ui=disabled]:[animation-play-state:paused] motion-reduce:animate-none",
-            { "direction-reverse": reverse },
+            "relative flex animate-marquee pt-96 [--duration:15s] data-[ui=disabled]:[animation-play-state:paused] motion-reduce:animate-none",
+            { "direction-reverse": isReversed },
           )}
-          //   data-ui={marqueePaused && "disabled"}
+          // data-ui={"disabled"}
         >
-          {[...sponsors, ...sponsors].map((sponsor, index) => (
+          {[...organizations, ...organizations].map((sponsor, index) => (
             <li
               key={`${sponsor.id}-${index}`}
-              className="group/cart relative flex w-[30vw] flex-col overflow-y-visible"
+              className="group/cart pointer-events-auto relative flex w-[30vw] flex-col 2xl:max-w-[400px] 3xl:max-w-[450px]"
             >
               <DOTImage
                 src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305137/cart-back_bxbecl.png"
@@ -74,7 +69,7 @@ const SkillsMarquee = ({
                     width={512}
                     height={512}
                     sizes="(min-width: 0px) 30vw"
-                    className="rounded-lg"
+                    className="rounded-lg object-cover"
                   />
                 </div>
               )}
@@ -100,4 +95,4 @@ const SkillsMarquee = ({
   );
 };
 
-export default SkillsMarquee;
+export default SponsorsMarquee;
