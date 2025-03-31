@@ -67,9 +67,11 @@ function LandingNavigationMobile() {
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <SheetDescription className="sr-only">Navigation Menu</SheetDescription>
         <div className="grid h-full place-items-center">
-          <div className="flex flex-col items-center gap-4">
+          {/* TODO: remove debug class  */}
+          <div className="__debug flex flex-col items-center gap-4">
             {navigationLinks.map((link) => (
-              <button
+              <Button
+                variant="ghost"
                 key={link.name}
                 onClick={() => {
                   const element = document.getElementById(link.scrollTo);
@@ -79,11 +81,18 @@ function LandingNavigationMobile() {
                     closeButtonRef.current.click();
                   }
                 }}
-                className="text-xl font-medium text-(--tan) hover:text-(--tan)"
+                className="text-xl font-medium text-(--tan) hover:bg-transparent hover:text-(--tan)"
               >
                 {link.name}
-              </button>
+              </Button>
             ))}
+            {/* TODO: add url */}
+            <Button
+              asChild
+              className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+            >
+              <Link href="#undefined">Apply Now!</Link>
+            </Button>
           </div>
         </div>
         <SheetClose
@@ -116,6 +125,13 @@ function LandingNavigationDesktop() {
           {link.name}
         </button>
       ))}
+      {/* TODO: add url */}
+      <Button
+        className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+        asChild
+      >
+        <Link href="#undefined">Apply Now!</Link>
+      </Button>
     </div>
   );
 }
