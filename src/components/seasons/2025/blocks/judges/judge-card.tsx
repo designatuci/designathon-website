@@ -21,8 +21,16 @@ function JudgeCard({ judge }: Props) {
       </CardHeader>
       <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-[#824A32]">
         <div className="space-y-2">
-          <h3 className="text-2xl leading-[1.1] font-bold">{judge.name}</h3>
-          <p className="text-sm font-medium">{judge.position}</p>
+          <h3
+            className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl"
+            // Force newline between first and last name
+            style={{ wordSpacing: "100vw" }}
+          >
+            {judge.name}
+          </h3>
+          <p className="lg:text-base3xl:text-xl text-sm font-medium 3xl:text-lg">
+            {judge.position}
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <Link
