@@ -98,7 +98,13 @@ function Footer() {
         <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 flex-col items-center gap-2 px-4 pb-12 text-center">
           <div className="flex gap-1 text-lg font-bold text-(--blue) [&_a]:underline">
             {/* TODO: add URL */}
-            <Link href="#undefined">Apply</Link>
+            <Link
+              href="https://forms.gle/BNWnN8dSJR9kqwjC8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Apply
+            </Link>
             <span>·</span>
             {/* TODO: add URL */}
             <Link href="#undefined">Sponsor Us</Link>

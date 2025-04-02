@@ -5,7 +5,6 @@ import About from "@components/seasons/2025/blocks/about";
 import FAQ from "@components/seasons/2025/blocks/faq";
 import Footer from "@components/seasons/2025/blocks/footer";
 import Hero from "@components/seasons/2025/blocks/hero";
-import Judges from "@components/seasons/2025/blocks/judges";
 import PastEvents from "@components/seasons/2025/blocks/past-events";
 import Prizes from "@components/seasons/2025/blocks/prizes";
 import Rules from "@components/seasons/2025/blocks/rules";
@@ -28,7 +27,7 @@ export default function Landing2025() {
       {/* <Itinerary /> */}
       <FAQ />
       <Prizes />
-      <Judges />
+      {/* <Judges /> */}
       <Sponsors />
       <Rules />
       {/* <Team /> */}

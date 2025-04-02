@@ -147,27 +147,39 @@ const rules: React.ReactNode[] = [
     </RuleList>
   </>,
   <>
-    <p>rule</p>
+    <p>Teams must not exceed 4 people total.</p>
   </>,
   <>
-    <p>rule</p>
+    <p>
+      Each team may only submit one (1) submission which will be submitted on
+      behalf of all other contributors.
+    </p>
   </>,
   <>
-    <p>rule</p>
+    <p>
+      All work submitted to Beyond Our Horizons must be original work. Any
+      submissions with plagiarized work will be disqualified.
+    </p>
   </>,
   <>
-    <p>rule</p>
+    <p>
+      You may not submit work previously designed before Beyond Our Horizons.
+      All designs must be made between the dates of April 18 - April 20.
+    </p>
   </>,
   <>
-    <p>rule</p>
+    <p>Late submissions will not be accepted.</p>
   </>,
   <>
-    <p>rule</p>
+    <p>
+      If any adjustments are made after April 20 2025 at the submission
+      deadline, your team&apos;s submission will not count towards judging.
+    </p>
   </>,
   <>
-    <p>rule</p>
-  </>,
-  <>
-    <p>rule</p>
+    <p>
+      Teams must be compromised of entirely online or entirely in-person
+      participants.
+    </p>
   </>,
 ];
