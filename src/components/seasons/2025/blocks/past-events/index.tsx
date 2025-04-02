@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
 import { Card, CardContent } from "@components/ui/card";
 import { useInView } from "motion/react";
+import Link from "next/link";
 import { useRef } from "react";
 
 interface EventCard {
@@ -60,6 +61,18 @@ function PastEvents() {
         <h2 className="font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Past Events
         </h2>
+        <p className="mb-8 text-lg font-medium lg:text-2xl">
+          More info about past events can be found on the{" "}
+          <Link
+            href="https://designatuci.com/designathon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            Design at UCI website
+          </Link>
+          .
+        </p>
         <Carousel
           opts={{
             align: "start",

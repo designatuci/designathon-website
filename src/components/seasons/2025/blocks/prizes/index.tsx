@@ -14,19 +14,22 @@ export default function Prizes() {
         <div className="relative mx-auto grid max-w-7xl grid-cols-12 gap-2 lg:gap-4">
           <Card
             className={cn(
-              "relative col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-(--pink) text-[#743C4D] *:relative lg:rounded-3xl",
-              "lg:order-1 lg:col-span-6 lg:py-12",
+              "relative col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-[#f39bc4] text-[#743C4D] *:relative lg:rounded-3xl",
+              "sm:py-10",
+              "lg:order-1 lg:col-span-8 lg:py-12",
             )}
           >
             <div className="!absolute top-2 left-2 lg:top-6 lg:left-6 3xl:top-8">
               <DOTLogo />
             </div>
             <CardHeader className="text-center">
-              <h3 className="text-5xl font-extrabold lg:text-7xl">1st Place</h3>
+              <h3 className="text-5xl font-extrabold sm:text-6xl lg:text-7xl">
+                1st Place
+              </h3>
             </CardHeader>
             <CardContent>
-              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:text-lg">
-                <li>2ND GEN AIRPODS</li>
+              <ul className="flex max-w-sm flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:text-lg">
+                <li>iPAD 10TH GEN (REFURBISHED)</li>
                 <li>1:1 MENTORSHIP</li>
                 <li>FEATURED INSTAGRAM POST</li>
               </ul>
@@ -34,22 +37,17 @@ export default function Prizes() {
           </Card>
           <Card
             className={cn(
-              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-(--blue) text-[#CDDEF0] lg:rounded-3xl",
+              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-(--sky) text-[#1E2E5C] lg:rounded-3xl",
               "sm:col-span-7",
               "lg:order-3 lg:col-span-4",
             )}
           >
-            <CardContent className="space-y-2 lg:space-y-8">
-              <div className="grid grid-cols-2 place-items-center">
-                <KeyboardIcon />
-                <div>
-                  <h3 className="text-5xl font-extrabold lg:text-6xl">2nd</h3>
-                  <p className="text-xs leading-tight font-extrabold lg:text-base">
-                    WIRELESS KEYBOARD
-                  </p>
-                </div>
-              </div>
-              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-tight font-extrabold text-[#8B9FD9] lg:text-base">
+            <CardHeader className="text-center">
+              <h3 className="text-5xl font-extrabold lg:text-6xl">2nd</h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold sm:flex-col sm:items-start lg:gap-4 lg:text-base">
+                <li>LOGITECH MX MASTER 3S MOUSE</li>
                 <li>1:1 MENTORSHIP</li>
                 <li>FEATURED INSTAGRAM POST</li>
               </ul>
@@ -57,9 +55,9 @@ export default function Prizes() {
           </Card>
           <Card
             className={cn(
-              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-(--tan) text-[#624433] lg:rounded-3xl",
-              "sm:col-span-5 sm:items-start",
-              "lg:order-4 lg:col-span-3 lg:bg-gradient-to-br lg:from-[#FFFCED] lg:via-[#FAC9B4] lg:to-[#F984A9]",
+              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-[#FAC9B4] lg:rounded-3xl",
+              "sm:col-span-5",
+              "text-[#624433] lg:order-3 lg:col-span-4",
             )}
           >
             <CardHeader className="text-center">
@@ -67,7 +65,7 @@ export default function Prizes() {
             </CardHeader>
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold sm:flex-col sm:items-start lg:gap-4 lg:text-base">
-                <li>LIGHT UP CAT LAMP</li>
+                <li>AMAZON GIFT CARDS</li>
                 <li>1:1 MENTORSHIP</li>
                 <li>FEATURED INSTAGRAM POST</li>
               </ul>
@@ -75,43 +73,18 @@ export default function Prizes() {
           </Card>
           <Card
             className={cn(
-              "col-span-12 flex flex-col items-center gap-2 border-0 bg-gradient-to-r from-[#FAC9B4] to-[#FFFCED] text-[#624336] lg:rounded-3xl",
-              "lg:order-2 lg:col-span-6 lg:flex-row lg:items-end lg:justify-center lg:gap-4 lg:pt-0 lg:pb-8",
-            )}
-          >
-            <CardHeader className="flex flex-col items-center gap-0 text-center lg:items-start lg:pr-0 lg:text-left">
-              <span>
-                <PeopleLogo />
-              </span>
-              <h3 className="text-5xl font-extrabold lg:max-w-[250px] lg:text-6xl">
-                People&apos;s Choice
-              </h3>
-            </CardHeader>
-            <CardContent className="lg:pl-0">
-              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:flex-col lg:gap-4 lg:text-lg">
-                <li>LEGO SETS</li>
-                <li>PIXEL PERF MERCH</li>
-                <li>DESIGN @ UCI STICKERS</li>
-              </ul>
-            </CardContent>
-          </Card>
-          <Card
-            className={cn(
-              "col-span-12 flex flex-col items-center gap-2 border-0 bg-(--sky) text-[#1E2E5C] lg:rounded-3xl",
-              "lg:order-5 lg:col-span-5 lg:items-start",
+              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-[#eee4c4] text-[#615633] lg:rounded-3xl",
+              "lg:order-4 lg:col-span-8",
             )}
           >
             <CardHeader className="flex flex-col items-center gap-0 text-center lg:items-start lg:text-start">
-              <span>
-                <TrophyIcon />
-              </span>
-              <h3 className="text-4xl font-extrabold lg:text-6xl">
+              <h3 className="text-4xl font-extrabold lg:text-5xl">
                 Honorable Mentions
               </h3>
             </CardHeader>
             <CardContent>
-              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-lg">
-                <li>LEGO SETS</li>
+              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-sm">
+                <li>AMAZON GIFT CARDS</li>
                 <li>PIXEL PERF MERCH</li>
                 <li>DESIGN @ UCI STICKERS</li>
               </ul>
@@ -153,123 +126,6 @@ function DOTLogo() {
           <stop offset="1" stopColor="#FAC9B4" />
         </linearGradient>
       </defs>
-    </svg>
-  );
-}
-
-function KeyboardIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="75"
-      height="75"
-      viewBox="0 0 75 75"
-      fill="none"
-    >
-      <path
-        d="M64.6001 11.5296C65.9577 11.5296 67.0683 10.419 67.0683 9.06144V7.82734C67.0683 6.46979 65.9577 5.35914 64.6001 5.35914C63.2426 5.35914 62.1319 6.46979 62.1319 7.82734V9.06144C62.1319 10.419 63.2426 11.5296 64.6001 11.5296Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M67.0683 37.4453H27.5772V30.0407C27.5772 28.6832 26.4665 27.5725 25.109 27.5725H20.1726V10.2952C20.1726 7.58013 22.394 5.35876 25.109 5.35876H34.9818C37.6968 5.35876 39.9181 7.58013 39.9181 10.2952V22.6361C39.9181 28.0908 44.3363 32.5089 49.7909 32.5089H57.1955C62.6502 32.5089 67.0683 28.0908 67.0683 22.6361V17.6997C67.0683 16.3422 65.9577 15.2315 64.6001 15.2315C63.2426 15.2315 62.1319 16.3422 62.1319 17.6997V22.6361C62.1319 25.3512 59.9105 27.5725 57.1955 27.5725H49.7909C47.0759 27.5725 44.8545 25.3512 44.8545 22.6361V10.2952C44.8545 4.84048 40.4364 0.422363 34.9818 0.422363H25.109C19.6543 0.422363 15.2362 4.84048 15.2362 10.2952V27.5725H10.2998C8.94224 27.5725 7.83159 28.6832 7.83159 30.0407V37.4453C3.75911 37.4453 0.427 40.7774 0.427 44.8499V67.0637C0.427 71.1362 3.75911 74.4683 7.83159 74.4683H67.0683C71.1408 74.4683 74.4729 71.1362 74.4729 67.0637V44.8499C74.4729 40.7774 71.1408 37.4453 67.0683 37.4453ZM12.768 32.5089H22.6408V37.4453H12.768V32.5089ZM69.5365 67.0637C69.5365 68.4212 68.4259 69.5319 67.0683 69.5319H7.83159C6.47404 69.5319 5.36339 68.4212 5.36339 67.0637V44.8499C5.36339 43.4924 6.47404 42.3817 7.83159 42.3817H67.0683C68.4259 42.3817 69.5365 43.4924 69.5365 44.8499V67.0637Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M50.408 47.3181H47.9398C46.5822 47.3181 45.4716 48.4288 45.4716 49.7863C45.4716 51.1438 46.5822 52.2545 47.9398 52.2545H50.408C51.7655 52.2545 52.8762 51.1438 52.8762 49.7863C52.8762 48.4288 51.7655 47.3181 50.408 47.3181Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M36.2166 52.2545H38.6848C40.0424 52.2545 41.153 51.1438 41.153 49.7863C41.153 48.4288 40.0424 47.3181 38.6848 47.3181H36.2166C34.8591 47.3181 33.7484 48.4288 33.7484 49.7863C33.7484 51.1438 34.8591 52.2545 36.2166 52.2545Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M26.9601 47.3181H24.4919C23.1344 47.3181 22.0237 48.4288 22.0237 49.7863C22.0237 51.1438 23.1344 52.2545 24.4919 52.2545H26.9601C28.3177 52.2545 29.4283 51.1438 29.4283 49.7863C29.4283 48.4288 28.3177 47.3181 26.9601 47.3181Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M15.2362 47.3181H12.768C11.4104 47.3181 10.2998 48.4288 10.2998 49.7863C10.2998 51.1438 11.4104 52.2545 12.768 52.2545H15.2362C16.5937 52.2545 17.7044 51.1438 17.7044 49.7863C17.7044 48.4288 16.5937 47.3181 15.2362 47.3181Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M62.1319 47.3181H59.6637C58.3062 47.3181 57.1955 48.4288 57.1955 49.7863C57.1955 51.1438 58.3062 52.2545 59.6637 52.2545H62.1319C63.4895 52.2545 64.6001 51.1438 64.6001 49.7863C64.6001 48.4288 63.4895 47.3181 62.1319 47.3181Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M26.9601 59.6591H24.4919C23.1344 59.6591 22.0237 60.7697 22.0237 62.1273C22.0237 63.4848 23.1344 64.5955 24.4919 64.5955H26.9601C28.3177 64.5955 29.4283 63.4848 29.4283 62.1273C29.4283 60.7697 28.3177 59.6591 26.9601 59.6591Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M15.2362 59.6591H12.768C11.4104 59.6591 10.2998 60.7697 10.2998 62.1273C10.2998 63.4848 11.4104 64.5955 12.768 64.5955H15.2362C16.5937 64.5955 17.7044 63.4848 17.7044 62.1273C17.7044 60.7697 16.5937 59.6591 15.2362 59.6591Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M62.1319 59.6591H59.6637C58.3062 59.6591 57.1955 60.7697 57.1955 62.1273C57.1955 63.4848 58.3062 64.5955 59.6637 64.5955H62.1319C63.4895 64.5955 64.6001 63.4848 64.6001 62.1273C64.6001 60.7697 63.4895 59.6591 62.1319 59.6591Z"
-        fill="#CDDEF0"
-      />
-      <path
-        d="M50.4074 59.6591H36.2151C34.8575 59.6591 33.7469 60.7697 33.7469 62.1273C33.7469 63.4848 34.8575 64.5955 36.2151 64.5955H50.4074C51.765 64.5955 52.8756 63.4848 52.8756 62.1273C52.8756 60.7697 51.765 59.6591 50.4074 59.6591Z"
-        fill="#CDDEF0"
-      />
-    </svg>
-  );
-}
-
-function PeopleLogo() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="33"
-      height="26"
-      viewBox="0 0 33 26"
-      fill="none"
-    >
-      <path
-        d="M16.4919 12.2348C18.6605 12.2348 20.4185 10.4123 20.4185 8.16405C20.4185 5.91581 18.6605 4.09326 16.4919 4.09326C14.3234 4.09326 12.5654 5.91581 12.5654 8.16405C12.5654 10.4123 14.3234 12.2348 16.4919 12.2348Z"
-        fill="#624336"
-      />
-      <path
-        d="M25.9158 8.97799C28.0843 8.97799 29.8423 7.15544 29.8423 4.90721C29.8423 2.65898 28.0843 0.836426 25.9158 0.836426C23.7472 0.836426 21.9892 2.65898 21.9892 4.90721C21.9892 7.15544 23.7472 8.97799 25.9158 8.97799Z"
-        fill="#624336"
-      />
-      <path
-        d="M7.06812 8.97799C9.2367 8.97799 10.9947 7.15544 10.9947 4.90721C10.9947 2.65898 9.2367 0.836426 7.06812 0.836426C4.89954 0.836426 3.14156 2.65898 3.14156 4.90721C3.14156 7.15544 4.89954 8.97799 7.06812 8.97799Z"
-        fill="#624336"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M23.5594 19.5619V24.4468C23.5594 24.6626 23.477 24.8702 23.3294 25.0224C23.1825 25.1755 22.9822 25.261 22.7741 25.261H10.2091C10.001 25.261 9.80077 25.1755 9.65392 25.0224C9.50628 24.8702 9.42382 24.6626 9.42382 24.4468V19.5619C9.42382 16.4144 11.885 13.8628 14.921 13.8628H18.0623C21.0983 13.8628 23.5594 16.4144 23.5594 19.5619Z"
-        fill="#624336"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M25.1306 22.0046H32.1984C32.4065 22.0046 32.6068 21.9192 32.7536 21.7661C32.9013 21.6138 32.9837 21.4062 32.9837 21.1905V16.3055C32.9837 13.158 30.5225 10.6064 27.4865 10.6064H24.3453C22.6867 10.6064 21.1993 11.3685 20.191 12.5726C23.0542 13.5089 25.1306 16.2844 25.1306 19.5622V22.0046Z"
-        fill="#624336"
-      />
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12.7927 12.5726C11.7844 11.3685 10.297 10.6064 8.63844 10.6064H5.49719C2.46117 10.6064 0 13.158 0 16.3055V21.1905C0 21.4062 0.0824572 21.6138 0.230096 21.7661C0.376949 21.9192 0.577205 22.0046 0.785313 22.0046H7.85313V19.5622C7.85313 16.2844 9.9295 13.5089 12.7927 12.5726Z"
-        fill="#624336"
-      />
-    </svg>
-  );
-}
-
-function TrophyIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="26"
-      viewBox="0 0 32 26"
-      fill="none"
-    >
-      <path
-        d="M29.8667 3.86018H26.6667V1.84435C26.6667 1.57703 26.5543 1.32066 26.3542 1.13164C26.1542 0.942617 25.8829 0.836426 25.6 0.836426H6.4C6.1171 0.836426 5.84579 0.942617 5.64575 1.13164C5.44571 1.32066 5.33333 1.57703 5.33333 1.84435V3.86018H2.13333C1.56754 3.86018 1.02492 4.07257 0.624839 4.45061C0.224761 4.82865 0 5.34139 0 5.87602V7.89186C0 9.22845 0.561903 10.5103 1.5621 11.4554C2.05734 11.9234 2.64529 12.2946 3.29236 12.5478C3.93942 12.8011 4.63295 12.9315 5.33333 12.9315H5.82C6.44833 14.813 7.64635 16.4794 9.266 17.7245C10.8857 18.9697 12.8559 19.7392 14.9333 19.9378V23.0107H11.7333C11.4504 23.0107 11.1791 23.1168 10.9791 23.3059C10.779 23.4949 10.6667 23.7513 10.6667 24.0186C10.6667 24.2859 10.779 24.5423 10.9791 24.7313C11.1791 24.9203 11.4504 25.0265 11.7333 25.0265H20.2667C20.5496 25.0265 20.8209 24.9203 21.0209 24.7313C21.221 24.5423 21.3333 24.2859 21.3333 24.0186C21.3333 23.7513 21.221 23.4949 21.0209 23.3059C20.8209 23.1168 20.5496 23.0107 20.2667 23.0107H17.0667V19.934C21.3253 19.527 24.8587 16.7036 26.144 12.9315H26.6667C28.0812 12.9315 29.4377 12.4005 30.4379 11.4554C31.4381 10.5103 32 9.22845 32 7.89186V5.87602C32 5.34139 31.7752 4.82865 31.3752 4.45061C30.9751 4.07257 30.4325 3.86018 29.8667 3.86018ZM5.33333 10.9156C4.48464 10.9156 3.67071 10.597 3.07059 10.03C2.47048 9.46292 2.13333 8.69381 2.13333 7.89186V5.87602H5.33333V9.9077C5.33333 10.2437 5.35067 10.5796 5.38533 10.9156H5.33333ZM29.8667 7.89186C29.8667 8.69381 29.5295 9.46292 28.9294 10.03C28.3293 10.597 27.5154 10.9156 26.6667 10.9156H26.6C26.6438 10.5433 26.666 10.1689 26.6667 9.79431V5.87602H29.8667V7.89186Z"
-        fill="#1E2E5C"
-      />
     </svg>
   );
 }

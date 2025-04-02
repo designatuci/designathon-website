@@ -27,7 +27,7 @@ const navigationLinks: NavigationLink[] = [
   },
   { name: "FAQ", scrollTo: "faq" },
   { name: "Prizes", scrollTo: "prizes" },
-  { name: "Sponsors", scrollTo: "sponsors" },
+  // { name: "Sponsors", scrollTo: "sponsors" },
   { name: "Rules", scrollTo: "rules" },
 ];
 
