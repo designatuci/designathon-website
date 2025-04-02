@@ -81,6 +81,30 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-4",
   },
+  {
+    id: "marquee1-5",
+    content: {
+      imageURL:
+        "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512/v1743630292/2025/landing-page/assets/sponsors/logos/designliLogo.webp",
+      rotation: 3,
+      name: "Designli",
+    },
+  },
+  {
+    id: "marquee1-6",
+  },
+  {
+    id: "marquee1-7",
+    content: {
+      imageURL:
+        "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512/v1743630291/2025/landing-page/assets/sponsors/logos/antrepreneurshipCenter.jpg",
+      rotation: 3,
+      name: "ANTpreneur Center",
+    },
+  },
+  {
+    id: "marquee1-8",
+  },
 ];
 
 const partners: Organization[] = [

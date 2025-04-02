@@ -57,7 +57,6 @@ function Rules() {
                 align: "start",
               }}
               className="w-full pb-6 lg:pb-8"
-              data-status="incomplete"
               setApi={setApi}
             >
               <CarouselContent className="m-0">
