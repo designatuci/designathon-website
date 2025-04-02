@@ -3,7 +3,10 @@ import { Card, CardContent, CardHeader } from "@components/ui/card";
 
 export default function Prizes() {
   return (
-    <section className="noise flex justify-center bg-(--blue) pb-12 lg:pb-20">
+    <section
+      id="prizes"
+      className="noise flex justify-center bg-(--blue) pb-12 lg:pb-20"
+    >
       <div className="container text-white">
         <h2 className="font-title text-3xl leading-loose font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Prizes

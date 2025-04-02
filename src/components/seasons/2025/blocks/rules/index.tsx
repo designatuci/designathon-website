@@ -42,7 +42,11 @@ function Rules() {
   });
 
   return (
-    <section ref={ref} className="noise flex justify-center bg-(--blue) py-12">
+    <section
+      id="rules"
+      ref={ref}
+      className="noise flex justify-center bg-(--blue) py-12"
+    >
       <div className="container text-white">
         <h2 className="font-title text-3xl leading-loose font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Rules

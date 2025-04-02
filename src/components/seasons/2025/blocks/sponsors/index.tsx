@@ -17,7 +17,10 @@ function Sponsors() {
       className="noise flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96"
     >
       <div className="flex w-full flex-col gap-20 3xl:max-w-[1920px]">
-        <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
+        <div
+          className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
+          data-status="incomplete"
+        >
           <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
             Sponsors
           </h2>
@@ -33,7 +36,10 @@ function Sponsors() {
             />
           </div>
         </div>
-        <div className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60">
+        <div
+          className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
+          data-status="incomplete"
+        >
           <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
             Partners
           </h2>
@@ -131,5 +137,17 @@ const partners: Organization[] = [
   },
   {
     id: "marquee2-4",
+  },
+  {
+    id: "marquee2-5",
+    content: {
+      imageURL:
+        "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512/v1743631210/2025/landing-page/assets/sponsors/logos/balsamiq.png",
+      rotation: 3,
+      name: "balsamiq",
+    },
+  },
+  {
+    id: "marquee2-6",
   },
 ];

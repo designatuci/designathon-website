@@ -26,7 +26,9 @@ const navigationLinks: NavigationLink[] = [
     scrollTo: "past-events",
   },
   { name: "FAQ", scrollTo: "faq" },
+  { name: "Prizes", scrollTo: "prizes" },
   { name: "Sponsors", scrollTo: "sponsors" },
+  { name: "Rules", scrollTo: "rules" },
 ];
 
 export default function LandingNavigation() {
