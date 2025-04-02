@@ -85,7 +85,7 @@ export default function Prizes() {
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-sm">
                 <li>AMAZON GIFT CARDS</li>
-                <li>PIXEL PERF MERCH</li>
+                {/* <li>PIXEL PERF MERCH</li> */}
                 <li>DESIGN @ UCI STICKERS</li>
               </ul>
             </CardContent>

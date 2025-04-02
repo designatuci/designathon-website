@@ -10,14 +10,10 @@ import Prizes from "@components/seasons/2025/blocks/prizes";
 import Rules from "@components/seasons/2025/blocks/rules";
 import Stats from "@components/seasons/2025/blocks/stats";
 import LandingNavigation from "@components/seasons/2025/navigation/landing-navigation";
-import { useSearchParams } from "next/navigation";
 
 export default function Landing2025() {
-  const searchParams = useSearchParams();
-  const debug = searchParams.keys().find((key) => key === "debug");
-
   return (
-    <main className={cn("bg-(--blue) font-primary", debug && "__debug")}>
+    <main className={cn("bg-(--blue) font-primary")}>
       <LandingNavigation />
       <Hero />
       <Stats />
