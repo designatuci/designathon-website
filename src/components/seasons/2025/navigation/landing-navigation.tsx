@@ -91,7 +91,7 @@ function LandingNavigationMobile() {
               asChild
               className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
             >
-              <Link href="#undefined">Apply Now!</Link>
+              <Link href="https://forms.gle/BNWnN8dSJR9kqwjC8" target = "_blank">Apply Now!</Link>
             </Button>
           </div>
         </div>
