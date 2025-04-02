@@ -87,7 +87,7 @@ function Hero() {
       <div className="relative flex h-svh max-h-[800px] min-h-[640px] w-full justify-center overflow-hidden pt-14 font-primary sm:min-h-[900px] md:min-h-[1000px] lg:min-h-[1200px] xl:h-fit xl:max-h-none xl:min-h-[1200px] 3xl:min-h-[1600px]">
         <div
           className={cn(
-            "absolute top-14 left-0 z-10 flex w-full items-center justify-center",
+            "absolute top-14 left-0 z-10 flex w-full flex-col items-center justify-center",
             "not-motion-reduce:translate-y-24 not-motion-reduce:scale-50 not-motion-reduce:opacity-0 not-motion-reduce:transition-all not-motion-reduce:duration-1000 not-motion-reduce:ease-out-quart",
             {
               "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
@@ -105,7 +105,7 @@ function Hero() {
               ease: "easeInOut",
             }}
             style={{ opacity: headerOpacity }}
-            className="relative inline-block h-[300px] w-[400px] overflow-hidden sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24"
+            className="relative block h-[300px] w-[400px] overflow-hidden sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24"
           >
             {/* Motion reduce */}
             <DOTImage
@@ -125,6 +125,14 @@ function Hero() {
               priority
               fill
             />
+            <span className="absolute bottom-2 left-1/2 h-16 w-full -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:h-20 lg:bottom-12 lg:left-2/3 lg:w-64">
+              <DOTImage
+                src="https://res.cloudinary.com/ucidesignathon/image/upload/v1743636472/2025/landing-page/assets/hero/curve_text.png"
+                alt="April 18 - 20, 2025"
+                className="-rotate-12 object-contain lg:-rotate-6"
+                fill
+              />
+            </span>
           </motion.span>
         </div>
         <div

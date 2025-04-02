@@ -262,7 +262,8 @@ const eventsList: EventCard[] = [
             "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631937/winners/carbonology.jpg",
           placement: "2nd Place",
           title: "Carbonology",
-          description: "Created by Mandy Wu, Lea Hidaka",
+          description:
+            "Created by Ashley Chang, An Nguyen, Ryan Yang, Angel Yim",
         },
       ],
     },
