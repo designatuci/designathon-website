@@ -165,10 +165,22 @@ const faqItems: FAQItem[] = [
     answer: (
       <span>
         You have the option to (1) go solo, or (2) form a team of up to 4 people
-        total. You may list your team members in the sign-up form, but it&apos;s
-        okay if plans change! We will consider your final team members to be the
-        ones indicated when submitting your project.
+        total. We will consider your final team members to be the ones indicated
+        when submitting your project.
       </span>
+    ),
+  },
+  {
+    question: <span>Where is the event located?</span>,
+    answer: (
+      <>
+        <span>
+          Beyond Our Horizons will be mainly held in-person at the Department of
+          Continuing Education. We can also accommodate online participants if
+          necessary. More info will be coming soon, so be sure to check your
+          email for updates!
+        </span>
+      </>
     ),
   },
   {
