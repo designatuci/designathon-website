@@ -12,7 +12,7 @@ function Stats() {
       <div className="relative z-10 flex w-full max-w-[1920px] flex-col items-center justify-center gap-8 bg-gradient-to-b from-[#FEFBEE] to-[#FCFBF9] px-4 py-8 sm:pt-16 lg:pt-28">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatsCard stats={189} label="projects" />
-          <StatsCard stats={1100} label="attendees" />
+          <StatsCard stats={300} label="attendees" />
           <StatsCard stats={2500} label="prizes" />
           <StatsCard stats={65000} label="social media outreach" />
         </div>
