@@ -50,6 +50,7 @@ function StatsCard({ stats, label }: StatsCardProps) {
       <div className="flex items-center text-3xl font-extrabold text-(--pink) sm:text-4xl lg:text-5xl">
         {label === "prizes" && <span>$</span>}
         <AnimatedNumber value={isInView ? stats : stats / 2} />
+        {label === "attendees" && <span>+</span>}
       </div>
       <p className="max-w-32 text-lg leading-tight font-extrabold text-(--blue) sm:text-xl lg:max-w-56 lg:text-2xl">
         {label}
