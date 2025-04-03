@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Sour_Gummy } from "next/font/google";
 import localFont from "next/font/local";
 import React from "react";
@@ -19,6 +20,20 @@ const permanentMarker = Sour_Gummy({
   subsets: ["latin"],
   variable: "--font-permanent-marker",
 });
+
+export const metadata: Metadata = {
+  title: "UCI Design-a-thon 2025 | Beyond Our Horizons",
+  description: "UCI Design-a-thon",
+  openGraph: {
+    title: "UCI Design-a-thon 2025 | Beyond Our Horizons",
+    description: "UCI Design-a-thon",
+    images: [
+      {
+        url: "https://ucidesignathon.com/images/seasons/2025/seo/banner.png",
+      },
+    ],
+  },
+};
 
 type Props = {
   children: React.ReactNode;
