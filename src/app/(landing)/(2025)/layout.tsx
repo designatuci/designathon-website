@@ -1,3 +1,4 @@
+import { Sour_Gummy } from "next/font/google";
 import localFont from "next/font/local";
 import React from "react";
 
@@ -13,13 +14,22 @@ const radey = localFont({
   variable: "--font-radey",
 });
 
+const permanentMarker = Sour_Gummy({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+});
+
 type Props = {
   children: React.ReactNode;
 };
 
 function Layout({ children }: Props) {
   return (
-    <body data-theme="2025" className={`${satoshi.variable} ${radey.variable}`}>
+    <body
+      data-theme="2025"
+      className={`${satoshi.variable} ${radey.variable} ${permanentMarker.variable}`}
+    >
       {children}
     </body>
   );

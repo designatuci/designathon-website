@@ -36,6 +36,7 @@
   --color-background: var(--background);
   --font-primary: var(--theme-font-primary);
   --font-title: var(--theme-font-title);
+  --font-cursive: var(--theme-font-cursive);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -98,6 +99,7 @@
     /* Depending on the data-theme defined on the parent element, the values will differ. */
     --font-primary: var(--theme-font-primary);
     --font-title: var(--theme-font-title);
+    --font-cursive: var(--theme-font-cursive);
   }
 
   /* 2025 themes */
@@ -105,6 +107,7 @@
     /* Font preferences */
     --theme-font-primary: var(--font-satoshi);
     --theme-font-title: var(--font-radey);
+    --theme-font-cursive: var(--font-permanent-marker);
 
     /* Color palette */
     --blue: #354f99;

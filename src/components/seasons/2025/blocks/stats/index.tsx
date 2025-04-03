@@ -13,7 +13,7 @@ function Stats() {
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
           <StatsCard stats={189} label="projects" />
           <StatsCard stats={1100} label="attendees" />
-          <StatsCard stats={1680} label="prizes" />
+          <StatsCard stats={2500} label="prizes" />
           <StatsCard stats={65000} label="social media outreach" />
         </div>
         <Button
@@ -47,10 +47,10 @@ function StatsCard({ stats, label }: StatsCardProps) {
 
   return (
     <div className="flex flex-col items-center text-center" ref={ref}>
-      <AnimatedNumber
-        className="text-3xl font-extrabold text-(--pink) sm:text-4xl lg:text-5xl"
-        value={isInView ? stats : stats / 2}
-      />
+      <div className="flex items-center text-3xl font-extrabold text-(--pink) sm:text-4xl lg:text-5xl">
+        {label === "prizes" && <span>$</span>}
+        <AnimatedNumber value={isInView ? stats : stats / 2} />
+      </div>
       <p className="max-w-32 text-lg leading-tight font-extrabold text-(--blue) sm:text-xl lg:max-w-56 lg:text-2xl">
         {label}
       </p>
