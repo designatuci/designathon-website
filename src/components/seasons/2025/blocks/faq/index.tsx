@@ -176,9 +176,9 @@ const faqItems: FAQItem[] = [
       <>
         <span>
           Beyond Our Horizons will be mainly held in-person at the Department of
-          Continuing Education. We can also accommodate online participants if
-          necessary. More info will be coming soon, so be sure to check your
-          email for updates!
+          Continuing Education (DCE). We can also accommodate online
+          participants if necessary. More info will be coming soon, so be sure
+          to check your email for updates!
         </span>
       </>
     ),

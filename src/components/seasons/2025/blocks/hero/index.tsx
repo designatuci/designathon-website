@@ -136,7 +136,7 @@ function Hero() {
               />
             </span> */}
             {/* TODO: take this bandaid off */}
-            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 -rotate-6 flex-col gap-2 rounded-md bg-(--tan)/80 p-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] lg:translate-y-[-150%] lg:text-base">
+            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 -rotate-6 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-(--pink)" />
                 <p className="font-bold text-(--pink) sm:bottom-0">
@@ -146,7 +146,7 @@ function Hero() {
               <div className="flex items-center gap-2">
                 <MapPin className="size-5 shrink-0 text-(--pink)" />
                 <p className="font-bold whitespace-nowrap text-(--pink) sm:bottom-0">
-                  Department of Continuing Education
+                  UC Irvine DCE
                 </p>
               </div>
             </div>

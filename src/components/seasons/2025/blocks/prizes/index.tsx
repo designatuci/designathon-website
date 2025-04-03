@@ -65,7 +65,7 @@ export default function Prizes() {
             </CardHeader>
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold sm:flex-col sm:items-start lg:gap-4 lg:text-base">
-                <li>4 AMAZON GIFT CARDS</li>
+                <li>4 x $75 AMAZON GIFT CARDS</li>
                 <li>1:1 MENTORSHIP</li>
                 <li>FEATURED INSTAGRAM POST</li>
               </ul>
@@ -84,7 +84,7 @@ export default function Prizes() {
             </CardHeader>
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-sm">
-                <li>4 AMAZON GIFT CARDS</li>
+                <li>4 x $50 AMAZON GIFT CARDS</li>
                 {/* <li>PIXEL PERF MERCH</li> */}
                 <li>DESIGN @ UCI STICKERS</li>
               </ul>
