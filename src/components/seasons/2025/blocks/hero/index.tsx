@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import { Button } from "@components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
 import {
   motion,
@@ -10,6 +11,7 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function Hero() {
@@ -99,7 +101,7 @@ function Hero() {
         >
           <motion.span
             initial={{ rotate: 5 }}
-            animate={{ rotate: [5, 10] }}
+            animate={{ rotate: [5, 7] }}
             transition={{
               repeat: Infinity,
               repeatType: "reverse",
@@ -127,14 +129,6 @@ function Hero() {
               priority
               fill
             />
-            {/* <span className="absolute bottom-2 left-1/2 h-16 w-full -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:h-20 lg:bottom-12 lg:left-2/3 lg:w-64">
-              <DOTImage
-                src="https://res.cloudinary.com/ucidesignathon/image/upload/v1743636472/2025/landing-page/assets/hero/curve_text.png"
-                alt="April 18 - 20, 2025"
-                className="-rotate-12 object-contain lg:-rotate-6"
-                fill
-              />
-            </span> */}
             {/* TODO: take this bandaid off */}
             <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 -rotate-6 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
               <div className="flex items-center gap-2">
@@ -149,6 +143,17 @@ function Hero() {
                   UC Irvine DCE
                 </p>
               </div>
+              <Button
+                asChild
+                className="rounded-xl bg-(--pink) px-6 py-5 font-sans text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+              >
+                <Link
+                  href="https://forms.gle/BNWnN8dSJR9kqwjC8"
+                  target="_blank"
+                >
+                  Apply Now!
+                </Link>
+              </Button>
             </div>
           </motion.span>
         </div>

@@ -88,7 +88,6 @@ function LandingNavigationMobile() {
                 {link.name}
               </Button>
             ))}
-            {/* TODO: add url */}
             <Button
               asChild
               className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
