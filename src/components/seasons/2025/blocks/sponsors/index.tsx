@@ -22,7 +22,7 @@ function Sponsors() {
           data-status="incomplete"
         >
           <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
-            Sponsors
+            Partners
           </h2>
           <SponsorsMarquee reverse organizations={sponsors} />
           <div className="absolute right-0 bottom-0 w-1/2 translate-x-1/4 translate-y-1/2">
