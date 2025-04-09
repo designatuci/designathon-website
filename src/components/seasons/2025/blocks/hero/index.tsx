@@ -5,7 +5,6 @@ import DOTImage from "@components/common/dot-image";
 import { Button } from "@components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
 import {
-  motion,
   useMotionValueEvent,
   useScroll,
   useSpring,
@@ -70,7 +69,6 @@ function Hero() {
   });
 
   const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 120]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -99,19 +97,8 @@ function Hero() {
             },
           )}
         >
-          <motion.span
-            initial={{ rotate: 5 }}
-            animate={{ rotate: [5, 7] }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 6,
-              ease: "easeInOut",
-            }}
-            style={{ opacity: headerOpacity }}
-            className="relative block h-[300px] w-[400px] sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24"
-          >
-            {/* Motion reduce */}
+          <span className="relative block h-[300px] w-[400px] sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24">
+            {/* Not Motion reduce */}
             <DOTImage
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.gif"
               alt="Designathon 2025: Beyond Our Horizons"
@@ -120,7 +107,7 @@ function Hero() {
               priority
               fill
             />
-            {/* Not motion reduce */}
+            {/*  Motion reduce */}
             <DOTImage
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.jpg"
               alt="Designathon 2025: Beyond Our Horizons"
@@ -130,7 +117,7 @@ function Hero() {
               fill
             />
             {/* TODO: take this bandaid off */}
-            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 -rotate-6 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
+            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-(--pink)" />
                 <p className="font-bold text-(--pink) sm:bottom-0">
@@ -155,7 +142,7 @@ function Hero() {
                 </Link>
               </Button>
             </div>
-          </motion.span>
+          </span>
         </div>
         <div
           className={cn(
