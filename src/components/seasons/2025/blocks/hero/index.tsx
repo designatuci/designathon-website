@@ -2,14 +2,15 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import { Button } from "@components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
 import {
-  motion,
   useMotionValueEvent,
   useScroll,
   useSpring,
   useTransform,
 } from "motion/react";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function Hero() {
@@ -68,7 +69,6 @@ function Hero() {
   });
 
   const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 120]);
-  const headerOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -97,19 +97,8 @@ function Hero() {
             },
           )}
         >
-          <motion.span
-            initial={{ rotate: 5 }}
-            animate={{ rotate: [5, 10] }}
-            transition={{
-              repeat: Infinity,
-              repeatType: "reverse",
-              duration: 6,
-              ease: "easeInOut",
-            }}
-            style={{ opacity: headerOpacity }}
-            className="relative block h-[300px] w-[400px] sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24"
-          >
-            {/* Motion reduce */}
+          <span className="relative block h-[300px] w-[400px] sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24">
+            {/* Not Motion reduce */}
             <DOTImage
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.gif"
               alt="Designathon 2025: Beyond Our Horizons"
@@ -118,7 +107,7 @@ function Hero() {
               priority
               fill
             />
-            {/* Not motion reduce */}
+            {/*  Motion reduce */}
             <DOTImage
               src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.jpg"
               alt="Designathon 2025: Beyond Our Horizons"
@@ -127,16 +116,8 @@ function Hero() {
               priority
               fill
             />
-            {/* <span className="absolute bottom-2 left-1/2 h-16 w-full -translate-x-1/2 -translate-y-1/2 sm:bottom-0 sm:h-20 lg:bottom-12 lg:left-2/3 lg:w-64">
-              <DOTImage
-                src="https://res.cloudinary.com/ucidesignathon/image/upload/v1743636472/2025/landing-page/assets/hero/curve_text.png"
-                alt="April 18 - 20, 2025"
-                className="-rotate-12 object-contain lg:-rotate-6"
-                fill
-              />
-            </span> */}
             {/* TODO: take this bandaid off */}
-            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 -rotate-6 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
+            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-(--pink)" />
                 <p className="font-bold text-(--pink) sm:bottom-0">
@@ -149,8 +130,19 @@ function Hero() {
                   UC Irvine DCE
                 </p>
               </div>
+              <Button
+                asChild
+                className="rounded-xl bg-(--pink) px-6 py-5 font-sans text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+              >
+                <Link
+                  href="https://forms.gle/BNWnN8dSJR9kqwjC8"
+                  target="_blank"
+                >
+                  Apply Now!
+                </Link>
+              </Button>
             </div>
-          </motion.span>
+          </span>
         </div>
         <div
           className={cn(
