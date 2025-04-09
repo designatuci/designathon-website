@@ -8,6 +8,7 @@ import Hero from "@components/seasons/2025/blocks/hero";
 import PastEvents from "@components/seasons/2025/blocks/past-events";
 import Prizes from "@components/seasons/2025/blocks/prizes";
 import Rules from "@components/seasons/2025/blocks/rules";
+import Sponsors from "@components/seasons/2025/blocks/sponsors";
 import Stats from "@components/seasons/2025/blocks/stats";
 import LandingNavigation from "@components/seasons/2025/navigation/landing-navigation";
 
@@ -23,7 +24,7 @@ export default function Landing2025() {
       <FAQ />
       <Prizes />
       {/* <Judges /> */}
-      {/* <Sponsors /> */}
+      <Sponsors />
       <Rules />
       {/* <Team /> */}
       <Footer />
