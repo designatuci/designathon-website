@@ -1,7 +1,9 @@
 "use client";
 
 import AnimatedNumber from "@components/seasons/2025/animations/animated-number";
+import { Button } from "@components/ui/button";
 import { useInView } from "motion/react";
+import Link from "next/link";
 import { useRef } from "react";
 
 function Stats() {
@@ -14,6 +16,18 @@ function Stats() {
           <StatsCard stats={2500} label="prizes" />
           <StatsCard stats={65000} label="social media outreach" />
         </div>
+        <Button
+          asChild
+          className="rounded-full bg-(--pink) px-8 py-5 text-xl font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+        >
+          <Link
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe_xC93SRrb-wa2aI2Vd1pnXUUrFRFj6UMMUt02-2EPY4WYjg/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Apply as a mentor
+          </Link>
+        </Button>
       </div>
     </section>
   );
