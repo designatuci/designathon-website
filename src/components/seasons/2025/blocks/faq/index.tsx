@@ -196,9 +196,9 @@ const faqItems: FAQItem[] = [
     question: <span>Where do I submit my project?</span>,
     answer: (
       <span>
-        You will submit your final, working prototype to the Submission Form
-        (opens during the event). Only ONE (1) person on your team should submit
-        a form, which will be on behalf of all contributors.
+        You will submit your final, working prototype to the Devpost (opens
+        during the event). Only ONE (1) person on your team should submit a
+        form, which will be on behalf of all contributors.
       </span>
     ),
   },
