@@ -125,11 +125,4 @@ const speakers: Judge[] = [
     imageURL:
       "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744674718/2025/landing-page/assets/judges/alex-me_-_Alex_Park.jpg",
   },
-  {
-    name: "Alex Park",
-    position: "UX Design Manager at Riot Games",
-    linkedInURL: "https://www.linkedin.com/in/alexpark5/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744674718/2025/landing-page/assets/judges/alex-me_-_Alex_Park.jpg",
-  },
 ];
