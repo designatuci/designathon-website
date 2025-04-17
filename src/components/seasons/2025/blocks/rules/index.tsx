@@ -106,7 +106,7 @@ function Rules() {
           <div className="relative hidden overflow-hidden rounded-3xl lg:col-span-4 lg:block">
             <DOTImage
               alt="Rules Graphic"
-              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1742889146/2025/landing-page/assets/rules/rules.jpg"
+              src="/images/seasons/2025/landing/rules/rules.jpg"
               sizes="(min-width: 0px) 0vw; (min-width: 1024px) 33vw"
               className={cn(
                 "object-cover object-top",

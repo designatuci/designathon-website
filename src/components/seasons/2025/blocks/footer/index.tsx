@@ -31,7 +31,7 @@ function Footer() {
     for (let i = 1; i <= NUM_FRAMES; i++) {
       const img = new Image();
       img.crossOrigin = "anonymous";
-      img.src = `https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/2025/landing-page/assets/footer/${i}.webp`;
+      img.src = `/images/seasons/2025/landing/footer/${i}.webp`;
 
       loadedImages.push(img);
 
