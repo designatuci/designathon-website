@@ -182,7 +182,7 @@ export default PastEvents;
 const eventsList: EventCard[] = [
   {
     title: "True to You 2024",
-    className: "bg-[url('/images/winners/Artboard1.png')]",
+    className: "bg-[url('/images/winners/Artboard1.webp')]",
     modalContent: {
       title: "True to You 2024",
       theme: "Authenticity & Creativity",
@@ -214,7 +214,7 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2023",
-    className: "bg-[url('/images/winners/Artboard2.png')]",
+    className: "bg-[url('/images/winners/Artboard2.webp')]",
     modalContent: {
       title: "Design-a-thon 2023",
       theme: "Community & Inclusivity",
@@ -237,7 +237,7 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2022",
-    className: "bg-[url('/images/winners/Artboard3.png')]",
+    className: "bg-[url('/images/winners/Artboard3.webp')]",
     modalContent: {
       title: "Design-a-thon 2022",
       theme: "Impact",
@@ -261,7 +261,7 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2021",
-    className: "bg-[url('/images/winners/Artboard4.png')]",
+    className: "bg-[url('/images/winners/Artboard4.webp')]",
     modalContent: {
       title: "Design-a-thon 2021",
       theme: "Mindfulness & Productivity",
