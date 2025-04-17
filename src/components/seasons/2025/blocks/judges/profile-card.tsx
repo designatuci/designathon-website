@@ -14,7 +14,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
   return (
     <Card
       className={cn(
-        "max-w-[350px] basis-[100%] translate-y-10 rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
+        "max-w-[350px] translate-y-10 rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
         { "translate-y-0 opacity-100": isInView },
       )}
       style={{

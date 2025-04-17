@@ -36,7 +36,7 @@ function JudgeSection({ title, profiles }: JudgeSectionProps) {
       <h2 className="pb-8 text-center font-title text-3xl leading-loose font-bold sm:text-left sm:text-4xl lg:text-5xl xl:text-6xl">
         {title}
       </h2>
-      <div className="flex flex-wrap items-stretch justify-center gap-x-8 gap-y-8">
+      <div className="grid grid-cols-1 justify-items-center gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
         {profiles.map((profile, index) => (
           <ProfileCard
             key={index}
@@ -57,72 +57,84 @@ const judges: Judge[] = [
     name: "Nicole Liang",
     position: "Senior UX Designer at Google",
     linkedInURL: "https://www.linkedin.com/in/nicoleliangmai",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744668341/2025/landing-page/assets/judges/IMG_1859_-_Mai_Liang.jpg",
+    imageURL: "/images/seasons/2025/landing/judges/nicoleliangmai.jpg",
   },
   {
     name: "Michael Auld",
     position: "Product Illustrator at Anduril",
     linkedInURL: "https://www.linkedin.com/in/michaellauld/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744668808/2025/landing-page/assets/judges/bwbackground_-_Michael_Auld.jpg",
+    imageURL: "/images/seasons/2025/landing/judges/michaellauld.jpg",
   },
   {
     name: "Sergio Harashyn",
     position: "Co-founder, Head of Product Design at AI2UX",
     linkedInURL: "https://www.linkedin.com/in/harashyn/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744669080/2025/landing-page/assets/judges/sergio-harashyn.jpg",
+    imageURL: "/images/seasons/2025/landing/judges/sergio-harashyn.jpg",
   },
   {
     name: "Sarina Chen",
     position: "Growth Product Designer & Manager at MoBagel",
     linkedInURL: "https://www.linkedin.com/in/yiwen-sarina-chen/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744669962/2025/landing-page/assets/judges/sarina-chen.png",
+    imageURL: "/images/seasons/2025/landing/judges/sarina-chen.png",
   },
   {
     name: "Agnes Tran",
     position: "Senior Designer at IBM iX",
     linkedInURL: "https://www.linkedin.com/in/agnestran/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744670942/2025/landing-page/assets/judges/agnes-tran.png",
+    imageURL: "/images/seasons/2025/landing/judges/agnes-tran.png",
   },
   {
     name: "Kyuha Jung",
     position: "PhD Student & HCI Researcher at UCI Informatics",
     linkedInURL: "https://www.linkedin.com/in/jkyuha/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744671032/2025/landing-page/assets/judges/KyuhaJung_20241130_-_Kyuha_Jung.jpg",
+    imageURL: "/images/seasons/2025/landing/judges/jkyuha.jpg",
   },
   {
     name: "Yuko Shimura",
     position: "Product Designer at Centerfield",
     linkedInURL: "https://www.linkedin.com/in/yuko-shimura/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744671249/2025/landing-page/assets/judges/yuko-shimura.png",
+    imageURL: "/images/seasons/2025/landing/judges/yuko-shimura.png",
   },
   {
     name: "Iris Spear",
     position: "Lead UX Designer at Alteryx",
     linkedInURL: "https://www.linkedin.com/in/iris-spear/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744671472/2025/landing-page/assets/judges/iris-spear.png",
+    imageURL: "/images/seasons/2025/landing/judges/iris-spear.png",
+  },
+  {
+    name: "Miles Seiden",
+    position:
+      "Fractional Creative Director & Consultant at Miles Seiden Creative",
+    linkedInURL: "https://www.linkedin.com/in/milesseiden/",
+    imageURL: "/images/seasons/2025/landing/judges/milesseiden.png",
   },
 ];
 
 const speakers: Judge[] = [
   {
     name: "Robyn Young",
-    position: "",
-    linkedInURL: "",
-    imageURL: "",
+    position:
+      "Founder, Brand Strategist, and Author of Build Your Brand Universe",
+    linkedInURL: "https://www.linkedin.com/in/robyn-young/",
+    imageURL: "/images/seasons/2025/landing/judges/robyn-young.png",
   },
   {
     name: "Alex Park",
     position: "UX Design Manager at Riot Games",
     linkedInURL: "https://www.linkedin.com/in/alexpark5/",
-    imageURL:
-      "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto,w_512,h_512/v1744674718/2025/landing-page/assets/judges/alex-me_-_Alex_Park.jpg",
+    imageURL: "/images/seasons/2025/landing/judges/alexpark5.jpg",
+  },
+  {
+    name: "Miles Seiden",
+    position:
+      "Fractional Creative Director & Consultant at Miles Seiden Creative",
+    linkedInURL: "https://www.linkedin.com/in/milesseiden/",
+    imageURL: "/images/seasons/2025/landing/judges/milesseiden.png",
+  },
+  {
+    name: "Tyler Vickers",
+    position: "Senior Product Manager at Amazon",
+    linkedInURL: "https://www.linkedin.com/in/tyler-vickers-1128258/",
+    imageURL: "/images/seasons/2025/landing/judges/tyler-vickers.jpeg",
   },
 ];
