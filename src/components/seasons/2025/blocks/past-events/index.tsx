@@ -149,6 +149,7 @@ function PastEvents() {
                                 src={entry.imageURL}
                                 alt={entry.title}
                                 className="rounded-md object-cover"
+                                sizes="50vw"
                               />
                             </div>
                             <div className="space-y-2 text-center">
@@ -181,32 +182,28 @@ export default PastEvents;
 const eventsList: EventCard[] = [
   {
     title: "True to You 2024",
-    className:
-      "bg-[url('https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743632394/winners/Artboard_1.png')]",
+    className: "bg-[url('/images/winners/Artboard1.png')]",
     modalContent: {
       title: "True to You 2024",
       theme: "Authenticity & Creativity",
       participants: "200+",
       entries: [
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743406526/winners/daily_doodle.png",
+          imageURL: "/images/winners/daily-doodle.png",
           placement: "1st Place",
           title: "Daily Doodle",
           description:
             "Created by Lazim Jarif, Sia Harisingani, Lucy Yang, and Jade Nguyen",
         },
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743406526/winners/flair.png",
+          imageURL: "/images/winners/flair.png",
           placement: "2nd Place",
           title: "Flair",
           description:
             "Created by Kaiwen Tang, Alexis Chew, and Richie Sarinana",
         },
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743406526/winners/quilted.png",
+          imageURL: "/images/winners/quilted.png",
           placement: "3rd Place",
           title: "Quilted",
           description:
@@ -217,23 +214,20 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2023",
-    className:
-      "bg-[url('https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743632395/winners/Artboard_2.png')]",
+    className: "bg-[url('/images/winners/Artboard2.png')]",
     modalContent: {
       title: "Design-a-thon 2023",
       theme: "Community & Inclusivity",
       participants: "300+",
       entries: [
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631938/winners/colorful.png",
+          imageURL: "/images/winners/colorful.png",
           placement: "1st Place",
           title: "Colorful",
           description: "Created by William Han, Megan Phi, Jayden Kang, Amy La",
         },
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631937/winners/honeycomb.png",
+          imageURL: "/images/winners/honeycomb.png",
           placement: "2nd Place",
           title: "Honeycomb",
           description: "Created by Mandy Wu, Lea Hidaka",
@@ -243,23 +237,20 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2022",
-    className:
-      "bg-[url('https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743632395/winners/Artboard_3.png')]",
+    className: "bg-[url('/images/winners/Artboard3.png')]",
     modalContent: {
       title: "Design-a-thon 2022",
       theme: "Impact",
       participants: "100+",
       entries: [
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631937/winners/ratatouille.jpg",
+          imageURL: "/images/winners/ratatouille.jpg",
           placement: "1st Place",
           title: "Ratatouille",
           description: "Created by Stephanie Chang, Michelle Kou",
         },
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631937/winners/carbonology.jpg",
+          imageURL: "/images/winners/carbonology.jpg",
           placement: "2nd Place",
           title: "Carbonology",
           description:
@@ -270,23 +261,20 @@ const eventsList: EventCard[] = [
   },
   {
     title: "Design-a-thon 2021",
-    className:
-      "bg-[url('https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743632395/winners/Artboard_4.png')]",
+    className: "bg-[url('/images/winners/Artboard4.png')]",
     modalContent: {
       title: "Design-a-thon 2021",
       theme: "Mindfulness & Productivity",
       participants: "100+",
       entries: [
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631936/winners/img-motivator.svg",
+          imageURL: "/images/winners/motivator.png",
           placement: "Best Overall",
           title: "Motivator",
           description: "Created by Allison Yick, Jonathan Lum, Stephanie Chang",
         },
         {
-          imageURL:
-            "https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1743631937/winners/orin.png",
+          imageURL: "/images/winners/orin.png",
           placement: "Honorable Mention",
           title: "Orin",
           description: "Created by Isha Godara",

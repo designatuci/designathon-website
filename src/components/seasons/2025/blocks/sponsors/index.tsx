@@ -36,25 +36,6 @@ function Sponsors() {
             />
           </div>
         </div>
-        {/* <div
-          className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
-          data-status="incomplete"
-        >
-          <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
-            Partners
-          </h2>
-          <SponsorsMarquee organizations={partners} />
-          <div className="absolute bottom-0 left-0 w-1/2 -translate-x-1/4 translate-y-1/2">
-            <DOTImage
-              width={1659}
-              height={790}
-              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1741305136/clouds-left_diyuid.png"
-              alt="clouds"
-              className="animate-hover delay-[-2s] duration-[5s]"
-              sizes="(min-width: 0px) 50vw"
-            />
-          </div>
-        </div> */}
       </div>
     </section>
   );
