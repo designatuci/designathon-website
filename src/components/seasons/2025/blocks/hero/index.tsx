@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Button } from "@components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
 import {
   useMotionValueEvent,
@@ -10,7 +9,6 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function Hero() {
@@ -29,17 +27,17 @@ function Hero() {
 
     let numImagesLoaded = 0;
 
-    for (let i = 1; i <= 120; i++) {
+    for (let i = 1; i <= 60; i++) {
       const img = new Image();
       img.crossOrigin = "anonymous";
-      img.src = `https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/${i}.webp`;
+      img.src = `/images/seasons/2025/landing/hero/video/${i}.webp`;
 
       loadedImages.push(img);
 
       img.onload = () => {
         numImagesLoaded++;
 
-        if (numImagesLoaded === 120) {
+        if (numImagesLoaded === 60) {
           setCachedImages(loadedImages);
         }
       };
@@ -68,7 +66,7 @@ function Hero() {
     damping: 50,
   });
 
-  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 120]);
+  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 60]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -100,20 +98,20 @@ function Hero() {
           <span className="relative block h-[300px] w-[400px] sm:-top-8 sm:h-[400px] sm:w-[500px] md:-top-16 md:h-[500px] md:w-[800px] lg:left-12 lg:h-[600px] lg:w-[900px] xl:-top-24 xl:h-[700px] xl:w-[1000px] 3xl:-top-12 3xl:left-24">
             {/* Not Motion reduce */}
             <DOTImage
-              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.gif"
+              src="/images/seasons/2025/landing/hero/header.gif"
               alt="Designathon 2025: Beyond Our Horizons"
               className="hidden object-contain not-motion-reduce:block"
-              sizes="(min-width: 0px) 100vw; (min-width: 768px) 50vw, 33vw"
               priority
+              sizes="(min-width: 0px) 100vw"
               fill
             />
             {/*  Motion reduce */}
             <DOTImage
-              src="https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/v1740975343/header_tlucgg.jpg"
+              src="/images/seasons/2025/landing/hero/header.gif"
               alt="Designathon 2025: Beyond Our Horizons"
               className="object-contain not-motion-reduce:hidden"
-              sizes="(min-width: 0px) 100vw; (min-width: 768px) 50vw, 33vw"
               priority
+              sizes="(min-width: 0px) 100vw"
               fill
             />
             {/* TODO: take this bandaid off */}
@@ -130,17 +128,6 @@ function Hero() {
                   UC Irvine DCE
                 </p>
               </div>
-              <Button
-                asChild
-                className="rounded-xl bg-(--pink) px-6 py-5 font-sans text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
-              >
-                <Link
-                  href="https://forms.gle/BNWnN8dSJR9kqwjC8"
-                  target="_blank"
-                >
-                  Apply Now!
-                </Link>
-              </Button>
             </div>
           </span>
         </div>

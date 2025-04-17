@@ -31,7 +31,7 @@ function Footer() {
     for (let i = 1; i <= NUM_FRAMES; i++) {
       const img = new Image();
       img.crossOrigin = "anonymous";
-      img.src = `https://res.cloudinary.com/ucidesignathon/image/upload/f_auto,q_auto/2025/landing-page/assets/footer/${i}.webp`;
+      img.src = `/images/seasons/2025/landing/footer/${i}.webp`;
 
       loadedImages.push(img);
 
@@ -96,25 +96,6 @@ function Footer() {
           ref={canvasRef}
         />
         <div className="absolute bottom-0 left-1/2 flex w-full -translate-x-1/2 flex-col items-center gap-2 px-4 pb-12 text-center">
-          <div className="flex gap-1 text-lg font-bold text-(--blue) [&_a]:underline">
-            {/* TODO: add URL */}
-            <Link
-              href="https://forms.gle/BNWnN8dSJR9kqwjC8"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Apply
-            </Link>
-            <span>·</span>
-            {/* TODO: add URL */}
-            <Link
-              href="https://drive.google.com/file/d/1EgxZHXxWWubHn-ZiM4X4ZAQSlCJoYS84/view"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Sponsor Us
-            </Link>
-          </div>
           <div className="flex items-center gap-3">
             {socialItems.map((item, index) => (
               <Link
