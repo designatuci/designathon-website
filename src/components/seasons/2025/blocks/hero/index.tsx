@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Button } from "@components/ui/button";
 import { Calendar, MapPin } from "lucide-react";
 import {
   useMotionValueEvent,
@@ -10,7 +9,6 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function Hero() {
@@ -130,17 +128,6 @@ function Hero() {
                   UC Irvine DCE
                 </p>
               </div>
-              <Button
-                asChild
-                className="rounded-xl bg-(--pink) px-6 py-5 font-sans text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
-              >
-                <Link
-                  href="https://forms.gle/BNWnN8dSJR9kqwjC8"
-                  target="_blank"
-                >
-                  Apply Now!
-                </Link>
-              </Button>
             </div>
           </span>
         </div>
