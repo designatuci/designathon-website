@@ -28,10 +28,10 @@ export default function Prizes() {
               </h3>
             </CardHeader>
             <CardContent>
-              <ul className="flex max-w-sm flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:text-lg">
-                <li>iPAD 10TH GEN (REFURBISHED)</li>
+              <ul className="flex max-w-sm flex-wrap justify-center gap-2 text-center text-xs leading-[1] font-extrabold lg:text-lg">
+                <li>POLAROID NOW CAMERA 3RD GENERATION</li>
                 <li>1:1 MENTORSHIP</li>
-                <li>FEATURED INSTAGRAM POST</li>
+                <li>PRIVATE GOOGLE TOUR @ IRVINE</li>
               </ul>
             </CardContent>
           </Card>
@@ -47,9 +47,8 @@ export default function Prizes() {
             </CardHeader>
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold sm:flex-col sm:items-start lg:gap-4 lg:text-base">
-                <li>LOGITECH MX MASTER 3S MOUSE</li>
+                <li>ELGATO STREAM DECK MK2</li>
                 <li>1:1 MENTORSHIP</li>
-                <li>FEATURED INSTAGRAM POST</li>
               </ul>
             </CardContent>
           </Card>
@@ -66,8 +65,7 @@ export default function Prizes() {
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold sm:flex-col sm:items-start lg:gap-4 lg:text-base">
                 <li>4 x $75 AMAZON GIFT CARDS</li>
-                <li>1:1 MENTORSHIP</li>
-                <li>FEATURED INSTAGRAM POST</li>
+                <li>UCI DESIGNATHON STICKERS</li>
               </ul>
             </CardContent>
           </Card>
@@ -85,8 +83,25 @@ export default function Prizes() {
             <CardContent>
               <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-sm">
                 <li>4 x $50 AMAZON GIFT CARDS</li>
-                {/* <li>PIXEL PERF MERCH</li> */}
-                <li>DESIGN @ UCI STICKERS</li>
+                <li>UCI DESIGNATHON STICKERS</li>
+              </ul>
+            </CardContent>
+          </Card>
+          <Card
+            className={cn(
+              "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-[#F8F9FF] text-(--blue) lg:rounded-3xl",
+              "lg:order-5 lg:col-span-12",
+            )}
+          >
+            <CardHeader className="flex flex-col items-center gap-0 text-center lg:items-start lg:text-start">
+              <h3 className="text-4xl font-extrabold lg:text-5xl">
+                Most Novel Interface
+              </h3>
+            </CardHeader>
+            <CardContent>
+              <ul className="flex flex-wrap justify-center gap-2 text-xs leading-[1] font-extrabold lg:justify-start lg:gap-x-4 lg:text-sm">
+                <li>RETRO HANDHELD GAME CONSOLES</li>
+                <li>1:1 MENTORSHIP</li>
               </ul>
             </CardContent>
           </Card>
