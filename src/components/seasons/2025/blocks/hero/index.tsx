@@ -103,6 +103,7 @@ function Hero() {
               src="/images/seasons/2025/landing/hero/header.gif"
               alt="Designathon 2025: Beyond Our Horizons"
               className="hidden object-contain not-motion-reduce:block"
+              priority
               sizes="(min-width: 0px) 100vw"
               fill
             />
@@ -111,6 +112,7 @@ function Hero() {
               src="/images/seasons/2025/landing/hero/header.gif"
               alt="Designathon 2025: Beyond Our Horizons"
               className="object-contain not-motion-reduce:hidden"
+              priority
               sizes="(min-width: 0px) 100vw"
               fill
             />
