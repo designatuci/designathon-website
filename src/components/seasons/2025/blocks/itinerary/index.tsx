@@ -92,11 +92,20 @@ function ItineraryContent({ items, title }: ItineraryContentProps) {
         {items.map((item, index) => (
           <Fragment key={`${title}-${index}`}>
             {item.type === "time-mark" && (
-              <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-(--pink) to-(--tan) py-4 text-(--blue) sm:py-6 sm:text-2xl">
-                <span>{item.time}</span>
-                <span>|</span>
-                <span>{item.title}</span>
-              </div>
+              <>
+                <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-(--pink) to-(--tan) py-4 text-(--blue) sm:py-6 sm:text-2xl">
+                  <span>{item.time}</span>
+                  <span>|</span>
+                  <span>{item.title}</span>
+                </div>
+                <div>
+                  {item.note && (
+                    <span className="mx-auto block text-center font-normal italic">
+                      Note: {item.note}
+                    </span>
+                  )}
+                </div>
+              </>
             )}
             {item.type === "event" && (
               <div
