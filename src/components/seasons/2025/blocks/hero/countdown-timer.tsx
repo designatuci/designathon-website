@@ -67,7 +67,7 @@ function Countdown() {
   return (
     <div className="flex min-w-[250px] flex-col items-center justify-center rounded-full bg-(--tan)/80 px-12 py-2">
       <span className="text-(--pink)">
-        {eventHasStartedState ? "Designing ends in:" : "Events starts in:"}
+        {eventHasStartedState ? "Designing ends in:" : "Event starts in:"}
       </span>
       <div className="flex items-start gap-2 text-center font-sans text-lg text-[#617CCB]">
         <CountdownPart value={timeLeft.days} unit="days" />
