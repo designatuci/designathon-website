@@ -12,8 +12,8 @@ export interface Judge {
 function Judges() {
   return (
     <section className="noise flex flex-col items-center gap-4 bg-(--blue) pb-12 sm:gap-20 lg:pb-20">
-      <JudgeSection title="Judges" profiles={judges} />
       <JudgeSection title="Keynote Speakers" profiles={speakers} />
+      <JudgeSection title="Judges" profiles={judges} />
     </section>
   );
 }
