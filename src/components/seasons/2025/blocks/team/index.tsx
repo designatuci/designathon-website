@@ -1,8 +1,10 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
 import { LinkedinIconFill } from "@components/icons/linkedin";
 import { cubicBezier, motion } from "motion/react";
 import Link from "next/link";
+import { ComponentProps } from "react";
 
 export interface Profile {
   name: string;
@@ -18,18 +20,16 @@ function Team() {
         <h2 className="text-center font-title text-3xl leading-tight font-bold sm:text-left sm:text-4xl lg:text-5xl xl:text-6xl">
           Meet the Team
         </h2>
-        <p className="mb-8 text-lg font-medium lg:text-2xl">
+        <p className="mb-8 text-center text-lg font-medium sm:text-left lg:text-2xl">
           Introducing the 2025 Design-a-thon Team!
         </p>
         <Tabs defaultValue="directors">
-          <TabsList>
-            <TabsTrigger value="directors">Directors</TabsTrigger>
-            <TabsTrigger value="password">Password</TabsTrigger>
+          <TabsList className="bg-transparent">
+            <TeamTabTrigger value="directors">Directors</TeamTabTrigger>
           </TabsList>
           <TabsContent value="directors">
             <TeamSection profiles={directors} />
           </TabsContent>
-          <TabsContent value="password">Change your password here.</TabsContent>
         </Tabs>
       </div>
     </section>
@@ -37,6 +37,22 @@ function Team() {
 }
 
 export default Team;
+
+function TeamTabTrigger({
+  children,
+  ...props
+}: ComponentProps<typeof TabsTrigger>) {
+  return (
+    <TabsTrigger
+      className={cn(
+        "rounded-full border-0 px-8 py-6 text-lg !text-white lg:text-xl",
+      )}
+      {...props}
+    >
+      {children}
+    </TabsTrigger>
+  );
+}
 
 type TeamSectionProps = {
   profiles: Profile[];
