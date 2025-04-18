@@ -90,7 +90,7 @@ export default function Prizes() {
           <Card
             className={cn(
               "col-span-12 flex flex-col items-center justify-center gap-2 border-0 bg-[#F8F9FF] text-(--blue) lg:rounded-3xl",
-              "lg:order-5 lg:col-span-12",
+              "lg:order-5 lg:col-span-12 lg:py-12",
             )}
           >
             <CardHeader className="flex flex-col items-center gap-0 text-center lg:items-start lg:text-start">

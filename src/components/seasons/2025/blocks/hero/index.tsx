@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import CountdownTimer from "@components/seasons/2025/blocks/hero/countdown-timer";
 import { Calendar, MapPin } from "lucide-react";
 import {
   useMotionValueEvent,
@@ -27,7 +28,7 @@ function Hero() {
 
     let numImagesLoaded = 0;
 
-    for (let i = 1; i <= 60; i++) {
+    for (let i = 1; i <= 45; i++) {
       const img = new Image();
       img.crossOrigin = "anonymous";
       img.src = `/images/seasons/2025/landing/hero/video/${i}.webp`;
@@ -37,7 +38,7 @@ function Hero() {
       img.onload = () => {
         numImagesLoaded++;
 
-        if (numImagesLoaded === 60) {
+        if (numImagesLoaded === 45) {
           setCachedImages(loadedImages);
         }
       };
@@ -66,7 +67,7 @@ function Hero() {
     damping: 50,
   });
 
-  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 60]);
+  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 45]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
@@ -114,19 +115,21 @@ function Hero() {
               sizes="(min-width: 0px) 100vw"
               fill
             />
-            {/* TODO: take this bandaid off */}
-            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-45%] -translate-y-1/2 flex-col gap-2 rounded-md bg-(--tan)/80 px-4 py-4 font-cursive text-sm tracking-wider sm:translate-y-[-80%] sm:px-12 lg:translate-y-[-150%] lg:text-base">
-              <div className="flex items-center gap-2">
-                <Calendar className="size-5 shrink-0 text-(--pink)" />
-                <p className="font-bold text-(--pink) sm:bottom-0">
-                  April 18 - 20, 2025
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="size-5 shrink-0 text-(--pink)" />
-                <p className="font-bold whitespace-nowrap text-(--pink) sm:bottom-0">
-                  UC Irvine DCE
-                </p>
+            <div className="absolute top-full left-1/2 flex w-fit translate-x-[-50%] -translate-y-1/2 flex-col items-center gap-2 font-cursive text-sm tracking-wider sm:translate-y-[-60%] sm:px-12 lg:translate-y-[-120%] lg:text-base">
+              <CountdownTimer />
+              <div className="flex flex-col items-center rounded-md bg-(--tan)/50 px-4 py-1 text-center">
+                <div className="flex items-center gap-2">
+                  <Calendar className="size-5 shrink-0 text-(--pink)" />
+                  <p className="font-bold whitespace-nowrap text-(--pink) sm:bottom-0">
+                    April 18 - 20, 2025
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="size-5 shrink-0 text-(--pink)" />
+                  <p className="font-bold whitespace-nowrap text-(--pink) sm:bottom-0">
+                    UC Irvine DCE
+                  </p>
+                </div>
               </div>
             </div>
           </span>
