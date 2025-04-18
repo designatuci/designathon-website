@@ -28,7 +28,6 @@ export default function Landing2025() {
       <Judges />
       <Sponsors />
       <Rules />
-      {/* <Team /> */}
       <Footer />
     </main>
   );

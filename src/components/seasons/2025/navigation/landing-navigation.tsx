@@ -8,33 +8,54 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import { Button } from "@components/ui/button";
 import { Menu, XIcon } from "lucide-react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface NavigationLink {
   name: string;
-  scrollTo: string;
+  href: string;
 }
 
 const navigationLinks: NavigationLink[] = [
-  { name: "About", scrollTo: "about" },
+  { name: "About", href: "/#about" },
   {
     name: "Past Events",
-    scrollTo: "past-events",
+    href: "/#past-events",
   },
-  { name: "FAQ", scrollTo: "faq" },
-  { name: "Prizes", scrollTo: "prizes" },
-  // { name: "Sponsors", scrollTo: "sponsors" },
-  { name: "Rules", scrollTo: "rules" },
+  { name: "FAQ", href: "/#faq" },
+  { name: "Prizes", href: "/#prizes" },
+  { name: "Rules", href: "/#rules" },
+  { name: "Team", href: "/team" },
 ];
 
 export default function LandingNavigation() {
+  const { scrollY } = useScroll();
+
+  const [backgroundVisible, setBackgroundVisible] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 0 && !backgroundVisible) {
+      setBackgroundVisible(true);
+    } else if (latest === 0 && backgroundVisible) {
+      setBackgroundVisible(false);
+    }
+  });
+
   return (
-    <div className="sticky top-0 z-50 container mx-auto h-0">
-      <div className="flex items-center justify-between py-3 lg:pt-6">
+    <div className="sticky top-2 z-50 container mx-auto h-0 lg:top-4">
+      <div
+        className={cn(
+          "flex items-center justify-between py-2 lg:rounded-xl lg:px-4 lg:transition-colors lg:duration-200 lg:ease-in-out",
+          {
+            "backdrop-blur-sm lg:bg-white/50": backgroundVisible,
+          },
+        )}
+      >
         <Link href="/">
           <Image
             src="/images/seasons/2025/landing/designathon-logo.png"
@@ -45,7 +66,7 @@ export default function LandingNavigation() {
         </Link>
         <div>
           <LandingNavigationMobile />
-          <LandingNavigationDesktop />
+          <LandingNavigationDesktop backgroundVisible={backgroundVisible} />
         </div>
       </div>
     </div>
@@ -71,21 +92,13 @@ function LandingNavigationMobile() {
         <div className="grid h-full place-items-center">
           <div className="flex flex-col items-center gap-4">
             {navigationLinks.map((link) => (
-              <Button
-                variant="ghost"
+              <Link
+                href={link.href}
                 key={link.name}
-                onClick={() => {
-                  const element = document.getElementById(link.scrollTo);
-
-                  if (element && closeButtonRef.current) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                    closeButtonRef.current.click();
-                  }
-                }}
                 className="text-xl font-medium text-(--tan) hover:bg-transparent hover:text-(--tan)"
               >
                 {link.name}
-              </Button>
+              </Link>
             ))}
             <Button
               asChild
@@ -109,23 +122,24 @@ function LandingNavigationMobile() {
   );
 }
 
-function LandingNavigationDesktop() {
+function LandingNavigationDesktop({
+  backgroundVisible,
+}: {
+  backgroundVisible: boolean;
+}) {
   return (
-    <div className="mx-auto hidden gap-8 lg:flex">
+    <div className="mx-auto hidden items-center gap-8 lg:flex">
       {navigationLinks.map((link) => (
-        <button
+        <Link
+          href={link.href}
           key={link.name}
-          onClick={() => {
-            const element = document.getElementById(link.scrollTo);
-
-            if (element) {
-              element.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          className="text-xl font-medium text-(--tan) hover:text-(--tan)"
+          className={cn(
+            "transition-colros h-fit text-xl font-medium text-(--tan) duration-300 ease-in-out hover:text-(--tan)",
+            { "text-(--blue) hover:text-(--blue)": backgroundVisible },
+          )}
         >
           {link.name}
-        </button>
+        </Link>
       ))}
       <Button
         className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
