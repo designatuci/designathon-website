@@ -170,7 +170,10 @@ export const april19: ItineraryItem[] = [
     },
     description: (
       <>
-        <p>TBA</p>
+        <p>
+          Join us for a hands-on workshop designed to help you turn your design
+          work into a compelling, professional story.
+        </p>
         <Host>Hosted by Ella Chung, Notion Campus Ambassador</Host>
       </>
     ),
@@ -214,36 +217,6 @@ export const april19: ItineraryItem[] = [
         <Host>Led by Erin from FourbyNorth</Host>
       </>
     ),
-  },
-  {
-    type: "event",
-    content: {
-      title: "Workshop: [TBA]",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
-      timeStart: "2:15 PM",
-      timeEnd: "2:45 PM",
-    },
-    description: <>TBD</>,
-  },
-  {
-    type: "event",
-    content: {
-      title: "Workshop: [TBA]",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
-      timeStart: "2:45 PM",
-      timeEnd: "3:15 PM",
-    },
-    description: <>TBD</>,
-  },
-  {
-    type: "event",
-    content: {
-      title: "Workshop: [TBA]",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
-      timeStart: "3:15 PM",
-      timeEnd: "3:45 PM",
-    },
-    description: <>TBD</>,
   },
   {
     type: "event",
