@@ -114,6 +114,12 @@ const judges: Judge[] = [
     linkedInURL: "https://www.linkedin.com/in/damjankrajacic/",
     imageURL: "/images/seasons/2025/landing/judges/damjankrajacic.jpeg",
   },
+  {
+    name: "Lawrence Ntim",
+    position: "Senior Product Designer at Dropbox",
+    linkedInURL: "https://www.linkedin.com/in/damjankrajacic/",
+    imageURL: "/images/seasons/2025/landing/judges/lawrence.png",
+  },
 ];
 
 const speakers: Judge[] = [
@@ -142,5 +148,11 @@ const speakers: Judge[] = [
     position: "Senior Product Manager at Amazon",
     linkedInURL: "https://www.linkedin.com/in/tyler-vickers-1128258/",
     imageURL: "/images/seasons/2025/landing/judges/tyler-vickers.jpeg",
+  },
+  {
+    name: "Lawrence Ntim",
+    position: "Senior Product Designer at Dropbox",
+    linkedInURL: "https://www.linkedin.com/in/lawrencentim/",
+    imageURL: "/images/seasons/2025/landing/judges/lawrence.png",
   },
 ];
