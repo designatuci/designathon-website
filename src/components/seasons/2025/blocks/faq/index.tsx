@@ -175,7 +175,7 @@ const faqItems: FAQItem[] = [
     answer: (
       <>
         <span>
-          Beyond Our Horizons will be mainly held in-person at the Department of
+          Beyond Our Horizons will be mainly held in-person at the Division of
           Continuing Education (DCE). We can also accommodate online
           participants if necessary. More info will be coming soon, so be sure
           to check your email for updates!
