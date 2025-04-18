@@ -18,19 +18,20 @@ import { useRef, useState } from "react";
 
 interface NavigationLink {
   name: string;
-  href: string;
+  scrollTo: string;
 }
 
 const navigationLinks: NavigationLink[] = [
-  { name: "About", href: "/#about" },
+  { name: "About", scrollTo: "about" },
   {
     name: "Past Events",
-    href: "/#past-events",
+    scrollTo: "past-events",
   },
-  { name: "FAQ", href: "/#faq" },
-  { name: "Prizes", href: "/#prizes" },
-  { name: "Rules", href: "/#rules" },
-  { name: "Team", href: "/team" },
+  { name: "FAQ", scrollTo: "faq" },
+  { name: "Prizes", scrollTo: "prizes" },
+  { name: "Partners", scrollTo: "sponsors" },
+  { name: "Team", scrollTo: "team" },
+  { name: "Rules", scrollTo: "rules" },
 ];
 
 export default function LandingNavigation() {
@@ -92,14 +93,21 @@ function LandingNavigationMobile() {
         <div className="grid h-full place-items-center">
           <div className="flex flex-col items-center gap-4">
             {navigationLinks.map((link) => (
-              <Link
-                href={link.href}
+              <Button
+                variant="ghost"
                 key={link.name}
-                onClick={() => closeButtonRef.current?.click()}
+                onClick={() => {
+                  const element = document.getElementById(link.scrollTo);
+
+                  if (element && closeButtonRef.current) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                    closeButtonRef.current.click();
+                  }
+                }}
                 className="text-xl font-medium text-(--tan) hover:bg-transparent hover:text-(--tan)"
               >
                 {link.name}
-              </Link>
+              </Button>
             ))}
             <Button
               asChild
@@ -131,16 +139,22 @@ function LandingNavigationDesktop({
   return (
     <div className="mx-auto hidden items-center gap-8 lg:flex">
       {navigationLinks.map((link) => (
-        <Link
-          href={link.href}
+        <button
           key={link.name}
+          onClick={() => {
+            const element = document.getElementById(link.scrollTo);
+
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
           className={cn(
-            "transition-colros h-fit text-xl font-medium text-(--tan) duration-300 ease-in-out hover:text-(--tan)",
+            "h-fit text-xl font-medium text-(--tan) transition-colors duration-300 ease-in-out hover:text-(--tan)",
             { "text-(--blue) hover:text-(--blue)": backgroundVisible },
           )}
         >
           {link.name}
-        </Link>
+        </button>
       ))}
       <Button
         className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"

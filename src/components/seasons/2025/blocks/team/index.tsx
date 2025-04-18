@@ -21,7 +21,10 @@ export interface Profile {
 
 function Team() {
   return (
-    <section className="noise flex min-h-screen flex-col items-center gap-4 bg-(--blue) py-20 lg:py-32">
+    <section
+      id="team"
+      className="noise flex min-h-screen flex-col items-center gap-4 bg-(--blue) py-20 lg:py-32"
+    >
       <div className="container text-white">
         <h2 className="text-center font-title text-3xl leading-tight font-bold sm:text-left sm:text-4xl lg:text-5xl xl:text-6xl">
           Meet the Team
@@ -92,8 +95,7 @@ function TeamSection({ profiles }: TeamSectionProps) {
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.5,
               delay: index * 0.05,
