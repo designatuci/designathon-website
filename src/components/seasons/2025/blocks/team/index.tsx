@@ -23,13 +23,13 @@ function Team() {
   return (
     <section
       id="team"
-      className="noise flex min-h-screen flex-col items-center gap-4 bg-(--blue) py-20 lg:py-32"
+      className="noise flex flex-col items-center gap-4 bg-(--blue) py-20 lg:py-32"
     >
       <div className="container text-white">
-        <h2 className="text-center font-title text-3xl leading-tight font-bold sm:text-left sm:text-4xl lg:text-5xl xl:text-6xl">
+        <h2 className="font-title text-3xl leading-tight font-bold sm:text-left sm:text-4xl lg:text-5xl xl:text-6xl">
           Meet the Team
         </h2>
-        <p className="mb-8 text-center text-lg font-medium sm:text-left lg:text-2xl">
+        <p className="mb-8 text-lg font-medium sm:text-left lg:text-2xl">
           Introducing the 2025 Design-a-thon Team!
         </p>
         <Tabs defaultValue="directors">

@@ -1,0 +1,56 @@
+function Prompt() {
+  return (
+    <section
+      id="team"
+      className="noise flex flex-col items-center gap-4 bg-(--blue)"
+    >
+      <div className="container text-white">
+        <h2 className="mb-4 font-title text-3xl leading-tight font-bold sm:text-left sm:text-4xl lg:mb-8 lg:text-5xl xl:text-6xl">
+          Challenge Brief
+        </h2>
+        <div className="space-y-2 lg:space-y-4">
+          <div className="rounded-lg bg-gradient-to-l from-[#A6CDF6] to-[#FFFCED] px-4 py-2 text-(--blue) lg:space-y-2 lg:p-8">
+            <h3 className="font-medium sm:text-left lg:text-2xl">
+              {/* TODO: change theme */}
+              <strong>Theme:</strong> Lorem ipsum dolor sit amet.
+            </h3>
+            <h3 className="font-medium sm:text-left lg:text-2xl">
+              {/* TODO: change prompt */}
+              <strong>Prompt:</strong> Lorem ipsum dolor sit amet.
+            </h3>
+          </div>
+          <div className="space-y-4 rounded-lg bg-white/20 px-4 py-2 lg:p-8">
+            <PromptPoint>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
+              modi nobis consectetur repudiandae accusantium praesentium rem
+              doloribus odit, fugiat illum.
+            </PromptPoint>
+            <PromptPoint>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea
+              doloribus at dolor quae delectus, repellat vero tenetur odit
+              distinctio amet.
+            </PromptPoint>
+            <PromptPoint>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Accusantium doloremque quisquam ipsum laboriosam porro quasi?
+            </PromptPoint>
+            <PromptPoint>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              provident voluptatum molestias velit, modi deserunt!
+            </PromptPoint>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Prompt;
+
+function PromptPoint({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="max-w-[400px] font-medium lg:max-w-[800px] lg:text-lg">
+      {children}
+    </p>
+  );
+}
