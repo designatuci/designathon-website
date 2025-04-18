@@ -2,6 +2,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
 import { LinkedinIconFill } from "@components/icons/linkedin";
+import { corporate } from "@components/seasons/2025/blocks/team/tabs/corporate";
+import { design } from "@components/seasons/2025/blocks/team/tabs/design";
+import { directors } from "@components/seasons/2025/blocks/team/tabs/directors";
+import { finance } from "@components/seasons/2025/blocks/team/tabs/finance";
+import { marketing } from "@components/seasons/2025/blocks/team/tabs/marketing";
+import { operations } from "@components/seasons/2025/blocks/team/tabs/operations";
 import { cubicBezier, motion } from "motion/react";
 import Link from "next/link";
 import { ComponentProps } from "react";
@@ -24,11 +30,31 @@ function Team() {
           Introducing the 2025 Design-a-thon Team!
         </p>
         <Tabs defaultValue="directors">
-          <TabsList className="bg-transparent">
+          <TabsList className="grid h-fit w-full grid-cols-2 bg-transparent sm:grid-cols-3 lg:flex lg:justify-start">
             <TeamTabTrigger value="directors">Directors</TeamTabTrigger>
+            <TeamTabTrigger value="corporate">Corporate</TeamTabTrigger>
+            <TeamTabTrigger value="design">Design</TeamTabTrigger>
+            <TeamTabTrigger value="finance">Finance</TeamTabTrigger>
+            <TeamTabTrigger value="marketing">Marketing</TeamTabTrigger>
+            <TeamTabTrigger value="operations">Operations</TeamTabTrigger>
           </TabsList>
           <TabsContent value="directors">
             <TeamSection profiles={directors} />
+          </TabsContent>
+          <TabsContent value="corporate">
+            <TeamSection profiles={corporate} />
+          </TabsContent>
+          <TabsContent value="design">
+            <TeamSection profiles={design} />
+          </TabsContent>
+          <TabsContent value="finance">
+            <TeamSection profiles={finance} />
+          </TabsContent>
+          <TabsContent value="marketing">
+            <TeamSection profiles={marketing} />
+          </TabsContent>
+          <TabsContent value="operations">
+            <TeamSection profiles={operations} />
           </TabsContent>
         </Tabs>
       </div>
@@ -45,7 +71,7 @@ function TeamTabTrigger({
   return (
     <TabsTrigger
       className={cn(
-        "rounded-full border-0 px-8 py-6 text-lg !text-white lg:text-xl",
+        "rounded-full border-0 px-8 py-3 text-lg !text-white lg:w-fit lg:flex-none",
       )}
       {...props}
     >
@@ -66,7 +92,8 @@ function TeamSection({ profiles }: TeamSectionProps) {
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 32 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 32 }}
             transition={{
               duration: 0.5,
               delay: index * 0.05,
@@ -76,7 +103,9 @@ function TeamSection({ profiles }: TeamSectionProps) {
           >
             <div className="relative size-32 lg:size-40">
               <DOTImage
-                src={profile.imageURL}
+                src={
+                  profile.imageURL || "/images/seasons/2025/landing/star.svg"
+                }
                 alt={profile.name}
                 className="rounded-full border-[1px] border-white object-cover"
                 sizes="25vw"
@@ -106,60 +135,3 @@ function TeamSection({ profiles }: TeamSectionProps) {
     </div>
   );
 }
-
-const directors: Profile[] = [
-  {
-    name: "Jasmine Wu",
-    position: "Design-a-thon Director",
-    linkedInURL: "https://www.linkedin.com/in/jaslavie/",
-    imageURL: "/images/seasons/2025/landing/team/directors/jasmine.jpg",
-  },
-  {
-    name: "Amy Zhou",
-    position: "Design Director - UI/UX",
-    linkedInURL: "https://www.linkedin.com/in/yanamyzhou",
-    imageURL: "/images/seasons/2025/landing/team/directors/amy.jpg",
-  },
-  {
-    name: "Megan Deseo",
-    position: "Design Director - Graphics",
-    linkedInURL: "https://www.linkedin.com/in/megan-deseo/",
-    imageURL: "/images/seasons/2025/landing/team/directors/megan.jpg",
-  },
-  {
-    name: "Jerry Nguyen",
-    position: "Operations Director",
-    linkedInURL: "https://www.linkedin.com/in/duyjerry/",
-    imageURL: "/images/seasons/2025/landing/team/directors/jerry.jpg",
-  },
-  {
-    name: "Brandon Phan",
-    position: "Marketing Director",
-    linkedInURL: "https://www.linkedin.com/in/brandonphan03/",
-    imageURL: "/images/seasons/2025/landing/team/directors/brandon.jpg",
-  },
-  {
-    name: "John Daniel Norombaba",
-    position: "Corporate Director",
-    linkedInURL: "https://www.linkedin.com/in/norombabajd/",
-    imageURL: "/images/seasons/2025/landing/team/directors/johndaniel.jpg",
-  },
-  {
-    name: "Laila Wafaie",
-    position: "Corporate Director",
-    linkedInURL: "https://www.linkedin.com/in/laila-wafaie/",
-    imageURL: "/images/seasons/2025/landing/team/directors/laila.jpg",
-  },
-  {
-    name: "Tanvee Patil",
-    position: "Design Director (Graphics)",
-    linkedInURL: "https://www.linkedin.com/in/tanveepatil/",
-    imageURL: "/images/seasons/2025/landing/team/directors/tanvee.jpg",
-  },
-  {
-    name: "Sean Fong",
-    position: "Webmaster",
-    linkedInURL: "https://www.linkedin.com/in/seancfong/",
-    imageURL: "/images/seasons/2025/landing/team/directors/sean.jpg",
-  },
-];
