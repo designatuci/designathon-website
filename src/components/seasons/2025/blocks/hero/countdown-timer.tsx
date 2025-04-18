@@ -7,9 +7,10 @@ import { useEffect, useRef, useState } from "react";
 const pacificTimeZone = "America/Los_Angeles";
 
 function Countdown() {
-  // 4/20 at 3:30 PM PT
-  const endDatePacificRef = useRef(new Date("2025-04-20T15:30:00"));
+  // 4/18 at 6:30 PM PT
   const startDatePacificRef = useRef(new Date("2025-04-18T18:30:00"));
+  // 4/20 at 9:00 AM PT
+  const endDatePacificRef = useRef(new Date("2025-04-20T09:00:00"));
 
   const [eventHasStartedState, setEventHasStartedState] = useState(false);
 
