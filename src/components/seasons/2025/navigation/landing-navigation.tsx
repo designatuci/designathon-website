@@ -52,7 +52,7 @@ export default function LandingNavigation() {
         className={cn(
           "flex items-center justify-between py-2 lg:rounded-xl lg:px-4 lg:transition-colors lg:duration-200 lg:ease-in-out",
           {
-            "backdrop-blur-sm lg:bg-white/50": backgroundVisible,
+            "lg:bg-white/50 lg:backdrop-blur-sm": backgroundVisible,
           },
         )}
       >
@@ -95,6 +95,7 @@ function LandingNavigationMobile() {
               <Link
                 href={link.href}
                 key={link.name}
+                onClick={() => closeButtonRef.current?.click()}
                 className="text-xl font-medium text-(--tan) hover:bg-transparent hover:text-(--tan)"
               >
                 {link.name}

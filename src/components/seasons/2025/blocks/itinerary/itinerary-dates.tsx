@@ -268,6 +268,24 @@ export const april19: ItineraryItem[] = [
   {
     type: "event",
     content: {
+      title: "Mentoring Hours",
+      location: "DCE + Zoom (Online)",
+      timeStart: "4:30 PM",
+      timeEnd: "5:30 PM",
+    },
+    description: (
+      <>
+        <p>
+          Need a second opinion? Want help refining your idea or feedback on
+          your prototype? During this hour, mentors from a range of design
+          backgrounds will be available to chat.
+        </p>
+      </>
+    ),
+  },
+  {
+    type: "event",
+    content: {
       title: "Dinner",
       location: "DCE Courtyard (In-Person)",
       timeStart: "6:00 PM",
