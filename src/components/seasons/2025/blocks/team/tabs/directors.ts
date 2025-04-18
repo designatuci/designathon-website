@@ -45,7 +45,7 @@ export const directors: Profile[] = [
   },
   {
     name: "Tanvee Patil",
-    position: "Design Director (Graphics)",
+    position: "Finance Director",
     linkedInURL: "https://www.linkedin.com/in/tanveepatil/",
     imageURL: "/images/seasons/2025/landing/team/directors/tanvee.jpg",
   },

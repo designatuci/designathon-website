@@ -32,29 +32,29 @@ function Team() {
         <Tabs defaultValue="directors">
           <TabsList className="grid h-fit w-full grid-cols-2 bg-transparent sm:grid-cols-3 lg:flex lg:justify-start">
             <TeamTabTrigger value="directors">Directors</TeamTabTrigger>
-            <TeamTabTrigger value="corporate">Corporate</TeamTabTrigger>
             <TeamTabTrigger value="design">Design</TeamTabTrigger>
+            <TeamTabTrigger value="operations">Operations</TeamTabTrigger>
+            <TeamTabTrigger value="corporate">Corporate</TeamTabTrigger>
             <TeamTabTrigger value="finance">Finance</TeamTabTrigger>
             <TeamTabTrigger value="marketing">Marketing</TeamTabTrigger>
-            <TeamTabTrigger value="operations">Operations</TeamTabTrigger>
           </TabsList>
           <TabsContent value="directors">
             <TeamSection profiles={directors} />
           </TabsContent>
-          <TabsContent value="corporate">
-            <TeamSection profiles={corporate} />
-          </TabsContent>
           <TabsContent value="design">
             <TeamSection profiles={design} />
+          </TabsContent>
+          <TabsContent value="operations">
+            <TeamSection profiles={operations} />
+          </TabsContent>
+          <TabsContent value="corporate">
+            <TeamSection profiles={corporate} />
           </TabsContent>
           <TabsContent value="finance">
             <TeamSection profiles={finance} />
           </TabsContent>
           <TabsContent value="marketing">
             <TeamSection profiles={marketing} />
-          </TabsContent>
-          <TabsContent value="operations">
-            <TeamSection profiles={operations} />
           </TabsContent>
         </Tabs>
       </div>

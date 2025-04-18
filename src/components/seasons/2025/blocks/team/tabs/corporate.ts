@@ -5,7 +5,7 @@ export const corporate: Profile[] = [
     name: "Alison Lu",
     position: "Corporate Committee",
     linkedInURL: "https://www.linkedin.com/in/alison-lu-a448b3223/",
-    imageURL: "",
+    imageURL: "/images/seasons/2025/landing/team/imported/alison-lu.jpg",
   },
   {
     name: "Chloe Chun",
