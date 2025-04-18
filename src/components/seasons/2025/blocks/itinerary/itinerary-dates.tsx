@@ -16,6 +16,7 @@ export type Event = {
     timeEnd: string;
   };
   description: React.ReactNode;
+  extras?: "workshop";
 };
 
 export const april18: ItineraryItem[] = [
@@ -110,6 +111,7 @@ export const april18: ItineraryItem[] = [
         <Host>Hosted by Commit the Change</Host>
       </>
     ),
+    extras: "workshop",
   },
   {
     type: "time-mark",
@@ -177,6 +179,7 @@ export const april19: ItineraryItem[] = [
         <Host>Hosted by Ella Chung, Notion Campus Ambassador</Host>
       </>
     ),
+    extras: "workshop",
   },
   {
     type: "event",
@@ -217,6 +220,7 @@ export const april19: ItineraryItem[] = [
         <Host>Led by Erin from FourbyNorth</Host>
       </>
     ),
+    extras: "workshop",
   },
   {
     type: "event",
@@ -237,6 +241,7 @@ export const april19: ItineraryItem[] = [
         </p>
       </>
     ),
+    extras: "workshop",
   },
   {
     type: "event",
@@ -258,6 +263,7 @@ export const april19: ItineraryItem[] = [
         <Host>Led by Tristan Rallos from TEDxUCIrvine</Host>
       </>
     ),
+    extras: "workshop",
   },
   {
     type: "event",

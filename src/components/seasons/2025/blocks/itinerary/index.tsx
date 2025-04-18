@@ -23,7 +23,7 @@ function Itinerary() {
           defaultValue="fri"
           className="mx-auto max-w-[400px] gap-8 md:max-w-none"
         >
-          <TabsList className="h-12 !divide-x-2 !divide-(--blue) bg-gradient-to-b from-(--tan) to-(--peach) p-0">
+          <TabsList className="h-12 !divide-x-2 !divide-(--blue) bg-white/50 p-0">
             <ItineraryTabTrigger value="fri">FRI</ItineraryTabTrigger>
             <ItineraryTabTrigger value="sat">SAT</ItineraryTabTrigger>
             <ItineraryTabTrigger value="sun">SUN</ItineraryTabTrigger>
@@ -61,7 +61,7 @@ function ItineraryTabTrigger({
   return (
     <TabsTrigger
       className={cn(
-        "h-full rounded-none rounded-r-none border-0 px-8 text-lg font-semibold !text-(--blue) transition-none first:rounded-l-md last:rounded-r-md data-[state=active]:bg-(--blue) data-[state=active]:!bg-gradient-to-b data-[state=active]:!from-(--sky) data-[state=active]:!to-(--blue) data-[state=active]:!text-white data-[state=active]:shadow-none",
+        "h-full rounded-none rounded-r-none border-0 px-8 text-lg font-semibold !text-(--blue) transition-none first:rounded-l-md last:rounded-r-md data-[state=active]:!bg-white/80 data-[state=active]:shadow-none",
       )}
       {...props}
     >
@@ -93,7 +93,7 @@ function ItineraryContent({ items, title }: ItineraryContentProps) {
           <Fragment key={`${title}-${index}`}>
             {item.type === "time-mark" && (
               <>
-                <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-(--pink) to-(--tan) py-4 text-(--blue) sm:py-6 sm:text-2xl">
+                <div className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-l from-(--pink) to-(--tan) py-4 text-(--blue) sm:py-6 sm:text-2xl">
                   <span>{item.time}</span>
                   <span>|</span>
                   <span>{item.title}</span>
@@ -114,7 +114,12 @@ function ItineraryContent({ items, title }: ItineraryContentProps) {
                   "md:grid md:grid-cols-2 md:gap-8",
                 )}
               >
-                <div className="flex flex-col justify-center gap-1 rounded-xl bg-gradient-to-b from-[#A6CDF6] to-[#FFFCED] p-4 text-(--blue) sm:p-8">
+                <div
+                  className={cn(
+                    "flex flex-col justify-center gap-1 rounded-xl bg-gradient-to-l from-[#A6CDF6] to-[#FFFCED] p-4 text-(--blue) sm:p-8",
+                    { "from-violet-300": item.extras === "workshop" },
+                  )}
+                >
                   <span className="text-xl leading-[1.1] font-bold sm:max-w-[350px] sm:text-3xl md:mb-2 lg:max-w-none lg:pr-4 lg:text-4xl">
                     {item.content.title}
                   </span>
