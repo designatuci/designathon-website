@@ -108,6 +108,12 @@ const judges: Judge[] = [
     linkedInURL: "https://www.linkedin.com/in/milesseiden/",
     imageURL: "/images/seasons/2025/landing/judges/milesseiden.png",
   },
+  {
+    name: "Damjan Krajacic",
+    position: "UX Strategist at ActiveColor",
+    linkedInURL: "https://www.linkedin.com/in/damjankrajacic/",
+    imageURL: "/images/seasons/2025/landing/judges/damjankrajacic.jpeg",
+  },
 ];
 
 const speakers: Judge[] = [
