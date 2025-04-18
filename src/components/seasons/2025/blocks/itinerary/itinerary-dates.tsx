@@ -78,7 +78,7 @@ export const april18: ItineraryItem[] = [
     description: (
       <>
         <p>
-          Enjoy Panda Express (chow mien and fried rice) for dinner alongside
+          Enjoy Panda Express (chow mein and fried rice) for dinner alongside
           some pocky and chips. Mingle, network, and meet fellow designers over
           dinner! Start forming teams and brainstorming your project ideas.
         </p>
@@ -215,6 +215,47 @@ export const april19: ItineraryItem[] = [
           keep you in the conversation.
         </p>
         <Host>Led by Erin from FourbyNorth</Host>
+      </>
+    ),
+  },
+  {
+    type: "event",
+    content: {
+      title: "Workshop: UX Principles",
+      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      timeStart: "2:15 PM",
+      timeEnd: "3:15 PM",
+    },
+    description: (
+      <>
+        <p>
+          Whether you&apos;re new to design or looking to refresh your
+          fundamentals, this interactive session will walk you through the core
+          principles of user experience design. Learn how to create intuitive,
+          accessible, and user-centered products by applying key concepts like
+          usability, hierarchy, feedback, and consistency.
+        </p>
+      </>
+    ),
+  },
+  {
+    type: "event",
+    content: {
+      title: "Workshop: Project Pitching",
+      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      timeStart: "3:15 PM",
+      timeEnd: "4:15 PM",
+    },
+    description: (
+      <>
+        <p>
+          You&apos;ve built something great—now it&apos;s time to tell the
+          story. In this workshop, learn how to pitch your project with clarity,
+          confidence, and impact. We&apos;ll cover how to frame your problem,
+          highlight user insights, and communicate your solution in a way that
+          resonates with judges and stakeholders.
+        </p>
+        <Host>Led by Tristan Rallos from TEDxUCIrvine</Host>
       </>
     ),
   },
