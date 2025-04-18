@@ -29,7 +29,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
           sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
         />
       </CardHeader>
-      <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-[#824A32]">
+      <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-(--blue)">
         <div className="space-y-2">
           <h3
             className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl xl:text-4xl"
@@ -45,7 +45,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
         <div className="flex items-center gap-2">
           <Link
             href={profile.linkedInURL}
-            className="rounded-full bg-[#654A3F] p-2 text-white"
+            className="rounded-full bg-(--blue) p-2 text-white"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -6,11 +6,10 @@ import { useEffect, useRef, useState } from "react";
 
 const pacificTimeZone = "America/Los_Angeles";
 
-const Countdown = () => {
+function Countdown() {
   // 4/20 at 3:30 PM PT
   const endDatePacificRef = useRef(new Date("2025-04-20T15:30:00"));
   const startDatePacificRef = useRef(new Date("2025-04-18T18:30:00"));
-  //   const startDatePacificRef = useRef(new Date("2025-04-17T19:14:00"));
 
   const [eventHasStartedState, setEventHasStartedState] = useState(false);
 
@@ -81,7 +80,7 @@ const Countdown = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Countdown;
 

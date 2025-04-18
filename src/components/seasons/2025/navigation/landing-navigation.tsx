@@ -69,8 +69,7 @@ function LandingNavigationMobile() {
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <SheetDescription className="sr-only">Navigation Menu</SheetDescription>
         <div className="grid h-full place-items-center">
-          {/* TODO: remove debug class  */}
-          <div className="__debug flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4">
             {navigationLinks.map((link) => (
               <Button
                 variant="ghost"
@@ -88,6 +87,14 @@ function LandingNavigationMobile() {
                 {link.name}
               </Button>
             ))}
+            <Button
+              asChild
+              className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+            >
+              <Link href="https://ucidesignathon.devpost.com/" target="_blank">
+                Devpost
+              </Link>
+            </Button>
           </div>
         </div>
         <SheetClose
@@ -120,6 +127,18 @@ function LandingNavigationDesktop() {
           {link.name}
         </button>
       ))}
+      <Button
+        className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+        asChild
+      >
+        <Link
+          href="https://ucidesignathon.devpost.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Devpost
+        </Link>
+      </Button>
     </div>
   );
 }
