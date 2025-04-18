@@ -28,7 +28,7 @@ function Hero() {
 
     let numImagesLoaded = 0;
 
-    for (let i = 1; i <= 60; i++) {
+    for (let i = 1; i <= 45; i++) {
       const img = new Image();
       img.crossOrigin = "anonymous";
       img.src = `/images/seasons/2025/landing/hero/video/${i}.webp`;
@@ -38,7 +38,7 @@ function Hero() {
       img.onload = () => {
         numImagesLoaded++;
 
-        if (numImagesLoaded === 60) {
+        if (numImagesLoaded === 45) {
           setCachedImages(loadedImages);
         }
       };
@@ -67,7 +67,7 @@ function Hero() {
     damping: 50,
   });
 
-  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 60]);
+  const currentIndex = useTransform(scrollYSpring, [0, 1], [3, 45]);
 
   useMotionValueEvent(currentIndex, "change", (latest) => {
     renderFrame(Number(latest.toFixed()));
