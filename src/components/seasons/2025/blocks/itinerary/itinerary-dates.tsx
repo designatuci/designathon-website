@@ -16,7 +16,10 @@ export type Event = {
     timeEnd: string;
   };
   description: React.ReactNode;
-  extras?: "workshop";
+  extras?: Partial<{
+    workshop: boolean;
+    zoomURL: string;
+  }>;
 };
 
 export const april18: ItineraryItem[] = [
@@ -67,6 +70,9 @@ export const april18: ItineraryItem[] = [
         </Host>
       </>
     ),
+    extras: {
+      zoomURL: "https://uci.zoom.us/s/92513036552",
+    },
   },
   {
     type: "event",
@@ -111,7 +117,10 @@ export const april18: ItineraryItem[] = [
         <Host>Hosted by Commit the Change</Host>
       </>
     ),
-    extras: "workshop",
+    extras: {
+      workshop: true,
+      zoomURL: "https://uci.zoom.us/s/96116679159",
+    },
   },
   {
     type: "time-mark",
@@ -179,7 +188,10 @@ export const april19: ItineraryItem[] = [
         <Host>Hosted by Ella Chung, Notion Campus Ambassador</Host>
       </>
     ),
-    extras: "workshop",
+    extras: {
+      workshop: true,
+      zoomURL: "https://uci.zoom.us/s/94897604899",
+    },
   },
   {
     type: "event",
@@ -220,7 +232,10 @@ export const april19: ItineraryItem[] = [
         <Host>Led by Erin from FourbyNorth</Host>
       </>
     ),
-    extras: "workshop",
+    extras: {
+      workshop: true,
+      zoomURL: "https://uci.zoom.us/s/92750957032",
+    },
   },
   {
     type: "event",
@@ -241,12 +256,15 @@ export const april19: ItineraryItem[] = [
         </p>
       </>
     ),
-    extras: "workshop",
+    extras: {
+      workshop: true,
+      zoomURL: "https://uci.zoom.us/s/97654327169",
+    },
   },
   {
     type: "event",
     content: {
-      title: "Workshop: Project Pitching",
+      title: "Workshop: Project Pitching with TEDxUCIrvine",
       location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
       timeStart: "3:15 PM",
       timeEnd: "4:15 PM",
@@ -263,7 +281,10 @@ export const april19: ItineraryItem[] = [
         <Host>Led by Tristan Rallos from TEDxUCIrvine</Host>
       </>
     ),
-    extras: "workshop",
+    extras: {
+      workshop: true,
+      zoomURL: "https://uci.zoom.us/s/92080107223",
+    },
   },
   {
     type: "event",
@@ -282,6 +303,9 @@ export const april19: ItineraryItem[] = [
         </p>
       </>
     ),
+    extras: {
+      zoomURL: "https://uci.zoom.us/s/95918899660",
+    },
   },
   {
     type: "event",
@@ -419,6 +443,9 @@ export const april20: ItineraryItem[] = [
         <Host>Led by Directors Jasmine Wu and Laila Wafaie</Host>
       </>
     ),
+    extras: {
+      zoomURL: "https://uci.zoom.us/s/98256770100",
+    },
   },
   {
     type: "time-mark",
