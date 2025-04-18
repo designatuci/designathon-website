@@ -6,7 +6,8 @@ import {
   april20,
   ItineraryItem,
 } from "@components/seasons/2025/blocks/itinerary/itinerary-dates";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Video } from "lucide-react";
+import Link from "next/link";
 import { ComponentProps, Fragment } from "react";
 
 function Itinerary() {
@@ -117,16 +118,29 @@ function ItineraryContent({ items, title }: ItineraryContentProps) {
                 <div
                   className={cn(
                     "flex flex-col justify-center gap-1 rounded-xl bg-gradient-to-l from-[#A6CDF6] to-[#FFFCED] p-4 text-(--blue) sm:p-8",
-                    { "from-violet-300": item.extras === "workshop" },
+                    { "from-violet-300": item.extras?.workshop },
                   )}
                 >
                   <span className="text-xl leading-[1.1] font-bold sm:max-w-[350px] sm:text-3xl md:mb-2 lg:max-w-none lg:pr-4 lg:text-4xl">
                     {item.content.title}
                   </span>
-                  <span className="mb-2 text-sm font-medium sm:text-base">
+                  <span className="text-sm font-medium sm:text-base">
                     {item.content.location}
                   </span>
-                  <span className="flex items-center gap-1 sm:text-lg">
+                  {item.extras?.zoomURL && (
+                    <Link
+                      href={item.extras.zoomURL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative mt-1 w-fit overflow-hidden rounded-md border-[1px] border-(--blue) bg-(--tan) px-3 py-1 font-medium transition-transform duration-200 ease-out-quart hover:scale-105"
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        <Video className="inline-block size-4" />
+                        Zoom Link
+                      </span>
+                    </Link>
+                  )}
+                  <span className="mt-2 flex items-center gap-1 sm:text-lg">
                     {item.content.timeStart}{" "}
                     <ArrowRight className="size-4" strokeWidth={3} />{" "}
                     {item.content.timeEnd}

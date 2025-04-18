@@ -8,11 +8,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 import { Button } from "@components/ui/button";
 import { Menu, XIcon } from "lucide-react";
+import { useMotionValueEvent, useScroll } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface NavigationLink {
   name: string;
@@ -27,14 +29,34 @@ const navigationLinks: NavigationLink[] = [
   },
   { name: "FAQ", scrollTo: "faq" },
   { name: "Prizes", scrollTo: "prizes" },
-  // { name: "Sponsors", scrollTo: "sponsors" },
+  { name: "Partners", scrollTo: "sponsors" },
+  { name: "Team", scrollTo: "team" },
   { name: "Rules", scrollTo: "rules" },
 ];
 
 export default function LandingNavigation() {
+  const { scrollY } = useScroll();
+
+  const [backgroundVisible, setBackgroundVisible] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 0 && !backgroundVisible) {
+      setBackgroundVisible(true);
+    } else if (latest === 0 && backgroundVisible) {
+      setBackgroundVisible(false);
+    }
+  });
+
   return (
-    <div className="sticky top-0 z-50 container mx-auto h-0">
-      <div className="flex items-center justify-between py-3 lg:pt-6">
+    <div className="sticky top-2 z-50 container mx-auto h-0 lg:top-4">
+      <div
+        className={cn(
+          "flex items-center justify-between py-2 lg:rounded-xl lg:px-4 lg:transition-colors lg:duration-200 lg:ease-in-out",
+          {
+            "lg:bg-white/50 lg:backdrop-blur-sm": backgroundVisible,
+          },
+        )}
+      >
         <Link href="/">
           <Image
             src="/images/seasons/2025/landing/designathon-logo.png"
@@ -45,7 +67,7 @@ export default function LandingNavigation() {
         </Link>
         <div>
           <LandingNavigationMobile />
-          <LandingNavigationDesktop />
+          <LandingNavigationDesktop backgroundVisible={backgroundVisible} />
         </div>
       </div>
     </div>
@@ -109,9 +131,13 @@ function LandingNavigationMobile() {
   );
 }
 
-function LandingNavigationDesktop() {
+function LandingNavigationDesktop({
+  backgroundVisible,
+}: {
+  backgroundVisible: boolean;
+}) {
   return (
-    <div className="mx-auto hidden gap-8 lg:flex">
+    <div className="mx-auto hidden items-center gap-8 lg:flex">
       {navigationLinks.map((link) => (
         <button
           key={link.name}
@@ -122,7 +148,10 @@ function LandingNavigationDesktop() {
               element.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className="text-xl font-medium text-(--tan) hover:text-(--tan)"
+          className={cn(
+            "h-fit text-xl font-medium text-(--tan) transition-colors duration-300 ease-in-out hover:text-(--tan)",
+            { "text-(--blue) hover:text-(--blue)": backgroundVisible },
+          )}
         >
           {link.name}
         </button>
