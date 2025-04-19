@@ -24,8 +24,8 @@ interface NavigationLink {
 const navigationLinks: NavigationLink[] = [
   { name: "About", scrollTo: "about" },
   {
-    name: "Past Events",
-    scrollTo: "past-events",
+    name: "Itinerary",
+    scrollTo: "itinerary",
   },
   { name: "FAQ", scrollTo: "faq" },
   { name: "Prizes", scrollTo: "prizes" },

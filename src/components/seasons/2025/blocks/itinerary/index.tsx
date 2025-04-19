@@ -13,7 +13,7 @@ import { ComponentProps, Fragment } from "react";
 function Itinerary() {
   return (
     <section
-      id="past-events"
+      id="itinerary"
       className="noise flex justify-center overflow-x-hidden bg-(--blue) py-16"
     >
       <div className="relative container flex w-full flex-col gap-8 py-8 text-white">
