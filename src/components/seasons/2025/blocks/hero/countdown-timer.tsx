@@ -8,7 +8,7 @@ const pacificTimeZone = "America/Los_Angeles";
 
 function Countdown() {
   // 4/18 at 6:30 PM PT
-  const startDatePacificRef = useRef(new Date("2025-04-18T18:30:00"));
+  const startDatePacificRef = useRef(new Date("2025-04-18T17:30:00"));
   // 4/20 at 9:00 AM PT
   const endDatePacificRef = useRef(new Date("2025-04-20T09:00:00"));
 
