@@ -258,7 +258,7 @@ export const april19: ItineraryItem[] = [
     ),
     extras: {
       workshop: true,
-      zoomURL: "https://uci.zoom.us/s/97654327169",
+      zoomURL: "https://uci.zoom.us/j/3018853834",
     },
   },
   {
@@ -283,7 +283,7 @@ export const april19: ItineraryItem[] = [
     ),
     extras: {
       workshop: true,
-      zoomURL: "https://uci.zoom.us/s/92080107223",
+      zoomURL: "https://uci.zoom.us/j/3018853834",
     },
   },
   {
