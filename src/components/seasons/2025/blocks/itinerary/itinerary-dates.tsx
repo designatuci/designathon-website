@@ -157,7 +157,7 @@ export const april19: ItineraryItem[] = [
     type: "event",
     content: {
       title: "Hiking Social",
-      location: "DCE Courtyard (In-Person)",
+      location: "Aldrich Park (In-Person)",
       timeStart: "10:00 AM",
       timeEnd: "11:00 AM",
     },
@@ -175,7 +175,7 @@ export const april19: ItineraryItem[] = [
     type: "event",
     content: {
       title: "Workshop: Notion for Building Design Portfolios",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      location: "DCE, 3070 & 3080 (In-Person) + Zoom (Online)",
       timeStart: "11:00 AM",
       timeEnd: "12:00 PM",
     },
@@ -216,7 +216,7 @@ export const april19: ItineraryItem[] = [
     content: {
       title:
         "Workshop: AI by Design: An Approach to Strategic, Human-Centered AI",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      location: "DCE,  3070 & 3080 (In-Person) + Zoom (Online)",
       timeStart: "1:30 PM",
       timeEnd: "2:15 PM",
     },
@@ -241,7 +241,7 @@ export const april19: ItineraryItem[] = [
     type: "event",
     content: {
       title: "Workshop: UX Principles",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      location: "DCE,  3070 & 3080 (In-Person) + Zoom (Online)",
       timeStart: "2:15 PM",
       timeEnd: "3:15 PM",
     },
@@ -265,7 +265,7 @@ export const april19: ItineraryItem[] = [
     type: "event",
     content: {
       title: "Workshop: Project Pitching with TEDxUCIrvine",
-      location: "DCE, Yosemite ABC (In-Person) + Zoom (Online)",
+      location: "DCE, 3070 & 3080 (In-Person) + Zoom (Online)",
       timeStart: "3:15 PM",
       timeEnd: "4:15 PM",
     },
