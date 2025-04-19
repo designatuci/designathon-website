@@ -24,7 +24,6 @@ export default function Landing2025() {
       <Stats />
       <About />
       <Prompt />
-      <PastEvents />
       <Itinerary />
       <FAQ />
       <Prizes />
@@ -32,6 +31,7 @@ export default function Landing2025() {
       <Sponsors />
       <Team />
       <Rules />
+      <PastEvents />
       <Footer />
     </main>
   );
