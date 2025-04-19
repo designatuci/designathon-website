@@ -117,7 +117,7 @@ const judges: Judge[] = [
   {
     name: "Lawrence Ntim",
     position: "Ex-Senior Product Designer at Dropbox",
-    linkedInURL: "https://www.linkedin.com/in/damjankrajacic/",
+    linkedInURL: "https://www.linkedin.com/in/lawrencentim/",
     imageURL: "/images/seasons/2025/landing/judges/lawrence.png",
   },
 ];
