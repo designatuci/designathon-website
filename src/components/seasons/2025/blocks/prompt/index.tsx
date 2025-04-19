@@ -16,23 +16,27 @@ function Prompt() {
             <hr className="w-20 border-white/50" />
             <div className="space-y-4">
               <PromptPoint>
-                What lies beyond what we know, not just personally, but in how
-                we interact with the world?
+                We&apos;re living in a time where new technologies—AI, AR/VR,
+                spatial computing—are rapidly reshaping how we live, work, and
+                connect. But many of these systems are still hard to use,
+                confusing, or not designed for everyone.
               </PromptPoint>
               <PromptPoint>
-                This year&apos;s theme challenges you to solve real, emerging
-                product problems by designing for uncertainty: new users, edge
-                cases, or systems that don&apos;t yet exist.
+                This year&apos;s challenge is to design for the unknown: create
+                a solution that helps people navigate uncertainty. That could
+                mean supporting new users, edge cases, or entirely new systems.
               </PromptPoint>
               <PromptPoint>
-                Build tools, experiences, or interfaces that explore new
-                modalities of interaction — whether it&apos;s through spatial
-                computing, voice, haptics, AI, VR/AR, conversational interfaces,
-                or environments still underserved by today&apos;s design norms.
+                Start by choosing a space where tech is evolving or difficult to
+                use—emergency response, elderly care, extreme environments, or
+                unfamiliar digital tools. Then, identify a real user
+                problem—confusion, inaccessibility, complexity—and design an
+                intuitive, bold solution using any medium: AI agents, voice,
+                gesture, haptics, AR, or something new.
               </PromptPoint>
               <PromptPoint>
-                What would it take to create intuitive, bold design for the
-                problems we haven&apos;t solved yet?
+                Your goal is to make the future less overwhelming and more
+                human. Design for what doesn&apos;t exist yet.
               </PromptPoint>
             </div>
           </div>
