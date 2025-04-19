@@ -11,27 +11,28 @@ function Prompt() {
         <div className="space-y-2 lg:space-y-4">
           <div className="space-y-6 rounded-lg bg-white/20 p-8 lg:p-16">
             <h3 className="text-xl font-bold lg:text-3xl xl:text-4xl">
-              Lorem ipsum, dolor sit amet consectetur adipisicing.
+              Reimagining How We Interface with the World.
             </h3>
             <hr className="w-20 border-white/50" />
             <div className="space-y-4">
               <PromptPoint>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-                modi nobis consectetur repudiandae accusantium praesentium rem
-                doloribus odit, fugiat illum.
+                What lies beyond what we know, not just personally, but in how
+                we interact with the world?
               </PromptPoint>
               <PromptPoint>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea
-                doloribus at dolor quae delectus, repellat vero tenetur odit
-                distinctio amet.
+                This year&apos;s theme challenges you to solve real, emerging
+                product problems by designing for uncertainty: new users, edge
+                cases, or systems that don&apos;t yet exist.
               </PromptPoint>
               <PromptPoint>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Accusantium doloremque quisquam ipsum laboriosam porro quasi?
+                Build tools, experiences, or interfaces that explore new
+                modalities of interaction — whether it&apos;s through spatial
+                computing, voice, haptics, AI, VR/AR, conversational interfaces,
+                or environments still underserved by today&apos;s design norms.
               </PromptPoint>
               <PromptPoint>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Pariatur provident voluptatum molestias velit, modi deserunt!
+                What would it take to create intuitive, bold design for the
+                problems we haven&apos;t solved yet?
               </PromptPoint>
             </div>
           </div>
