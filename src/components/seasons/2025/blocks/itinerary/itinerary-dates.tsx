@@ -335,7 +335,10 @@ export const april19: ItineraryItem[] = [
     description: (
       <>
         <p>Wind down with karaoke with 2020s bangers!</p>
-        <Host>Hosted by Designathon Director Jerry Nguyen.</Host>
+        <Host>
+          Hosted by Designathon Directors Jerry Nguyen and John Daniel
+          Norombaba.
+        </Host>
       </>
     ),
   },
