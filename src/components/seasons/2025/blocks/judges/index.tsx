@@ -116,7 +116,7 @@ const judges: Judge[] = [
   },
   {
     name: "Lawrence Ntim",
-    position: "Senior Product Designer at Dropbox",
+    position: "Ex-Senior Product Designer at Dropbox",
     linkedInURL: "https://www.linkedin.com/in/damjankrajacic/",
     imageURL: "/images/seasons/2025/landing/judges/lawrence.png",
   },
@@ -151,7 +151,7 @@ const speakers: Judge[] = [
   },
   {
     name: "Lawrence Ntim",
-    position: "Senior Product Designer at Dropbox",
+    position: "Ex-Senior Product Designer at Dropbox",
     linkedInURL: "https://www.linkedin.com/in/lawrencentim/",
     imageURL: "/images/seasons/2025/landing/judges/lawrence.png",
   },
