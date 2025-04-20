@@ -420,7 +420,7 @@ export const april20: ItineraryItem[] = [
       title: "Top 10 Finalist Pitches on Stage",
       location: "Antrepreneur Center (In-Person) + Zoom (Online)",
       timeStart: "2:30 PM",
-      timeEnd: "3:30 PM",
+      timeEnd: "3:15 PM",
     },
     description: (
       <>
@@ -431,14 +431,41 @@ export const april20: ItineraryItem[] = [
         </p>
       </>
     ),
+    extras: {
+      zoomURL: "https://uci.zoom.us/s/98256770100",
+    },
+  },
+  {
+    type: "event",
+    content: {
+      title:
+        "Fireside Chat with Lawrence Ntim (ex. Founding Designer @ DropBox AI)",
+      location: "Antrepreneur Center (In-Person) + Zoom (Online)",
+      timeStart: "3:15 PM",
+      timeEnd: "3:45 PM",
+    },
+    description: (
+      <>
+        <p>
+          Join us for a Fireside Chat with Lawrence Ntim (ex. Founding Designer
+          @ DropBox AI) as he shares insights from his journey in the design
+          world, building products at the intersection of AI and user
+          experience. Learn about his approach to innovation, storytelling
+          through design, and navigating careers in tech.
+        </p>
+      </>
+    ),
+    extras: {
+      zoomURL: "https://uci.zoom.us/s/98256770100",
+    },
   },
   {
     type: "event",
     content: {
       title: "Closing Ceremony & Winners Announced",
       location: "Antrepreneur Center (In-Person) + Zoom (Online)",
-      timeStart: "4:00 PM",
-      timeEnd: "5:30 PM",
+      timeStart: "3:45 PM",
+      timeEnd: "4:30 PM",
     },
     description: (
       <>
