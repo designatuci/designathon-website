@@ -479,7 +479,7 @@ export const april20: ItineraryItem[] = [
   },
   {
     type: "time-mark",
-    time: "3:30 PM",
+    time: "4:30 PM",
     title: "Design-a-thon Ends",
     note: "we will ship prizes to online winners through an online form",
   },
