@@ -21,7 +21,7 @@ function Itinerary() {
           Itinerary
         </h2>
         <Tabs
-          defaultValue="sat"
+          defaultValue="sun"
           className="mx-auto max-w-[400px] gap-8 md:max-w-none"
         >
           <TabsList className="h-12 !divide-x-2 !divide-(--blue) bg-white/50 p-0">

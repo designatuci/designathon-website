@@ -419,8 +419,8 @@ export const april20: ItineraryItem[] = [
     content: {
       title: "Top 10 Finalist Pitches on Stage",
       location: "Antrepreneur Center (In-Person) + Zoom (Online)",
-      timeStart: "1:30 PM",
-      timeEnd: "2:30 PM",
+      timeStart: "2:30 PM",
+      timeEnd: "3:30 PM",
     },
     description: (
       <>
@@ -437,8 +437,8 @@ export const april20: ItineraryItem[] = [
     content: {
       title: "Closing Ceremony & Winners Announced",
       location: "Antrepreneur Center (In-Person) + Zoom (Online)",
-      timeStart: "3:00 PM",
-      timeEnd: "3:30 PM",
+      timeStart: "4:00 PM",
+      timeEnd: "5:30 PM",
     },
     description: (
       <>
