@@ -1,6 +1,7 @@
-import Landing2026 from "@components/seasons/2026/landing/landing-2026";
-
 export default function LandingPage() {
-  // To archive the 2025 pages, create an /archive/2025 folder and move the pages there to keep them for future reference.
-  return <Landing2026 />;
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-neutral-900 text-white">
+      <h1 className="text-2xl font-medium">2026 — Coming Soon</h1>
+    </main>
+  );
 }
