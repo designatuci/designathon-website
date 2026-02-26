@@ -102,6 +102,11 @@
     --font-cursive: var(--theme-font-cursive);
   }
 
+  /* 2026 themes */
+  [data-theme="2026"] {
+    font-family: var(--font-inria-sans), sans-serif;
+  }
+
   /* 2025 themes */
   [data-theme="2025"] {
     /* Font preferences */
