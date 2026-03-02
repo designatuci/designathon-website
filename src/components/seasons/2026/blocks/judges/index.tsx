@@ -1,8 +1,7 @@
 "use client";
-import { useRef } from "react";
 import { useInView } from "motion/react";
+import { useRef } from "react";
 
-import ProfileCard from "./profile-card";
 import {
   Carousel,
   CarouselContent,
@@ -10,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@components/ui/carousel";
+import ProfileCard from "./profile-card";
 
 export interface Judge {
   name: string;
@@ -96,37 +96,35 @@ export default function IndexPage() {
   });
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-(--blue) text-white">
+    <main className="flex min-h-screen items-center justify-center bg-(--blue) text-white">
       <section
         ref={sectionRef}
-        className="w-full max-w-xl px-4 py-4 flex flex-col items-center gap-0"
-        >
-        <h1 className="text-center font-title text-3xl font-bold sm:text-4xl -mt-6 mb-2">
-            Judges
+        className="flex w-full max-w-xl flex-col items-center gap-0 px-4 py-4"
+      >
+        <h1 className="-mt-6 mb-2 text-center font-title text-3xl font-bold sm:text-4xl">
+          Judges
         </h1>
 
-        <Carousel opts={ { loop: true } } className="w-full -mt-16">
+        <Carousel opts={{ loop: true }} className="-mt-16 w-full">
           <CarouselContent>
             {judges.map((judge, index) => (
               <CarouselItem
                 key={judge.name}
-                className="basis-full flex justify-center py-4"
+                className="flex basis-full justify-center py-4"
               >
-                <div className="scale-75 origin-center">
-                    <ProfileCard
+                <div className="origin-center scale-75">
+                  <ProfileCard
                     profile={judge}
                     isInView={isInView}
                     index={index}
-                    />
+                  />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-        
-    
-        <CarouselPrevious className="size-12 rounded-full bg-white/0 backdrop-blur-md text-white-900 border-2 border-white/0 absolute left-10 top-1/2 -translate-y-1/2 hover:bg-white/50 shadow-2xl opacity-100 z-20" />
-        <CarouselNext className="size-12 rounded-full bg-white/0 backdrop-blur-md text-white-900 border-2 border-white/0 absolute right-10 top-1/2 -translate-y-1/2 hover:bg-white/50 shadow-2xl opacity-100 z-20" />
 
+          <CarouselPrevious className="text-white-900 absolute top-1/2 left-10 z-20 size-12 -translate-y-1/2 rounded-full border-2 border-white/0 bg-white/0 opacity-100 shadow-2xl backdrop-blur-md hover:bg-white/50" />
+          <CarouselNext className="text-white-900 absolute top-1/2 right-10 z-20 size-12 -translate-y-1/2 rounded-full border-2 border-white/0 bg-white/0 opacity-100 shadow-2xl backdrop-blur-md hover:bg-white/50" />
         </Carousel>
       </section>
     </main>
