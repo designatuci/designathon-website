@@ -1,0 +1,145 @@
+@reference "tailwindcss";
+
+.base {
+  @apply w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/25 outline-none transition focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30;
+}
+
+.trigger {
+  @apply w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-left transition focus:border-purple-500/60 focus:outline-none focus:ring-1 focus:ring-purple-500/30;
+}
+
+.dropdown {
+  @apply absolute z-50 mt-1.5 w-full rounded-xl border border-white/10 bg-[#0d0a1a] shadow-2xl overflow-hidden;
+}
+
+.label {
+  @apply block text-sm font-medium text-purple-200/80 tracking-wide mb-1.5;
+}
+
+.required {
+  @apply text-red-400 ml-1;
+}
+
+.optional {
+  @apply text-xs font-normal text-white/40 ml-1;
+}
+
+.charLimit {
+  @apply text-xs font-normal text-white/40 ml-1;
+}
+
+/* Search input inside dropdown */
+.searchWrapper {
+  @apply p-2 border-b border-white/10;
+}
+
+.searchInner {
+  @apply flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2;
+}
+
+.searchInput {
+  @apply w-full bg-transparent text-sm text-white placeholder-white/25 outline-none;
+}
+
+.searchIcon {
+  @apply h-3.5 w-3.5 shrink-0 text-white/30;
+}
+
+.searchClear {
+  @apply text-white/30 hover:text-white/60 transition;
+}
+
+/* Dropdown list */
+.list {
+  @apply max-h-52 overflow-y-auto py-1;
+}
+
+.listEmpty {
+  @apply px-4 py-3 text-sm text-white/30 text-center;
+}
+
+.listItem {
+  @apply flex items-center justify-between px-4 py-2.5 text-sm cursor-pointer transition-colors;
+}
+
+.listItemDefault {
+  @apply text-white/70 hover:bg-white/5;
+}
+
+.listItemHighlighted {
+  @apply bg-purple-500/20 text-white;
+}
+
+.listItemMulti {
+  @apply flex items-center px-4 py-2.5 text-sm cursor-pointer transition-colors gap-2.5;
+}
+
+/* Checkmark icon */
+.checkmark {
+  @apply h-4 w-4 text-purple-400 shrink-0;
+}
+
+/* Checkbox in multi-select */
+.checkbox {
+  @apply h-4 w-4 shrink-0 rounded border flex items-center justify-center transition-colors;
+}
+
+.checkboxChecked {
+  @apply border-purple-500 bg-purple-500;
+}
+
+.checkboxUnchecked {
+  @apply border-white/20 bg-white/5;
+}
+
+/* Chevron */
+.chevron {
+  @apply pointer-events-none absolute inset-y-0 right-3 flex items-center;
+}
+
+.chevronIcon {
+  @apply h-4 w-4 text-white/60 transition-transform duration-200;
+}
+
+/* Pills */
+.pillSelected {
+  @apply inline-flex items-center gap-1 rounded-md bg-purple-500/20 border border-purple-500/30 px-2 py-0.5 text-xs text-purple-200;
+}
+
+.pillCustom {
+  @apply inline-flex items-center gap-1 rounded-md bg-indigo-500/20 border border-indigo-500/30 px-2 py-0.5 text-xs text-indigo-200;
+}
+
+.pillRemoveSelected {
+  @apply text-purple-300/60 hover:text-purple-200 transition cursor-pointer;
+}
+
+.pillRemoveCustom {
+  @apply text-indigo-300/60 hover:text-indigo-200 transition cursor-pointer;
+}
+
+/* Footer bar */
+.footer {
+  @apply border-t border-white/10 px-4 py-2 flex items-center justify-between;
+}
+
+.footerCount {
+  @apply text-xs text-white/30;
+}
+
+.footerClear {
+  @apply text-xs text-purple-400/70 hover:text-purple-300 transition;
+}
+
+/* Other / custom input row */
+.otherRow {
+  @apply border-t border-white/10 p-2 flex gap-2;
+}
+
+.otherInput {
+  @apply flex-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white placeholder-white/25 outline-none focus:border-purple-500/60 focus:ring-1 focus:ring-purple-500/30;
+}
+
+.otherAdd {
+  @apply px-3 py-2 rounded-lg bg-purple-500/20 border border-purple-500/30 text-xs text-purple-200 hover:bg-purple-500/30 transition;
+}
