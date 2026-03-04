@@ -3,6 +3,7 @@
 import Footer from "@components/seasons/2026/blocks/footer";
 import Judges from "@components/seasons/2026/blocks/judges";
 import Sponsors from "@components/seasons/2026/blocks/sponsors";
+import FAQ from "@components/seasons/2026/blocks/faq";
 
 export default function Landing2026() {
   return (
@@ -14,6 +15,7 @@ export default function Landing2026() {
         {" "}
         <Judges />{" "}
       </div>
+      <FAQ />
       <Sponsors />
       <Footer />
     </main>
