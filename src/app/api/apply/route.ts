@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { google } from "googleapis";
+import { NextResponse } from "next/server";
 
 type Submission = {
   id: string;
@@ -35,7 +35,6 @@ function getAuth() {
   });
 }
 
-
 async function appendToSheet(s: Submission) {
   const auth = getAuth();
   const sheets = google.sheets({ version: "v4", auth });
@@ -47,26 +46,28 @@ async function appendToSheet(s: Submission) {
     valueInputOption: "RAW",
     insertDataOption: "INSERT_ROWS",
     requestBody: {
-      values: [[
-        s.timestamp,
-        s.email,
-        s.name,
-        s.major,
-        s.firstAthon,
-        s.university,
-        s.educationLevel,
-        s.gender,
-        s.ethnicity,
-        s.ageAndStudent,
-        s.timezone,
-        s.attendanceMode,
-        s.transportation,
-        s.howHeard,
-        s.background,
-        s.motivation,
-        s.boba,
-        s.otherQuestions ?? "",
-      ]],
+      values: [
+        [
+          s.timestamp,
+          s.email,
+          s.name,
+          s.major,
+          s.firstAthon,
+          s.university,
+          s.educationLevel,
+          s.gender,
+          s.ethnicity,
+          s.ageAndStudent,
+          s.timezone,
+          s.attendanceMode,
+          s.transportation,
+          s.howHeard,
+          s.background,
+          s.motivation,
+          s.boba,
+          s.otherQuestions ?? "",
+        ],
+      ],
     },
   });
 }
@@ -82,24 +83,27 @@ export async function POST(request: Request) {
     const p = await request.json();
 
     const submission: Submission = {
-      id:             globalThis.crypto?.randomUUID?.() ?? String(Date.now()),
-      timestamp:      new Date().toISOString(),
-      email:          requireString(p.email, "Email"),
-      name:           requireString(p.name, "Name"),
-      major:          requireString(p.major, "Major"),
-      firstAthon:     requireString(p.firstAthon, "First a-thon"),
-      university:     requireString(p.university, "University"),
+      id: globalThis.crypto?.randomUUID?.() ?? String(Date.now()),
+      timestamp: new Date().toISOString(),
+      email: requireString(p.email, "Email"),
+      name: requireString(p.name, "Name"),
+      major: requireString(p.major, "Major"),
+      firstAthon: requireString(p.firstAthon, "First a-thon"),
+      university: requireString(p.university, "University"),
       educationLevel: requireString(p.educationLevel, "Education level"),
-      gender:         requireString(p.gender, "Gender"),
-      ethnicity:      requireString(p.ethnicity, "Ethnicity"),
-      ageAndStudent:  requireString(p.ageAndStudent, "Age & student eligibility"),
-      timezone:       requireString(p.timezone, "Timezone"),
+      gender: requireString(p.gender, "Gender"),
+      ethnicity: requireString(p.ethnicity, "Ethnicity"),
+      ageAndStudent: requireString(
+        p.ageAndStudent,
+        "Age & student eligibility",
+      ),
+      timezone: requireString(p.timezone, "Timezone"),
       attendanceMode: requireString(p.attendanceMode, "Attendance mode"),
       transportation: requireString(p.transportation, "Transportation"),
-      howHeard:       requireString(p.howHeard, "How heard"),
-      background:     requireString(p.background, "Design background"),
-      motivation:     requireString(p.motivation, "Motivation"),
-      boba:           requireString(p.boba, "Favorite drink"),
+      howHeard: requireString(p.howHeard, "How heard"),
+      background: requireString(p.background, "Design background"),
+      motivation: requireString(p.motivation, "Motivation"),
+      boba: requireString(p.boba, "Favorite drink"),
       otherQuestions: p.otherQuestions ? String(p.otherQuestions) : undefined,
     };
 

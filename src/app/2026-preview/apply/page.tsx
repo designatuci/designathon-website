@@ -80,7 +80,7 @@ export default function ApplyPage() {
               Design-a-thon 2026
             </p>
             <h1 className="script-glow text-8xl font-normal text-white md:text-9xl xl:text-[7rem]">
-                Apply
+              Apply
             </h1>
             <p className="mt-3 text-base text-purple-200/50">
               Join us on this interstellar adventure!

@@ -1,7 +1,7 @@
 "use client";
 
 // there is no separate form-options file; define Option inline
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import s from "./css/form-fields.module.css";
 
 type Option = { value: string; label: string };
@@ -10,12 +10,17 @@ type Option = { value: string; label: string };
 
 const Required = () => <span className={s.required}>*</span>;
 const Optional = () => <span className={s.optional}>(optional)</span>;
-const CharLimit = ({ n }: { n: number }) => <span className={s.charLimit}>({n} chars max)</span>;
+const CharLimit = ({ n }: { n: number }) => (
+  <span className={s.charLimit}>({n} chars max)</span>
+);
 
 // ─── Shared dropdown internals ────────────────────────────────────────────────
 
 const SearchInput = ({
-  inputRef, query, onChange, onClear,
+  inputRef,
+  query,
+  onChange,
+  onClear,
 }: {
   inputRef: React.RefObject<HTMLInputElement>;
   query: string;
@@ -24,19 +29,41 @@ const SearchInput = ({
 }) => (
   <div className={s.searchWrapper}>
     <div className={s.searchInner}>
-      <svg className={s.searchIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+      <svg
+        className={s.searchIcon}
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
+        />
       </svg>
       <input
-        ref={inputRef} type="text" value={query}
+        ref={inputRef}
+        type="text"
+        value={query}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search..."
         className={s.searchInput}
       />
       {query && (
         <button type="button" onClick={onClear} className={s.searchClear}>
-          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="h-3.5 w-3.5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
       )}
@@ -48,17 +75,30 @@ const Chevron = ({ open }: { open: boolean }) => (
   <span className={s.chevron}>
     <svg
       className={`${s.chevronIcon} ${open ? "rotate-180" : ""}`}
-      viewBox="0 0 20 20" fill="none" stroke="currentColor"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
     >
-      <path d="M6 8l4 4 4-4" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M6 8l4 4 4-4"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   </span>
 );
 
-
 // ─── Field wrapper ────────────────────────────────────────────────────────────
 
-export const Field = ({ id, label, required, optional, charLimit, children }: {
+export const Field = ({
+  id,
+  label,
+  required,
+  optional,
+  charLimit,
+  children,
+}: {
   id: string;
   label: string;
   required?: boolean;
@@ -79,18 +119,45 @@ export const Field = ({ id, label, required, optional, charLimit, children }: {
 
 // ─── Basic inputs ─────────────────────────────────────────────────────────────
 
-export const Input = ({ id, name, type = "text", placeholder, required }: {
-  id: string; name: string; type?: string; placeholder?: string; required?: boolean;
+export const Input = ({
+  id,
+  name,
+  type = "text",
+  placeholder,
+  required,
+}: {
+  id: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
 }) => (
-  <input id={id} name={name} type={type} placeholder={placeholder} required={required} className={s.base} />
+  <input
+    id={id}
+    name={name}
+    type={type}
+    placeholder={placeholder}
+    required={required}
+    className={s.base}
+  />
 );
 
-export const Select = ({ id, name, required, options }: {
-  id: string; name: string; required?: boolean;
+export const Select = ({
+  id,
+  name,
+  required,
+  options,
+}: {
+  id: string;
+  name: string;
+  required?: boolean;
   options: { value: string; label: string }[];
 }) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState<{ value: string; label: string } | null>(null);
+  const [selected, setSelected] = useState<{
+    value: string;
+    label: string;
+  } | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -103,15 +170,23 @@ export const Select = ({ id, name, required, options }: {
 
   return (
     <div ref={containerRef} className="relative">
-      <input type="hidden" name={name} value={selected?.value ?? ""} required={required} />
+      <input
+        type="hidden"
+        name={name}
+        value={selected?.value ?? ""}
+        required={required}
+      />
       <button
-        type="button" id={id}
+        type="button"
+        id={id}
         onClick={() => setOpen((o) => !o)}
         className={s.trigger}
       >
-        {selected
-          ? <span className="text-white">{selected.label}</span>
-          : <span className="text-white/25">Select an option</span>}
+        {selected ? (
+          <span className="text-white">{selected.label}</span>
+        ) : (
+          <span className="text-white/25">Select an option</span>
+        )}
         <Chevron open={open} />
       </button>
 
@@ -121,15 +196,30 @@ export const Select = ({ id, name, required, options }: {
             {options.map((o) => (
               <li
                 key={o.value}
-                onMouseDown={() => { setSelected(o); setOpen(false); }}
-                className={`flex items-center justify-between px-4 py-2.5 text-sm cursor-pointer transition-colors ${
-                  selected?.value === o.value ? s.listItemHighlighted : s.listItemDefault
+                onMouseDown={() => {
+                  setSelected(o);
+                  setOpen(false);
+                }}
+                className={`flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+                  selected?.value === o.value
+                    ? s.listItemHighlighted
+                    : s.listItemDefault
                 }`}
               >
                 {o.label}
                 {selected?.value === o.value && (
-                  <svg className={s.checkmark} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className={s.checkmark}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 )}
               </li>
@@ -141,18 +231,46 @@ export const Select = ({ id, name, required, options }: {
   );
 };
 
-export const TextArea = ({ id, name, placeholder, rows = 4, maxLength, required }: {
-  id: string; name: string; placeholder?: string; rows?: number; maxLength?: number; required?: boolean;
+export const TextArea = ({
+  id,
+  name,
+  placeholder,
+  rows = 4,
+  maxLength,
+  required,
+}: {
+  id: string;
+  name: string;
+  placeholder?: string;
+  rows?: number;
+  maxLength?: number;
+  required?: boolean;
 }) => (
-  <textarea id={id} name={name} placeholder={placeholder} rows={rows} maxLength={maxLength} required={required} className={`${s.base} resize-none`} />
+  <textarea
+    id={id}
+    name={name}
+    placeholder={placeholder}
+    rows={rows}
+    maxLength={maxLength}
+    required={required}
+    className={`${s.base} resize-none`}
+  />
 );
 
 // ─── Searchable single select ─────────────────────────────────────────────────
 
 export const SearchableSelect = ({
-  id, name, options, placeholder = "Search or select...", required,
+  id,
+  name,
+  options,
+  placeholder = "Search or select...",
+  required,
 }: {
-  id: string; name: string; options: Option[]; placeholder?: string; required?: boolean;
+  id: string;
+  name: string;
+  options: Option[];
+  placeholder?: string;
+  required?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -168,7 +286,7 @@ export const SearchableSelect = ({
   const formValue = isOther ? otherValue : (selected?.value ?? "");
 
   const filtered = options.filter((o) =>
-    o.label.toLowerCase().includes(query.toLowerCase())
+    o.label.toLowerCase().includes(query.toLowerCase()),
   );
 
   useEffect(() => {
@@ -180,7 +298,9 @@ export const SearchableSelect = ({
   }, []);
 
   useEffect(() => {
-    (listRef.current?.children[highlighted] as HTMLElement)?.scrollIntoView({ block: "nearest" });
+    (listRef.current?.children[highlighted] as HTMLElement)?.scrollIntoView({
+      block: "nearest",
+    });
   }, [highlighted]);
 
   const select = (option: Option) => {
@@ -198,8 +318,12 @@ export const SearchableSelect = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!open && (e.key === "ArrowDown" || e.key === "Enter")) { setOpen(true); return; }
-    if (e.key === "ArrowDown") setHighlighted((h) => Math.min(h + 1, filtered.length - 1));
+    if (!open && (e.key === "ArrowDown" || e.key === "Enter")) {
+      setOpen(true);
+      return;
+    }
+    if (e.key === "ArrowDown")
+      setHighlighted((h) => Math.min(h + 1, filtered.length - 1));
     else if (e.key === "ArrowUp") setHighlighted((h) => Math.max(h - 1, 0));
     else if (e.key === "Enter") {
       e.preventDefault();
@@ -211,52 +335,83 @@ export const SearchableSelect = ({
       } else if (filtered[highlighted]) {
         select(filtered[highlighted]);
       }
-    }
-    else if (e.key === "Escape") setOpen(false);
+    } else if (e.key === "Escape") setOpen(false);
   };
 
   return (
     <div ref={containerRef} className="relative" onKeyDown={handleKeyDown}>
       <input type="hidden" name={name} value={formValue} required={required} />
       <button
-        type="button" id={id}
-        onClick={() => { setOpen((o) => !o); setTimeout(() => inputRef.current?.focus(), 0); }}
+        type="button"
+        id={id}
+        onClick={() => {
+          setOpen((o) => !o);
+          setTimeout(() => inputRef.current?.focus(), 0);
+        }}
         className={s.trigger}
       >
-        {selected
-          ? <span className="text-white">{isOther && otherValue ? otherValue : selected.label}</span>
-          : <span className="text-white/25">{placeholder}</span>}
+        {selected ? (
+          <span className="text-white">
+            {isOther && otherValue ? otherValue : selected.label}
+          </span>
+        ) : (
+          <span className="text-white/25">{placeholder}</span>
+        )}
         <Chevron open={open} />
       </button>
 
       {open && (
         <div className={s.dropdown}>
           <SearchInput
-            inputRef={inputRef} query={query}
-            onChange={(v) => { setQuery(v); setHighlighted(0); }}
+            inputRef={inputRef}
+            query={query}
+            onChange={(v) => {
+              setQuery(v);
+              setHighlighted(0);
+            }}
             onClear={() => setQuery("")}
           />
           <ul ref={listRef} className={s.list}>
-            {filtered.length === 0
-              ? <li className={s.listEmpty}>No results — press <kbd className="px-1 py-0.5 rounded bg-white/10 text-white/50 text-xs font-mono">Enter</kbd> to add <span className="text-white/50">&ldquo;{query}&rdquo;</span></li>
-              : filtered.map((o, i) => (
+            {filtered.length === 0 ? (
+              <li className={s.listEmpty}>
+                No results — press{" "}
+                <kbd className="rounded bg-white/10 px-1 py-0.5 font-mono text-xs text-white/50">
+                  Enter
+                </kbd>{" "}
+                to add{" "}
+                <span className="text-white/50">&ldquo;{query}&rdquo;</span>
+              </li>
+            ) : (
+              filtered.map((o, i) => (
                 <li
                   key={o.value}
                   onMouseDown={() => select(o)}
                   onMouseEnter={() => setHighlighted(i)}
-                  className={`flex items-center justify-between px-4 py-2.5 text-sm cursor-pointer transition-colors ${
-                    i === highlighted ? s.listItemHighlighted : s.listItemDefault
+                  className={`flex cursor-pointer items-center justify-between px-4 py-2.5 text-sm transition-colors ${
+                    i === highlighted
+                      ? s.listItemHighlighted
+                      : s.listItemDefault
                   }`}
                 >
                   {o.label}
                   {selected?.value === o.value && (
-                    <svg className={s.checkmark} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <svg
+                      className={s.checkmark}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   )}
                 </li>
               ))
-            }
+            )}
           </ul>
           {isOther && (
             <div className={s.otherRow}>
@@ -265,7 +420,13 @@ export const SearchableSelect = ({
                 type="text"
                 value={otherValue}
                 onChange={(e) => setOtherValue(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); setOpen(false); } }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setOpen(false);
+                  }
+                }}
                 placeholder="Please specify..."
                 className={s.otherInput}
               />
@@ -280,9 +441,17 @@ export const SearchableSelect = ({
 // ─── Searchable multi select ──────────────────────────────────────────────────
 
 export const SearchableMultiSelect = ({
-  id, name, options, placeholder = "Search or select...", required,
+  id,
+  name,
+  options,
+  placeholder = "Search or select...",
+  required,
 }: {
-  id: string; name: string; options: Option[]; placeholder?: string; required?: boolean;
+  id: string;
+  name: string;
+  options: Option[];
+  placeholder?: string;
+  required?: boolean;
 }) => {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -296,14 +465,13 @@ export const SearchableMultiSelect = ({
   const listRef = useRef<HTMLUListElement>(null);
 
   const filtered = options.filter((o) =>
-    o.label.toLowerCase().includes(query.toLowerCase())
+    o.label.toLowerCase().includes(query.toLowerCase()),
   );
 
   // All values for the hidden input: selected options + custom entries
-  const formValue = [
-    ...selected.map((o) => o.value),
-    ...customValues,
-  ].join(", ");
+  const formValue = [...selected.map((o) => o.value), ...customValues].join(
+    ", ",
+  );
 
   const totalCount = selected.length + customValues.length;
 
@@ -316,7 +484,9 @@ export const SearchableMultiSelect = ({
   }, []);
 
   useEffect(() => {
-    (listRef.current?.children[highlighted] as HTMLElement)?.scrollIntoView({ block: "nearest" });
+    (listRef.current?.children[highlighted] as HTMLElement)?.scrollIntoView({
+      block: "nearest",
+    });
   }, [highlighted]);
 
   const [otherInputValue, setOtherInputValue] = useState("");
@@ -332,13 +502,16 @@ export const SearchableMultiSelect = ({
     setSelected((prev) =>
       prev.find((o) => o.value === option.value)
         ? prev.filter((o) => o.value !== option.value)
-        : [...prev, option]
+        : [...prev, option],
     );
   };
 
   const confirmOther = () => {
     const trimmed = otherInputValue.trim();
-    if (!trimmed) { setShowOtherInput(false); return; }
+    if (!trimmed) {
+      setShowOtherInput(false);
+      return;
+    }
     if (!customValues.includes(trimmed)) {
       setCustomValues((prev) => [...prev, trimmed]);
     }
@@ -363,8 +536,12 @@ export const SearchableMultiSelect = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!open && (e.key === "ArrowDown" || e.key === "Enter")) { setOpen(true); return; }
-    if (e.key === "ArrowDown") setHighlighted((h) => Math.min(h + 1, filtered.length - 1));
+    if (!open && (e.key === "ArrowDown" || e.key === "Enter")) {
+      setOpen(true);
+      return;
+    }
+    if (e.key === "ArrowDown")
+      setHighlighted((h) => Math.min(h + 1, filtered.length - 1));
     else if (e.key === "ArrowUp") setHighlighted((h) => Math.max(h - 1, 0));
     else if (e.key === "Enter") {
       e.preventDefault();
@@ -373,36 +550,88 @@ export const SearchableMultiSelect = ({
       } else if (filtered[highlighted]) {
         toggle(filtered[highlighted]);
       }
-    }
-    else if (e.key === "Escape") setOpen(false);
+    } else if (e.key === "Escape") setOpen(false);
   };
 
   return (
     <div ref={containerRef} className="relative" onKeyDown={handleKeyDown}>
-      <input type="hidden" name={name} value={formValue} required={required && totalCount === 0} />
+      <input
+        type="hidden"
+        name={name}
+        value={formValue}
+        required={required && totalCount === 0}
+      />
 
       <button
-        type="button" id={id}
-        onClick={() => { setOpen((o) => !o); setTimeout(() => inputRef.current?.focus(), 0); }}
-        className={`${s.trigger} min-h-[42px] flex flex-wrap items-center gap-1.5 pr-10`}
+        type="button"
+        id={id}
+        onClick={() => {
+          setOpen((o) => !o);
+          setTimeout(() => inputRef.current?.focus(), 0);
+        }}
+        className={`${s.trigger} flex min-h-[42px] flex-wrap items-center gap-1.5 pr-10`}
       >
         {totalCount === 0 ? (
           <span className="text-white/25">{placeholder}</span>
         ) : (
           <>
             {selected.map((o) => (
-              <span key={o.value} className="inline-flex items-center gap-1 rounded-md bg-purple-500/20 border border-purple-500/30 px-2 py-0.5 text-xs text-purple-200">
+              <span
+                key={o.value}
+                className="inline-flex items-center gap-1 rounded-md border border-purple-500/30 bg-purple-500/20 px-2 py-0.5 text-xs text-purple-200"
+              >
                 {o.label}
-                <span role="button" onMouseDown={(e) => { e.stopPropagation(); removeSelected(o.value); }} className="text-purple-300/60 hover:text-purple-200 transition cursor-pointer">
-                  <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                <span
+                  role="button"
+                  onMouseDown={(e) => {
+                    e.stopPropagation();
+                    removeSelected(o.value);
+                  }}
+                  className="cursor-pointer text-purple-300/60 transition hover:text-purple-200"
+                >
+                  <svg
+                    className="h-3 w-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </span>
               </span>
             ))}
             {customValues.map((v) => (
-              <span key={v} className="inline-flex items-center gap-1 rounded-md bg-indigo-500/20 border border-indigo-500/30 px-2 py-0.5 text-xs text-indigo-200">
+              <span
+                key={v}
+                className="inline-flex items-center gap-1 rounded-md border border-indigo-500/30 bg-indigo-500/20 px-2 py-0.5 text-xs text-indigo-200"
+              >
                 {v}
-                <span role="button" onMouseDown={(e) => { e.stopPropagation(); removeCustom(v); }} className="text-indigo-300/60 hover:text-indigo-200 transition cursor-pointer">
-                  <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                <span
+                  role="button"
+                  onMouseDown={(e) => {
+                    e.stopPropagation();
+                    removeCustom(v);
+                  }}
+                  className="cursor-pointer text-indigo-300/60 transition hover:text-indigo-200"
+                >
+                  <svg
+                    className="h-3 w-3"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </span>
               </span>
             ))}
@@ -414,30 +643,56 @@ export const SearchableMultiSelect = ({
       {open && (
         <div className={s.dropdown}>
           <SearchInput
-            inputRef={inputRef} query={query}
-            onChange={(v) => { setQuery(v); setHighlighted(0); }}
+            inputRef={inputRef}
+            query={query}
+            onChange={(v) => {
+              setQuery(v);
+              setHighlighted(0);
+            }}
             onClear={() => setQuery("")}
           />
           <ul ref={listRef} className={s.list}>
-            {filtered.length === 0
-              ? <li className={s.listEmpty}>No results — press <kbd className="px-1 py-0.5 rounded bg-white/10 text-white/50 text-xs font-mono">Enter</kbd> to add <span className="text-white/50">&ldquo;{query}&rdquo;</span></li>
-              : filtered.map((o, i) => {
+            {filtered.length === 0 ? (
+              <li className={s.listEmpty}>
+                No results — press{" "}
+                <kbd className="rounded bg-white/10 px-1 py-0.5 font-mono text-xs text-white/50">
+                  Enter
+                </kbd>{" "}
+                to add{" "}
+                <span className="text-white/50">&ldquo;{query}&rdquo;</span>
+              </li>
+            ) : (
+              filtered.map((o, i) => {
                 const isSelected = selected.some((s) => s.value === o.value);
                 return (
                   <li
                     key={o.value}
                     onMouseDown={() => toggle(o)}
                     onMouseEnter={() => setHighlighted(i)}
-                    className={`flex items-center px-4 py-2.5 text-sm cursor-pointer transition-colors gap-2.5 ${
-                      i === highlighted ? s.listItemHighlighted : s.listItemDefault
+                    className={`flex cursor-pointer items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
+                      i === highlighted
+                        ? s.listItemHighlighted
+                        : s.listItemDefault
                     }`}
                   >
-                    <span className={`${s.checkbox} ${
-                      isSelected ? s.checkboxChecked : s.checkboxUnchecked
-                    }`}>
+                    <span
+                      className={`${s.checkbox} ${
+                        isSelected ? s.checkboxChecked : s.checkboxUnchecked
+                      }`}
+                    >
                       {isSelected && (
-                        <svg className="h-2.5 w-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="h-2.5 w-2.5 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       )}
                     </span>
@@ -445,7 +700,7 @@ export const SearchableMultiSelect = ({
                   </li>
                 );
               })
-            }
+            )}
           </ul>
           {showOtherInput && (
             <div className={s.otherRow}>
@@ -455,13 +710,24 @@ export const SearchableMultiSelect = ({
                 value={otherInputValue}
                 onChange={(e) => setOtherInputValue(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") { e.preventDefault(); e.stopPropagation(); confirmOther(); }
-                  if (e.key === "Escape") { e.stopPropagation(); setShowOtherInput(false); }
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    confirmOther();
+                  }
+                  if (e.key === "Escape") {
+                    e.stopPropagation();
+                    setShowOtherInput(false);
+                  }
                 }}
                 placeholder="Type custom value..."
                 className={s.otherInput}
               />
-              <button type="button" onMouseDown={confirmOther} className={s.otherAdd}>
+              <button
+                type="button"
+                onMouseDown={confirmOther}
+                className={s.otherAdd}
+              >
                 Add
               </button>
             </div>
@@ -471,7 +737,10 @@ export const SearchableMultiSelect = ({
               <span className={s.footerCount}>{totalCount} selected</span>
               <button
                 type="button"
-                onMouseDown={() => { setSelected([]); setCustomValues([]); }}
+                onMouseDown={() => {
+                  setSelected([]);
+                  setCustomValues([]);
+                }}
                 className={s.footerClear}
               >
                 Clear all
