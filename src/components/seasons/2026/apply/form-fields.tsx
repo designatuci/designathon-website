@@ -22,7 +22,7 @@ const SearchInput = ({
   onChange,
   onClear,
 }: {
-  inputRef: React.RefObject<HTMLInputElement>;
+  inputRef: React.RefObject<HTMLInputElement | null>;
   query: string;
   onChange: (v: string) => void;
   onClear: () => void;
