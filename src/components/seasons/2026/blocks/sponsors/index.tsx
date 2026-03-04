@@ -29,7 +29,7 @@ function Sponsors() {
             <DOTImage
               width={1659}
               height={790}
-              src="/images/seasons/2025/landing/sponsors/clouds-right_atevno.png"
+              src="/images/seasons/2026/landing/sponsors/clouds-right.png"
               alt="clouds"
               className="animate-hover duration-[5s]"
               sizes="(min-width: 0px) 50vw"
