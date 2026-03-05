@@ -59,7 +59,7 @@ const sponsors: Organization[] = [
     id: "marquee1-3",
     content: {
       imageURL: "/images/seasons/2025/landing/sponsors/logos/odit.png",
-      rotation: -3,
+      rotation: 6,
       name: "UCI ODIT",
     },
   },
