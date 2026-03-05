@@ -99,18 +99,17 @@ export default function IndexPage() {
     <main className="flex min-h-screen items-center justify-center bg-(--blue) text-white">
       <section
         ref={sectionRef}
-        className="flex w-full max-w-xl flex-col items-center gap-0 px-4 py-4"
+        className="flex w-full flex-col items-center gap-0 px-4 py-4"
       >
-        <h1 className="-mt-6 mb-2 text-center font-title text-3xl font-bold sm:text-4xl">
+        <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Judges
-        </h1>
-
-        <Carousel opts={{ loop: true }} className="-mt-16 w-full">
+          </h2>
+        <Carousel opts={{ loop: true }} className="-mt-8 w-full">
           <CarouselContent>
             {judges.map((judge, index) => (
               <CarouselItem
                 key={judge.name}
-                className="flex basis-full justify-center py-4"
+                className="flex basis-1/2 justify-center py-4"
               >
                 <div className="origin-center scale-75">
                   <ProfileCard

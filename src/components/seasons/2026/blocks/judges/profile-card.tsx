@@ -12,17 +12,18 @@ type Props = {
 };
 
 function ProfileCard({ profile, isInView, index }: Props) {
-  return (
+  return (    
+    
     <Card
       className={cn(
-        "max-w-[350px] translate-y-10 rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
-        { "translate-y-0 opacity-100": isInView },
+        "relative w-[380px] h-[380px] rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
+        { "translate-y-0 opacity-100": isInView }
       )}
       style={{
         transitionDelay: `${index * 50}ms`,
       }}
     >
-      <CardHeader className="relative aspect-square overflow-hidden rounded-full bg-[#FEFCEB] p-0">
+      <CardHeader className="absolute top-4 left-1/2 w-48 h-48 -translate-x-1/2 overflow-hidden rounded-full bg-[#fefcb]">
         <DOTImage
           alt={profile.name}
           src={profile.imageURL}
@@ -30,7 +31,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
           sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
         />
       </CardHeader>
-      <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-(--blue)">
+      <CardContent className="mt-48 px-4 text-center text-(--blue) text-sm leading-tight">
         <div className="space-y-2">
           <h3
             className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl xl:text-4xl"
@@ -43,7 +44,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
             {profile.position}
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-center gap-2">
           <Link
             href={profile.linkedInURL}
             className="rounded-full bg-(--blue) p-2 text-white"

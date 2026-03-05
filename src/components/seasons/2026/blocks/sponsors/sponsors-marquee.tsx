@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Organization } from "@components/seasons/2025/blocks/sponsors";
+import { Organization } from "@components/seasons/2026/blocks/sponsors";
 
 type SponsorsMarqueeProps = {
   reverse?: boolean;
@@ -29,7 +29,7 @@ const SponsorsMarquee = ({
             "relative flex animate-marquee pt-96 [--duration:15s] data-[ui=disabled]:[animation-play-state:paused] motion-reduce:animate-none",
             { "direction-reverse": isReversed },
           )}
-          // data-ui={"disabled"}
+          //data-ui={"disabled"} #<- disables train track animation
         >
           {[...organizations, ...organizations].map((sponsor, index) => (
             <li

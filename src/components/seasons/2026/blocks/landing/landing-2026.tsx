@@ -9,7 +9,7 @@ import Sponsors from "@components/seasons/2026/blocks/sponsors";
 
 export default function Landing2026() {
   return (
-    <main className="relative min-h-[360vw] w-full bg-[url('/images/seasons/2026/landing/gradient/gradient.png')] bg-[length:100%_auto] bg-top bg-no-repeat">
+    <main className="relative min-h-[360vw] w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
       <LandingNavigation />
       <Hero />
       <Judges />

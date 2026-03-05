@@ -29,7 +29,7 @@ const navigationLinks: NavigationLink[] = [
   },
   { name: "FAQ", scrollTo: "faq" },
   { name: "Prizes", scrollTo: "prizes" },
-  { name: "Partners", scrollTo: "sponsors" },
+  { name: "Sponsors", scrollTo: "sponsors" },
   { name: "Team", scrollTo: "team" },
   { name: "Rules", scrollTo: "rules" },
 ];
@@ -59,7 +59,7 @@ export default function LandingNavigation() {
       >
         <Link href="/">
           <Image
-            src="/images/seasons/2025/landing/designathon-logo.png"
+            src="/images/seasons/2026/landing/designathon-logo.png"
             alt="Designathon logo"
             width={40}
             height={40}
