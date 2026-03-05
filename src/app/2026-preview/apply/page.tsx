@@ -2,16 +2,17 @@
 
 import ApplicationForm from "@components/seasons/2026/apply/application-form";
 import Link from "next/link";
+import { Luxurious_Script } from 'next/font/google';
 // import DOTImage from "@components/common/dot-image";
+
+const luxurious = Luxurious_Script({ subsets: ['latin'], weight: '400' });
 
 export default function ApplyPage() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Luxurious+Script&display=swap');
 
         .script-glow {
-            font-family: 'Luxurious Script', cursive;
             letter-spacing: 0.04em;
 
             text-shadow:
@@ -79,7 +80,7 @@ export default function ApplyPage() {
             <p className="mb-3 text-xs font-semibold tracking-[0.25em] text-purple-400/70 uppercase">
               Design-a-thon 2026
             </p>
-            <h1 className="script-glow text-8xl font-normal text-white md:text-9xl xl:text-[7rem]">
+            <h1 className={`${luxurious.className} script-glow text-8xl font-normal text-white md:text-9xl xl:text-[7rem]`}>
               Apply
             </h1>
             <p className="mt-3 text-base text-purple-200/50">
