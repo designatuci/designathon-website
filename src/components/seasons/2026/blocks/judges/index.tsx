@@ -147,14 +147,14 @@ export default function IndexPage() {
                 alt="background glow"
                 src="/images/seasons/2026/landing/judges/sponsor_planet_bg.png"
                 fill
-                className="object-contain scale-130" 
+                className="scale-130 object-contain"
               />
             </div>
             <CarouselContent>
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="flex basis-full md:basis-1/3 justify-center py-4 md:p1-0"
+                  className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/3"
                 >
                   <div className="origin-center scale-75">
                     <ProfileCard

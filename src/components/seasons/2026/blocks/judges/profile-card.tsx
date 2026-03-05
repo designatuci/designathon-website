@@ -16,7 +16,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
   return (
     <Card
       className={cn(
-        "relative h-[500px] w-[500px] rounded-full border-0 bg-white/60 p-8 overflow-hidden opacity-0 transition-all duration-500 ease-out-quart",
+        "relative h-[500px] w-[500px] overflow-hidden rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
         isInView && "translate-y-0 opacity-100",
         isActive ? "shadow-2x1 z-20 scale-100" : "scale-50 opacity-60",
       )}

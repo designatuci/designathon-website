@@ -19,7 +19,7 @@ export default function Landing2026() {
       >
         Apply
       </Link>
-      
+
       <LandingNavigation />
       <Hero />
       <About />
