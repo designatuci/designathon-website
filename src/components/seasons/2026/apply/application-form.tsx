@@ -69,7 +69,8 @@ const ApplicationForm = () => {
       }
       form.reset();
       setResetKey((k) => k + 1);
-      setSubmitted(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => setSubmitted(true), 600);
     } catch (err) {
       showToast(
         "Submission Failed",
@@ -95,7 +96,8 @@ const ApplicationForm = () => {
           <p className="mt-1 text-xs opacity-80">{toastState.description}</p>
         </div>
       )}
-
+      
+      <div className={`rounded-2xl border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-md transition-all ${submitted ? "py-0" : "p-6 md:p-8"}`}>
       {submitted ? (
         <RocketSuccess />
       ) : (
@@ -415,6 +417,17 @@ const ApplicationForm = () => {
             />
           </Field>
 
+          {/* TEMP: remove before launch */}
+          {process.env.NODE_ENV === "development" && (
+            <button
+              type="button"
+              onClick={() => setSubmitted(true)}
+              className="w-full rounded-xl border border-white/20 bg-white/5 py-2 text-sm text-white/40 hover:text-white/70 transition"
+            >
+              🚀 Test success animation
+            </button>
+          )}
+
           {/* Submit */}
           <button
             type="submit"
@@ -448,6 +461,7 @@ const ApplicationForm = () => {
           </button>
         </form>
       )}
+      </div>
     </>
   );
 };

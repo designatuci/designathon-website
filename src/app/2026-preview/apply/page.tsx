@@ -1,11 +1,11 @@
 "use client";
 
 import ApplicationForm from "@components/seasons/2026/apply/application-form";
+import { Luxurious_Script } from "next/font/google";
 import Link from "next/link";
-import { Luxurious_Script } from 'next/font/google';
 // import DOTImage from "@components/common/dot-image";
 
-const luxurious = Luxurious_Script({ subsets: ['latin'], weight: '400' });
+const luxurious = Luxurious_Script({ subsets: ["latin"], weight: "400" });
 
 export default function ApplyPage() {
   return (
@@ -41,7 +41,7 @@ export default function ApplyPage() {
         }
     `}</style>
 
-      <main className="relative w-full bg-[url('/images/seasons/2026/landing/gradient/gradient.png')] bg-[length:100%_auto] bg-top bg-no-repeat">
+      <main className="relative min-h-screen w-full bg-[url('/images/seasons/2026/landing/gradient/gradient.png')] bg-[length:100%_auto] bg-top bg-no-repeat">
         {/* ── Ambient glows ── */}
         <div
           aria-hidden="true"
@@ -80,7 +80,9 @@ export default function ApplyPage() {
             <p className="mb-3 text-xs font-semibold tracking-[0.25em] text-purple-400/70 uppercase">
               Design-a-thon 2026
             </p>
-            <h1 className={`${luxurious.className} script-glow text-8xl font-normal text-white md:text-9xl xl:text-[7rem]`}>
+            <h1
+              className={`${luxurious.className} script-glow text-8xl font-normal text-white md:text-9xl xl:text-[7rem]`}
+            >
               Apply
             </h1>
             <p className="mt-3 text-base text-purple-200/50">
@@ -115,7 +117,7 @@ export default function ApplyPage() {
             */}
 
             {/* Glass card */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-md md:p-8">
+            <div>
               <ApplicationForm />
             </div>
           </div>
