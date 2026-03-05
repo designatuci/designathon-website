@@ -25,7 +25,10 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <body data-theme="2026" className={`${inriaSans.variable} ${luxuriousScript.variable}`}>
+    <body
+      data-theme="2026"
+      className={`${inriaSans.variable} ${luxuriousScript.variable}`}
+    >
       {children}
     </body>
   );
