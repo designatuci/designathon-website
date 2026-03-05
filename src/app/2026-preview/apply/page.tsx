@@ -41,7 +41,7 @@ export default function ApplyPage() {
         }
     `}</style>
 
-      <main className="relative w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
+      <main className="relative min-h-screen w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
         {/* ── Ambient glows ── */}
         <div
           aria-hidden="true"

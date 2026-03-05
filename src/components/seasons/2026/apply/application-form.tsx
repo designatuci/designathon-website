@@ -205,7 +205,8 @@ const ApplicationForm = () => {
                     value: "Black / African American",
                     label: "Black / African American",
                   },
-                  { value: "Hispanic / Latino", label: "Hispanic / Latino" },
+                  { value: "Hispanic / Latino",
+                    label: "Hispanic / Latino" },
                   {
                     value: "Middle Eastern / North African",
                     label: "Middle Eastern / North African",
