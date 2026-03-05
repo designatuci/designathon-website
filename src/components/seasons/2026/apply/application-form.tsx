@@ -422,17 +422,6 @@ const ApplicationForm = () => {
               />
             </Field>
 
-            {/* TEMP: remove before launch */}
-            {process.env.NODE_ENV === "development" && (
-              <button
-                type="button"
-                onClick={() => setSubmitted(true)}
-                className="w-full rounded-xl border border-white/20 bg-white/5 py-2 text-sm text-white/40 transition hover:text-white/70"
-              >
-                🚀 Test success animation
-              </button>
-            )}
-
             {/* Submit */}
             <button
               type="submit"
