@@ -12,18 +12,17 @@ type Props = {
 };
 
 function ProfileCard({ profile, isInView, index }: Props) {
-  return (    
-    
+  return (
     <Card
       className={cn(
-        "relative w-[380px] h-[380px] rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
-        { "translate-y-0 opacity-100": isInView }
+        "relative h-[380px] w-[380px] rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
+        { "translate-y-0 opacity-100": isInView },
       )}
       style={{
         transitionDelay: `${index * 50}ms`,
       }}
     >
-      <CardHeader className="absolute top-4 left-1/2 w-48 h-48 -translate-x-1/2 overflow-hidden rounded-full bg-[#fefcb]">
+      <CardHeader className="absolute top-4 left-1/2 h-48 w-48 -translate-x-1/2 overflow-hidden rounded-full bg-[#fefcb]">
         <DOTImage
           alt={profile.name}
           src={profile.imageURL}
@@ -31,7 +30,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
           sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
         />
       </CardHeader>
-      <CardContent className="mt-48 px-4 text-center text-(--blue) text-sm leading-tight">
+      <CardContent className="mt-48 px-4 text-center text-sm leading-tight text-(--blue)">
         <div className="space-y-2">
           <h3
             className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl xl:text-4xl"

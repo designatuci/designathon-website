@@ -8,6 +8,12 @@ const inriaSans = localFont({
   variable: "--font-inria-sans",
 });
 
+const luxuriousScript = localFont({
+  src: "./fonts/LuxuriousScript-Regular.woff2",
+  display: "swap",
+  variable: "--font-luxurious-script",
+});
+
 export const metadata: Metadata = {
   title: "UCI Design-a-thon 2026 | Lost & Found",
   description: "UCI Design-a-thon",
@@ -19,7 +25,7 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <body data-theme="2026" className={inriaSans.variable}>
+    <body data-theme="2026" className={`${inriaSans.variable} ${luxuriousScript.variable}`}>
       {children}
     </body>
   );

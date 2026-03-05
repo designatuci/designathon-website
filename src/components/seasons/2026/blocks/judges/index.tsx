@@ -103,7 +103,7 @@ export default function IndexPage() {
       >
         <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
           Judges
-          </h2>
+        </h2>
         <Carousel opts={{ loop: true }} className="-mt-8 w-full">
           <CarouselContent>
             {judges.map((judge, index) => (
