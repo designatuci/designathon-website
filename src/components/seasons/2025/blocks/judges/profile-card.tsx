@@ -31,7 +31,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
         />
       </CardHeader>
       <CardContent className="flex flex-grow flex-col items-center justify-between gap-6 pb-4 text-center text-(--blue)">
-          <div className="space-y-2">
+        <div className="space-y-2">
           <h3
             className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl xl:text-4xl"
             // Force newline between first and last name

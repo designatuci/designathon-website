@@ -12,46 +12,44 @@ type Props = {
   isActive: boolean;
 };
 
-function ProfileCard({ profile, isInView, index, isActive}: Props) {
-    index > 0 ? "translate-x-80" : "";
+function ProfileCard({ profile, isInView, index, isActive }: Props) {
   return (
     <Card
       className={cn(
-        "relative h-[500px] w-[500px] rounded-full border-0 bg-white/60 p-8 opacity-0 transition-all duration-500 ease-out-quart",
+        "relative h-[500px] w-[500px] rounded-full border-0 bg-white/60 p-8 overflow-hidden opacity-0 transition-all duration-500 ease-out-quart",
         isInView && "translate-y-0 opacity-100",
-        isActive 
-        ? "scale-100 z-20 shadow-2x1"
-        : "scale-50 opacity-60"
+        isActive ? "shadow-2x1 z-20 scale-100" : "scale-50 opacity-60",
       )}
       style={{
         transitionDelay: `${index * 50}ms`,
       }}
     >
-      <CardHeader className= {cn(
-        "absolute overflow-hidden rounded-full bg-[#fefcb]",
-        isActive 
-        ?  "h-56 w-56 left-35"
-        : "inset-0 flex items-center justify-center scale-130"
-      )} 
+      <CardHeader
+        className={cn(
+          "absolute overflow-hidden rounded-full bg-[#fefcb]",
+          isActive
+            ? "left-35 h-56 w-56"
+            : "inset-0 flex scale-130 items-center justify-center",
+        )}
       >
-      {isActive ? (
-        <>
-        <DOTImage
-          alt={profile.name}
-          src={profile.imageURL}
-          fill
-          sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
-        />
-        </>
-      ) : (
-        <DOTImage
-          alt={profile.name} 
-          src={`/images/seasons/2026/landing/judges/planets/${(index % 5) + 1}.png`}
-          fill
-          sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
-          className="object-contain"
-        />
-      )}
+        {isActive ? (
+          <>
+            <DOTImage
+              alt={profile.name}
+              src={profile.imageURL}
+              fill
+              sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
+            />
+          </>
+        ) : (
+          <DOTImage
+            alt={profile.name}
+            src={`/images/seasons/2026/landing/judges/planets/${(index % 5) + 1}.png`}
+            fill
+            sizes="(min-width: 0px) 50vw; (min-width: 768px) 25vw"
+            className="object-contain"
+          />
+        )}
       </CardHeader>
 
       <CardContent className="mt-62 px-4 text-center text-sm leading-tight text-(--blue)">
@@ -63,14 +61,14 @@ function ProfileCard({ profile, isInView, index, isActive}: Props) {
           >
             {profile.name}
           </h3>
-          <p className="lg:text-base3xl:text-xl -mx-3 text-xl font-medium 3xl:text-x1">
+          <p className="lg:text-base3xl:text-xl 3xl:text-x1 text-xl font-medium">
             {profile.position}
           </p>
-          <p className="lg:text-base3xl:text-xl -mx-3 text-xl font-medium 3xl:text-lg leading-[1.15]">
+          <p className="lg:text-base3xl:text-xl text-xl leading-[1.15] font-medium 3xl:text-lg">
             {profile.company}
           </p>
         </div>
-        <div className="flex items-center justify-center gap-2 mt-2">
+        <div className="mt-2 flex items-center justify-center gap-2">
           <Link
             href={profile.linkedInURL}
             className="rounded-full bg-(--blue) p-2 text-white"
