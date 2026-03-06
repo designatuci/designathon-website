@@ -15,8 +15,8 @@ import {
   CarouselPrevious,
 } from "@components/ui/carousel";
 import { useInView } from "motion/react";
-import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
 
 type RuleItem = {
   rule: React.ReactNode;
