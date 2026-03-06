@@ -4,15 +4,18 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export type CommitteeMember = {
+  photo?: string;
   name: string;
   role: string;
-  bio: string;
-  photo?: string;
+  year?: string;
+  major?: string;
+  funFact?: string;
 };
 
 export type Committee = {
   id: string;
   name: string;
+  color: string;
   star: string;
   glow: string;
   pos: { x: number; y: number };
@@ -89,11 +92,144 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     committee;
   const member = members[currentIdx];
 
+  const renderCanvas = () => (
+    <>
+      <svg
+        className="pointer-events-none absolute inset-0"
+        width="440"
+        height="440"
+        style={{ overflow: "visible" }}
+      >
+        {membersVisible &&
+          constellation.lines.map(([[x1, y1], [x2, y2]], i) => (
+            <line
+              key={i}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke="rgba(255,255,255,0.18)"
+              strokeWidth="1.5"
+              strokeDasharray="500"
+              style={{
+                strokeDashoffset: 0,
+                animation: `lineGrow 0.55s ease forwards`,
+                animationDelay: `${i * 0.07}s`,
+              }}
+            />
+          ))}
+      </svg>
+
+      {membersVisible &&
+        constellation.dummies.map(([x, y], i) => (
+          <div
+            key={i}
+            className="const-dummy-node"
+            style={{
+              left: x,
+              top: y,
+              animationDelay: `${0.25 + i * 0.06}s`,
+              opacity: 0,
+            }}
+          >
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 18 18"
+              style={{
+                animation: `dummyPulse ${2.5 + i * 0.4}s ease-in-out infinite`,
+              }}
+            >
+              <polygon
+                points="9,0 10.8,6.3 17.5,6.3 12.1,10.2 14,16.5 9,12.8 4,16.5 5.9,10.2 0.5,6.3 7.2,6.3"
+                fill="rgba(255,240,180,0.45)"
+              />
+            </svg>
+          </div>
+        ))}
+
+      {membersVisible &&
+        constellation.members.map(([x, y], i) => {
+          const isSelected = i === currentIdx;
+          return (
+            <button
+              key={i}
+              className={`const-member-node ${isSelected ? "highlighted" : ""}`}
+              style={{
+                left: x,
+                top: y,
+                animationDelay: `${0.2 + i * 0.08}s`,
+                opacity: 0,
+              }}
+              onClick={() => goTo(i)}
+            >
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 18 18"
+                style={{
+                  display: "block",
+                  margin: "0 auto 4px",
+                  filter: isSelected
+                    ? `drop-shadow(0 0 6px white) drop-shadow(0 0 12px white)`
+                    : `drop-shadow(0 0 4px ${glow}) drop-shadow(0 0 8px ${glow})`,
+                  transition: "filter 0.2s",
+                }}
+              >
+                <polygon
+                  points="9,0 10.8,6.3 17.5,6.3 12.1,10.2 14,16.5 9,12.8 4,16.5 5.9,10.2 0.5,6.3 7.2,6.3"
+                  fill={isSelected ? "white" : glow}
+                  style={{
+                    animation: isSelected
+                      ? undefined
+                      : `memberPulse ${2.2 + i * 0.3}s ease-in-out ${i * 0.15}s infinite`,
+                    transition: "fill 0.2s",
+                  }}
+                />
+              </svg>
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "white",
+                  whiteSpace: "nowrap",
+                  textShadow: "0 0 8px rgba(0,0,0,1)",
+                }}
+              >
+                {members[i].name}
+              </div>
+            </button>
+          );
+        })}
+
+      {visible && (
+        <div
+          className="const-director"
+          style={{
+            left: constellation.director[0],
+            top: constellation.director[1],
+          }}
+        >
+          <Image
+            src={star}
+            alt={name}
+            width={80}
+            height={80}
+            style={{
+              display: "block",
+              margin: "0 auto",
+              filter: `drop-shadow(0 0 20px ${glow}) drop-shadow(0 0 40px ${glow})`,
+            }}
+          />
+        </div>
+      )}
+    </>
+  );
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center"
       style={{
-        background: visible ? "rgba(2,1,14,0.5)" : "rgba(2,1,14,0)",
+        background: visible ? "rgba(2,1,14,0.85)" : "rgba(2,1,14,0)",
         transition: "background 0.5s ease, opacity 0.5s ease",
         opacity: visible ? 1 : 0,
         pointerEvents: committee ? "auto" : "none",
@@ -133,10 +269,9 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           padding: 6px;
           cursor: pointer;
           animation: memPop 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
-        }
-        .const-member-node.highlighted polygon {
-          fill: white !important;
-          filter: drop-shadow(0 0 8px white) !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         .const-dummy-node {
           position: absolute;
@@ -151,26 +286,41 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           z-index: 2;
           animation: dirIn 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
         }
+        .modal-sheet {
+          border-radius: 20px;
+          max-height: 92dvh;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        @media (min-width: 640px) {
+          .modal-sheet {
+            max-height: none;
+            overflow-y: visible;
+          }
+        }
+        .canvas-wrap { width: 280px; height: 280px; }
+        @media (min-width: 640px) {
+          .canvas-wrap { width: 440px; height: 440px; }
+        }
+        .modal-sheet::-webkit-scrollbar { display: none; }
+        .modal-sheet { scrollbar-width: none; }
       `}</style>
 
-      {/* Close */}
+      {/* Close — desktop only */}
       <button
-        className="fixed top-6 right-7 z-10 border-none bg-transparent text-2xl text-white/35 transition-colors hover:text-white"
+        className="fixed top-6 right-7 z-10 hidden border-none bg-transparent text-2xl text-white/35 transition-colors hover:text-white sm:block"
         style={{ cursor: "pointer" }}
         onClick={onClose}
       >
         ✕
       </button>
 
-      {/* Inner */}
+      {/* Sheet / Modal — glass on mobile, transparent on desktop */}
       <div
-        className="rounded-2xl border border-white/10 bg-white/[0.04] shadow-2xl backdrop-blur-[40px]"
+        className="modal-sheet w-full border border-white/10 bg-[rgba(6,4,24,0.92)] shadow-2xl backdrop-blur-[40px] sm:w-auto sm:border-0 sm:bg-transparent sm:shadow-none sm:backdrop-blur-none"
         style={{
-          padding: "40px 48px",
-          width: "min(1000px,92vw)",
-          display: "flex",
-          alignItems: "center",
-          gap: "56px",
+          padding: 0,
+          maxWidth: "min(1000px, 92vw)",
           transform: visible
             ? "translateY(0) scale(1)"
             : "translateY(20px) scale(0.97)",
@@ -178,316 +328,323 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Left: constellation canvas ── */}
-        <div
-          className="relative flex-shrink-0"
-          style={{ width: 440, height: 440 }}
-        >
-          {/* Lines */}
-          <svg
-            className="pointer-events-none absolute inset-0"
-            width="440"
-            height="440"
-            style={{ overflow: "visible" }}
-          >
-            {membersVisible &&
-              constellation.lines.map(([[x1, y1], [x2, y2]], i) => (
-                <line
-                  key={i}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="rgba(255,255,255,0.18)"
-                  strokeWidth="1.5"
-                  strokeDasharray="500"
-                  style={{
-                    strokeDashoffset: 0,
-                    animation: `lineGrow 0.55s ease forwards`,
-                    animationDelay: `${i * 0.07}s`,
-                  }}
-                />
-              ))}
-          </svg>
-
-          {/* Dummy stars */}
-          {membersVisible &&
-            constellation.dummies.map(([x, y], i) => (
-              <div
-                key={i}
-                className="const-dummy-node"
-                style={{
-                  left: x,
-                  top: y,
-                  animationDelay: `${0.25 + i * 0.06}s`,
-                  opacity: 0,
-                }}
-              >
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 18 18"
-                  style={{
-                    animation: `dummyPulse ${2.5 + i * 0.4}s ease-in-out infinite`,
-                  }}
-                >
-                  <polygon
-                    points="9,0 10.8,6.3 17.5,6.3 12.1,10.2 14,16.5 9,12.8 4,16.5 5.9,10.2 0.5,6.3 7.2,6.3"
-                    fill="rgba(255,240,180,0.45)"
-                  />
-                </svg>
-              </div>
-            ))}
-
-          {/* Member stars */}
-          {membersVisible &&
-            constellation.members.map(([x, y], i) => (
-              <button
-                key={i}
-                className={`const-member-node ${i === currentIdx ? "highlighted" : ""}`}
-                style={{
-                  left: x,
-                  top: y,
-                  animationDelay: `${0.2 + i * 0.08}s`,
-                  opacity: 0,
-                }}
-                onClick={() => goTo(i)}
-              >
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 18 18"
-                  style={{ display: "block", margin: "0 auto 4px" }}
-                >
-                  <polygon
-                    points="9,0 10.8,6.3 17.5,6.3 12.1,10.2 14,16.5 9,12.8 4,16.5 5.9,10.2 0.5,6.3 7.2,6.3"
-                    fill="rgba(255,220,100,0.9)"
-                    style={{
-                      animation: `memberPulse ${2.2 + i * 0.3}s ease-in-out ${i * 0.15}s infinite`,
-                      transition: "fill 0.2s, filter 0.2s",
-                    }}
-                  />
-                </svg>
-                <div
-                  style={{
-                    fontSize: 10,
-                    color: "white",
-                    whiteSpace: "nowrap",
-                    textShadow: "0 0 8px rgba(0,0,0,1)",
-                  }}
-                >
-                  {members[i].name}
-                </div>
-              </button>
-            ))}
-
-          {/* Director star */}
-          {visible && (
-            <div
-              className="const-director"
-              style={{
-                left: constellation.director[0],
-                top: constellation.director[1],
-              }}
-            >
-              <Image
-                src={star}
-                alt={name}
-                width={80}
-                height={80}
-                style={{
-                  display: "block",
-                  margin: "0 auto",
-                  filter: `drop-shadow(0 0 20px ${glow}) drop-shadow(0 0 40px ${glow})`,
-                }}
-              />
-            </div>
-          )}
-        </div>
-
-        {/* ── Right: member panel ── */}
-        <div className="flex flex-1 flex-col gap-5">
-          {/* Header */}
+        {/* ── Mobile header row ── */}
+        <div className="flex items-center justify-between px-5 pt-3 pb-1 sm:hidden">
           <div>
-            <div
-              className="mb-1 text-[9px] tracking-[0.35em] text-white/30"
-              style={{ textTransform: "uppercase" }}
-            >
+            <div className="text-[8px] tracking-[0.3em] text-white/30 uppercase">
               {constellationName}
             </div>
             <div
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 42,
+                fontSize: 26,
                 fontWeight: 300,
                 fontStyle: "italic",
-                lineHeight: 1,
                 color: "white",
-                textShadow: `0 0 20px ${glow}`,
+                lineHeight: 1.1,
+                textShadow: `0 0 16px ${glow}`,
               }}
             >
               {name}
             </div>
-            <div
-              className="mt-1 text-[10px] tracking-[0.3em] text-white/30"
-              style={{ textTransform: "uppercase" }}
-            >
-              {currentIdx + 1} of {members.length} members
-            </div>
           </div>
-
-          {/* Member card */}
-          <div
-            key={cardKey}
+          <button
+            onClick={onClose}
             style={{
-              borderRadius: 16,
-              border: "1px solid rgba(255,255,255,0.1)",
-              background: "rgba(255,255,255,0.04)",
-              backdropFilter: "blur(8px)",
-              padding: 24,
+              background: "rgba(255,255,255,0.08)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              borderRadius: "50%",
+              width: 36,
+              height: 36,
+              color: "rgba(255,255,255,0.6)",
+              fontSize: 16,
+              cursor: "pointer",
               display: "flex",
-              gap: 18,
-              alignItems: "flex-start",
-              minHeight: 150,
-              animation: "cardIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
             }}
           >
-            {/* Photo */}
-            <div
-              style={{
-                width: 68,
-                height: 68,
-                borderRadius: "50%",
-                border: `2px solid ${glow}`,
-                boxShadow: `0 0 14px ${glow}`,
-                background: "rgba(255,255,255,0.05)",
-                flexShrink: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                overflow: "hidden",
-              }}
-            >
-              {member.photo ? (
-                <Image
-                  src={member.photo}
-                  alt={member.name}
-                  width={68}
-                  height={68}
-                  style={{ objectFit: "cover" }}
-                />
-              ) : (
-                <span style={{ fontSize: 20, color: "rgba(255,255,255,0.2)" }}>
-                  ✦
-                </span>
-              )}
-            </div>
+            ✕
+          </button>
+        </div>
 
-            {/* Info */}
-            <div style={{ flex: 1 }}>
-              <div
-                style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontSize: 24,
-                  fontWeight: 400,
-                  color: "white",
-                  lineHeight: 1,
-                  marginBottom: 4,
-                }}
-              >
-                {member.name}
+        {/* ── Inner layout ── */}
+        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-8 sm:p-0">
+          {/* Constellation canvas — glass container on desktop only */}
+          <div className="canvas-wrap relative mx-auto flex-shrink-0 sm:mx-0 sm:rounded-2xl sm:border sm:border-white/10 sm:bg-[rgba(4,2,18,0.85)] sm:shadow-2xl sm:backdrop-blur-[40px]">
+            <div
+              className="absolute inset-0 sm:hidden"
+              style={{ transform: "scale(0.636)", transformOrigin: "top left" }}
+            >
+              <div style={{ width: 440, height: 440, position: "relative" }}>
+                {renderCanvas()}
               </div>
-              <div
-                style={{
-                  fontSize: 9,
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  color: glow,
-                  marginBottom: 10,
-                }}
-              >
-                {member.role}
-              </div>
-              <div
-                style={{
-                  fontFamily: "'Cormorant Garamond',serif",
-                  fontSize: 14,
-                  lineHeight: 1.65,
-                  color: "rgba(200,190,220,0.75)",
-                }}
-              >
-                {member.bio}
-              </div>
+            </div>
+            <div
+              className="absolute inset-0 hidden sm:block"
+              style={{ width: 440, height: 440 }}
+            >
+              {renderCanvas()}
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center gap-3.5">
-            <button
-              onClick={() => navigate(-1)}
-              disabled={currentIdx === 0}
-              style={{
-                width: 34,
-                height: 34,
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,0.15)",
-                background: "rgba(255,255,255,0.05)",
-                color: "white",
-                fontSize: 14,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: currentIdx === 0 ? "default" : "pointer",
-                opacity: currentIdx === 0 ? 0.2 : 1,
-                transition: "all 0.2s",
-              }}
-            >
-              ←
-            </button>
-
-            <div className="flex gap-1.5">
-              {members.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  style={{
-                    width: 6,
-                    height: 6,
-                    borderRadius: "50%",
-                    border: "none",
-                    padding: 0,
-                    cursor: "pointer",
-                    background:
-                      i === currentIdx ? "white" : "rgba(255,255,255,0.2)",
-                    transform: i === currentIdx ? "scale(1.3)" : "scale(1)",
-                    transition: "all 0.2s",
-                  }}
-                />
-              ))}
+          {/* ── Member panel — bare text on desktop ── */}
+          <div
+            className="flex flex-col gap-4 sm:gap-5 sm:pl-4"
+            style={{ width: "100%", flexShrink: 0, maxWidth: 420 }}
+          >
+            {/* Header — desktop only */}
+            <div className="hidden sm:block">
+              <div className="mb-1 text-[9px] tracking-[0.35em] text-white/30 uppercase">
+                {constellationName}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontSize: 42,
+                  fontWeight: 300,
+                  fontStyle: "italic",
+                  lineHeight: 1,
+                  color: "white",
+                  textShadow: `0 0 20px ${glow}`,
+                }}
+              >
+                {name}
+              </div>
+              <div className="mt-1 text-[9px] tracking-[0.3em] text-white/30 uppercase">
+                {currentIdx + 1} of {members.length} members
+              </div>
             </div>
 
-            <button
-              onClick={() => navigate(1)}
-              disabled={currentIdx === members.length - 1}
+            {/* Mobile member counter */}
+            <div className="text-[9px] tracking-[0.3em] text-white/30 uppercase sm:hidden">
+              {currentIdx + 1} of {members.length} members
+            </div>
+
+            {/* Member card — glass on mobile, bare on desktop */}
+            <div
+              key={cardKey}
+              className="sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none"
               style={{
-                width: 34,
-                height: 34,
-                borderRadius: "50%",
-                border: "1px solid rgba(255,255,255,0.15)",
-                background: "rgba(255,255,255,0.05)",
-                color: "white",
-                fontSize: 14,
+                width: 420,
+                boxSizing: "border-box",
+                borderRadius: 16,
+                border: "1px solid rgba(255,255,255,0.1)",
+                background: "rgba(255,255,255,0.04)",
+                backdropFilter: "blur(8px)",
+                padding: 18,
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor:
-                  currentIdx === members.length - 1 ? "default" : "pointer",
-                opacity: currentIdx === members.length - 1 ? 0.2 : 1,
-                transition: "all 0.2s",
+                gap: 14,
+                alignItems: "flex-start",
+                animation: "cardIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards",
               }}
             >
-              →
-            </button>
+              {/* Photo */}
+              <div
+                style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: "50%",
+                  border: `2px solid ${glow}`,
+                  boxShadow: `0 0 14px ${glow}`,
+                  background: "rgba(255,255,255,0.05)",
+                  flexShrink: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                }}
+              >
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    width={64}
+                    height={64}
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                ) : (
+                  <span
+                    style={{ fontSize: 22, color: "rgba(255,255,255,0.2)" }}
+                  >
+                    ✦
+                  </span>
+                )}
+              </div>
+
+              {/* Info */}
+              <div style={{ flex: 1, minWidth: 0 }}>
+                {/* Name */}
+                <div
+                  style={{
+                    fontFamily: "'Cormorant Garamond',serif",
+                    fontSize: 22,
+                    fontWeight: 400,
+                    color: "white",
+                    lineHeight: 1,
+                    marginBottom: 3,
+                  }}
+                >
+                  {member.name}
+                </div>
+
+                {/* Role */}
+                <div
+                  style={{
+                    fontSize: 9,
+                    letterSpacing: "0.25em",
+                    textTransform: "uppercase",
+                    color: glow,
+                    marginBottom: 10,
+                  }}
+                >
+                  {member.role}
+                </div>
+
+                {/* Year & Major */}
+                {(member.year || member.major) && (
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: 6,
+                      flexWrap: "wrap",
+                      marginBottom: 8,
+                    }}
+                  >
+                    {member.year && (
+                      <span
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.1em",
+                          color: "rgba(255,255,255,0.45)",
+                          background: "rgba(255,255,255,0.06)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 20,
+                          padding: "2px 10px",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {member.year}
+                      </span>
+                    )}
+                    {member.major && (
+                      <span
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.1em",
+                          color: "rgba(255,255,255,0.45)",
+                          background: "rgba(255,255,255,0.06)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 20,
+                          padding: "2px 10px",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {member.major}
+                      </span>
+                    )}
+                  </div>
+                )}
+
+                {/* Fun Fact */}
+                {member.funFact && (
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: 7,
+                      alignItems: "flex-start",
+                      marginTop: 4,
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: "'Cormorant Garamond',serif",
+                        fontSize: 13,
+                        lineHeight: 1.6,
+                        fontStyle: "italic",
+                        color: "rgba(200,190,220,0.75)",
+                      }}
+                    >
+                      {member.funFact}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center gap-3 pb-2 sm:pb-0">
+              <button
+                onClick={() => navigate(-1)}
+                disabled={currentIdx === 0}
+                style={{
+                  width: 34,
+                  height: 34,
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
+                  color: "white",
+                  fontSize: 14,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: currentIdx === 0 ? "default" : "pointer",
+                  opacity: currentIdx === 0 ? 0.2 : 1,
+                  transition: "all 0.2s",
+                }}
+              >
+                ←
+              </button>
+
+              <div className="flex gap-1.5">
+                {members.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    style={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      border: "none",
+                      padding: 0,
+                      cursor: "pointer",
+                      background:
+                        i === currentIdx ? "white" : "rgba(255,255,255,0.2)",
+                      transform: i === currentIdx ? "scale(1.3)" : "scale(1)",
+                      transition: "all 0.2s",
+                    }}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => navigate(1)}
+                disabled={currentIdx === members.length - 1}
+                style={{
+                  width: 34,
+                  height: 34,
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
+                  color: "white",
+                  fontSize: 14,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor:
+                    currentIdx === members.length - 1 ? "default" : "pointer",
+                  opacity: currentIdx === members.length - 1 ? 0.2 : 1,
+                  transition: "all 0.2s",
+                }}
+              >
+                →
+              </button>
+            </div>
           </div>
         </div>
       </div>
