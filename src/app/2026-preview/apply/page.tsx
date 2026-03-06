@@ -4,11 +4,14 @@ import ApplicationForm from "@components/seasons/2026/apply/application-form";
 import FlameWidget from "@components/seasons/2026/apply/flame-widget";
 import { Luxurious_Script } from "next/font/google";
 import Link from "next/link";
+import { useState } from "react";
 // import DOTImage from "@components/common/dot-image";
 
 const luxurious = Luxurious_Script({ subsets: ["latin"], weight: "400" });
 
 export default function ApplyPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   return (
     <>
       <style>{`
@@ -43,7 +46,7 @@ export default function ApplyPage() {
     `}</style>
 
       <main className="relative min-h-screen w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
-        <FlameWidget />
+        <FlameWidget hidden={isSubmitting} />
 
         {/* ── Ambient glows ── */}
         <div
@@ -95,33 +98,9 @@ export default function ApplyPage() {
 
           {/* Form card with floating logos */}
           <div className="relative mx-auto max-w-lg">
-            {/* ADD THIS WHEN WE IMPORT ASSETS */}
-            {/* <DOTImage
-              src="/logos/logo-1.png"
-              alt=""
-              aria-hidden="true"
-              className="animate-float absolute -top-10 -left-10 w-28 opacity-75 drop-shadow-[0_0_22px_rgba(180,120,255,0.35)] md:w-32"
-              style={{ animationDelay: "0s" }}
-            />
-            <DOTImage
-              src="/logos/logo-2.png"
-              alt=""
-              aria-hidden="true"
-              className="animate-float absolute -top-12 -right-10 w-28 opacity-70 drop-shadow-[0_0_22px_rgba(180,120,255,0.30)] md:w-32"
-              style={{ animationDelay: "1.2s" }}
-            />
-            <DOTImage
-              src="/logos/logo-3.png"
-              alt=""
-              aria-hidden="true"
-              className="animate-float absolute -bottom-14 -left-10 w-32 opacity-65 drop-shadow-[0_0_22px_rgba(180,120,255,0.28)] md:w-36"
-              style={{ animationDelay: "2.1s" }}
-            />
-            */}
-
             {/* Glass card */}
             <div>
-              <ApplicationForm />
+              <ApplicationForm onSubmittingChange={setIsSubmitting} />
             </div>
           </div>
 

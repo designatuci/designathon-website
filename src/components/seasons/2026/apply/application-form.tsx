@@ -12,8 +12,17 @@ import {
 } from "./form-fields";
 import { MAJORS, UNIVERSITIES } from "./form-options";
 
-const ApplicationForm = () => {
+interface ApplicationFormProps {
+  onSubmittingChange?: (isSubmitting: boolean) => void;
+}
+
+const ApplicationForm = ({ onSubmittingChange }: ApplicationFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const setSubmittingState = (value: boolean) => {
+    setIsSubmitting(value);
+    onSubmittingChange?.(value);
+  };
   const [submitted, setSubmitted] = useState(false);
   const [resetKey, setResetKey] = useState(0);
   const [toastState, setToastState] = useState<{
@@ -34,7 +43,7 @@ const ApplicationForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSubmittingState(true);
     const form = e.target as HTMLFormElement;
     const f = new FormData(form);
 
@@ -72,14 +81,15 @@ const ApplicationForm = () => {
       setResetKey((k) => k + 1);
       window.scrollTo({ top: 0, behavior: "smooth" });
       setTimeout(() => setSubmitted(true), 600);
+      // leave isSubmitting true — keeps the flame hidden until the
+      // success screen replaces the form entirely
     } catch (err) {
+      setSubmittingState(false);
       showToast(
         "Submission Failed",
         err instanceof Error ? err.message : "Something went wrong.",
         "destructive",
       );
-    } finally {
-      setIsSubmitting(false);
     }
   };
 

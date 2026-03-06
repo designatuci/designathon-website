@@ -35,7 +35,7 @@ export default function FlameLoading() {
             alt="flame"
             width={120}
             height={120}
-            className={`flame-img ${i === frame ? "visible" : "hidden"}`}
+            className={`flame-img z-1000 ${i === frame ? "visible" : "hidden"}`}
           />
         ))}
       </div>
