@@ -1,4 +1,9 @@
-export type EventType = "logistics" | "ceremony" | "workshop" | "food" | "design";
+export type EventType =
+  | "logistics"
+  | "ceremony"
+  | "workshop"
+  | "food"
+  | "design";
 
 export interface ScheduleEvent {
   time: string;
@@ -17,12 +22,35 @@ export interface ScheduleDay {
   events: ScheduleEvent[];
 }
 
-export const eventTypeStyles: Record<EventType, { color: string; bg: string; border: string }> = {
-  logistics: { color: "#6b90ff", bg: "rgba(56,189,248,0.12)", border: "rgba(56,189,248,0.3)" },
-  ceremony: { color: "#a182ff", bg: "rgba(167,139,250,0.12)", border: "rgba(167,139,250,0.3)" },
-  workshop: { color: "#34d399", bg: "rgba(52,211,153,0.12)", border: "rgba(52,211,153,0.3)" },
-  food: { color: "#24fbf7", bg: "rgba(36, 251, 237, 0.12)", border: "rgba(251,191,36,0.3)" },
-  design: { color: "#ff9eff", bg: "rgba(233, 114, 244, 0.12)", border: "rgba(244,114,182,0.3)" },
+export const eventTypeStyles: Record<
+  EventType,
+  { color: string; bg: string; border: string }
+> = {
+  logistics: {
+    color: "#6b90ff",
+    bg: "rgba(56,189,248,0.12)",
+    border: "rgba(56,189,248,0.3)",
+  },
+  ceremony: {
+    color: "#a182ff",
+    bg: "rgba(167,139,250,0.12)",
+    border: "rgba(167,139,250,0.3)",
+  },
+  workshop: {
+    color: "#34d399",
+    bg: "rgba(52,211,153,0.12)",
+    border: "rgba(52,211,153,0.3)",
+  },
+  food: {
+    color: "#24fbf7",
+    bg: "rgba(36, 251, 237, 0.12)",
+    border: "rgba(251,191,36,0.3)",
+  },
+  design: {
+    color: "#ff9eff",
+    bg: "rgba(233, 114, 244, 0.12)",
+    border: "rgba(244,114,182,0.3)",
+  },
 };
 
 export const scheduleDays: ScheduleDay[] = [
@@ -67,7 +95,8 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Dinner",
         location: "DCE Courtyard",
         zoom: false,
-        description: "Fuel up! Dinner will be provided for all in-person participants.",
+        description:
+          "Fuel up! Dinner will be provided for all in-person participants.",
         type: "food",
       },
       {
@@ -76,8 +105,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Design Work Time",
         location: "DCE Yosemite",
         zoom: false,
-        description:
-          "Ready, set go! Design your best work.",
+        description: "Ready, set go! Design your best work.",
         type: "design",
       },
       {
@@ -86,8 +114,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Closing Ceremony",
         location: "DCE Yosemite",
         zoom: false,
-        description:
-          "Wrap up your first day of designathon.",
+        description: "Wrap up your first day of designathon.",
         type: "ceremony",
       },
     ],
@@ -102,7 +129,8 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Morning Check-In",
         location: "DCE Courtyard",
         zoom: false,
-        description: "Check back in for day 2. Grab some food from Yosemite and start designing!",
+        description:
+          "Check back in for day 2. Grab some food from Yosemite and start designing!",
         type: "logistics",
       },
       {
@@ -120,8 +148,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Hack Workshop",
         location: "Room 2030",
         zoom: false,
-        description:
-          "Collaborate with mentors from Hack@UCI!",
+        description: "Collaborate with mentors from Hack@UCI!",
         type: "workshop",
       },
       {
@@ -130,8 +157,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Lunch",
         location: "DCE Yosemite",
         zoom: false,
-        description:
-          "Take a break from designing and grab some fuel.",
+        description: "Take a break from designing and grab some fuel.",
         type: "food",
       },
       {
@@ -140,8 +166,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Figma Workshop",
         location: "Room 2030",
         zoom: false,
-        description:
-          "Collaborate with mentors from Figma!",
+        description: "Collaborate with mentors from Figma!",
         type: "workshop",
       },
       {
@@ -160,8 +185,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Commit the Change Workshop",
         location: "Room 2030",
         zoom: false,
-        description:
-          "Collaborate with mentors from UCI's Commit the Change!",
+        description: "Collaborate with mentors from UCI's Commit the Change!",
         type: "workshop",
       },
       {
@@ -179,8 +203,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Product@UCI Workshop",
         location: "Room 2030",
         zoom: false,
-        description:
-          "Collaborate with mentors from Product@UCI!",
+        description: "Collaborate with mentors from Product@UCI!",
         type: "workshop",
       },
       {
@@ -189,8 +212,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Closing Ceremony",
         location: "DCE Yosemite",
         zoom: false,
-        description:
-          "Wrap up the second day of designathon.",
+        description: "Wrap up the second day of designathon.",
         type: "ceremony",
       },
     ],
@@ -210,7 +232,6 @@ export const scheduleDays: ScheduleDay[] = [
         type: "ceremony",
       },
       {
-        
         time: "02:00 PM",
         endTime: "02:30 PM",
         title: "Final Check-In",
@@ -255,8 +276,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Dinner",
         location: "DCE Courtyard",
         zoom: false,
-        description:
-          "Dinner provided for all in-person participants.",
+        description: "Dinner provided for all in-person participants.",
         type: "food",
       },
       {

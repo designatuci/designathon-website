@@ -21,9 +21,9 @@ function Sponsors() {
           className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
           data-status="incomplete"
         >
-        <h2 className="relative z-10 container [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:text-7xl lg:text-8xl xl:text-8xl">
+          <h2 className="relative z-10 container [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:text-7xl lg:text-8xl xl:text-8xl">
             Partners
-        </h2>
+          </h2>
           <SponsorsMarquee reverse organizations={sponsors} />
           <div className="absolute right-0 bottom-0 w-1/2 translate-x-1/4 translate-y-1/2">
             <DOTImage
@@ -58,7 +58,7 @@ const sponsors: Organization[] = [
       imageURL: "/images/seasons/2026/landing/sponsors/logos/canes.png",
       name: "Raising Cane's",
       rotation: -3,
-    }
+    },
   },
   {
     id: "marquee1-3",
@@ -85,8 +85,7 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-7",
     content: {
-      imageURL:
-        "/images/seasons/2026/landing/sponsors/logos/drg.jpg",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/drg.jpg",
       rotation: 3,
       name: "Dr. G",
     },
@@ -108,6 +107,6 @@ const sponsors: Organization[] = [
       imageURL: "/images/seasons/2026/landing/sponsors/logos/spfb.png",
       rotation: -3,
       name: "UCI SPFB",
-    }
+    },
   },
 ];

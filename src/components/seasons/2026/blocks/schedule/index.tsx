@@ -1,12 +1,23 @@
 "use client";
 
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { scheduleDays, eventTypeStyles, ScheduleEvent } from "./schedule-events";
+import { useState } from "react";
+import {
+  eventTypeStyles,
+  scheduleDays,
+  ScheduleEvent,
+} from "./schedule-events";
 
 function LocationIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
@@ -15,7 +26,14 @@ function LocationIcon() {
 
 function ZoomIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <polygon points="23 7 16 12 23 17 23 7" />
       <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
     </svg>
@@ -38,7 +56,14 @@ function EventRow({
   return (
     <div style={{ display: "flex", gap: "1.25rem" }}>
       {/* Node + spine segment */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          flexShrink: 0,
+        }}
+      >
         <div
           onClick={onToggle}
           style={{
@@ -62,7 +87,8 @@ function EventRow({
               flex: 1,
               width: "2px",
               minHeight: "1rem",
-              background: "linear-gradient(180deg, rgba(56,189,248,0.5) 0%, rgba(167,139,250,0.25) 100%)",
+              background:
+                "linear-gradient(180deg, rgba(56,189,248,0.5) 0%, rgba(167,139,250,0.25) 100%)",
               boxShadow: "0 0 6px rgba(56,189,248,0.3)",
               marginTop: "4px",
             }}
@@ -143,8 +169,12 @@ function EventRow({
                 textDecoration: "none",
                 transition: "background 0.2s",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(56,189,248,0.22)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(56,189,248,0.1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.background = "rgba(56,189,248,0.22)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "rgba(56,189,248,0.1)")
+              }
             >
               <ZoomIcon />
               Zoom
@@ -237,7 +267,7 @@ export default function Itinerary() {
         overflow: "hidden",
       }}
     >
-      <div className = "container relative">
+      <div className="relative container">
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* Header row: title left, tabs right */}
           <div
@@ -263,12 +293,12 @@ export default function Itinerary() {
               Event Schedule
             </h2>
 
-            <TabsList className="bg-white/5 backdrop-blur-md border border-white/10">
+            <TabsList className="border border-white/10 bg-white/5 backdrop-blur-md">
               {scheduleDays.map((day) => (
                 <TabsTrigger
                   key={day.date}
                   value={day.date}
-                  className="!text-white data-[state=active]:!text-sky-300 data-[state=active]:bg-sky-400/20 data-[state=active]:border-sky-400/40"
+                  className="!text-white data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
                 >
                   {day.date}
                 </TabsTrigger>
