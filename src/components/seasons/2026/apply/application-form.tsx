@@ -1,6 +1,6 @@
 "use client";
-import RocketSuccess from "@components/seasons/2026/apply/rocket-success";
 import FlameLoading from "@components/seasons/2026/apply/flame-loading";
+import RocketSuccess from "@components/seasons/2026/apply/rocket-success";
 import { useState } from "react";
 import {
   Field,
@@ -422,7 +422,7 @@ const ApplicationForm = () => {
                 rows={3}
               />
             </Field>
-            
+
             {/* Submit */}
             <button
               type="submit"
@@ -430,11 +430,7 @@ const ApplicationForm = () => {
               className={`group relative w-full overflow-hidden rounded-xl border border-purple-500/30 bg-white/5 px-6 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] disabled:opacity-60 ${isSubmitting ? "py-2" : "py-3.5"}`}
             >
               <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-              {isSubmitting ? (
-                <FlameLoading />
-              ) : (
-                "Submit Application"
-              )}
+              {isSubmitting ? <FlameLoading /> : "Submit Application"}
             </button>
           </form>
         )}
