@@ -259,7 +259,6 @@ function DayTimeline({ events }: { events: ScheduleEvent[] }) {
 
 export default function Itinerary() {
   return (
-    
     <main
       id="itinerary"
       style={{
