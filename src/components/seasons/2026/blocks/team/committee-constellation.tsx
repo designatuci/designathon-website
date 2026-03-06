@@ -456,25 +456,17 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   overflow: "hidden",
                 }}
               >
-                {member.photo ? (
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    width={64}
-                    height={64}
-                    style={{
-                      objectFit: "cover",
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  />
-                ) : (
-                  <span
-                    style={{ fontSize: 22, color: "rgba(255,255,255,0.2)" }}
-                  >
-                    ✦
-                  </span>
-                )}
+                <Image
+                  src="/images/seasons/2026/landing/team/nailong.png"
+                  alt="nailong pic"
+                  width={64}
+                  height={64}
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
               </div>
 
               {/* Info */}

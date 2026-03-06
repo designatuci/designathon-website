@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import {
   Card,
@@ -92,11 +94,14 @@ const rules: RuleItem[] = [
 export default function Rules() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(1);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
 
     setCurrent(api.selectedScrollSnap() + 1);
 
@@ -123,6 +128,7 @@ export default function Rules() {
         <h2 className="[font-family:var(--font-luxurious-script)] text-6xl leading-loose font-bold text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:text-7xl">
           Rules
         </h2>
+
         <div className="relative mx-auto w-full max-w-5xl sm:[aspect-ratio:1040/540]">
           <Image
             src="/images/seasons/2026/landing/rules/frame.svg"
@@ -131,11 +137,12 @@ export default function Rules() {
             className="inset-0 hidden h-full w-full object-contain object-center sm:absolute sm:block"
             aria-hidden
           />
+
           <div
             ref={ref}
             className={cn(
               "flex flex-col transition-all duration-700 sm:absolute sm:inset-x-[8%] sm:inset-y-[14%] lg:inset-x-[10%] lg:inset-y-[14%] xl:inset-x-[10%] xl:inset-y-[18%]",
-              isInView
+              mounted && isInView
                 ? "translate-y-0 opacity-100"
                 : "translate-y-6 opacity-0",
             )}
@@ -145,8 +152,10 @@ export default function Rules() {
                 <CardTitle className="pt-4 font-bold tracking-wide text-white sm:pt-10 sm:text-xl md:pt-3 lg:text-2xl 3xl:text-4xl">
                   Rule 0{current} / 0{rules.length}
                 </CardTitle>
+
                 <hr className="mt-6 h-px w-full max-w-lg border-0 bg-white/35" />
               </CardHeader>
+
               <CardContent className="flex flex-col sm:min-h-0 sm:flex-1">
                 <Carousel
                   opts={{
@@ -170,10 +179,12 @@ export default function Rules() {
                       </CarouselItem>
                     ))}
                   </CarouselContent>
+
                   <CarouselPrevious className="top-1/2 left-2 size-8 border-0 bg-transparent text-white hover:bg-transparent hover:text-[#365A89] [&_svg]:size-12" />
                   <CarouselNext className="top-1/2 right-2 size-8 border-0 bg-transparent text-white hover:bg-transparent hover:text-[#365A89] [&_svg]:size-12" />
                 </Carousel>
               </CardContent>
+
               <CardFooter className="hidden items-center justify-center pb-2 md:flex md:pb-4 lg:pb-6">
                 {dots.map((_, index) => (
                   <Fragment key={index}>
