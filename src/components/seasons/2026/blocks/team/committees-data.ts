@@ -138,7 +138,7 @@ export const COMMITTEES: Committee[] = [
     fdelay: 0.5,
     description:
       "Coordinating venues, schedules, and supplies to keep the event running smoothly.",
-    constellationName: "Southern Cross",
+    constellationName: "Little Dipper",
     constellation: {
       members: [
         [120, 360],
@@ -386,7 +386,7 @@ export const COMMITTEES: Committee[] = [
         role: "Committee",
         year: "1st Year",
         major: "Undeclared",
-        funFact: "fun fact tba",
+        funFact: "I really like collecting smiskis!",
       },
     ],
   },
