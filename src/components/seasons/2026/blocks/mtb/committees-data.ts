@@ -198,7 +198,8 @@ export const COMMITTEES: Committee[] = [
         role: "Committee",
         year: "4th Year",
         major: "Business Information Management",
-        funFact: "I love SpongeBob and have been collecting SpongeBob trinkets since I was a kid!",
+        funFact:
+          "I love SpongeBob and have been collecting SpongeBob trinkets since I was a kid!",
       },
       {
         photo: "",
@@ -493,13 +494,34 @@ export const COMMITTEES: Committee[] = [
       ],
       director: [220, 100],
       lines: [
-        [[40, 310], [160, 230]],
-        [[160, 230], [220, 100]],
-        [[150, 370], [160, 230]],
-        [[290, 370], [280, 230]],
-        [[280, 230], [220, 100]],
-        [[400, 310], [280, 230]],
-        [[160, 230], [280, 230]],
+        [
+          [40, 310],
+          [160, 230],
+        ],
+        [
+          [160, 230],
+          [220, 100],
+        ],
+        [
+          [150, 370],
+          [160, 230],
+        ],
+        [
+          [290, 370],
+          [280, 230],
+        ],
+        [
+          [280, 230],
+          [220, 100],
+        ],
+        [
+          [400, 310],
+          [280, 230],
+        ],
+        [
+          [160, 230],
+          [280, 230],
+        ],
       ],
     },
     members: [

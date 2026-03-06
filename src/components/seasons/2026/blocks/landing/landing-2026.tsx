@@ -9,8 +9,8 @@ import MeetCommittees from "@components/seasons/2026/blocks/mtb/meet-committees"
 import LandingNavigation from "@components/seasons/2026/blocks/navigation/landing-navigation";
 import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
-import Star from "@components/seasons/2026/blocks/star";
 import Sponsors from "@components/seasons/2026/blocks/sponsors";
+import Star from "@components/seasons/2026/blocks/star";
 import Link from "next/link";
 
 export default function Landing2026() {
