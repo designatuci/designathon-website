@@ -259,7 +259,8 @@ function DayTimeline({ events }: { events: ScheduleEvent[] }) {
 
 export default function Itinerary() {
   return (
-    <main
+    <section
+      id="schedule"
       style={{
         minHeight: "100vh",
         padding: "3rem 1.5rem",
@@ -290,7 +291,7 @@ export default function Itinerary() {
                 textShadow: "0 0 40px rgba(56,189,248,0.4)",
               }}
             >
-              Event Schedule
+              Itinerary
             </h2>
 
             <TabsList className="border border-white/10 bg-white/5 backdrop-blur-md">
@@ -313,6 +314,6 @@ export default function Itinerary() {
           ))}
         </Tabs>
       </div>
-    </main>
+    </section>
   );
 }
