@@ -41,7 +41,9 @@ export default function FlameLoading() {
       </div>
       <p className="loading-message">{MESSAGES[frame]}</p>
       <div className="dots">
-        <span /><span /><span />
+        <span />
+        <span />
+        <span />
       </div>
 
       <style jsx>{`
@@ -66,11 +68,20 @@ export default function FlameLoading() {
           left: 0;
           transition: opacity 0.15s ease;
         }
-        .flame-img.visible { opacity: 1; }
-        .flame-img.hidden  { opacity: 0; }
+        .flame-img.visible {
+          opacity: 1;
+        }
+        .flame-img.hidden {
+          opacity: 0;
+        }
         @keyframes bob {
-          0%, 100% { transform: translateY(0); }
-          50%       { transform: translateY(-6px); }
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
         }
         .loading-message {
           font-size: 13px;
@@ -90,11 +101,22 @@ export default function FlameLoading() {
           background: rgba(160, 120, 255, 0.6);
           animation: pulse 1.2s ease-in-out infinite;
         }
-        .dots span:nth-child(2) { animation-delay: 0.2s; }
-        .dots span:nth-child(3) { animation-delay: 0.4s; }
+        .dots span:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .dots span:nth-child(3) {
+          animation-delay: 0.4s;
+        }
         @keyframes pulse {
-          0%, 100% { transform: scale(0.7); opacity: 0.4; }
-          50%       { transform: scale(1.2); opacity: 1; }
+          0%,
+          100% {
+            transform: scale(0.7);
+            opacity: 0.4;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
         }
       `}</style>
     </div>
