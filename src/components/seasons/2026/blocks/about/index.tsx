@@ -17,17 +17,50 @@ function About() {
           confidence and creativity as a human-centric designer.
         </p>
       </div>
-      {/* Behind text */}
+      {/* Circles */}
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/70 md:h-[26rem] md:w-[26rem]" />
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[17rem] w-[17rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 md:h-[31rem] md:w-[31rem]" />
       <div className="pointer-events-none absolute top-1/2 left-1/2 h-[21rem] w-[21rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 md:h-[36rem] md:w-[36rem]" />
 
+      {/* Planets */}
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
-        alt="Decorative navy illustration"
-        width={400}
-        height={400}
+        alt=""
+        width={325}
+        height={373}
         className="pointer-events-none absolute top-1/2 left-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 object-contain md:h-[22rem] md:w-[22rem]"
+      />
+
+      <Image
+        src="/images/seasons/2026/landing/about/rose.png"
+        alt=""
+        width={70}
+        height={70}
+        className="pointer-events-none absolute top-[32%] left-[70%] h-[2rem] w-[2rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[12%] md:left-[57%] md:h-[3rem] md:w-[3rem]"
+      />
+
+      <Image
+        src="/images/seasons/2026/landing/about/purple.png"
+        alt=""
+        width={100}
+        height={100}
+        className="pointer-events-none absolute top-[42%] left-[20%] h-[3rem] w-[3rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[29%] md:left-[37%] md:h-[4rem] md:w-[4rem]"
+      />
+
+      <Image
+        src="/images/seasons/2026/landing/about/blue.png"
+        alt=""
+        width={100}
+        height={100}
+        className="pointer-events-none absolute top-[60%] left-[11%] h-[3rem] w-[3rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[70%] md:left-[33%] md:h-[4rem] md:w-[4rem]"
+      />
+
+      <Image
+        src="/images/seasons/2026/landing/about/magneta.png"
+        alt=""
+        width={100}
+        height={100}
+        className="pointer-events-none absolute top-[65%] left-[80%] h-[7rem] w-[7rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[80%] md:left-[63%] md:h-[8rem] md:w-[8rem]"
       />
     </section>
   );
