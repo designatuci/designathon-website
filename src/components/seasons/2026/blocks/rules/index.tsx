@@ -126,6 +126,7 @@ export default function Rules() {
         <div className="relative mx-auto w-full max-w-5xl sm:[aspect-ratio:1040/540]">
           <Image
             src="/images/seasons/2026/landing/rules/frame.svg"
+            fill
             alt="rules-frame"
             className="inset-0 hidden h-full w-full object-contain object-center sm:absolute sm:block"
             aria-hidden
