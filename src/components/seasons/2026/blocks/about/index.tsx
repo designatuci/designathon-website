@@ -4,9 +4,9 @@ function About() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen flex-col items-center px-6 py-16"
+      className="relative flex min-h-[70vh] md:min-h-screen flex-col items-center px-6 py-16"
     >
-      <h2 className="py-48 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:py-12 md:text-7xl">
+      <h2 className="py-25 md:py-12 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:text-7xl">
         About
       </h2>
       <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]">
