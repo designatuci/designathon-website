@@ -20,7 +20,7 @@ export default function RocketSuccess() {
 
       <div className="rocket">
         <Image
-          src="/images/seasons/2026/landing/rocket.png"
+          src="/images/seasons/2026/landing/apply/rocket.png"
           alt="rocket"
           width={150}
           height={150}

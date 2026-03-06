@@ -1,6 +1,7 @@
 "use client";
 
 import ApplicationForm from "@components/seasons/2026/apply/application-form";
+import FlameWidget from "@components/seasons/2026/apply/flame-widget";
 import { Luxurious_Script } from "next/font/google";
 import Link from "next/link";
 // import DOTImage from "@components/common/dot-image";
@@ -41,7 +42,9 @@ export default function ApplyPage() {
         }
     `}</style>
 
-      <main className="relative w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
+      <main className="relative min-h-screen w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
+        <FlameWidget />
+
         {/* ── Ambient glows ── */}
         <div
           aria-hidden="true"
@@ -117,7 +120,7 @@ export default function ApplyPage() {
             */}
 
             {/* Glass card */}
-            <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl backdrop-blur-md md:p-8">
+            <div>
               <ApplicationForm />
             </div>
           </div>
