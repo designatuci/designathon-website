@@ -15,11 +15,11 @@ export type Committee = {
   name: string;
   star: string;
   glow: string;
-  pos: {x:number, y:number};
-  size: number,
-  fd: number,
-  fdelay: number,
-  description: string,
+  pos: { x: number; y: number };
+  size: number;
+  fd: number;
+  fdelay: number;
+  description: string;
   constellationName: string;
   constellation: {
     members: [number, number][];
