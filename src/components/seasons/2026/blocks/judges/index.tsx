@@ -142,19 +142,11 @@ export default function IndexPage() {
           className="-mt-8 w-full overflow-hidden"
         >
           <div className="relative">
-            <div className="basis pointer-events-none rounded-full opacity-40">
-              <DOTImage
-                alt="background glow"
-                src="/images/seasons/2026/landing/judges/sponsor_planet_bg.png"
-                fill
-                className="object-contain scale-130" 
-              />
-            </div>
             <CarouselContent>
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="flex basis-full md:basis-1/3 justify-center py-4 md:p1-0"
+                  className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/3"
                 >
                   <div className="origin-center scale-75">
                     <ProfileCard
