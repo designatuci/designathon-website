@@ -20,6 +20,7 @@ export default function MeetCommittees() {
   };
 
   return (
+    <section id="team">
     <div className="relative">
       <div
         className="pointer-events-none absolute w-full"
@@ -265,5 +266,6 @@ export default function MeetCommittees() {
         />
       </main>
     </div>
+    </section>
   );
 }

@@ -53,7 +53,7 @@ export default function LandingNavigation() {
         className={cn(
           "flex items-center justify-between py-2 lg:rounded-xl lg:px-4 lg:transition-colors lg:duration-200 lg:ease-in-out",
           {
-            "lg:bg-white/50 lg:backdrop-blur-sm": backgroundVisible,
+            "lg:bg-black/30 lg:backdrop-blur-sm text-white": backgroundVisible,
           },
         )}
       >
@@ -82,12 +82,12 @@ function LandingNavigationMobile() {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="size-fit !p-0 text-(--tan) hover:bg-transparent hover:text-(--tan) lg:hidden"
+          className="size-fit !p-0 text-white hover:bg-transparent hover:text-white lg:hidden"
         >
           <Menu className="size-10" />
         </Button>
       </SheetTrigger>
-      <SheetContent data-theme="2025" className="w-full border-0 bg-(--blue)">
+      <SheetContent data-theme="2025" className="w-full border-0 bg-black">
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <SheetDescription className="sr-only">Navigation Menu</SheetDescription>
         <div className="grid h-full place-items-center">
@@ -104,17 +104,20 @@ function LandingNavigationMobile() {
                     closeButtonRef.current.click();
                   }
                 }}
-                className="text-xl font-medium text-(--tan) hover:bg-transparent hover:text-(--tan)"
+                className="text-xl font-medium text-white hover:bg-transparent hover:text-white"
               >
                 {link.name}
               </Button>
             ))}
             <Button
               asChild
-              className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+              className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-black transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
             >
-              <Link href="https://ucidesignathon.devpost.com/" target="_blank">
-                Devpost
+              <Link
+                href="/2026-preview/apply"
+                className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
+              >
+              Apply
               </Link>
             </Button>
           </div>
@@ -149,7 +152,7 @@ function LandingNavigationDesktop({
             }
           }}
           className={cn(
-            "h-fit text-xl font-medium text-(--tan) transition-colors duration-300 ease-in-out hover:text-(--tan)",
+            "h-fit text-xl font-medium text-white transition-colors duration-300 ease-in-out hover:text-white",
             { "text-(--blue) hover:text-(--blue)": backgroundVisible },
           )}
         >
@@ -157,15 +160,14 @@ function LandingNavigationDesktop({
         </button>
       ))}
       <Button
-        className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-white transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
+        className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-black transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
         asChild
       >
         <Link
-          href="https://ucidesignathon.devpost.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/2026-preview/apply"
+          className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
         >
-          Devpost
+        Apply
         </Link>
       </Button>
     </div>

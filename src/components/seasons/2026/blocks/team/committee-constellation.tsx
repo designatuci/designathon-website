@@ -250,7 +250,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
         }
         @keyframes memberPulse {
           0%,100% { opacity:0.75; }
-          50%      { opacity:1; transform:scale(1.25); }
+          50% { opacity:1; transform:scale(1.08); }
         }
         @keyframes dummyPulse {
           0%,100% { opacity:0.3; }
