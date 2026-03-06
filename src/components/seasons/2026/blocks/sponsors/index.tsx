@@ -21,8 +21,8 @@ function Sponsors() {
           className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
           data-status="incomplete"
         >
-          <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
-            Sponsors
+          <h2 className="relative z-10 container [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:text-7xl lg:text-8xl xl:text-8xl">
+            Partners
           </h2>
           <SponsorsMarquee reverse organizations={sponsors} />
           <div className="absolute right-0 bottom-0 w-1/2 translate-x-1/4 translate-y-1/2">
@@ -47,20 +47,25 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-1",
     content: {
-      imageURL: "/images/seasons/2025/landing/sponsors/logos/notion.png",
-      name: "Notion",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/auntea_jenny.png",
+      name: "Auntea Jenny",
       rotation: -5,
     },
   },
   {
     id: "marquee1-2",
+    content: {
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/canes.png",
+      name: "Raising Cane's",
+      rotation: -3,
+    },
   },
   {
     id: "marquee1-3",
     content: {
-      imageURL: "/images/seasons/2025/landing/sponsors/logos/odit.png",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/copilot.png",
       rotation: 6,
-      name: "UCI ODIT",
+      name: "Microsoft Copilot",
     },
   },
   {
@@ -69,9 +74,9 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-5",
     content: {
-      imageURL: "/images/seasons/2025/landing/sponsors/logos/designliLogo.webp",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/doordash.png",
       rotation: 3,
-      name: "Designli",
+      name: "Doordash",
     },
   },
   {
@@ -80,10 +85,9 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-7",
     content: {
-      imageURL:
-        "/images/seasons/2025/landing/sponsors/logos/antrepreneurshipCenter.jpg",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/drg.jpg",
       rotation: 3,
-      name: "ANTpreneur Center",
+      name: "Dr. G",
     },
   },
   {
@@ -92,12 +96,17 @@ const sponsors: Organization[] = [
   {
     id: "marquee1-9",
     content: {
-      imageURL: "/images/seasons/2025/landing/sponsors/logos/poppi.jpg",
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/hero.jpg",
       rotation: 3,
-      name: "poppi",
+      name: "Hero Cosmetics",
     },
   },
   {
     id: "marquee1-10",
+    content: {
+      imageURL: "/images/seasons/2026/landing/sponsors/logos/spfb.png",
+      rotation: -3,
+      name: "UCI SPFB",
+    },
   },
 ];
