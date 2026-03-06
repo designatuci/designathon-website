@@ -90,7 +90,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
       rotation: 3,
       name: "Bluety",
-    }
+    },
   },
   {
     id: "marquee1-7",
@@ -109,9 +109,9 @@ const partners: Organization[] = [
     },
   },
   {
-    id:"marquee1-9",
+    id: "marquee1-9",
   },
   {
-    id:"marquee1-10",
+    id: "marquee1-10",
   },
 ];
