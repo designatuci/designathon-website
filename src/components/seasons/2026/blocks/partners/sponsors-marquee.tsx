@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { Organization } from "@components/seasons/2026/blocks/sponsors";
+import { Organization } from "@components/seasons/2026/blocks/partners";
 
 type SponsorsMarqueeProps = {
   reverse?: boolean;
@@ -17,7 +17,7 @@ const SponsorsMarquee = ({
   return (
     <div className={cn("relative flex h-full items-center", className)}>
       <DOTImage
-        src="/images/seasons/2026/landing/sponsors/train-track.png"
+        src="/images/seasons/2026/landing/partners/train-track.png"
         alt="Train Tracks"
         width={2388}
         height={1668}
@@ -37,7 +37,7 @@ const SponsorsMarquee = ({
               className="group/cart pointer-events-auto relative flex w-[30vw] flex-col 2xl:max-w-[400px] 3xl:max-w-[450px]"
             >
               <DOTImage
-                src="/images/seasons/2026/landing/sponsors/cart-back.png"
+                src="/images/seasons/2026/landing/partners/cart-back.png"
                 alt="Cart Back"
                 width={1100}
                 height={281}
@@ -74,7 +74,7 @@ const SponsorsMarquee = ({
                 </div>
               )}
               <DOTImage
-                src="/images/seasons/2026/landing/sponsors/cart-front.png"
+                src="/images/seasons/2026/landing/partners/cart-front.png"
                 alt="Cart Front"
                 width={1100}
                 height={519}

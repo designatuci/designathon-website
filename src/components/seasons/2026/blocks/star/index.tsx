@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Star() {
   return (
-    <section id="star" className="flex justify-center py-16">
+    <section id="star" className="flex justify-center md:py-16">
       <div className="flex w-full items-center justify-center">
         <Image
           src="/images/seasons/2026/landing/star/star.png"

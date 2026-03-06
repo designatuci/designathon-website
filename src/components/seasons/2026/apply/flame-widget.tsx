@@ -12,7 +12,7 @@ const MESSAGES = [
   "Something feels familiar...",
 ];
 
-export default function FlameWidget() {
+export default function FlameWidget({ hidden = false }: { hidden?: boolean }) {
   const [idx, setIdx] = useState(0);
   const [state, setState] = useState<"hidden" | "visible" | "hiding">("hidden");
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -94,6 +94,8 @@ export default function FlameWidget() {
           alignItems: "center",
           width: 220,
           zIndex: 50,
+          visibility: hidden ? "hidden" : "visible",
+          pointerEvents: hidden ? "none" : "auto",
         }}
       >
         {/* Speech bubble */}

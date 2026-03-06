@@ -25,12 +25,9 @@ const navigationLinks: NavigationLink[] = [
   { name: "About", scrollTo: "about" },
   { name: "Rules", scrollTo: "rules" },
   { name: "FAQ", scrollTo: "faq" },
-  {
-    name: "Itinerary",
-    scrollTo: "itinerary",
-  },
+  { name: "Itinerary", scrollTo: "schedule" },
+  { name: "Partners", scrollTo: "partners" },
   { name: "Prizes", scrollTo: "prizes" },
-  { name: "Sponsors", scrollTo: "sponsors" },
   { name: "Team", scrollTo: "team" },
 ];
 
@@ -67,7 +64,7 @@ export default function LandingNavigation() {
         </Link>
         <div>
           <LandingNavigationMobile />
-          <LandingNavigationDesktop backgroundVisible={backgroundVisible} />
+          <LandingNavigationDesktop />
         </div>
       </div>
     </div>
@@ -134,11 +131,7 @@ function LandingNavigationMobile() {
   );
 }
 
-function LandingNavigationDesktop({
-  backgroundVisible,
-}: {
-  backgroundVisible: boolean;
-}) {
+function LandingNavigationDesktop() {
   return (
     <div className="mx-auto hidden items-center gap-8 lg:flex">
       {navigationLinks.map((link) => (
@@ -151,10 +144,7 @@ function LandingNavigationDesktop({
               element.scrollIntoView({ behavior: "smooth" });
             }
           }}
-          className={cn(
-            "h-fit text-xl font-medium text-white transition-colors duration-300 ease-in-out hover:text-white",
-            { "text-(--blue) hover:text-(--blue)": backgroundVisible },
-          )}
+          className="h-fit text-xl font-medium text-white transition-colors duration-300 ease-in-out"
         >
           {link.name}
         </button>

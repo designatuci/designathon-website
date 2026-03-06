@@ -1,6 +1,8 @@
 import { google } from "googleapis";
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 type Submission = {
   id: string;
   timestamp: string;
@@ -34,10 +36,15 @@ async function appendToSheet(s: Submission) {
 
   if (!process.env.GOOGLE_SHEET_ID) throw new Error("Missing GOOGLE_SHEET_ID");
 
+  const privateKey = Buffer.from(
+    process.env.GOOGLE_PRIVATE_KEY_B64!,
+    "base64",
+  ).toString("utf8");
+
   const auth = new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+      private_key: privateKey,
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
@@ -49,7 +56,7 @@ async function appendToSheet(s: Submission) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
-    range: "Sheet1!A:T",
+    range: "Sheet1!A:R",
     valueInputOption: "RAW",
     insertDataOption: "INSERT_ROWS",
     requestBody: {
@@ -121,6 +128,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("Apply API error:", err);
     const message = err instanceof Error ? err.message : "Invalid request";
+
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }
