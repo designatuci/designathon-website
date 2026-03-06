@@ -67,7 +67,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
         {/* Top accent streak */}
         {isActive && (
           <div
-            className="absolute top-0 left-8 right-8 h-[2px] rounded-full"
+            className="absolute top-0 right-8 left-8 h-[2px] rounded-full"
             style={{
               background: `linear-gradient(90deg, transparent, ${color.ring}, transparent)`,
             }}
@@ -91,9 +91,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
           <div
             className={cn(
               "relative overflow-hidden transition-all duration-500",
-              isActive
-                ? "h-44 w-44 rounded-full"
-                : "h-32 w-32 rounded-full",
+              isActive ? "h-44 w-44 rounded-full" : "h-32 w-32 rounded-full",
             )}
             style={{
               boxShadow: isActive
@@ -108,13 +106,13 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
                 style={{ borderColor: color.ring, borderStyle: "dashed" }}
               />
             )}
-              <DOTImage
-                alt={profile.name}
-                src={profile.imageURL}
-                fill
-                sizes="(min-width: 768px) 176px"
-                className="object-cover"
-              />
+            <DOTImage
+              alt={profile.name}
+              src={profile.imageURL}
+              fill
+              sizes="(min-width: 768px) 176px"
+              className="object-cover"
+            />
           </div>
         </CardHeader>
 
@@ -127,7 +125,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
         >
           <h3
             className={cn(
-              "font-bold leading-tight tracking-tight text-white transition-all duration-500",
+              "leading-tight font-bold tracking-tight text-white transition-all duration-500",
               isActive ? "text-2xl" : "text-lg",
             )}
           >
@@ -196,11 +194,11 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
               style={{ backgroundColor: color.ring }}
             />
             <div
-              className="absolute bottom-4 right-4 h-1 w-1 rounded-full opacity-60"
+              className="absolute right-4 bottom-4 h-1 w-1 rounded-full opacity-60"
               style={{ backgroundColor: color.ring }}
             />
             <div
-              className="absolute bottom-7 right-6 h-0.5 w-0.5 rounded-full opacity-30"
+              className="absolute right-6 bottom-7 h-0.5 w-0.5 rounded-full opacity-30"
               style={{ backgroundColor: color.ring }}
             />
           </>

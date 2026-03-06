@@ -7,6 +7,7 @@ import Hero from "@components/seasons/2026/blocks/hero";
 import Judges from "@components/seasons/2026/blocks/judges";
 import LandingNavigation from "@components/seasons/2026/blocks/navigation/landing-navigation";
 import Sponsors from "@components/seasons/2026/blocks/sponsors";
+import Schedule from "@components/seasons/2026/blocks/schedule";
 
 export default function Landing2026() {
   return (
@@ -16,6 +17,7 @@ export default function Landing2026() {
       <About />
       <Judges />
       <FAQ />
+      <Schedule />
       <Sponsors />
       <Footer />
     </main>

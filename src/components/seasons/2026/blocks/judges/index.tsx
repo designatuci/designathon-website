@@ -1,5 +1,4 @@
 "use client";
-import DOTImage from "@components/common/dot-image";
 import { useInView } from "motion/react";
 import { useCallback, useRef, useState } from "react";
 
@@ -126,7 +125,7 @@ export default function IndexPage() {
         ref={sectionRef}
         className="flex w-full flex-col items-center gap-0 px-4 py-4"
       >
-        <h2 className="relative z-10 container font-title text-3xl font-bold sm:text-4xl lg:text-5xl xl:text-6xl">
+        <h2 className="relative z-10 container [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:text-6xl lg:text-5xl xl:text-7xl">
           Judges
         </h2>
         <Carousel
@@ -146,7 +145,7 @@ export default function IndexPage() {
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/3"
+                  className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/4"
                 >
                   <div className="origin-center scale-75">
                     <ProfileCard
