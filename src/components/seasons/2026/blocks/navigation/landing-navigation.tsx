@@ -53,7 +53,7 @@ export default function LandingNavigation() {
         className={cn(
           "flex items-center justify-between py-2 lg:rounded-xl lg:px-4 lg:transition-colors lg:duration-200 lg:ease-in-out",
           {
-            "lg:bg-black/30 lg:backdrop-blur-sm text-white": backgroundVisible,
+            "text-white lg:bg-black/30 lg:backdrop-blur-sm": backgroundVisible,
           },
         )}
       >
@@ -117,7 +117,7 @@ function LandingNavigationMobile() {
                 href="/2026-preview/apply"
                 className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
               >
-              Apply
+                Apply
               </Link>
             </Button>
           </div>
@@ -167,7 +167,7 @@ function LandingNavigationDesktop({
           href="/2026-preview/apply"
           className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
         >
-        Apply
+          Apply
         </Link>
       </Button>
     </div>
