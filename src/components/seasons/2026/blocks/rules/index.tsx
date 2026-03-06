@@ -16,6 +16,7 @@ import {
 } from "@components/ui/carousel";
 import { useInView } from "motion/react";
 import React, { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 
 type RuleItem = {
   rule: React.ReactNode;
@@ -123,7 +124,7 @@ export default function Rules() {
           Rules
         </h2>
         <div className="relative mx-auto w-full max-w-5xl sm:[aspect-ratio:1040/540]">
-          <img
+          <Image
             src="/images/seasons/2026/landing/rules/frame.svg"
             alt="rules-frame"
             className="inset-0 hidden h-full w-full object-contain object-center sm:absolute sm:block"
