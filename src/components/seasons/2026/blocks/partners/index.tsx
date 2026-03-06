@@ -70,9 +70,6 @@ const partners: Organization[] = [
   },
   {
     id: "marquee1-4",
-  },
-  {
-    id: "marquee1-5",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
       rotation: 3,
@@ -80,10 +77,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-6",
-  },
-  {
-    id: "marquee1-7",
+    id: "marquee1-5",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/drg.jpg",
       rotation: 3,
@@ -91,10 +85,15 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-8",
+    id: "marquee1-6",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
+      rotation: 3,
+      name: "Bluety",
+    }
   },
   {
-    id: "marquee1-9",
+    id: "marquee1-7",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/hero.jpg",
       rotation: 3,
@@ -102,11 +101,17 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-10",
+    id: "marquee1-8",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
       rotation: -3,
       name: "UCI SPFB",
     },
+  },
+  {
+    id:"marquee1-9",
+  },
+  {
+    id:"marquee1-10",
   },
 ];
