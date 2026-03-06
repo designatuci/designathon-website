@@ -23,15 +23,15 @@ interface NavigationLink {
 
 const navigationLinks: NavigationLink[] = [
   { name: "About", scrollTo: "about" },
+  { name: "Rules", scrollTo: "rules" },
+  { name: "FAQ", scrollTo: "faq" },
   {
     name: "Itinerary",
     scrollTo: "itinerary",
   },
-  { name: "FAQ", scrollTo: "faq" },
   { name: "Prizes", scrollTo: "prizes" },
   { name: "Sponsors", scrollTo: "sponsors" },
   { name: "Team", scrollTo: "team" },
-  { name: "Rules", scrollTo: "rules" },
 ];
 
 export default function LandingNavigation() {

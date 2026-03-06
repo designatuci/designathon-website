@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Lekton } from "next/font/google";
 import localFont from "next/font/local";
 import React from "react";
 
@@ -6,6 +7,12 @@ const inriaSans = localFont({
   src: "./fonts/InriaSans-Regular.woff2",
   display: "swap",
   variable: "--font-inria-sans",
+});
+
+const lekton = Lekton({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-lekton",
 });
 
 const luxuriousScript = localFont({
@@ -27,7 +34,7 @@ function Layout({ children }: Props) {
   return (
     <body
       data-theme="2026"
-      className={`${inriaSans.variable} ${luxuriousScript.variable}`}
+      className={`${inriaSans.variable} ${lekton.variable} ${luxuriousScript.variable}`}
     >
       {children}
     </body>

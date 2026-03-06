@@ -142,7 +142,7 @@ function EventRow({
               display: "flex",
               alignItems: "center",
               gap: "0.3rem",
-              fontSize: "rem",
+              fontSize: "0.8rem",
               color: "rgba(255, 255, 255, 0.81)",
             }}
           >
@@ -214,7 +214,7 @@ function EventRow({
           >
             <div
               style={{
-                fontSize: "0.72rem",
+                fontSize: "0.8rem",
                 color: style.color,
                 marginBottom: "0.5rem",
                 letterSpacing: "0.08em",
@@ -225,7 +225,7 @@ function EventRow({
             <p
               style={{
                 color: "rgba(255,255,255,0.7)",
-                fontSize: "0.85rem",
+                fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
               }}
@@ -259,7 +259,9 @@ function DayTimeline({ events }: { events: ScheduleEvent[] }) {
 
 export default function Itinerary() {
   return (
+    
     <main
+      id="itinerary"
       style={{
         minHeight: "100vh",
         padding: "3rem 1.5rem",
