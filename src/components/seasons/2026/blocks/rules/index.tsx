@@ -149,7 +149,7 @@ export default function Rules() {
           >
             <Card className="flex-1 flex-col rounded-2xl border border-zinc-200/25 bg-white/5 sm:flex sm:min-h-0">
               <CardHeader className="flex flex-col items-center justify-center">
-                <CardTitle className="pt-4 font-bold tracking-wide text-white sm:pt-10 sm:text-xl md:pt-3 lg:text-2xl 3xl:text-4xl">
+                <CardTitle className="pt-4 font-bold tracking-wide text-white sm:pt-10 [font-family:var(--font-inria-sans)] sm:text-xl md:pt-3 lg:text-2xl 3xl:text-4xl">
                   Rule 0{current} / 0{rules.length}
                 </CardTitle>
 

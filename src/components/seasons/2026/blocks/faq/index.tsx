@@ -10,10 +10,12 @@ import {
 } from "@components/ui/accordion";
 import { useInView } from "motion/react";
 import { useRef } from "react";
+import Link from "next/link";
+
 
 type FAQItem = {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 };
 
 const faqItems: FAQItem[] = [
@@ -29,7 +31,19 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "How do I sign up?",
-    answer: "Apply through our Participant Sign-up Form.",
+    answer: (
+      <span>
+        Apply through our{" "}
+        <Link
+          href="https://ucidesignathon.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          Participant Sign-up Form.
+        </Link>
+      </span>
+    ),
   },
   {
     question:
@@ -88,7 +102,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
     >
       <AccordionTrigger
         className={cn(
-          "cursor-pointer flex-row-reverse items-center justify-end text-base font-bold tracking-wide text-zinc-200 sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl [&[data-state=open]]:drop-shadow-[0_0_8px_rgba(255,255,255,1.0)] [&[data-state=open]>svg]:rotate-90",
+          "cursor-pointer flex-row-reverse items-center justify-end font-bold tracking-wide text-zinc-200 [font-family:var(--font-inria-sans)] sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl [&[data-state=open]]:drop-shadow-[0_0_8px_rgba(255,255,255,1.0)] [&[data-state=open]>svg]:rotate-90",
           "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 not-motion-reduce:transition-all not-motion-reduce:duration-500",
           {
             "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
@@ -111,7 +125,7 @@ export default function FAQ() {
     <section id="faq" className="flex justify-center px-4 py-4">
       <div className="container flex w-full flex-col">
         <h2 className="py-4 [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:py-6 md:text-7xl">
-          FAQ
+          Frequently Asked Questions
         </h2>
         <Accordion type="multiple" className="w-full">
           {faqItems.map((item, index) => (

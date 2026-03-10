@@ -17,12 +17,16 @@ const SponsorsMarquee = ({
   return (
     <div className={cn("relative flex h-full items-center", className)}>
       <DOTImage
-        src="/images/seasons/2026/landing/partners/train-track.png"
+        src="/images/seasons/2026/landing/partners/train-track-blank.png"
         alt="Train Tracks"
         width={2388}
         height={1668}
         className="h-full w-full object-cover"
       />
+      <div className="absolute inset-0 flex flex-col justify-center gap-30 pointer-events-none">
+        <div style={{ height: "20px", background: "#38bdf8", boxShadow: "0 0 6px #38bdf8, 0 0 20px #38bdf8, 0 0 60px #38bdf8" }} />
+        <div style={{ height: "20px", background: "#38bdf8", boxShadow: "0 0 6px #38bdf8, 0 0 20px #38bdf8, 0 0 60px #38bdf8" }} />
+      </div>
       <div className="pointer-events-none absolute top-[80%] left-0 flex max-w-full -translate-y-full overflow-x-hidden">
         <ul
           className={cn(
