@@ -104,6 +104,7 @@
 
   /* 2026 themes */
   [data-theme="2026"] {
+    --theme-font-family: var(--font-lekton), sans-serif;
     font-family: var(--font-lekton), sans-serif;
   }
 

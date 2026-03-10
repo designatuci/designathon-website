@@ -4,12 +4,11 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const MESSAGES = [
-  "I wonder what I'll find...",
+  "Let's go exploring!",
   "Every object has a story.",
   "A signal worth chasing.",
   "Another quiet mystery.",
   "Lost… but not forever.",
-  "Something feels familiar...",
 ];
 
 export default function FlameWidget({ hidden = false }: { hidden?: boolean }) {
@@ -44,7 +43,7 @@ export default function FlameWidget({ hidden = false }: { hidden?: boolean }) {
     borderRadius: 18,
     padding: "10px 16px",
     maxWidth: 200,
-    fontFamily: "'Nunito', sans-serif",
+    fontFamily: "var(--font-lekton), sans-serif",
     fontSize: 13,
     fontWeight: 600,
     color: "#1a1040",
@@ -64,15 +63,18 @@ export default function FlameWidget({ hidden = false }: { hidden?: boolean }) {
   return (
     <>
       <style>{`
+
         @keyframes planetFloat {
           0%,100% { transform: translateY(0); }
           50%      { transform: translateY(-8px); }
         }
+
         @keyframes alienBob {
           0%,100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
           25%     { transform: translateX(-50%) translateY(-6px) rotate(-1.5deg); }
           75%     { transform: translateX(-50%) translateY(-3px) rotate(1deg); }
         }
+
         @media (max-width: 640px) {
             .flame-widget {
                 transform: scale(0.65);
