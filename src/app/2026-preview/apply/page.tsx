@@ -63,7 +63,7 @@ export default function ApplyPage() {
           {/* Back link */}
           <Link
             href="/2026-preview"
-            className="inline-flex items-center gap-1.5 text-sm text-purple-300/70 transition hover:text-purple-200"
+            className="font-lekton inline-flex items-center gap-1.5 text-sm text-purple-300/70 transition-transform hover:-translate-x-0.5 hover:text-purple-200"
           >
             <svg
               className="h-4 w-4"

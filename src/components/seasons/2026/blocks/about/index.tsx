@@ -1,69 +1,271 @@
-import Image from "next/image";
+"use client";
 
-function About() {
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+// ─────────────────────────────────────────────
+// Config
+// ─────────────────────────────────────────────
+
+const ORBIT_RADII = {
+  mobile: [75, 115, 155],
+  desktop: [130, 195, 260],
+};
+
+interface PlanetConfig {
+  src: string;
+  alt: string;
+  orbitIndex: number;
+  startAngle: number;
+  // How many full radians to travel over the full scroll range (positive = CW, negative = CCW)
+  scrollTravel: number;
+  sizeMobile: string;
+  sizeDesktop: string;
+  glowColor: string;
+}
+
+const PLANETS: PlanetConfig[] = [
+  {
+    src: "/images/seasons/2026/landing/about/rose.png",
+    alt: "Rose planet",
+    orbitIndex: 0,
+    startAngle: -Math.PI / 4,
+    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
+    sizeMobile: "2.5rem",
+    sizeDesktop: "4rem",
+    glowColor: "rgba(255, 120, 140, 0.35)",
+  },
+  {
+    src: "/images/seasons/2026/landing/about/purple.png",
+    alt: "Purple planet",
+    orbitIndex: 1,
+    startAngle: Math.PI,
+    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
+    sizeMobile: "3rem",
+    sizeDesktop: "5rem",
+    glowColor: "rgba(160, 100, 255, 0.35)",
+  },
+  {
+    src: "/images/seasons/2026/landing/about/blue.png",
+    alt: "Blue planet",
+    orbitIndex: 2,
+    startAngle: (3 * Math.PI) / 4 + 0.5,
+    scrollTravel: Math.PI, // half turn clockwise
+    sizeMobile: "3rem",
+    sizeDesktop: "5rem",
+    glowColor: "rgba(80, 220, 255, 0.35)",
+  },
+  {
+    src: "/images/seasons/2026/landing/about/magneta.png",
+    alt: "Magenta planet",
+    orbitIndex: 2,
+    startAngle: -Math.PI / 3,
+    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
+    sizeMobile: "4.5rem",
+    sizeDesktop: "7rem",
+    glowColor: "rgba(255, 80, 200, 0.35)",
+  },
+];
+
+// ─────────────────────────────────────────────
+// Hook: live viewport width → radii
+// ─────────────────────────────────────────────
+function useOrbitRadii() {
+  const [radii, setRadii] = useState(ORBIT_RADII.mobile);
+  useEffect(() => {
+    const update = () =>
+      setRadii(
+        window.innerWidth >= 768 ? ORBIT_RADII.desktop : ORBIT_RADII.mobile,
+      );
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return radii;
+}
+
+// ─────────────────────────────────────────────
+// Single orbiting planet — position driven by scroll
+// ─────────────────────────────────────────────
+function OrbitingPlanet({
+  config,
+  progress,
+  radii,
+}: {
+  config: PlanetConfig;
+  progress: MotionValue<number>;
+  radii: number[];
+}) {
+  const radius = radii[config.orbitIndex];
+
+  // Scroll progress [0→1] maps to angle [startAngle → startAngle + scrollTravel]
+  const angle = useTransform(
+    progress,
+    [0, 1],
+    [config.startAngle, config.startAngle + config.scrollTravel],
+  );
+
+  // Derive x/y from angle MotionValues
+  const x = useTransform(angle, (a) => Math.cos(a) * radius);
+  const y = useTransform(angle, (a) => Math.sin(a) * radius);
+
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        x,
+        y,
+      }}
+    >
+      <div
+        style={{
+          width: config.sizeMobile,
+          height: config.sizeMobile,
+          transform: "translate(-50%, -50%)",
+          ["--planet-size-desktop" as string]: config.sizeDesktop,
+        }}
+        className="md:[height:var(--planet-size-desktop)] md:[width:var(--planet-size-desktop)]"
+      >
+        <Image
+          src={config.src}
+          alt={config.alt}
+          fill
+          style={{
+            filter: `drop-shadow(0 0 4px ${config.glowColor}) drop-shadow(0 0 10px ${config.glowColor})`,
+          }}
+          className="object-contain"
+        />
+      </div>
+    </motion.div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Orbital rings
+// ─────────────────────────────────────────────
+function OrbitalRings() {
+  return (
+    <div className="pointer-events-none absolute inset-0">
+      <div className="absolute top-1/2 left-1/2 h-[9.375rem] w-[9.375rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/70 md:h-[16.25rem] md:w-[16.25rem]" />
+      <div className="absolute top-1/2 left-1/2 h-[14.375rem] w-[14.375rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 md:h-[24.375rem] md:w-[24.375rem]" />
+      <div className="absolute top-1/2 left-1/2 h-[19.375rem] w-[19.375rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 md:h-[32.5rem] md:w-[32.5rem]" />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Centre planet
+// ─────────────────────────────────────────────
+function CentrePlanet() {
+  return (
+    <div className="pointer-events-none absolute top-1/2 left-1/2 h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 md:h-[16rem] md:w-[16rem]">
+      <Image
+        src="/images/seasons/2026/landing/about/navy.png"
+        alt="Navy planet"
+        fill
+        style={{
+          filter:
+            "drop-shadow(0 0 6px rgba(80, 140, 255, 0.4)) drop-shadow(0 0 14px rgba(80, 140, 255, 0.25))",
+        }}
+        className="object-contain"
+      />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// About text — fades in mid-scroll, stays visible
+// ─────────────────────────────────────────────
+function AboutText({ progress }: { progress: MotionValue<number> }) {
+  // Fade in as user scrolls, then stay fully visible
+  const opacity = useTransform(progress, [0, 0.4], [0, 1]);
+
+  return (
+    <motion.div
+      style={{ opacity }}
+      className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]"
+    >
+      <p
+        className="text-center text-sm font-bold text-white italic md:text-lg"
+        style={{
+          letterSpacing: "0.04em",
+          textShadow: [
+            "0 0 6px rgba(255,255,255,0.6)",
+            "0 0 12px rgba(180,120,255,0.7)",
+            "0 0 24px rgba(160,90,255,0.6)",
+            "0 0 48px rgba(140,70,255,0.45)",
+          ].join(", "),
+        }}
+      >
+        We hope that this experience can help you acquire and grow both your
+        soft and hard skills in empathizing with your users, defining a set of
+        goals and needs, developing your product, and improving your confidence
+        and creativity as a human-centric designer.
+      </p>
+    </motion.div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Main canvas
+// ─────────────────────────────────────────────
+function AboutCanvas({ progress }: { progress: MotionValue<number> }) {
+  const radii = useOrbitRadii();
+
+  // Title fades out as user starts scrolling
+  const titleOpacity = useTransform(progress, [0, 0.25], [1, 0]);
+  const titleY = useTransform(progress, [0, 0.25], [0, -40]);
+
   return (
     <section
       id="about"
-      className="relative flex min-h-[70vh] flex-col items-center px-6 py-16 md:min-h-screen"
+      className="relative flex h-screen w-full origin-center flex-col items-center overflow-hidden px-6 py-16"
     >
-      <h2 className="py-25 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:py-12 md:text-7xl">
+      <motion.h2
+        style={{ opacity: titleOpacity, y: titleY }}
+        className="z-10 py-25 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:py-12 md:text-7xl"
+      >
         About
-      </h2>
-      <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]">
-        <p className="text-center text-sm font-bold text-white italic md:text-lg">
-          We hope that this experience can help you acquire and grow both your
-          soft and hard skills in empathizing with your users, defining a set of
-          goals and needs, developing your product, and improving your
-          confidence and creativity as a human-centric designer.
-        </p>
-      </div>
-      {/* Circles */}
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/70 md:h-[26rem] md:w-[26rem]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[17rem] w-[17rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 md:h-[31rem] md:w-[31rem]" />
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[21rem] w-[21rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/20 md:h-[36rem] md:w-[36rem]" />
+      </motion.h2>
 
-      {/* Planets */}
-      <Image
-        src="/images/seasons/2026/landing/about/navy.png"
-        alt=""
-        width={325}
-        height={373}
-        className="pointer-events-none absolute top-1/2 left-1/2 h-[12rem] w-[12rem] -translate-x-1/2 -translate-y-1/2 object-contain md:h-[22rem] md:w-[22rem]"
-      />
+      <OrbitalRings />
+      <CentrePlanet />
 
-      <Image
-        src="/images/seasons/2026/landing/about/rose.png"
-        alt=""
-        width={70}
-        height={70}
-        className="pointer-events-none absolute top-[32%] left-[70%] h-[2rem] w-[2rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[12%] md:left-[57%] md:h-[3rem] md:w-[3rem]"
-      />
+      {PLANETS.map((planet) => (
+        <OrbitingPlanet
+          key={planet.src}
+          config={planet}
+          progress={progress}
+          radii={radii}
+        />
+      ))}
 
-      <Image
-        src="/images/seasons/2026/landing/about/purple.png"
-        alt=""
-        width={100}
-        height={100}
-        className="pointer-events-none absolute top-[42%] left-[20%] h-[3rem] w-[3rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[29%] md:left-[37%] md:h-[4rem] md:w-[4rem]"
-      />
-
-      <Image
-        src="/images/seasons/2026/landing/about/blue.png"
-        alt=""
-        width={100}
-        height={100}
-        className="pointer-events-none absolute top-[60%] left-[11%] h-[3rem] w-[3rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[70%] md:left-[33%] md:h-[4rem] md:w-[4rem]"
-      />
-
-      <Image
-        src="/images/seasons/2026/landing/about/magneta.png"
-        alt=""
-        width={100}
-        height={100}
-        className="pointer-events-none absolute top-[65%] left-[80%] h-[7rem] w-[7rem] -translate-x-1/2 -translate-y-1/2 object-contain md:top-[80%] md:left-[63%] md:h-[8rem] md:w-[8rem]"
-      />
+      <AboutText progress={progress} />
     </section>
   );
 }
 
-export default About;
+// ─────────────────────────────────────────────
+// Exported wrapper
+// ─────────────────────────────────────────────
+export function AboutSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  return (
+    <div ref={containerRef} className="relative h-[250vh]">
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <AboutCanvas progress={scrollYProgress} />
+      </div>
+    </div>
+  );
+}
+
+export default AboutSection;
