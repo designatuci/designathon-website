@@ -1,8 +1,13 @@
 "use client";
 
-import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  MotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 // ─────────────────────────────────────────────
 // Config
@@ -31,7 +36,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Rose planet",
     orbitIndex: 0,
     startAngle: -Math.PI / 4,
-    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
+    scrollTravel: Math.PI * 1.5,   // 3/4 turn clockwise
     sizeMobile: "2.5rem",
     sizeDesktop: "4rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
@@ -41,7 +46,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Purple planet",
     orbitIndex: 1,
     startAngle: Math.PI,
-    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
+    scrollTravel: -Math.PI * 1.2,  // ~2/3 turn counter-clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(160, 100, 255, 0.35)",
@@ -51,7 +56,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Blue planet",
     orbitIndex: 2,
     startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: Math.PI, // half turn clockwise
+    scrollTravel: Math.PI,         // half turn clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
@@ -61,7 +66,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Magenta planet",
     orbitIndex: 2,
     startAngle: -Math.PI / 3,
-    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
+    scrollTravel: Math.PI,         // half turn clockwise (same orbit, different start)
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.35)",
@@ -177,33 +182,162 @@ function CentrePlanet() {
 }
 
 // ─────────────────────────────────────────────
-// About text — fades in mid-scroll, stays visible
+// Glitch-decode word component
+// Each word scrambles through random chars then snaps to its real value
+// triggered when `revealed` flips true
 // ─────────────────────────────────────────────
+const GLITCH_CHARS = "!@#$%^&*<>?/\\|~[]{}ΩΨΦΔλξπ∑∞≈≠±×÷";
+
+function GlitchWord({
+  word,
+  revealed,
+  delay = 0,
+}: {
+  word: string;
+  revealed: boolean;
+  delay?: number;
+}) {
+  const [display, setDisplay] = useState(word.replace(/\S/g, "·"));
+  const [locked, setLocked] = useState(false);
+  const frameRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const iterRef = useRef(0);
+
+  const scramble = useCallback(() => {
+    if (locked) return;
+    const TOTAL_FRAMES = 10;
+    const LOCK_FRAME = 7;
+
+    const tick = () => {
+      iterRef.current += 1;
+      const t = iterRef.current / TOTAL_FRAMES;
+
+      if (iterRef.current >= TOTAL_FRAMES) {
+        setDisplay(word);
+        setLocked(true);
+        return;
+      }
+
+      // Progressively reveal chars left-to-right as frames advance
+      const revealUpTo = Math.floor(t * word.length);
+      const next = word
+        .split("")
+        .map((char, i) => {
+          if (char === " ") return " ";
+          if (i < revealUpTo || iterRef.current >= LOCK_FRAME) return char;
+          return GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)];
+        })
+        .join("");
+
+      setDisplay(next);
+      frameRef.current = setTimeout(tick, 40);
+    };
+
+    frameRef.current = setTimeout(tick, delay);
+  }, [word, delay, locked]);
+
+  useEffect(() => {
+    if (revealed && !locked) scramble();
+    return () => {
+      if (frameRef.current) clearTimeout(frameRef.current);
+    };
+  }, [revealed, locked, scramble]);
+
+  // Reset if un-revealed (scroll back up)
+  useEffect(() => {
+    if (!revealed) {
+      setLocked(false);
+      setDisplay(word.replace(/\S/g, "·"));
+      iterRef.current = 0;
+    }
+  }, [revealed, word]);
+
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        fontVariantNumeric: "tabular-nums",
+        // Chromatic aberration effect on locked words
+        textShadow: locked
+          ? [
+              "-1px 0 rgba(255,80,200,0.6)",
+              "1px 0 rgba(80,220,255,0.6)",
+              "0 0 8px rgba(255,255,255,0.5)",
+              "0 0 20px rgba(180,120,255,0.6)",
+            ].join(", ")
+          : "0 0 6px rgba(255,255,255,0.3)",
+        color: locked ? "#fff" : "rgba(180,180,255,0.5)",
+        transition: "color 0.1s",
+      }}
+    >
+      {display}
+    </span>
+  );
+}
+
+// ─────────────────────────────────────────────
+// About text — words decode one-by-one as scroll progresses
+// ─────────────────────────────────────────────
+const ABOUT_TEXT =
+  "We hope that this experience can help you acquire and grow both your soft and hard skills in empathizing with your users, defining a set of goals and needs, developing your product, and improving your confidence and creativity as a human-centric designer.";
+
 function AboutText({ progress }: { progress: MotionValue<number> }) {
-  // Fade in as user scrolls, then stay fully visible
-  const opacity = useTransform(progress, [0, 0.4], [0, 1]);
+  const words = ABOUT_TEXT.split(" ");
+  const [scrollVal, setScrollVal] = useState(0);
+
+  // Subscribe to scroll progress
+  useEffect(() => {
+    return progress.on("change", (v) => setScrollVal(v));
+  }, [progress]);
+
+  // Text is visible immediately
+  const containerOpacity = useTransform(progress, [0, 0.08], [0, 1]);
+
+  // Each word reveals when scroll passes its threshold
+  // Words spread across scroll range [0.05 → 0.7]
+  const REVEAL_START = 0.05;
+  const REVEAL_END = 0.3;
 
   return (
     <motion.div
-      style={{ opacity }}
+      style={{ opacity: containerOpacity }}
       className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]"
     >
-      <p
-        className="text-center text-sm font-bold text-white italic md:text-lg"
+      {/* Scanline overlay for sci-fi texture */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-md"
         style={{
-          letterSpacing: "0.04em",
-          textShadow: [
-            "0 0 6px rgba(255,255,255,0.6)",
-            "0 0 12px rgba(180,120,255,0.7)",
-            "0 0 24px rgba(160,90,255,0.6)",
-            "0 0 48px rgba(140,70,255,0.45)",
-          ].join(", "),
+          background:
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
+          mixBlendMode: "overlay",
         }}
+      />
+
+      {/* Faint border frame */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-sm"
+      />
+
+      <p
+        className="relative text-center text-sm font-bold italic md:text-lg"
+        style={{ letterSpacing: "0.05em", lineHeight: 1.75 }}
       >
-        We hope that this experience can help you acquire and grow both your
-        soft and hard skills in empathizing with your users, defining a set of
-        goals and needs, developing your product, and improving your confidence
-        and creativity as a human-centric designer.
+        {words.map((word, i) => {
+          const threshold =
+            REVEAL_START + (i / words.length) * (REVEAL_END - REVEAL_START);
+          const revealed = scrollVal >= threshold;
+          const staggerDelay = (i % 4) * 20; // slight stagger within batches
+
+          return (
+            <span key={i}>
+              <GlitchWord
+                word={word}
+                revealed={revealed}
+                delay={staggerDelay}
+              />
+              {i < words.length - 1 ? " " : ""}
+            </span>
+          );
+        })}
       </p>
     </motion.div>
   );
