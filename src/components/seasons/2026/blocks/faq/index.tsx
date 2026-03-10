@@ -9,9 +9,8 @@ import {
   AccordionTrigger,
 } from "@components/ui/accordion";
 import { useInView } from "motion/react";
-import { useRef } from "react";
 import Link from "next/link";
-
+import { useRef } from "react";
 
 type FAQItem = {
   question: string;
@@ -102,7 +101,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
     >
       <AccordionTrigger
         className={cn(
-          "cursor-pointer flex-row-reverse items-center justify-end font-bold tracking-wide text-zinc-200 [font-family:var(--font-inria-sans)] sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl [&[data-state=open]]:drop-shadow-[0_0_8px_rgba(255,255,255,1.0)] [&[data-state=open]>svg]:rotate-90",
+          "cursor-pointer flex-row-reverse items-center justify-end [font-family:var(--font-inria-sans)] font-bold tracking-wide text-zinc-200 sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl [&[data-state=open]]:drop-shadow-[0_0_8px_rgba(255,255,255,1.0)] [&[data-state=open]>svg]:rotate-90",
           "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 not-motion-reduce:transition-all not-motion-reduce:duration-500",
           {
             "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
