@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  motion,
-  MotionValue,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -36,7 +31,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Rose planet",
     orbitIndex: 0,
     startAngle: -Math.PI / 4,
-    scrollTravel: Math.PI * 1.5,   // 3/4 turn clockwise
+    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
     sizeMobile: "2.5rem",
     sizeDesktop: "4rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
@@ -46,7 +41,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Purple planet",
     orbitIndex: 1,
     startAngle: Math.PI,
-    scrollTravel: -Math.PI * 1.2,  // ~2/3 turn counter-clockwise
+    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(160, 100, 255, 0.35)",
@@ -56,7 +51,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Blue planet",
     orbitIndex: 2,
     startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: Math.PI,         // half turn clockwise
+    scrollTravel: Math.PI, // half turn clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
@@ -66,7 +61,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Magenta planet",
     orbitIndex: 2,
     startAngle: -Math.PI / 3,
-    scrollTravel: Math.PI,         // half turn clockwise (same orbit, different start)
+    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.35)",
@@ -194,7 +189,7 @@ function AboutText({ progress }: { progress: MotionValue<number> }) {
       className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]"
     >
       <p
-        className="text-center text-sm font-bold italic text-white md:text-lg"
+        className="text-center text-sm font-bold text-white italic md:text-lg"
         style={{
           letterSpacing: "0.04em",
           textShadow: [

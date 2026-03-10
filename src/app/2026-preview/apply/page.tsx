@@ -64,7 +64,7 @@ export default function ApplyPage() {
           <Link
             href="/2026-preview"
             className="font-lekton inline-flex items-center gap-1.5 text-sm text-purple-300/70 transition-transform hover:-translate-x-0.5 hover:text-purple-200"
-            >
+          >
             <svg
               className="h-4 w-4"
               fill="none"
