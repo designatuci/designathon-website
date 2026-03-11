@@ -73,11 +73,26 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
     <span
       style={{
         display: "inline-block",
-        color: locked ? "#fff" : "rgba(180,180,255,0.5)",
-        transition: "color 0.1s",
+        position: "relative",
+        overflow: "hidden",
+        verticalAlign: "bottom",
       }}
     >
-      {display}
+      {/* Invisible real word reserves space to prevent layout shift */}
+      <span aria-hidden style={{ visibility: "hidden" }}>
+        {word}
+      </span>
+      <span
+        style={{
+          position: "absolute",
+          left: 0,
+          top: 0,
+          color: locked ? "#fff" : "rgba(180,180,255,0.5)",
+          transition: "color 0.1s",
+        }}
+      >
+        {display}
+      </span>
     </span>
   );
 }

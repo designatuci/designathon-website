@@ -109,6 +109,8 @@ function OrbitingPlanet({
   radii: number[];
 }) {
   const radius = radii[config.orbitIndex];
+  const isDesktop = radii[0] === ORBIT_RADII.desktop[0];
+  const size = isDesktop ? config.sizeDesktop : config.sizeMobile;
   const angle = useTransform(
     progress,
     [0, 1],
@@ -121,12 +123,10 @@ function OrbitingPlanet({
     <motion.div style={{ position: "absolute", top: "50%", left: "50%", x, y }}>
       <div
         style={{
-          width: config.sizeMobile,
-          height: config.sizeMobile,
+          width: size,
+          height: size,
           transform: "translate(-50%, -50%)",
-          ["--planet-size-desktop" as string]: config.sizeDesktop,
         }}
-        className="md:[height:var(--planet-size-desktop)] md:[width:var(--planet-size-desktop)]"
       >
         <Image
           src={config.src}
