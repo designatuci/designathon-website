@@ -251,15 +251,15 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
         </div>
         {/* Bottom annotation */}
         <div
-          className="absolute bottom-1/4 left-1/2"
-          style={{ color: "rgba(255,255,255,0.25)" }}
+          className="absolute bottom-1/4 left-1/20"
+          style={{ color: "rgba(255,255,255,0.3)" }}
         >
           <div
-            className="mb-1 h-px w-32"
-            style={{ background: "rgba(255,255,255,0.15)" }}
+            className="mr-auto mb-1 h-px w-32"
+            style={{ background: "rgba(255,255,255,0.25)" }}
           />
-          <p className="max-w-[180px] font-mono text-[9px] leading-relaxed tracking-wide">
-            UCI-133 Креативный сектор
+          <p className="text-left font-mono text-[10px] tracking-widest uppercase">
+            Творческий сектор
           </p>
         </div>
       </div>
