@@ -193,7 +193,7 @@ function OrbitalRings() {
 // ─────────────────────────────────────────────
 function CentrePlanet() {
   return (
-    <div className="pointer-events-none absolute top-1/2 left-1/2 h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 md:h-[16rem] md:w-[16rem]">
+    <div className="z-100 pointer-events-none absolute top-1/2 left-1/2 h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 md:h-[16rem] md:w-[16rem]">
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
         alt="Navy planet"
@@ -230,7 +230,7 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(80,100,255,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(80,100,255,0.04) 0%, rgba(80,100,255,0.01) 30%, transparent 65%)",
         }}
       />
 
@@ -246,7 +246,7 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
             style={{ background: "rgba(255,255,255,0.25)" }}
           />
           <p className="text-right font-mono text-[10px] tracking-widest uppercase">
-            PSR J1719-1438
+            SECTOR-92697
           </p>
         </div>
         {/* Bottom annotation */}
@@ -259,7 +259,7 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
             style={{ background: "rgba(255,255,255,0.15)" }}
           />
           <p className="max-w-[180px] font-mono text-[9px] leading-relaxed tracking-wide">
-            4 тыс. световых лет от CC
+            UCI-133 Креативный сектор
           </p>
         </div>
       </div>

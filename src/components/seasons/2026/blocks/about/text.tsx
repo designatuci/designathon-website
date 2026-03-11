@@ -3,19 +3,20 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 // ─────────────────────────────────────────────
+// Page content — swap these out for real copy
+// ─────────────────────────────────────────────
+const PAGES = [
+  "Design-a-thon is the largest student-run design hackathon in Southern California. Over a 3-day weekend, students design and prototype UI/UX solutions to real-world problems by creating working Figma prototypes and presenting their case study to industry judges.",
+  "This 3-day event brings together over 300 passionate students, both in-person and online. In 2025, 43% of participants competed in their first Design-a-thon, highlighting the event’s beginner-friendly environment and representing over 30 schools and 40+ majors nationwide.",
+  "We hope that this experience can help you acquire and grow both your soft and hard skills in empathizing with your users, defining a set of goals and needs, developing your product, and improving your confidence and creativity as a human-centric designer.",
+];
+
+// ─────────────────────────────────────────────
 // Glitch-decode word component
 // ─────────────────────────────────────────────
 const GLITCH_CHARS = "!@#$%^&*<>?/\\|~[]{}ΩΨΦΔλξπ∑∞≈≠±×÷";
 
-function GlitchWord({
-  word,
-  revealed,
-  delay = 0,
-}: {
-  word: string;
-  revealed: boolean;
-  delay?: number;
-}) {
+function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
   const [display, setDisplay] = useState(word.replace(/\S/g, "·"));
   const [locked, setLocked] = useState(false);
   const frameRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -23,8 +24,8 @@ function GlitchWord({
 
   const scramble = useCallback(() => {
     if (locked) return;
-    const TOTAL_FRAMES = 10;
-    const LOCK_FRAME = 7;
+    const TOTAL_FRAMES = 7;
+    const LOCK_FRAME = 5;
 
     const tick = () => {
       iterRef.current += 1;
@@ -47,11 +48,11 @@ function GlitchWord({
         .join("");
 
       setDisplay(next);
-      frameRef.current = setTimeout(tick, 20);
+      frameRef.current = setTimeout(tick, 12);
     };
 
-    frameRef.current = setTimeout(tick, delay);
-  }, [word, delay, locked]);
+    frameRef.current = setTimeout(tick, 0);
+  }, [word, locked]);
 
   useEffect(() => {
     if (revealed && !locked) scramble();
@@ -72,15 +73,6 @@ function GlitchWord({
     <span
       style={{
         display: "inline-block",
-        fontVariantNumeric: "tabular-nums",
-        textShadow: locked
-          ? [
-              "-1px 0 rgba(255,80,200,0.6)",
-              "1px 0 rgba(80,220,255,0.6)",
-              "0 0 8px rgba(255,255,255,0.5)",
-              "0 0 20px rgba(180,120,255,0.6)",
-            ].join(", ")
-          : "0 0 6px rgba(255,255,255,0.3)",
         color: locked ? "#fff" : "rgba(180,180,255,0.5)",
         transition: "color 0.1s",
       }}
@@ -91,53 +83,41 @@ function GlitchWord({
 }
 
 // ─────────────────────────────────────────────
-// About body text — words decode one-by-one on mount
+// About body text — re-animates when `text` changes
 // ─────────────────────────────────────────────
-const ABOUT_TEXT =
-  "We hope that this experience can help you acquire and grow both your soft and hard skills in empathizing with your users, defining a set of goals and needs, developing your product, and improving your confidence and creativity as a human-centric designer.";
-
-function AboutText() {
-  const words = ABOUT_TEXT.split(" ");
-  const [mountedAt] = useState(() => Date.now());
+function AboutText({ text }: { text: string }) {
+  const words = text.split(" ");
+  const [mountedAt, setMountedAt] = useState(() => Date.now());
   const [now, setNow] = useState(Date.now());
 
+  // Reset timer whenever the text changes (new page)
   useEffect(() => {
+    setMountedAt(Date.now());
+    setNow(Date.now());
+  }, [text]);
+
+  useEffect(() => {
+    const start = Date.now();
     const id = setInterval(() => {
-      const elapsed = Date.now() - mountedAt;
       setNow(Date.now());
-      if (elapsed > words.length * 50 + 400) clearInterval(id);
+      if (Date.now() - start > words.length * 20 + 400) clearInterval(id);
     }, 50);
     return () => clearInterval(id);
-  }, [mountedAt, words.length]);
+  }, [text, words.length]);
 
   return (
     <div className="relative">
       {/* Scanline overlay */}
-      <div
-        className="pointer-events-none absolute inset-0 rounded-md"
-        style={{
-          background:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
-          mixBlendMode: "overlay",
-        }}
-      />
-      {/* Faint border frame */}
-      <div
-        className="pointer-events-none absolute inset-0 rounded-sm"
-        style={{
-          border: "1px solid rgba(180,120,255,0.15)",
-          boxShadow: "inset 0 0 20px rgba(80,100,255,0.05)",
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 rounded-md" />
       <p
-        className="relative text-sm font-bold italic md:text-base"
+        className="relative text-sm md:text-base"
         style={{ letterSpacing: "0.05em", lineHeight: 1.85 }}
       >
         {words.map((word, i) => {
-          const revealed = now - mountedAt >= i * 50;
+          const revealed = now - mountedAt >= i * 20;
           return (
-            <span key={i}>
-              <GlitchWord word={word} revealed={revealed} delay={0} />
+            <span key={`${text}-${i}`}>
+              <GlitchWord word={word} revealed={revealed} />
               {i < words.length - 1 ? " " : ""}
             </span>
           );
@@ -151,6 +131,11 @@ function AboutText() {
 // Exported: AboutBox
 // ─────────────────────────────────────────────
 export function AboutBox() {
+  const [page, setPage] = useState(0);
+  const total = PAGES.length;
+
+  const handleNext = () => setPage((p) => (p + 1) % total);
+
   return (
     <div className="relative z-10 flex h-full w-full flex-col justify-center md:w-[45%] lg:w-[42%]">
       {/* Vertical separator on the right edge */}
@@ -161,19 +146,6 @@ export function AboutBox() {
             "linear-gradient(180deg, transparent 0%, rgba(180,120,255,0.2) 30%, rgba(80,220,255,0.15) 70%, transparent 100%)",
         }}
       />
-
-      {/* Decorative vertical text strip on far left */}
-      <div
-        className="absolute top-0 left-0 hidden h-full w-8 items-center justify-center lg:flex"
-        style={{ color: "rgba(255,255,255,0.12)" }}
-      >
-        <span
-          className="font-mono text-[10px] uppercase"
-          style={{ writingMode: "vertical-rl", letterSpacing: "0.5em" }}
-        >
-          B E S F O R E
-        </span>
-      </div>
 
       {/* Inner content */}
       <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20">
@@ -191,31 +163,13 @@ export function AboutBox() {
           className="mb-3 text-xs font-semibold tracking-[0.3em] uppercase"
           style={{ color: "rgba(160,100,255,0.9)" }}
         >
-          Besfore Infinity
+          Design-a-thon 2026
         </p>
 
         {/* Main heading */}
-        <h2
-          className="mb-6 [font-family:var(--font-luxurious-script)] text-6xl leading-none font-bold md:text-7xl lg:text-8xl"
-          style={{
-            color: "#fff",
-            textShadow:
-              "0 0 30px rgba(255,255,255,0.2), 0 0 60px rgba(160,100,255,0.2)",
-          }}
-        >
+        <h1 className="[font-family:var(--font-luxurious-script)] text-8xl font-normal text-white md:text-9xl xl:text-[7rem]">
           About
-          <br />
-          <span
-            style={{
-              fontSize: "0.55em",
-              letterSpacing: "0.12em",
-              color: "rgba(255,255,255,0.5)",
-              fontFamily: "inherit",
-            }}
-          >
-            Us
-          </span>
-        </h2>
+        </h1>
 
         {/* Divider */}
         <div
@@ -226,15 +180,16 @@ export function AboutBox() {
           }}
         />
 
-        {/* Body copy with glitch decode */}
-        <div className="mb-10 max-w-sm">
-          <AboutText />
+        {/* Body copy — re-animates per page */}
+        <div className="mb-10 min-h-[8rem] max-w-sm">
+          <AboutText text={PAGES[page]} />
         </div>
 
         {/* CTA button */}
         <div>
           <button
-            className="group relative overflow-hidden rounded-none border px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white uppercase transition-all duration-300"
+            onClick={handleNext}
+            className="group relative overflow-hidden rounded-full border px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white uppercase transition-all duration-300"
             style={{
               borderColor: "rgba(180,120,255,0.4)",
               background: "rgba(180,120,255,0.05)",
@@ -242,7 +197,7 @@ export function AboutBox() {
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-purple-600/30 to-pink-500/20 transition-transform duration-300 group-hover:translate-x-0" />
             <span className="relative flex items-center gap-3">
-              Next
+              {page < total - 1 ? "Next" : "Back to start"}
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 viewBox="0 0 16 16"
@@ -260,20 +215,27 @@ export function AboutBox() {
           </button>
         </div>
 
-        {/* Step indicators */}
+        {/* Step indicators — active page highlighted */}
         <div className="mt-10 flex items-center gap-4">
-          {["01", "02", "03"].map((n, i) => (
-            <span
-              key={n}
+          {PAGES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setPage(i)}
               className="font-mono tracking-widest transition-all"
               style={{
                 color:
-                  i === 0 ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.25)",
-                fontSize: i === 0 ? "1.1rem" : "0.7rem",
+                  i === page
+                    ? "rgba(255,255,255,0.9)"
+                    : "rgba(255,255,255,0.25)",
+                fontSize: i === page ? "1.1rem" : "0.7rem",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: 0,
               }}
             >
-              {n}
-            </span>
+              {String(i + 1).padStart(2, "0")}
+            </button>
           ))}
         </div>
       </div>
