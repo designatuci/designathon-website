@@ -22,6 +22,7 @@
     "date-fns": "^4.1.0",
     "date-fns-tz": "^3.2.0",
     "embla-carousel-react": "^8.5.2",
+    "framer-motion": "^12.35.2",
     "googleapis": "^171.4.0",
     "lucide-react": "^0.476.0",
     "motion": "^12.4.10",
