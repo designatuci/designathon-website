@@ -29,40 +29,40 @@ const PLANETS: PlanetConfig[] = [
   {
     src: "/images/seasons/2026/landing/about/rose.png",
     alt: "Rose planet",
-    orbitIndex: 0,
-    startAngle: -Math.PI / 4,
-    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
+    orbitIndex: 2,
+    startAngle: -Math.PI / 3,
+    scrollTravel: Math.PI,
     sizeMobile: "2.5rem",
-    sizeDesktop: "4rem",
+    sizeDesktop: "3.5rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
   },
   {
     src: "/images/seasons/2026/landing/about/purple.png",
     alt: "Purple planet",
     orbitIndex: 1,
-    startAngle: Math.PI,
-    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
-    sizeMobile: "3rem",
-    sizeDesktop: "5rem",
+    startAngle: Math.PI + 0.6,
+    scrollTravel: -Math.PI * 1.2,
+    sizeMobile: "2.5rem",
+    sizeDesktop: "4rem",
     glowColor: "rgba(160, 100, 255, 0.35)",
   },
   {
     src: "/images/seasons/2026/landing/about/blue.png",
     alt: "Blue planet",
     orbitIndex: 2,
-    startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: Math.PI, // half turn clockwise
-    sizeMobile: "3rem",
-    sizeDesktop: "5rem",
+    startAngle: Math.PI - 0.5,
+    scrollTravel: Math.PI,
+    sizeMobile: "2.5rem",
+    sizeDesktop: "4rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
   },
   {
     src: "/images/seasons/2026/landing/about/magneta.png",
     alt: "Magenta planet",
     orbitIndex: 2,
-    startAngle: -Math.PI / 3,
-    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
-    sizeMobile: "4.5rem",
+    startAngle: Math.PI / 4,
+    scrollTravel: Math.PI,
+    sizeMobile: "4rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.35)",
   },
@@ -98,6 +98,8 @@ function OrbitingPlanet({
   radii: number[];
 }) {
   const radius = radii[config.orbitIndex];
+  const isDesktop = radii[0] === ORBIT_RADII.desktop[0];
+  const size = isDesktop ? config.sizeDesktop : config.sizeMobile;
 
   // Scroll progress [0→1] maps to angle [startAngle → startAngle + scrollTravel]
   const angle = useTransform(
@@ -122,12 +124,10 @@ function OrbitingPlanet({
     >
       <div
         style={{
-          width: config.sizeMobile,
-          height: config.sizeMobile,
+          width: size,
+          height: size,
           transform: "translate(-50%, -50%)",
-          ["--planet-size-desktop" as string]: config.sizeDesktop,
         }}
-        className="md:[height:var(--planet-size-desktop)] md:[width:var(--planet-size-desktop)]"
       >
         <Image
           src={config.src}
