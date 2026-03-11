@@ -110,9 +110,9 @@ export default function FAQ() {
   return (
     <section id="faq" className="flex justify-center px-4 py-4">
       <div className="container flex w-full flex-col">
-        <h2 className="py-4 [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:py-6 md:text-7xl">
+        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           FAQ
-        </h2>
+        </h1>
         <Accordion type="multiple" className="w-full">
           {faqItems.map((item, index) => (
             <FAQItem key={index} item={item} index={index} />

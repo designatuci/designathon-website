@@ -125,9 +125,9 @@ export default function Rules() {
   return (
     <section id="rules" className="flex justify-center px-4 py-4">
       <div className="container">
-        <h2 className="[font-family:var(--font-luxurious-script)] text-6xl leading-loose font-bold text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:text-7xl">
+        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Rules
-        </h2>
+        </h1>
 
         <div className="relative mx-auto w-full max-w-5xl sm:[aspect-ratio:1040/540]">
           <Image

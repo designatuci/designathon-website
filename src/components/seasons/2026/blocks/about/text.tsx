@@ -167,7 +167,7 @@ export function AboutBox() {
         </p>
 
         {/* Main heading */}
-        <h1 className="[font-family:var(--font-luxurious-script)] text-8xl font-normal text-white md:text-9xl xl:text-[7rem]">
+        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           About
         </h1>
 

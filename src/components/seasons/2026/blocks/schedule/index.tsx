@@ -281,18 +281,9 @@ export default function Itinerary() {
               flexWrap: "wrap",
             }}
           >
-            <h2
-              className="[font-family:var(--font-luxurious-script)]"
-              style={{
-                fontSize: "clamp(2.5rem, 7vw, 4.5rem)",
-                fontWeight: "bold",
-                color: "white",
-                margin: 0,
-                textShadow: "0 0 40px rgba(56,189,248,0.4)",
-              }}
-            >
+            <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
               Itinerary
-            </h2>
+            </h1>
 
             <TabsList className="border border-white/10 bg-white/5 backdrop-blur-md">
               {scheduleDays.map((day) => (

@@ -16,9 +16,9 @@ export default function Prompt() {
           }}
         />
         <div className="relative z-10">
-          <h2 className="px-4 text-left [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:px-10 md:text-8xl">
+          <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-8xl xl:text-[7rem]">
             Prompt
-          </h2>
+          </h1>
           <p className="mt-4 px-4 pb-10 text-left text-sm text-white md:px-10 md:pb-16 md:text-2xl">
             A digital cosmos for the undiscovered and the forgotten. <br />
             <br />
