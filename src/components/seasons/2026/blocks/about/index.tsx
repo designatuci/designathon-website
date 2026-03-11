@@ -1,13 +1,8 @@
 "use client";
 
-import {
-  motion,
-  MotionValue,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 // ─────────────────────────────────────────────
 // Config
@@ -36,7 +31,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Rose planet",
     orbitIndex: 0,
     startAngle: -Math.PI / 4,
-    scrollTravel: Math.PI * 1.5,   // 3/4 turn clockwise
+    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
     sizeMobile: "2.5rem",
     sizeDesktop: "4rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
@@ -46,7 +41,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Purple planet",
     orbitIndex: 1,
     startAngle: Math.PI,
-    scrollTravel: -Math.PI * 1.2,  // ~2/3 turn counter-clockwise
+    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(160, 100, 255, 0.35)",
@@ -56,7 +51,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Blue planet",
     orbitIndex: 2,
     startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: Math.PI,         // half turn clockwise
+    scrollTravel: Math.PI, // half turn clockwise
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
@@ -66,7 +61,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Magenta planet",
     orbitIndex: 2,
     startAngle: -Math.PI / 3,
-    scrollTravel: Math.PI,         // half turn clockwise (same orbit, different start)
+    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.35)",
@@ -229,7 +224,7 @@ function GlitchWord({
         .join("");
 
       setDisplay(next);
-      frameRef.current = setTimeout(tick, 40);
+      frameRef.current = setTimeout(tick, 20);
     };
 
     frameRef.current = setTimeout(tick, delay);
@@ -280,28 +275,23 @@ function GlitchWord({
 const ABOUT_TEXT =
   "We hope that this experience can help you acquire and grow both your soft and hard skills in empathizing with your users, defining a set of goals and needs, developing your product, and improving your confidence and creativity as a human-centric designer.";
 
-function AboutText({ progress }: { progress: MotionValue<number> }) {
+function AboutText() {
   const words = ABOUT_TEXT.split(" ");
-  const [scrollVal, setScrollVal] = useState(0);
+  const [mountedAt] = useState(() => Date.now());
+  const [now, setNow] = useState(Date.now());
 
-  // Subscribe to scroll progress
+  // Tick every 50ms until all words are revealed (~40ms × 10 frames + stagger)
   useEffect(() => {
-    return progress.on("change", (v) => setScrollVal(v));
-  }, [progress]);
-
-  // Text is visible immediately
-  const containerOpacity = useTransform(progress, [0, 0.08], [0, 1]);
-
-  // Each word reveals when scroll passes its threshold
-  // Words spread across scroll range [0.05 → 0.7]
-  const REVEAL_START = 0.05;
-  const REVEAL_END = 0.3;
+    const id = setInterval(() => {
+      const elapsed = Date.now() - mountedAt;
+      setNow(Date.now());
+      if (elapsed > words.length * 50 + 400) clearInterval(id);
+    }, 50);
+    return () => clearInterval(id);
+  }, [mountedAt, words.length]);
 
   return (
-    <motion.div
-      style={{ opacity: containerOpacity }}
-      className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]"
-    >
+    <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-xl -translate-x-1/2 -translate-y-1/2 px-[60px] md:px-[104px]">
       {/* Scanline overlay for sci-fi texture */}
       <div
         className="pointer-events-none absolute inset-0 rounded-md"
@@ -315,6 +305,10 @@ function AboutText({ progress }: { progress: MotionValue<number> }) {
       {/* Faint border frame */}
       <div
         className="pointer-events-none absolute inset-0 rounded-sm"
+        style={{
+          border: "1px solid rgba(180,120,255,0.15)",
+          boxShadow: "inset 0 0 20px rgba(80,100,255,0.05)",
+        }}
       />
 
       <p
@@ -322,24 +316,18 @@ function AboutText({ progress }: { progress: MotionValue<number> }) {
         style={{ letterSpacing: "0.05em", lineHeight: 1.75 }}
       >
         {words.map((word, i) => {
-          const threshold =
-            REVEAL_START + (i / words.length) * (REVEAL_END - REVEAL_START);
-          const revealed = scrollVal >= threshold;
-          const staggerDelay = (i % 4) * 20; // slight stagger within batches
+          // Each word triggers 80ms after the previous one
+          const revealed = now - mountedAt >= i * 50;
 
           return (
             <span key={i}>
-              <GlitchWord
-                word={word}
-                revealed={revealed}
-                delay={staggerDelay}
-              />
+              <GlitchWord word={word} revealed={revealed} delay={0} />
               {i < words.length - 1 ? " " : ""}
             </span>
           );
         })}
       </p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -377,7 +365,7 @@ function AboutCanvas({ progress }: { progress: MotionValue<number> }) {
         />
       ))}
 
-      <AboutText progress={progress} />
+      <AboutText />
     </section>
   );
 }
@@ -394,7 +382,7 @@ export function AboutSection() {
   });
 
   return (
-    <div ref={containerRef} className="relative h-[250vh]">
+    <div ref={containerRef} className="relative h-[110vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <AboutCanvas progress={scrollYProgress} />
       </div>
