@@ -164,14 +164,6 @@ export function AboutBox() {
 
       {/* Inner content */}
       <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20">
-        {/* Thin vertical accent line */}
-        <div
-          className="mb-6 h-12 w-px"
-          style={{
-            background:
-              "linear-gradient(180deg, transparent, rgba(180,120,255,0.8), transparent)",
-          }}
-        />
 
         {/* Eyebrow label */}
         <p

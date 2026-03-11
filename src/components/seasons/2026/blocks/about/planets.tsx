@@ -212,18 +212,6 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <div className="relative hidden h-full md:block md:w-[55%] lg:w-[58%]">
-      {/* Decorative vertical text strip on far right */}
-      <div
-        className="absolute top-0 right-0 hidden h-full w-8 items-center justify-center lg:flex"
-        style={{ color: "rgba(255,255,255,0.12)" }}
-      >
-        <span
-          className="font-mono text-[10px] uppercase"
-          style={{ writingMode: "vertical-rl", letterSpacing: "0.5em" }}
-        >
-          I N F I N I T Y
-        </span>
-      </div>
 
       {/* Radial glow */}
       <div
