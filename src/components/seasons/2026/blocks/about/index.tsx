@@ -25,13 +25,33 @@ interface PlanetConfig {
   glowColor: string;
 }
 
+// All planets end at -PI/4 (top-right diagonal at 45°) so they align on a line through centre.
+// scrollTravel = endAngle - startAngle, normalised to shortest path isn't needed here —
+// we want deliberate arcs, so we compute the travel to reach -PI/4 going in each planet's direction.
+
+const ALIGN_ANGLE = -Math.PI / 4; // 45° diagonal — all planets land here
+
+// Helper: given start, desired end, and preferred direction (+1 CW / -1 CCW),
+// returns the travel (in radians) that lands on ALIGN_ANGLE
+function travelTo(start: number, dir: 1 | -1): number {
+  // Normalise start into [-PI, PI]
+  const norm = (a: number) =>
+    (((a % (2 * Math.PI)) + 3 * Math.PI) % (2 * Math.PI)) - Math.PI;
+  const s = norm(start);
+  const e = norm(ALIGN_ANGLE);
+  let delta = e - s;
+  if (dir === 1 && delta <= 0) delta += 2 * Math.PI;
+  if (dir === -1 && delta >= 0) delta -= 2 * Math.PI;
+  return delta;
+}
+
 const PLANETS: PlanetConfig[] = [
   {
     src: "/images/seasons/2026/landing/about/rose.png",
     alt: "Rose planet",
     orbitIndex: 0,
     startAngle: -Math.PI / 4,
-    scrollTravel: Math.PI * 1.5, // 3/4 turn clockwise
+    scrollTravel: travelTo(-Math.PI / 4, 1) + 2 * Math.PI, // full loop CW then align
     sizeMobile: "2.5rem",
     sizeDesktop: "4rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
@@ -41,7 +61,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Purple planet",
     orbitIndex: 1,
     startAngle: Math.PI,
-    scrollTravel: -Math.PI * 1.2, // ~2/3 turn counter-clockwise
+    scrollTravel: travelTo(Math.PI, -1), // CCW to align
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(160, 100, 255, 0.35)",
@@ -51,7 +71,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Blue planet",
     orbitIndex: 2,
     startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: Math.PI, // half turn clockwise
+    scrollTravel: travelTo((3 * Math.PI) / 4 + 0.5, 1), // CW to align
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
@@ -61,7 +81,7 @@ const PLANETS: PlanetConfig[] = [
     alt: "Magenta planet",
     orbitIndex: 2,
     startAngle: -Math.PI / 3,
-    scrollTravel: Math.PI, // half turn clockwise (same orbit, different start)
+    scrollTravel: travelTo(-Math.PI / 3, -1) - 2 * Math.PI, // extra loop CCW then align
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.35)",
@@ -144,8 +164,44 @@ function OrbitingPlanet({
 }
 
 // ─────────────────────────────────────────────
-// Orbital rings
+// Alignment line — draws through all planets at progress=1
+// Runs at -45° through centre, long enough to cross all orbits
 // ─────────────────────────────────────────────
+function AlignmentLine({ progress }: { progress: MotionValue<number> }) {
+  // Only appears in the last 20% of scroll
+  const opacity = useTransform(progress, [0.75, 1], [0, 0.7]);
+  // Line draws from centre outward — scaleX goes 0→1
+  const scaleX = useTransform(progress, [0.78, 1], [0, 1]);
+
+  return (
+    <motion.div
+      style={{ opacity }}
+      className="pointer-events-none absolute inset-0"
+    >
+      {/* The line: centred, rotated -45°, drawn via scaleX */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <motion.div
+          style={{ scaleX, originX: 0.5 }}
+          className="h-px w-[700px] md:w-[900px]"
+          // Gradient: fades at both ends, bright in centre
+          // Colour echoes the planet palette: pink→white→cyan
+        >
+          <div
+            className="h-full w-full"
+            style={{
+              transform: "rotate(-45deg)",
+              background:
+                "linear-gradient(90deg, transparent 0%, rgba(255,80,200,0.6) 20%, rgba(255,255,255,0.9) 50%, rgba(80,220,255,0.6) 80%, transparent 100%)",
+              boxShadow:
+                "0 0 6px rgba(255,255,255,0.4), 0 0 16px rgba(180,120,255,0.4)",
+            }}
+          />
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
 function OrbitalRings() {
   return (
     <div className="pointer-events-none absolute inset-0">
@@ -355,6 +411,7 @@ function AboutCanvas({ progress }: { progress: MotionValue<number> }) {
 
       <OrbitalRings />
       <CentrePlanet />
+      <AlignmentLine progress={progress} />
 
       {PLANETS.map((planet) => (
         <OrbitingPlanet
@@ -376,15 +433,21 @@ function AboutCanvas({ progress }: { progress: MotionValue<number> }) {
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // progress = 0 when section top hits viewport bottom (just scrolled into view)
+  // progress = 1 when section top hits viewport top (fully stuck and scrolled through)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start end", "end start"],
   });
 
+  // Remap: we only care about the first half of that range (0→0.5 = enters view → sticks at top)
+  // This means orbiting starts the moment About appears on screen
+  const progress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   return (
-    <div ref={containerRef} className="relative h-[110vh]">
+    <div ref={containerRef} className="relative h-[125vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
-        <AboutCanvas progress={scrollYProgress} />
+        <AboutCanvas progress={progress} />
       </div>
     </div>
   );
