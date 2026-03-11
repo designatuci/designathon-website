@@ -197,7 +197,7 @@ export function AboutBox() {
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-purple-600/30 to-pink-500/20 transition-transform duration-300 group-hover:translate-x-0" />
             <span className="relative flex items-center gap-3">
-              {page < total - 1 ? "Next" : "Back to start"}
+              {page < total - 1 ? "Next" : "Back"}
               <svg
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
                 viewBox="0 0 16 16"

@@ -23,7 +23,7 @@ export function AboutSection() {
   const progress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative h-screen md:h-[125vh]">
+    <div ref={containerRef} className="relative h-[80vh] md:h-[125vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <section
           id="about"
