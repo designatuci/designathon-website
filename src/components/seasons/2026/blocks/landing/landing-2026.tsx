@@ -16,7 +16,7 @@ import MeetCommittees from "@components/seasons/2026/blocks/team";
 
 export default function Landing2026() {
   return (
-    <main className="relative min-h-[100dvh] w-full overflow-visible bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-cover bg-top bg-repeat">
+    <main className="relative min-h-[100dvh] w-full overflow-visible bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
       <LandingNavigation />
       <Hero />
       <About />
