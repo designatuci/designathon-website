@@ -164,7 +164,6 @@ export function AboutBox() {
 
       {/* Inner content */}
       <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20">
-
         {/* Eyebrow label */}
         <p
           className="mb-3 text-xs font-semibold tracking-[0.3em] uppercase"

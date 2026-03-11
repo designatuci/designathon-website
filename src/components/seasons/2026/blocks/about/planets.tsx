@@ -212,7 +212,6 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <div className="relative hidden h-full md:block md:w-[55%] lg:w-[58%]">
-
       {/* Radial glow */}
       <div
         className="pointer-events-none absolute inset-0"
