@@ -393,21 +393,14 @@ function AboutText() {
 function AboutCanvas({ progress }: { progress: MotionValue<number> }) {
   const radii = useOrbitRadii();
 
-  // Title fades out as user starts scrolling
-  const titleOpacity = useTransform(progress, [0, 0.25], [1, 0]);
-  const titleY = useTransform(progress, [0, 0.25], [0, -40]);
-
   return (
     <section
       id="about"
       className="relative flex h-screen w-full origin-center flex-col items-center overflow-hidden px-6 py-16"
     >
-      <motion.h2
-        style={{ opacity: titleOpacity, y: titleY }}
-        className="z-10 py-25 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:py-12 md:text-7xl"
-      >
+      <h2 className="z-10 py-25 text-center [font-family:var(--font-luxurious-script)] text-6xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] md:py-12 md:text-7xl">
         About
-      </motion.h2>
+      </h2>
 
       <OrbitalRings />
       <CentrePlanet />
