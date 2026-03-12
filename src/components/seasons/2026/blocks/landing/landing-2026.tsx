@@ -12,8 +12,8 @@ import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
 import Schedule from "@components/seasons/2026/blocks/schedule";
 // import Star from "@components/seasons/2026/blocks/star";
-import Tracks from "@components/seasons/2026/blocks/tracks";
 import MeetCommittees from "@components/seasons/2026/blocks/team";
+import Tracks from "@components/seasons/2026/blocks/tracks";
 
 export default function Landing2026() {
   return (
