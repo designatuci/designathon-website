@@ -99,7 +99,7 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
       >
         {item.question}
       </AccordionTrigger>
-      <AccordionContent className="pl-10 text-base leading-loose text-zinc-200 sm:text-lg lg:text-xl xl:max-w-[1024px] xl:text-2xl">
+      <AccordionContent className="sm:text-md lg:text-md pl-10 text-base leading-loose text-zinc-200 xl:max-w-[95%] xl:text-lg">
         {item.answer}
       </AccordionContent>
     </AccordionItem>
