@@ -1,201 +1,177 @@
 import { useState } from "react";
+import "./card.css";
 
-const CheckIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <circle cx="8" cy="8" r="8" fill="#3B6FE8" fillOpacity="0.25" />
-    <path
-      d="M4.5 8L7 10.5L11.5 6"
-      stroke="#6B9FFF"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-export default function Card() {
+export type TrackVariant = "glass" | "featured";
+
+export interface HackathonTrack {
+  name: string;
+  tagline: string;
+  badge: string;
+  prize: string;
+  perks: string[];
+  /** Inline SVG string rendered inside the icon box */
+  icon: string;
+  variant?: TrackVariant;
+}
+
+export type AwardVariant = "peoples-choice" | "most-novel";
+
+export interface Award {
+  name: string;
+  description: string;
+  prize: string;
+  variant: AwardVariant;
+}
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function CheckIcon({ featured }: { featured: boolean }) {
+  return (
+    <svg
+      className={`check-icon ${featured ? "check-icon--featured" : ""}`}
+      viewBox="0 0 16 16"
+      fill="none"
+    >
+      <circle cx="8" cy="8" r="8" className="check-circle" />
+      <path
+        d="M4.5 8L7 10.5L11.5 6"
+        className="check-path"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+// ─── TrackCard ────────────────────────────────────────────────────────────────
+
+export function TrackCard({ track }: { track: HackathonTrack }) {
+  const [hovered, setHovered] = useState(false);
+  const isFeatured = track.variant === "featured";
+
+  return (
+    <div
+      className={`track-card track-card--${track.variant ?? "glass"} ${hovered ? "track-card--hovered" : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <div className="blob blob--top" />
+      <div className="blob blob--bottom" />
+
+      <div className="card-header">
+        <div
+          className="icon-box"
+          dangerouslySetInnerHTML={{ __html: track.icon }}
+        />
+        <span className={`badge ${isFeatured ? "badge--featured" : ""}`}>
+          {track.badge}
+        </span>
+      </div>
+
+      <h2 className="track-name">{track.name}</h2>
+      <p
+        className={`track-tagline ${isFeatured ? "track-tagline--featured" : ""}`}
+      >
+        {track.tagline}
+      </p>
+
+      <div className="divider" />
+
+      <ul className="perks">
+        {track.perks.map((perk, i) => (
+          <li key={i} className={`perk ${isFeatured ? "perk--featured" : ""}`}>
+            <CheckIcon featured={isFeatured} />
+            {perk}
+          </li>
+        ))}
+      </ul>
+
+      <div className="prize-row">
+        <span className="prize-amount">{track.prize}</span>
+        <span
+          className={`prize-label ${isFeatured ? "prize-label--featured" : ""}`}
+        >
+          in prizes
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ─── TrackCardGrid ────────────────────────────────────────────────────────────
+
+export function TrackCardGrid({ tracks }: { tracks: HackathonTrack[] }) {
+  return (
+    <div className="track-grid">
+      {tracks.map((track, i) => (
+        <TrackCard key={i} track={track} />
+      ))}
+    </div>
+  );
+}
+
+// ─── AwardCard ────────────────────────────────────────────────────────────────
+
+export function AwardCard({ award }: { award: Award }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "30px",
-      }}
+      className={`award-card award-card--${award.variant} ${hovered ? "award-card--hovered" : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      <div
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        style={{
-          position: "relative",
-          borderRadius: "20px",
-          padding: "28px",
-          background:
-            "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%)",
-          backdropFilter: "blur(20px)",
-          border: "1px solid rgba(255,255,255,0.12)",
-          boxShadow: hovered
-            ? "0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(80,120,255,0.15), inset 0 1px 0 rgba(255,255,255,0.15)"
-            : "0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)",
-          transform: hovered ? "translateY(-4px)" : "translateY(0)",
-          transition: "all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)",
-          cursor: "default",
-          overflow: "hidden",
-        }}
-      >
-        {/* Glow blob */}
-        <div
-          style={{
-            position: "absolute",
-            top: "-30px",
-            right: "-20px",
-            width: "160px",
-            height: "160px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(60,100,255,0.35) 0%, rgba(100,60,255,0.15) 50%, transparent 70%)",
-            filter: "blur(20px)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "20px",
-            left: "-30px",
-            width: "120px",
-            height: "120px",
-            borderRadius: "50%",
-            background:
-              "radial-gradient(circle, rgba(0,200,180,0.15) 0%, transparent 70%)",
-            filter: "blur(20px)",
-            pointerEvents: "none",
-          }}
-        />
+      <div className="award-blob award-blob--top" />
+      <div className="award-blob award-blob--bottom" />
 
-        {/* Header row */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            marginBottom: "8px",
-          }}
-        >
-          {/* Icon */}
-          <div
-            style={{
-              width: "36px",
-              height: "36px",
-              borderRadius: "10px",
-              background: "rgba(255,255,255,0.08)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <polygon
-                points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
-                stroke="#8BAEFF"
-                strokeWidth="1.5"
-                fill="rgba(139,174,255,0.2)"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-
-          {/* Badge */}
-          <span
-            style={{
-              fontSize: "10px",
-              fontWeight: "600",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#8BAEFF",
-              background: "rgba(80,120,255,0.15)",
-              border: "1px solid rgba(80,120,255,0.3)",
-              borderRadius: "20px",
-              padding: "4px 10px",
-            }}
-          >
-            Elite Level
-          </span>
-        </div>
-
-        {/* Plan name */}
-        <h2
-          style={{
-            margin: "12px 0 4px",
-            fontSize: "22px",
-            fontWeight: "700",
-            color: "#ffffff",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Elite
-        </h2>
-
-        {/* Tagline */}
-        <p
-          style={{
-            margin: "0 0 20px",
-            fontSize: "12px",
-            color: "rgba(255,255,255,0.45)",
-            lineHeight: "1.5",
-            fontWeight: "400",
-          }}
-        >
-          Exclusive staking options to level up your trading strategy
-        </p>
-
-        {/* Divider */}
-        <div
-          style={{
-            height: "1px",
-            background: "rgba(255,255,255,0.07)",
-            marginBottom: "18px",
-          }}
-        />
-
-        {/* Features */}
-        <ul
-          style={{
-            listStyle: "none",
-            padding: 0,
-            margin: "0 0 24px",
-            display: "flex",
-            flexDirection: "column",
-            gap: "11px",
-          }}
-        >
-          {[
-            "500 Validator Tokens",
-            "500GB storage charge",
-            "VIP access to AI strategies",
-            "Early project listings",
-            "Private member discussions",
-          ].map((feature, i) => (
-            <li
-              key={i}
-              style={{ display: "flex", alignItems: "center", gap: "10px" }}
-            >
-              <CheckIcon />
-              <span
-                style={{
-                  fontSize: "13px",
-                  color: "rgba(255,255,255,0.72)",
-                  fontWeight: "400",
-                }}
-              >
-                {feature}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div className="award-icon-wrap">
+        {award.variant === "peoples-choice" ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              className="award-icon-path"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"
+              className="award-icon-path"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
       </div>
+
+      <h2 className="award-name">{award.name}</h2>
+      <p className="award-description">{award.description}</p>
+
+      <div className="award-divider" />
+
+      <div className="award-prize-row">
+        <span className="award-prize-amount">{award.prize}</span>
+        <span className="award-prize-label">award</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── AwardCardGrid ────────────────────────────────────────────────────────────
+
+export function AwardCardGrid({ awards }: { awards: Award[] }) {
+  return (
+    <div className="award-grid">
+      {awards.map((award, i) => (
+        <AwardCard key={i} award={award} />
+      ))}
     </div>
   );
 }
