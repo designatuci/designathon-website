@@ -8,12 +8,11 @@ import Judges from "@components/seasons/2026/blocks/judges";
 import MailingList from "@components/seasons/2026/blocks/mailing";
 import LandingNavigation from "@components/seasons/2026/blocks/navigation/landing-navigation";
 import Partners from "@components/seasons/2026/blocks/partners";
-// import Prompt from "@components/seasons/2026/blocks/prompt";
+import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
 import Schedule from "@components/seasons/2026/blocks/schedule";
-// import Star from "@components/seasons/2026/blocks/star";
-import MeetCommittees from "@components/seasons/2026/blocks/team";
-import Tracks from "@components/seasons/2026/blocks/tracks";
+import Star from "@components/seasons/2026/blocks/star";
+import MeetCommittees from "@components/seasons/2026/blocks/team"
 import Sparkles from "@components/seasons/2026/common/sparkles";
 
 export default function Landing2026() {
@@ -23,8 +22,8 @@ export default function Landing2026() {
       <LandingNavigation />
       <Hero />
       <About />
-      <Tracks />
-      {/* <Prompt /> */}
+      <Star />
+      <Prompt />
       <Rules />
       <Schedule />
       <Judges />
