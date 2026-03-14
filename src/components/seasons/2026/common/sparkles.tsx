@@ -25,8 +25,9 @@ export default function Sparkles() {
     resize();
     window.addEventListener("resize", resize);
 
-    const particles = Array.from({ length: 200 }, (_, i) => {
-      const layer = i < 100 ? 0 : i < 160 ? 1 : 2;
+    // 350 particles (up from 200) across 3 depth layers
+    const particles = Array.from({ length: 350 }, (_, i) => {
+      const layer = i < 170 ? 0 : i < 280 ? 1 : 2;
       return {
         x: Math.random() * window.innerWidth,
         y: Math.random() * document.body.scrollHeight,
@@ -78,55 +79,83 @@ export default function Sparkles() {
         const a = (Math.sin(p.phase) * 0.5 + 0.5) * p.alpha;
         if (a < 0.02) return;
 
-        const haloSize = p.r * (p.layer === 2 ? 7 : p.layer === 1 ? 5 : 3);
+        // --- Outer bloom (wide, very soft) ---
+        const outerSize = p.r * (p.layer === 2 ? 22 : p.layer === 1 ? 14 : 8);
+        const outerGrd = ctx.createRadialGradient(
+          p.x,
+          p.y,
+          0,
+          p.x,
+          p.y,
+          outerSize,
+        );
+        outerGrd.addColorStop(0, `rgba(210, 160, 255, ${a * 0.5})`);
+        outerGrd.addColorStop(0.3, `rgba(180, 120, 255, ${a * 0.2})`);
+        outerGrd.addColorStop(1, `rgba(140, 80, 255, 0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, outerSize, 0, Math.PI * 2);
+        ctx.fillStyle = outerGrd;
+        ctx.fill();
+
+        // --- Inner halo (tight, bright centre) ---
+        const haloSize = p.r * (p.layer === 2 ? 9 : p.layer === 1 ? 6 : 4);
         const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, haloSize);
-        grd.addColorStop(0, `rgba(230, 190, 255, ${a * 0.9})`);
-        grd.addColorStop(0.4, `rgba(190, 140, 255, ${a * 0.4})`);
-        grd.addColorStop(1, `rgba(150, 100, 255, 0)`);
+        grd.addColorStop(0, `rgba(255, 240, 255, ${a})`);
+        grd.addColorStop(0.25, `rgba(230, 190, 255, ${a * 0.85})`);
+        grd.addColorStop(0.6, `rgba(190, 130, 255, ${a * 0.35})`);
+        grd.addColorStop(1, `rgba(150, 90, 255, 0)`);
         ctx.beginPath();
         ctx.arc(p.x, p.y, haloSize, 0, Math.PI * 2);
         ctx.fillStyle = grd;
         ctx.fill();
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 245, 255, ${Math.min(a * 1.4, 1)})`;
-        ctx.fill();
+        // --- No hard circle fill — the gradient IS the sparkle ---
 
+        // --- Soft cross lines using shadowBlur instead of sharp strokes ---
         if (p.layer >= 1 && p.r > 1.2) {
-          const len = p.r * (p.layer === 2 ? 8 : 5);
+          const len = p.r * (p.layer === 2 ? 12 : 7);
+          const lineAlpha = a * 0.75;
 
+          ctx.save();
+          ctx.shadowColor = `rgba(220, 180, 255, ${lineAlpha})`;
+          ctx.shadowBlur = p.layer === 2 ? 8 : 5;
+          ctx.globalAlpha = lineAlpha;
+
+          // Horizontal arm
           const grad1 = ctx.createLinearGradient(
             p.x - len,
             p.y,
             p.x + len,
             p.y,
           );
-          grad1.addColorStop(0, `rgba(200,160,255,0)`);
-          grad1.addColorStop(0.5, `rgba(220,190,255,${a * 0.9})`);
-          grad1.addColorStop(1, `rgba(200,160,255,0)`);
+          grad1.addColorStop(0, `rgba(200, 160, 255, 0)`);
+          grad1.addColorStop(0.5, `rgba(230, 200, 255, 1)`);
+          grad1.addColorStop(1, `rgba(200, 160, 255, 0)`);
           ctx.beginPath();
           ctx.moveTo(p.x - len, p.y);
           ctx.lineTo(p.x + len, p.y);
           ctx.strokeStyle = grad1;
-          ctx.lineWidth = p.layer === 2 ? 1.2 : 0.7;
+          ctx.lineWidth = p.layer === 2 ? 0.8 : 0.5;
           ctx.stroke();
 
+          // Vertical arm
           const grad2 = ctx.createLinearGradient(
             p.x,
             p.y - len,
             p.x,
             p.y + len,
           );
-          grad2.addColorStop(0, `rgba(200,160,255,0)`);
-          grad2.addColorStop(0.5, `rgba(220,190,255,${a * 0.9})`);
-          grad2.addColorStop(1, `rgba(200,160,255,0)`);
+          grad2.addColorStop(0, `rgba(200, 160, 255, 0)`);
+          grad2.addColorStop(0.5, `rgba(230, 200, 255, 1)`);
+          grad2.addColorStop(1, `rgba(200, 160, 255, 0)`);
           ctx.beginPath();
           ctx.moveTo(p.x, p.y - len);
           ctx.lineTo(p.x, p.y + len);
           ctx.strokeStyle = grad2;
-          ctx.lineWidth = p.layer === 2 ? 1.2 : 0.7;
+          ctx.lineWidth = p.layer === 2 ? 0.8 : 0.5;
           ctx.stroke();
+
+          ctx.restore();
         }
       });
 
