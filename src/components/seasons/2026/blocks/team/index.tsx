@@ -22,7 +22,6 @@ export default function MeetCommittees() {
   return (
     <section id="team">
       <div className="relative">
-
         {/* Galaxy Background (UNCHANGED FROM YOUR V1) */}
         <div
           className="galaxy-bg pointer-events-none absolute w-full"
@@ -176,7 +175,6 @@ export default function MeetCommittees() {
           {/* Desktop constellation */}
 
           <div className="desktop-canvas relative z-10 h-[min(90vh,800px)] w-[min(1100px,95vw)] overflow-visible">
-
             <svg className="pointer-events-none absolute inset-0 h-full w-full">
               <ellipse
                 cx={`${cx}%`}
