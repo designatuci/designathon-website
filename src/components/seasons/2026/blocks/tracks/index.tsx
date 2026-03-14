@@ -11,6 +11,24 @@ import {
 
 const tracks: HackathonTrack[] = [
   {
+    name: "AI & ML",
+    tagline:
+      "Push the frontier of intelligent systems Push the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of ntier ofntier ofntier ofntier ofntier ofntier of",
+    badge: "Recommended",
+    prize: "$10,000",
+    variant: "featured",
+    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
+        stroke="#fff" stroke-width="1.5" fill="rgba(255,255,255,0.2)" stroke-linejoin="round"/>
+    </svg>`,
+    perks: [
+      "Anthropic API credits",
+      "Finalist demo to investors",
+      "Fast-track interview at sponsors",
+      "Featured in press release",
+    ],
+  },
+  {
     name: "Open Source",
     tagline:
       "Build tools the community will actually use Build tools the community will actually use Build tools the community will actually use Build tools the community will actually use Build tools the community will actually use",
@@ -27,24 +45,6 @@ const tracks: HackathonTrack[] = [
       "1:1 code review session",
       "Community vote bonus",
       "Feature on project showcase",
-    ],
-  },
-  {
-    name: "AI & ML",
-    tagline:
-      "Push the frontier of intelligent systems Push the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of intelligent systemsPush the frontier of ntier ofntier ofntier ofntier ofntier ofntier of",
-    badge: "Recommended",
-    prize: "$10,000",
-    variant: "featured",
-    icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"
-        stroke="#fff" stroke-width="1.5" fill="rgba(255,255,255,0.2)" stroke-linejoin="round"/>
-    </svg>`,
-    perks: [
-      "Anthropic API credits",
-      "Finalist demo to investors",
-      "Fast-track interview at sponsors",
-      "Featured in press release",
     ],
   },
   {
