@@ -216,7 +216,7 @@ function ShootingStars() {
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100vh] justify-center pt-28 pb-10 md:pt-40 md:pb-16">
+    <section className="relative flex min-h-[120vh] justify-center pt-28 pb-10 md:pt-40 md:pb-16">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
@@ -239,7 +239,7 @@ export default function Hero() {
         width={80}
         height={50}
         alt="moon"
-        className="pointer-events-none absolute bottom-[-55%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2"
+        className="pointer-events-none absolute bottom-[-23%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2"
         style={{
           mixBlendMode: "screen",
           filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
@@ -303,7 +303,7 @@ export default function Hero() {
       </div>
 
       {/* Astronaut */}
-      <div className="absolute bottom-20 left-[-10] rotate-[20deg]">
+      <div className="absolute bottom-60 left-[-10] rotate-[20deg]">
         <Image
           src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
           width={500}
