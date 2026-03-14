@@ -336,7 +336,6 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
             </div>
             <div
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
                 fontSize: 26,
                 fontWeight: 300,
                 fontStyle: "italic",
@@ -474,7 +473,6 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 {/* Name */}
                 <div
                   style={{
-                    fontFamily: "'Cormorant Garamond',serif",
                     fontSize: 22,
                     fontWeight: 400,
                     color: "white",
@@ -555,7 +553,6 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   >
                     <div
                       style={{
-                        fontFamily: "'Cormorant Garamond',serif",
                         fontSize: 13,
                         lineHeight: 1.6,
                         fontStyle: "italic",

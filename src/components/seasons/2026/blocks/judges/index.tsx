@@ -125,9 +125,9 @@ export default function IndexPage() {
         ref={sectionRef}
         className="flex w-full flex-col items-center gap-0 px-4 py-4"
       >
-        <h2 className="relative z-10 container [font-family:var(--font-luxurious-script)] text-5xl font-bold text-white drop-shadow-lg [text-shadow:0_0_10px_rgba(255,255,255,0.5)] sm:text-6xl lg:text-5xl xl:text-7xl">
+        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Judges
-        </h2>
+        </h1>
         <Carousel
           opts={{
             loop: true,

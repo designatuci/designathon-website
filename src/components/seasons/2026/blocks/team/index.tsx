@@ -22,8 +22,9 @@ export default function MeetCommittees() {
   return (
     <section id="team">
       <div className="relative">
+        {/* Galaxy Background (UNCHANGED FROM YOUR V1) */}
         <div
-          className="pointer-events-none absolute w-full"
+          className="galaxy-bg pointer-events-none absolute w-full"
           style={{
             top: "-200px",
             height: "calc(100% + 200px)",
@@ -37,6 +38,7 @@ export default function MeetCommittees() {
 
         <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%] pb-[15%]">
           <style>{`
+
           .script-glow {
             letter-spacing: 0.04em;
             text-shadow:
@@ -46,6 +48,7 @@ export default function MeetCommittees() {
               0 0 48px rgba(140,70,255,0.45);
             animation: glowPulse 3s ease-in-out infinite alternate;
           }
+
           .star-btn {
             position: absolute;
             transform: translate(-50%, -50%);
@@ -59,18 +62,28 @@ export default function MeetCommittees() {
             gap: 6px;
             transition: transform 0.3s ease;
           }
+
           .star-btn:hover { transform: translate(-50%, -50%) scale(1.15); }
           .star-btn.active { transform: translate(-50%, -50%) scale(1.2); }
-          .star-img { display: block; object-fit: contain; transition: filter 0.3s ease; }
+
+          .star-img {
+            display: block;
+            object-fit: contain;
+            transition: filter 0.3s ease;
+          }
+
           .star-btn:hover .star-img,
           .star-btn.active .star-img {
-            filter: drop-shadow(0 0 22px var(--glow)) drop-shadow(0 0 40px var(--glow)) !important;
+            filter: drop-shadow(0 0 22px var(--glow))
+                    drop-shadow(0 0 40px var(--glow)) !important;
           }
+
           @keyframes floatStar {
             0%,100% { transform: translateY(0) rotate(0deg); }
-            33%      { transform: translateY(-10px) rotate(1deg); }
-            66%      { transform: translateY(-5px) rotate(-1deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
           }
+
           .star-label {
             font-size: 10px;
             letter-spacing: 0.15em;
@@ -80,10 +93,12 @@ export default function MeetCommittees() {
             transition: color 0.3s;
             text-shadow: 0 0 10px rgba(0,0,0,0.8);
           }
+
           .star-btn:hover .star-label,
           .star-btn.active .star-label { color: white; }
 
-          /* ── Mobile grid ── */
+          /* Layout modes */
+
           .mobile-grid { display: none; }
           .desktop-canvas { display: block; }
 
@@ -92,7 +107,8 @@ export default function MeetCommittees() {
             .desktop-canvas { display: none; }
           }
 
-          /* Mobile star card */
+          /* Mobile star cards */
+
           .mobile-star-card {
             display: flex;
             flex-direction: column;
@@ -105,8 +121,15 @@ export default function MeetCommittees() {
             border-radius: 16px;
             transition: background 0.2s;
           }
-          .mobile-star-card:active { background: rgba(255,255,255,0.06); }
-          .mobile-star-card.active { background: rgba(255,255,255,0.08); }
+
+          .mobile-star-card:active {
+            background: rgba(255,255,255,0.06);
+          }
+
+          .mobile-star-card.active {
+            background: rgba(255,255,255,0.08);
+          }
+
           .mobile-star-label {
             font-size: 9px;
             letter-spacing: 0.15em;
@@ -118,10 +141,24 @@ export default function MeetCommittees() {
             white-space: normal;
             line-height: 1.3;
           }
-          .mobile-star-card.active .mobile-star-label { color: white; }
+
+          .mobile-star-card.active .mobile-star-label {
+            color: white;
+          }
+
+          /* MOBILE GALAXY POSITIONING ONLY */
+
+          @media (max-width: 640px) {
+            .galaxy-bg {
+              background-size: 180% auto !important;
+              background-position: center 63% !important;
+            }
+          }
+
         `}</style>
 
-          {/* ── Mobile title ── */}
+          {/* Mobile Title */}
+
           <div className="relative z-10 mb-6 px-4 text-center sm:hidden">
             <div
               className={`${luxurious.className} script-glow text-6xl leading-none font-normal whitespace-nowrap text-white`}
@@ -135,7 +172,8 @@ export default function MeetCommittees() {
             </div>
           </div>
 
-          {/* ── Desktop: absolute-positioned star canvas ── */}
+          {/* Desktop constellation */}
+
           <div className="desktop-canvas relative z-10 h-[min(90vh,800px)] w-[min(1100px,95vw)] overflow-visible">
             <svg className="pointer-events-none absolute inset-0 h-full w-full">
               <ellipse
@@ -148,6 +186,7 @@ export default function MeetCommittees() {
                 strokeWidth="1"
                 strokeDasharray="6 8"
               />
+
               <ellipse
                 cx={`${cx - 5}%`}
                 cy={`${cy}%`}
@@ -158,6 +197,7 @@ export default function MeetCommittees() {
                 strokeWidth="1"
                 strokeDasharray="6 8"
               />
+
               {CONNECTIONS.map(([a, b]) => (
                 <line
                   key={`${a}-${b}`}
@@ -173,6 +213,7 @@ export default function MeetCommittees() {
             </svg>
 
             {/* Desktop title */}
+
             <div
               className="pointer-events-none absolute z-10 text-center"
               style={{
@@ -186,6 +227,7 @@ export default function MeetCommittees() {
               >
                 Meet The
               </div>
+
               <div
                 className={`${luxurious.className} script-glow -mt-6 ml-[20%] text-8xl leading-none font-normal text-white md:text-9xl xl:text-[9rem]`}
               >
@@ -193,10 +235,14 @@ export default function MeetCommittees() {
               </div>
             </div>
 
+            {/* Stars */}
+
             {COMMITTEES.map((c) => (
               <button
                 key={c.id}
-                className={`star-btn focus:outline-none ${active === c.id ? "active" : ""}`}
+                className={`star-btn focus:outline-none ${
+                  active === c.id ? "active" : ""
+                }`}
                 style={{
                   left: `${c.pos.x}%`,
                   top: `${c.pos.y}%`,
@@ -217,22 +263,27 @@ export default function MeetCommittees() {
                     filter: `drop-shadow(0 0 12px ${c.glow})`,
                   }}
                 />
+
                 <span className="star-label">{c.name}</span>
               </button>
             ))}
           </div>
 
-          {/* ── Mobile: 3×2 grid of star cards ── */}
+          {/* Mobile grid */}
+
           <div
-            className="mobile-grid relative z-10 w-full max-w-sm px-4"
+            className="mobile-grid relative z-10 mt-6 w-full max-w-sm px-4"
             style={{ gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}
           >
             {COMMITTEES.map((c) => {
               const mobileSize = Math.round(c.size * 0.42);
+
               return (
                 <button
                   key={c.id}
-                  className={`mobile-star-card focus:outline-none ${active === c.id ? "active" : ""}`}
+                  className={`mobile-star-card focus:outline-none ${
+                    active === c.id ? "active" : ""
+                  }`}
                   style={{ ["--glow" as string]: c.glow }}
                   onClick={() => handleStarClick(c)}
                 >
@@ -251,6 +302,7 @@ export default function MeetCommittees() {
                           : `drop-shadow(0 0 8px ${c.glow})`,
                     }}
                   />
+
                   <span className="mobile-star-label">{c.name}</span>
                 </button>
               );

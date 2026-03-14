@@ -35,7 +35,7 @@ function ProfileCard({ profile, isInView, index }: Props) {
           <h3
             className="text-center text-2xl leading-[1.1] font-bold lg:text-3xl xl:text-4xl"
             // Force newline between first and last name
-            style={{ wordSpacing: "100vw" }}
+            style={{ wordSpacing: "w-full" }}
           >
             {profile.name}
           </h3>

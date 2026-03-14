@@ -26,7 +26,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
   return (
     <div
       className={cn(
-        "relative flex items-center justify-center opacity-0 transition-all duration-700 ease-out",
+        "relative flex h-[460px] w-[320px] flex-shrink-0 items-center justify-center opacity-0 transition-all duration-700 ease-out",
         isInView && "opacity-100",
         isActive ? "z-20" : "z-10",
       )}
