@@ -227,10 +227,10 @@ export default function Hero() {
           50%       { transform: translateY(-22px) rotate(-12deg); }
         }
       `}</style>
-      
+
       {/* Shooting stars layer — sits above background, below letters */}
       <div className="z-0">
-      <ShootingStars />
+        <ShootingStars />
       </div>
 
       {/* Moon */}
