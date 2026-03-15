@@ -221,36 +221,6 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
         }}
       />
 
-      {/* Annotation overlays */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* Top-right label */}
-        <div
-          className="absolute top-1/4 right-8"
-          style={{ color: "rgba(255,255,255,0.3)" }}
-        >
-          <div
-            className="mb-1 ml-auto h-px w-24"
-            style={{ background: "rgba(255,255,255,0.25)" }}
-          />
-          <p className="text-right font-mono text-[10px] tracking-widest uppercase">
-            SECTOR-92697
-          </p>
-        </div>
-        {/* Bottom annotation */}
-        <div
-          className="absolute bottom-1/4 left-1/20"
-          style={{ color: "rgba(255,255,255,0.3)" }}
-        >
-          <div
-            className="mr-auto mb-1 h-px w-32"
-            style={{ background: "rgba(255,255,255,0.25)" }}
-          />
-          <p className="text-left font-mono text-[10px] tracking-widest uppercase">
-            Творческий сектор
-          </p>
-        </div>
-      </div>
-
       {/* Orbital system */}
       <div className="absolute inset-0">
         <OrbitalRings />
