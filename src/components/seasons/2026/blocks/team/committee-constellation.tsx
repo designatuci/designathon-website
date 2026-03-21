@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 export type CommitteeMember = {
   photo?: string;
@@ -69,6 +69,20 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     );
   }, [committee?.id, committee?.members.length]);
 
+  const navigate = useCallback(
+    (dir: 1 | -1) => {
+      if (!committee) return;
+      const max = committee.members.length - 1;
+      if (max < 0) return;
+      const from = Math.max(0, Math.min(currentIdx, max));
+      const next = from + dir;
+      if (next < 0 || next > max) return;
+      setCardKey((k) => k + 1);
+      setCurrentIdx(next);
+    },
+    [committee, currentIdx],
+  );
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -77,18 +91,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [committee, onClose, currentIdx]);
-
-  const navigate = (dir: 1 | -1) => {
-    if (!committee) return;
-    const max = committee.members.length - 1;
-    if (max < 0) return;
-    const from = Math.max(0, Math.min(currentIdx, max));
-    const next = from + dir;
-    if (next < 0 || next > max) return;
-    setCardKey((k) => k + 1);
-    setCurrentIdx(next);
-  };
+  }, [navigate, onClose]);
 
   const goTo = (i: number) => {
     if (!committee) return;
