@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export type CommitteeMember = {
   photo?: string;
@@ -62,6 +62,13 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     }
   }, [committee]);
 
+  useLayoutEffect(() => {
+    if (!committee?.members.length) return;
+    setCurrentIdx((idx) =>
+      Math.max(0, Math.min(idx, committee.members.length - 1)),
+    );
+  }, [committee?.id, committee?.members.length]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -70,27 +77,38 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  });
+  }, [committee, onClose, currentIdx]);
 
   const navigate = (dir: 1 | -1) => {
     if (!committee) return;
-    const next = currentIdx + dir;
-    if (next < 0 || next >= committee.members.length) return;
+    const max = committee.members.length - 1;
+    if (max < 0) return;
+    const from = Math.max(0, Math.min(currentIdx, max));
+    const next = from + dir;
+    if (next < 0 || next > max) return;
     setCardKey((k) => k + 1);
     setCurrentIdx(next);
   };
 
   const goTo = (i: number) => {
-    if (i === currentIdx) return;
+    if (!committee) return;
+    if (i < 0 || i >= committee.members.length) return;
+    setCurrentIdx((idx) => {
+      if (i === idx) return idx;
+      return i;
+    });
     setCardKey((k) => k + 1);
-    setCurrentIdx(i);
   };
 
   if (!committee) return null;
 
   const { constellation, members, glow, name, constellationName, star } =
     committee;
-  const member = members[currentIdx];
+  const safeIdx =
+    members.length === 0
+      ? 0
+      : Math.min(Math.max(0, currentIdx), members.length - 1);
+  const member = members[safeIdx];
 
   const renderCanvas = () => (
     <>
@@ -150,7 +168,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
 
       {membersVisible &&
         constellation.members.map(([x, y], i) => {
-          const isSelected = i === currentIdx;
+          const isSelected = i === safeIdx;
           return (
             <button
               key={i}
@@ -195,7 +213,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   textShadow: "0 0 8px rgba(0,0,0,1)",
                 }}
               >
-                {members[i].name}
+                {members[i]?.name ?? ""}
               </div>
             </button>
           );
@@ -412,13 +430,13 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 {name}
               </div>
               <div className="mt-1 text-[9px] tracking-[0.3em] text-white/30 uppercase">
-                {currentIdx + 1} of {members.length} members
+                {safeIdx + 1} of {members.length} members
               </div>
             </div>
 
             {/* Mobile member counter */}
             <div className="text-[9px] tracking-[0.3em] text-white/30 uppercase sm:hidden">
-              {currentIdx + 1} of {members.length} members
+              {safeIdx + 1} of {members.length} members
             </div>
 
             {/* Member card — glass on mobile, bare on desktop */}
@@ -480,7 +498,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     marginBottom: 3,
                   }}
                 >
-                  {member.name}
+                  {member?.name ?? ""}
                 </div>
 
                 {/* Role */}
@@ -493,11 +511,11 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     marginBottom: 10,
                   }}
                 >
-                  {member.role}
+                  {member?.role ?? ""}
                 </div>
 
                 {/* Year & Major */}
-                {(member.year || member.major) && (
+                {(member?.year || member?.major) && (
                   <div
                     style={{
                       display: "flex",
@@ -506,7 +524,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                       marginBottom: 8,
                     }}
                   >
-                    {member.year && (
+                    {member?.year && (
                       <span
                         style={{
                           fontSize: 10,
@@ -522,7 +540,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                         {member.year}
                       </span>
                     )}
-                    {member.major && (
+                    {member?.major && (
                       <span
                         style={{
                           fontSize: 10,
@@ -542,7 +560,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 )}
 
                 {/* Fun Fact */}
-                {member.funFact && (
+                {member?.funFact && (
                   <div
                     style={{
                       display: "flex",
@@ -570,7 +588,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
             <div className="flex items-center gap-3 pb-2 sm:pb-0">
               <button
                 onClick={() => navigate(-1)}
-                disabled={currentIdx === 0}
+                disabled={safeIdx === 0}
                 style={{
                   width: 34,
                   height: 34,
@@ -582,8 +600,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  cursor: currentIdx === 0 ? "default" : "pointer",
-                  opacity: currentIdx === 0 ? 0.2 : 1,
+                  cursor: safeIdx === 0 ? "default" : "pointer",
+                  opacity: safeIdx === 0 ? 0.2 : 1,
                   transition: "all 0.2s",
                 }}
               >
@@ -603,8 +621,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                       padding: 0,
                       cursor: "pointer",
                       background:
-                        i === currentIdx ? "white" : "rgba(255,255,255,0.2)",
-                      transform: i === currentIdx ? "scale(1.3)" : "scale(1)",
+                        i === safeIdx ? "white" : "rgba(255,255,255,0.2)",
+                      transform: i === safeIdx ? "scale(1.3)" : "scale(1)",
                       transition: "all 0.2s",
                     }}
                   />
@@ -613,7 +631,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
 
               <button
                 onClick={() => navigate(1)}
-                disabled={currentIdx === members.length - 1}
+                disabled={safeIdx === members.length - 1}
                 style={{
                   width: 34,
                   height: 34,
@@ -626,8 +644,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   alignItems: "center",
                   justifyContent: "center",
                   cursor:
-                    currentIdx === members.length - 1 ? "default" : "pointer",
-                  opacity: currentIdx === members.length - 1 ? 0.2 : 1,
+                    safeIdx === members.length - 1 ? "default" : "pointer",
+                  opacity: safeIdx === members.length - 1 ? 0.2 : 1,
                   transition: "all 0.2s",
                 }}
               >
