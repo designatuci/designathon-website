@@ -241,16 +241,8 @@
   --sidebar-ring: oklch(0.87 0 0);
 }
 
-/* Prevent horizontal scroll / sliver of whitespace: 100vw includes scrollbar
-   width in many browsers; html + body clip + max-width catches edge cases. */
-html {
-  overflow-x: clip;
-  max-width: 100%;
-}
-
 body {
   overflow-x: hidden;
-  max-width: 100%;
 }
 
 @layer base {

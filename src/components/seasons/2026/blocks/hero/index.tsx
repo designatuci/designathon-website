@@ -228,7 +228,7 @@ function ShootingStars() {
 
 export default function Hero() {
   return (
-    <section className="relative flex h-[100svh] max-h-[100svh] flex-col justify-center overflow-hidden pt-20 pb-8 md:h-auto md:max-h-none md:min-h-[120vh] md:overflow-x-hidden md:overflow-y-visible md:pt-40 md:pb-16">
+    <section className="relative flex min-h-[100svh] md:min-h-[120vh] justify-center pt-28 pb-10 md:pt-40 md:pb-16">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
