@@ -103,7 +103,7 @@ function Hero() {
               alt="Designathon 2025: Beyond Our Horizons"
               className="hidden object-contain not-motion-reduce:block"
               priority
-              sizes="(min-width: 0px) w-full"
+              sizes="(min-width: 0px) 100vw"
               fill
             />
             {/*  Motion reduce */}
@@ -112,7 +112,7 @@ function Hero() {
               alt="Designathon 2025: Beyond Our Horizons"
               className="object-contain not-motion-reduce:hidden"
               priority
-              sizes="(min-width: 0px) w-full"
+              sizes="(min-width: 0px) 100vw"
               fill
             />
             <div className="absolute top-full left-1/2 flex w-fit translate-x-[-50%] -translate-y-1/2 flex-col items-center gap-2 font-cursive text-sm tracking-wider sm:translate-y-[-60%] sm:px-12 lg:translate-y-[-120%] lg:text-base">
@@ -136,7 +136,7 @@ function Hero() {
         </div>
         <div
           className={cn(
-            "relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden mask-top opacity-0 transition-all duration-1000 ease-out-quart xl:mt-16 2xl:mt-0 3xl:-mt-[5vw]",
+            "relative mt-32 flex w-full flex-grow items-center justify-center overflow-hidden opacity-0 transition-all duration-1000 ease-out-quart mask-top xl:mt-16 2xl:mt-0 3xl:-mt-[5vw]",
             "not-motion-reduce:translate-y-24 not-motion-reduce:scale-105",
             {
               "opacity-100 not-motion-reduce:translate-y-0 not-motion-reduce:scale-100":
