@@ -520,7 +520,7 @@ export const COMMITTEES: Committee[] = [
       {
         photo: "",
         name: "Chloe Chun",
-        role: "Director of Corporate Relations",
+        role: "Director",
         year: "2nd Year",
         major: "Business Economics & Informatics",
         funFact: "I have a fear of birds.",
