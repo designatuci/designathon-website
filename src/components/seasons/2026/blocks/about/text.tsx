@@ -17,7 +17,7 @@ const PAGES = [
 const GLITCH_CHARS = "!@#$%^&*ΨΦΔλξπ∑∞";
 
 function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
-  const [display, setDisplay] = useState(word.replace(/\S/g, "·"));
+  const [display, setDisplay] = useState("");
   const [locked, setLocked] = useState(false);
   const frameRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const iterRef = useRef(0);
@@ -64,7 +64,7 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
   useEffect(() => {
     if (!revealed) {
       setLocked(false);
-      setDisplay(word.replace(/\S/g, "·"));
+      setDisplay("");
       iterRef.current = 0;
     }
   }, [revealed, word]);
@@ -164,28 +164,10 @@ export function AboutBox() {
 
       {/* Inner content */}
       <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20">
-        {/* Eyebrow label */}
-        <p
-          className="mb-3 text-xs font-semibold tracking-[0.3em] uppercase"
-          style={{ color: "rgba(160,100,255,0.9)" }}
-        >
-          Design-a-thon 2026
-        </p>
-
         {/* Main heading */}
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           About
         </h1>
-
-        {/* Divider */}
-        <div
-          className="mb-6 h-px w-16"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(255,80,200,0.8), rgba(80,220,255,0.4))",
-          }}
-        />
-
         {/* Body copy — re-animates per page */}
         <div className="mb-10 min-h-[8rem] max-w-sm">
           <AboutText text={PAGES[page]} />
@@ -233,7 +215,6 @@ export function AboutBox() {
                   i === page
                     ? "rgba(255,255,255,0.9)"
                     : "rgba(255,255,255,0.25)",
-                fontSize: i === page ? "1.1rem" : "0.7rem",
                 background: "none",
                 border: "none",
                 cursor: "pointer",

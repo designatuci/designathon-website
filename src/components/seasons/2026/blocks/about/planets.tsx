@@ -193,7 +193,7 @@ function OrbitalRings() {
 // ─────────────────────────────────────────────
 function CentrePlanet() {
   return (
-    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 md:h-[16rem] md:w-[16rem]">
+    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 md:h-[8rem] md:w-[8rem]">
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
         alt="Navy planet"
