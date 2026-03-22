@@ -20,12 +20,12 @@ export const COMMITTEES: Committee[] = [
         [340, 170],
         [100, 265],
         [340, 265],
-        [100, 355],
         [340, 355],
       ],
       dummies: [
         [220, 215],
         [220, 310],
+        [100, 355],
       ],
       director: [220, 105],
       lines: [
@@ -78,11 +78,11 @@ export const COMMITTEES: Committee[] = [
     members: [
       {
         photo: "",
-        name: "Roshan Raj",
+        name: "Jay Chan",
         role: "Director (Development)",
         year: "3rd Year",
         major: "Computer Science",
-        funFact: "I used to compete as a national level gymnast!",
+        funFact: "I was born with 11 fingers!",
       },
       {
         photo: "",
@@ -94,11 +94,11 @@ export const COMMITTEES: Committee[] = [
       },
       {
         photo: "",
-        name: "Jay Chan",
+        name: "Johnson Nguyen",
         role: "Committee (Development)",
         year: "3rd Year",
         major: "Computer Science",
-        funFact: "I was born with 11 fingers!",
+        funFact: "My favorite Eevee evolution is Sylveon.",
       },
       {
         photo: "",
@@ -107,14 +107,6 @@ export const COMMITTEES: Committee[] = [
         year: "2nd Year",
         major: "Art & Digital Information Systems",
         funFact: "I love doing my nails!",
-      },
-      {
-        photo: "",
-        name: "Johnson Nguyen",
-        role: "Committee (Development)",
-        year: "3rd Year",
-        major: "Computer Science",
-        funFact: "My favorite Eevee evolution is Sylveon.",
       },
       {
         photo: "",
@@ -528,7 +520,7 @@ export const COMMITTEES: Committee[] = [
       {
         photo: "",
         name: "Chloe Chun",
-        role: "Director of Corporate Relations",
+        role: "Director",
         year: "2nd Year",
         major: "Business Economics & Informatics",
         funFact: "I have a fear of birds.",
