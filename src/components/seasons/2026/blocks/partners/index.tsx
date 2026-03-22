@@ -1,4 +1,3 @@
-import DOTImage from "@components/common/dot-image";
 import SponsorsMarquee from "@components/seasons/2026/blocks/partners/sponsors-marquee";
 
 export interface Organization {
@@ -14,27 +13,17 @@ function Partners() {
   return (
     <section
       id="partners"
-      className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-40 text-white xl:pb-96"
+      className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-10 text-white xl:pb-0"
     >
-      <div className="flex w-full flex-col gap-20 3xl:max-w-[1920px]">
+      <div className="flex w-full flex-col 3xl:max-w-[1920px]">
         <div
-          className="relative flex flex-col items-center gap-20 sm:gap-40 lg:gap-60"
+          className="relative flex flex-col sm:gap-8"
           data-status="incomplete"
         >
-          <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+          <h1 className="container [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
             Partners
           </h1>
-          <SponsorsMarquee reverse organizations={partners} />
-          <div className="absolute right-0 bottom-0 w-1/2 translate-x-1/4 translate-y-1/2">
-            <DOTImage
-              width={1659}
-              height={790}
-              src="/images/seasons/2026/landing/partners/clouds-right.png"
-              alt="clouds"
-              className="animate-hover duration-[5s]"
-              sizes="(min-width: 0px) 50vw"
-            />
-          </div>
+          <SponsorsMarquee organizations={partners} />
         </div>
       </div>
     </section>
@@ -62,18 +51,13 @@ const partners: Organization[] = [
   },
   {
     id: "marquee1-3",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
-      rotation: 6,
-      name: "Microsoft Copilot",
-    },
   },
   {
     id: "marquee1-4",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
-      rotation: 3,
-      name: "Doordash",
+      imageURL: "/images/seasons/2026/landing/partners/logos/postmates.png",
+      rotation: -10,
+      name: "Postmates",
     },
   },
   {
@@ -110,8 +94,82 @@ const partners: Organization[] = [
   },
   {
     id: "marquee1-9",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
+      name: "Microsoft Copilot",
+      rotation: 20,
+    },
   },
   {
     id: "marquee1-10",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/chartmetric.png",
+      name: "Chartmetric",
+      rotation: 3,
+    },
+  },
+  {
+    id: "marquee1-11",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/google.png",
+      name: "Google",
+      rotation: -2,
+    },
+  },
+  {
+    id: "marquee1-12",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/im.png",
+      name: "Ingram Micro",
+      rotation: -20,
+    },
+  },
+  {
+    id: "marquee1-13",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/lovable.png",
+      name: "Lovable",
+      rotation: 0,
+    },
+  },
+  {
+    id: "marquee1-14",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
+      name: "Monster",
+      rotation: 10,
+    },
+  },
+  {
+    id: "marquee1-15",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
+      name: "Olive Garden",
+      rotation: 0,
+    },
+  },
+  {
+    id: "marquee1-16",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
+      name: "Ryan Yang",
+      rotation: 5,
+    },
+  },
+  {
+    id: "marquee1-17",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
+      name: "Tabi",
+      rotation: 7,
+    },
+  },
+  {
+    id: "marquee1-18",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
+      name: "Tigawok",
+      rotation: -10,
+    },
   },
 ];
