@@ -191,6 +191,8 @@ function OrbitalRings() {
 // ─────────────────────────────────────────────
 // Centre planet
 // ─────────────────────────────────────────────
+const NAVY_GLOW = "rgba(96, 144, 239, 0.45)";
+
 function CentrePlanet() {
   return (
     <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 md:h-[8rem] md:w-[8rem]">
@@ -199,6 +201,9 @@ function CentrePlanet() {
         alt="Navy planet"
         fill
         className="object-contain"
+        style={{
+          filter: `drop-shadow(0 0 20px ${NAVY_GLOW}) drop-shadow(0 0 26px ${NAVY_GLOW})`,
+        }}
       />
     </div>
   );
