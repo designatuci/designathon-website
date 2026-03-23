@@ -18,7 +18,7 @@ import LandingNavigation from "@components/seasons/2026/navigation/landing-navig
 
 export default function Landing2026() {
   return (
-    <main className="noise relative min-h-[100dvh] w-full overflow-hidden bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat-y">
+    <main className="noise relative min-h-[100dvh] w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat-y">
       <LandingNavigation />
       <Hero />
       <About />
