@@ -326,6 +326,15 @@ export default function Hero() {
               />
             ))}
           </div>
+
+          {/* Lost & Found */}
+          <Image
+            src="/images/seasons/2026/landing/hero/lostandfound.png"
+            alt="Lost & Found"
+            width={400}
+            height={80}
+            className="pointer-events-none ml-4 -mt-20 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
+          />
         </div>
       </div>
 
