@@ -22,12 +22,12 @@ export default function Landing2026() {
       <About />
       <Star />
       <Prompt />
-      <Rules />
       <Schedule />
+      <FAQ />
       <Judges />
       <Partners />
       <MeetCommittees />
-      <FAQ />
+      <Rules />
       <MailingList />
       <Footer />
     </main>
