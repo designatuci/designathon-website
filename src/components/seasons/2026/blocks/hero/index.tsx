@@ -333,7 +333,7 @@ export default function Hero() {
             alt="Lost & Found"
             width={400}
             height={80}
-            className="pointer-events-none ml-4 -mt-20 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
+            className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
           />
         </div>
       </div>
