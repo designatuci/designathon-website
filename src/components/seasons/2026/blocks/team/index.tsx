@@ -24,7 +24,7 @@ export default function MeetCommittees() {
       <div className="relative overflow-visible pb-32">
         {/* Galaxy Background */}
         <div
-          className="galaxy-bg pointer-events-none absolute w-full md:top-[-200px] -top-[350px]"
+          className="galaxy-bg pointer-events-none absolute -top-[350px] w-full md:top-[-200px]"
           style={{
             height: "calc(100% + 400px)",
             backgroundImage:
