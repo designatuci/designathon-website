@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import Image from "next/image";
 import { LinkedinIconStroke } from "@components/icons/linkedin";
 import { Judge } from "@components/seasons/2026/blocks/judges";
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -55,8 +55,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
   const planetNumber = (index % PLANET_COUNT) + 1;
   const color = planetColors[planetNumber] ?? planetColors[1];
   const planetSrc = `/images/seasons/2026/landing/judges/planets/${planetNumber}.png`;
-  const planetScale =
-    planetNumber === 1 ? 1.6 : planetNumber === 6 ? 2.4 : 1.5;
+  const planetScale = planetNumber === 1 ? 1.6 : planetNumber === 6 ? 2.4 : 1.5;
   const planetOffset =
     planetNumber === 6 ? "translate(20px, -20px)" : "translate(0, 0)";
 
