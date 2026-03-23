@@ -113,6 +113,39 @@
   transform: rotate(12deg);
 }
 
+/* Smaller bubble on narrow viewports */
+@media (max-width: 767px) {
+  .comic-bubble {
+    max-width: 220px;
+    padding: 10px 12px;
+    border-width: 2px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 0 #111;
+  }
+
+  .comic-bubble span {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+  }
+
+  .comic-bubble::before {
+    left: 14px;
+    bottom: -17px;
+    border-left-width: 5px;
+    border-right-width: 14px;
+    border-top-width: 18px;
+  }
+
+  .comic-bubble::after {
+    left: 16px;
+    bottom: -12px;
+    border-left-width: 3px;
+    border-right-width: 11px;
+    border-top-width: 15px;
+  }
+}
+
 .comic-bubble {
   animation: comicWobble 3s ease-in-out infinite;
 }
