@@ -36,7 +36,7 @@ export default function MeetCommittees() {
           }}
         />
 
-        <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%] pb-[15%]">
+        <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%]">
           <style>{`
 
           .script-glow {

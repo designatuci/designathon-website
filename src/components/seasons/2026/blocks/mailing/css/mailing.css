@@ -75,10 +75,13 @@
 
 .comic-bubble span {
   display: block;
+  font-family: "var(--font-lekton), sans-serif";
   font-size: 1rem;
   font-weight: 900;
   line-height: 1.2;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #1a1040;
   text-transform: uppercase;
 }
 
