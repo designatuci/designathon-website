@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import Image from "next/image";
 import { LinkedinIconStroke } from "@components/icons/linkedin";
 import { Judge } from "@components/seasons/2026/blocks/judges";
-import { Card, CardContent, CardHeader } from "@components/ui/card";
 import Link from "next/link";
 
 type Props = {
@@ -12,16 +12,53 @@ type Props = {
   isActive: boolean;
 };
 
-// Each judge gets a unique nebula accent color
-const nebulaColors = [
-  { glow: "rgba(0, 0, 255, 0.5)", ring: "#99b1f8", streak: "#97c2ff" },
-  { glow: "rgba(56, 189, 248, 0.5)", ring: "#38f8e5", streak: "#02c7a9" },
-  { glow: "rgba(200, 0, 186, 0.5)", ring: "#230351", streak: "#a90aff" },
-  { glow: "rgba(52, 211, 153, 0.5)", ring: "#34d399", streak: "#059669" },
-];
+// Accent colors per planet — glow, ring, streak all match each planet's colors
+const planetColors: Record<
+  number,
+  { glow: string; ring: string; streak: string }
+> = {
+  1: {
+    glow: "rgba(0, 200, 220, 0.5)",
+    ring: "#38d4e0",
+    streak: "#00c8d4",
+  }, // Teal/cyan (water planet)
+  2: {
+    glow: "rgba(210, 165, 100, 0.5)",
+    ring: "#d4a86a",
+    streak: "#c49550",
+  }, // Golden brown (Saturn-like)
+  3: {
+    glow: "rgba(180, 150, 110, 0.5)",
+    ring: "#c4a574",
+    streak: "#a88950",
+  }, // Light brown
+  4: {
+    glow: "rgba(200, 90, 50, 0.5)",
+    ring: "#e07848",
+    streak: "#c85a28",
+  }, // Burnt orange / rust
+  5: {
+    glow: "rgba(130, 180, 230, 0.5)",
+    ring: "#7eb8e6",
+    streak: "#5a9ed9",
+  }, // Light blue
+  6: {
+    glow: "rgba(235, 210, 80, 0.5)",
+    ring: "#e8c850",
+    streak: "#d4b020",
+  }, // Yellow
+};
+
+const PLANET_COUNT = 6;
 
 function ProfileCard({ profile, isInView, index, isActive }: Props) {
-  const color = nebulaColors[index % nebulaColors.length];
+  const planetNumber = (index % PLANET_COUNT) + 1;
+  const color = planetColors[planetNumber] ?? planetColors[1];
+  const planetSrc = `/images/seasons/2026/landing/judges/planets/${planetNumber}.png`;
+  const planetScale =
+    planetNumber === 1 ? 1.6 : planetNumber === 6 ? 2.4 : 1.5;
+  const planetOffset =
+    planetNumber === 6 ? "translate(20px, -20px)" : "translate(0, 0)";
 
   return (
     <div
@@ -32,62 +69,52 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
       )}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      {/* Outer glow halo — only on active */}
-      {isActive && (
-        <div
-          className="pointer-events-none absolute inset-0 rounded-full blur-3xl"
-          style={{
-            background: `radial-gradient(ellipse at center, ${color.glow} 0%, transparent 70%)`,
-            transform: "scale(1.4)",
-          }}
-        />
-      )}
-
-      <Card
+      <div
         className={cn(
-          "relative overflow-hidden border-0 bg-transparent transition-all duration-500 ease-out",
+          "relative overflow-visible transition-all duration-500 ease-out",
           isActive
-            ? "h-[460px] w-[320px] scale-100 shadow-2xl"
+            ? "h-[460px] w-[320px] scale-100"
             : "h-[340px] w-[260px] scale-90 opacity-50",
         )}
       >
-        {/* Glass card background */}
-        <div
-          className="absolute inset-0 rounded-2xl"
-          style={{
-            background: isActive
-              ? "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%)"
-              : "linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)",
-            backdropFilter: "blur(20px)",
-            border: `1px solid ${isActive ? `${color.ring}55` : "rgba(255,255,255,0.08)"}`,
-            borderRadius: "1rem",
-          }}
-        />
-
-        {/* Top accent streak */}
+        {/* Outer glow halo — centered behind planet, circular, planet-matched color; subtler on mobile */}
         {isActive && (
           <div
-            className="absolute top-0 right-8 left-8 h-[2px] rounded-full"
-            style={{
-              background: `linear-gradient(90deg, transparent, ${color.ring}, transparent)`,
-            }}
-          />
+            className="pointer-events-none absolute inset-0 flex items-center justify-center"
+            aria-hidden
+          >
+            <div
+              className="aspect-square w-[min(100%,320px)] rounded-full opacity-50 blur-2xl md:opacity-100 md:blur-3xl"
+              style={{
+                background: `radial-gradient(circle at center, ${color.glow} 0%, transparent 70%)`,
+                transform: "scale(2)",
+              }}
+            />
+          </div>
         )}
 
-        {/* Subtle starfield texture */}
+        {/* Planet as background — scaled up so planet is bigger, info stays same size */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-20"
+          className="absolute inset-0 flex items-center justify-center"
           style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: "30px 30px",
-            borderRadius: "1rem",
-            maskImage:
-              "radial-gradient(ellipse at center, black 30%, transparent 80%)",
+            transform: `${planetOffset} scale(${planetScale})`,
           }}
-        />
+          aria-hidden
+        >
+          <div className="relative h-full w-full">
+            <Image
+              src={planetSrc}
+              alt=""
+              fill
+              className="object-contain"
+              sizes="320px"
+              priority={index < 3}
+            />
+          </div>
+        </div>
 
-        {/* Planet / Portrait image */}
-        <CardHeader className="relative z-10 flex items-center justify-center pt-8 pb-0">
+        {/* Portrait */}
+        <div className="relative z-10 flex flex-col items-center pt-8 pb-0">
           <div
             className={cn(
               "relative overflow-hidden transition-all duration-500",
@@ -114,10 +141,10 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
               className="object-cover"
             />
           </div>
-        </CardHeader>
+        </div>
 
         {/* Info */}
-        <CardContent
+        <div
           className={cn(
             "relative z-10 flex flex-col items-center gap-1 px-6 text-center transition-all duration-500",
             isActive ? "mt-5" : "mt-4",
@@ -180,7 +207,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
               LinkedIn
             </Link>
           )}
-        </CardContent>
+        </div>
 
         {/* Bottom corner constellation dots */}
         {isActive && (
@@ -203,7 +230,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
             />
           </>
         )}
-      </Card>
+      </div>
     </div>
   );
 }
