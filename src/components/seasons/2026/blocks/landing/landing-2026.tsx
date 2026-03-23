@@ -8,6 +8,7 @@ import Judges from "@components/seasons/2026/blocks/judges";
 import MailingList from "@components/seasons/2026/blocks/mailing";
 import LandingNavigation from "@components/seasons/2026/blocks/navigation/landing-navigation";
 import Partners from "@components/seasons/2026/blocks/partners";
+import PastEvents from "@components/seasons/2026/blocks/past-events";
 import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
 import Schedule from "@components/seasons/2026/blocks/schedule";
@@ -28,6 +29,7 @@ export default function Landing2026() {
       <Partners />
       <MeetCommittees />
       <Rules />
+      <PastEvents />
       <MailingList />
       <Footer />
     </main>
