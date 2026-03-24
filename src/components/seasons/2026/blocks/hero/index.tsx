@@ -233,6 +233,7 @@ const heroAssetUrls = [
   "/images/seasons/2026/landing/hero/moon.svg",
   "/images/seasons/2026/landing/hero/lostandfound.png",
   "/images/seasons/2026/landing/hero/astronaunt_pointing.svg",
+  "/images/seasons/2026/landing/hero/alien.png",
 ];
 
 export default function Hero() {
@@ -263,6 +264,10 @@ export default function Hero() {
           0%, 100% { transform: translateY(0px) rotate(-15deg); }
           50%       { transform: translateY(-22px) rotate(-12deg); }
         }
+        @keyframes floatAlien {
+          0%, 100% { transform: translateY(0px) rotate(15deg); }
+          50%       { transform: translateY(-22px) rotate(12deg); }
+        }
       `}</style>
 
       <div
@@ -287,7 +292,7 @@ export default function Hero() {
           width={80}
           height={50}
           alt="moon"
-          className="pointer-events-none absolute bottom-[-10%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2 md:bottom-[-23%]"
+          className="pointer-events-none absolute top-1/2 left-1/2 z-10 w-[90%] max-w-[750px] -translate-x-1/2 translate-y-[50%] md:-translate-y-[10%]"
           style={{
             mixBlendMode: "screen",
             filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
@@ -297,7 +302,7 @@ export default function Hero() {
         {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
         <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
           <div
-            className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:1]"
+            className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
             style={{ "--letter-base": "150px" } as React.CSSProperties}
           >
             {/* Line 1 */}
@@ -375,17 +380,33 @@ export default function Hero() {
         </div>
 
         {/* Astronaut */}
-        <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-60 md:left-[-10px] md:translate-x-0">
+        <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-[40%] md:left-[5%] md:translate-x-0 md:translate-y-[35%]">
           <Image
             src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
             width={500}
             height={500}
             alt="astronaunt_pointing"
-            className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px] xl:h-[500px]"
+            className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px]"
             style={{
               animation: "floatAstronaut 6s ease-in-out infinite",
               filter:
                 "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+            }}
+          />
+        </div>
+
+        {/* Alien */}
+        <div className="absolute right-[10%] bottom-[35vh] -rotate-[20deg] md:right-[10%] md:bottom-[40%]">
+          <Image
+            src="/images/seasons/2026/landing/hero/alien.png"
+            width={500}
+            height={500}
+            alt="alien"
+            className="h-[60px] w-auto object-contain md:h-[200px]"
+            style={{
+              animation: "floatAlien 6s ease-in-out infinite",
+              filter:
+                "drop-shadow(0 0 18px rgba(105, 105, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
             }}
           />
         </div>
