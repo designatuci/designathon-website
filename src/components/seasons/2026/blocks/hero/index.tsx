@@ -283,96 +283,96 @@ export default function Hero() {
 
         {/* Moon */}
         <Image
-        src="/images/seasons/2026/landing/hero/moon.svg"
-        width={80}
-        height={50}
-        alt="moon"
-        className="pointer-events-none absolute bottom-[-10%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2 md:bottom-[-23%]"
-        style={{
-          mixBlendMode: "screen",
-          filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
-        }}
-      />
+          src="/images/seasons/2026/landing/hero/moon.svg"
+          width={80}
+          height={50}
+          alt="moon"
+          className="pointer-events-none absolute bottom-[-10%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2 md:bottom-[-23%]"
+          style={{
+            mixBlendMode: "screen",
+            filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
+          }}
+        />
 
-      {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
-      <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
-        <div
-          className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:1]"
-          style={{ "--letter-base": "150px" } as React.CSSProperties}
-        >
-          {/* Line 1 */}
-          <div className="flex max-w-full items-end justify-center gap-0">
-            {line1.map((l, i) => (
-              <Image
-                key={i}
-                src={l.src}
-                alt=""
-                width={150}
-                height={150}
-                className="pointer-events-none max-w-none object-contain"
-                style={
-                  {
-                    height:
-                      "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                    width: "auto",
-                    marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                    marginBottom: 0,
-                    marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    animation: `float ${l.duration} ease-in-out infinite`,
-                    animationDelay: l.delay,
-                    "--rot": l.rotate,
-                    filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
-
-          {/* Line 2 */}
+        {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
+        <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
           <div
-            className="flex max-w-full items-end justify-center gap-0"
-            style={{
-              marginTop: "calc(-20px * var(--hero-m, 1))",
-            }}
+            className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:1]"
+            style={{ "--letter-base": "150px" } as React.CSSProperties}
           >
-            {line2.map((l, i) => (
-              <Image
-                key={i}
-                src={l.src}
-                alt=""
-                width={150}
-                height={150}
-                className="pointer-events-none max-w-none object-contain"
-                style={
-                  {
-                    height:
-                      "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                    width: "auto",
-                    marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                    marginBottom: 0,
-                    marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    animation: `float ${l.duration} ease-in-out infinite`,
-                    animationDelay: l.delay,
-                    "--rot": l.rotate,
-                    filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
+            {/* Line 1 */}
+            <div className="flex max-w-full items-end justify-center gap-0">
+              {line1.map((l, i) => (
+                <Image
+                  key={i}
+                  src={l.src}
+                  alt=""
+                  width={150}
+                  height={150}
+                  className="pointer-events-none max-w-none object-contain"
+                  style={
+                    {
+                      height:
+                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                      width: "auto",
+                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                      marginBottom: 0,
+                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      animation: `float ${l.duration} ease-in-out infinite`,
+                      animationDelay: l.delay,
+                      "--rot": l.rotate,
+                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </div>
 
-          {/* Lost & Found */}
-          <Image
-            src="/images/seasons/2026/landing/hero/lostandfound.png"
-            alt="Lost & Found"
-            width={400}
-            height={80}
-            className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
-          />
+            {/* Line 2 */}
+            <div
+              className="flex max-w-full items-end justify-center gap-0"
+              style={{
+                marginTop: "calc(-20px * var(--hero-m, 1))",
+              }}
+            >
+              {line2.map((l, i) => (
+                <Image
+                  key={i}
+                  src={l.src}
+                  alt=""
+                  width={150}
+                  height={150}
+                  className="pointer-events-none max-w-none object-contain"
+                  style={
+                    {
+                      height:
+                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                      width: "auto",
+                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                      marginBottom: 0,
+                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      animation: `float ${l.duration} ease-in-out infinite`,
+                      animationDelay: l.delay,
+                      "--rot": l.rotate,
+                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </div>
+
+            {/* Lost & Found */}
+            <Image
+              src="/images/seasons/2026/landing/hero/lostandfound.png"
+              alt="Lost & Found"
+              width={400}
+              height={80}
+              className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
+            />
+          </div>
         </div>
-      </div>
 
         {/* Astronaut */}
         <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-60 md:left-[-10px] md:translate-x-0">
