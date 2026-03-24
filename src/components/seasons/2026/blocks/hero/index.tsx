@@ -222,7 +222,6 @@ function ShootingStars() {
     <div
       ref={containerRef}
       className="pointer-events-none absolute inset-0 overflow-hidden"
-      style={{ zIndex: 5 }}
     />
   );
 }
@@ -281,8 +280,8 @@ export default function Hero() {
           },
         )}
       >
-        {/* Shooting stars layer — sits above background, below letters */}
-        <div className="absolute inset-0 z-0">
+        {/* Shooting stars layer — behind all content (moon, letters, astronaut, alien) */}
+        <div className="absolute inset-0 z-[-1]">
           <ShootingStars />
         </div>
 
