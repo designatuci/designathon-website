@@ -1,7 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const line1 = [
   {
@@ -226,7 +227,31 @@ function ShootingStars() {
   );
 }
 
+const heroAssetUrls = [
+  ...line1.map((l) => l.src),
+  ...line2.map((l) => l.src),
+  "/images/seasons/2026/landing/hero/moon.svg",
+  "/images/seasons/2026/landing/hero/lostandfound.png",
+  "/images/seasons/2026/landing/hero/astronaunt_pointing.svg",
+];
+
 export default function Hero() {
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+
+  useEffect(() => {
+    let numLoaded = 0;
+    const total = heroAssetUrls.length;
+
+    heroAssetUrls.forEach((src) => {
+      const img = document.createElement("img");
+      img.onload = img.onerror = () => {
+        numLoaded++;
+        if (numLoaded === total) setAssetsLoaded(true);
+      };
+      img.src = src;
+    });
+  }, []);
+
   return (
     <section className="relative flex min-h-[100svh] justify-center pt-28 pb-10 md:min-h-[120vh] md:pt-40 md:pb-16">
       <style>{`
@@ -240,13 +265,24 @@ export default function Hero() {
         }
       `}</style>
 
-      {/* Shooting stars layer — sits above background, below letters */}
-      <div className="z-0">
-        <ShootingStars />
-      </div>
+      <div
+        className={cn(
+          "absolute inset-0",
+          "transition-all duration-1000 ease-out-quart",
+          "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
+          {
+            "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
+              assetsLoaded,
+          },
+        )}
+      >
+        {/* Shooting stars layer — sits above background, below letters */}
+        <div className="absolute inset-0 z-0">
+          <ShootingStars />
+        </div>
 
-      {/* Moon */}
-      <Image
+        {/* Moon */}
+        <Image
         src="/images/seasons/2026/landing/hero/moon.svg"
         width={80}
         height={50}
@@ -338,20 +374,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Astronaut */}
-      <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-60 md:left-[-10px] md:translate-x-0">
-        <Image
-          src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
-          width={500}
-          height={500}
-          alt="astronaunt_pointing"
-          className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px] xl:h-[500px]"
-          style={{
-            animation: "floatAstronaut 6s ease-in-out infinite",
-            filter:
-              "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
-          }}
-        />
+        {/* Astronaut */}
+        <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-60 md:left-[-10px] md:translate-x-0">
+          <Image
+            src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
+            width={500}
+            height={500}
+            alt="astronaunt_pointing"
+            className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px] xl:h-[500px]"
+            style={{
+              animation: "floatAstronaut 6s ease-in-out infinite",
+              filter:
+                "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+            }}
+          />
+        </div>
       </div>
     </section>
   );
