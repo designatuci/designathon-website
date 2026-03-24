@@ -24,12 +24,17 @@ export interface PlanetConfig {
 }
 
 const ALIGN_ANGLE = -Math.PI / 4;
+const OPPOSITE_ANGLE = ALIGN_ANGLE + Math.PI; // opposite side of orbit
 
-function travelTo(start: number, dir: 1 | -1): number {
+function travelTo(
+  start: number,
+  dir: 1 | -1,
+  target: number = ALIGN_ANGLE,
+): number {
   const norm = (a: number) =>
     (((a % (2 * Math.PI)) + 3 * Math.PI) % (2 * Math.PI)) - Math.PI;
   const s = norm(start);
-  const e = norm(ALIGN_ANGLE);
+  const e = norm(target);
   let delta = e - s;
   if (dir === 1 && delta <= 0) delta += 2 * Math.PI;
   if (dir === -1 && delta >= 0) delta -= 2 * Math.PI;
@@ -42,7 +47,7 @@ export const PLANETS: PlanetConfig[] = [
     alt: "Rose planet",
     orbitIndex: 0,
     startAngle: -Math.PI / 4,
-    scrollTravel: travelTo(-Math.PI / 4, 1) + 2 * Math.PI,
+    scrollTravel: travelTo(-Math.PI / 4, 1, OPPOSITE_ANGLE),
     sizeMobile: "2.5rem",
     sizeDesktop: "4rem",
     glowColor: "rgba(255, 120, 140, 0.35)",
@@ -62,7 +67,7 @@ export const PLANETS: PlanetConfig[] = [
     alt: "Blue planet",
     orbitIndex: 2,
     startAngle: (3 * Math.PI) / 4 + 0.5,
-    scrollTravel: travelTo((3 * Math.PI) / 4 + 0.5, 1),
+    scrollTravel: travelTo((3 * Math.PI) / 4 + 0.5, 1, OPPOSITE_ANGLE),
     sizeMobile: "3rem",
     sizeDesktop: "5rem",
     glowColor: "rgba(80, 220, 255, 0.35)",
@@ -72,7 +77,7 @@ export const PLANETS: PlanetConfig[] = [
     alt: "Magenta planet",
     orbitIndex: 2,
     startAngle: -Math.PI / 3,
-    scrollTravel: travelTo(-Math.PI / 3, -1) - 2 * Math.PI,
+    scrollTravel: travelTo(-Math.PI / 3, -1),
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.15)",
@@ -191,14 +196,19 @@ function OrbitalRings() {
 // ─────────────────────────────────────────────
 // Centre planet
 // ─────────────────────────────────────────────
+const NAVY_GLOW = "rgba(96, 144, 239, 0.45)";
+
 function CentrePlanet() {
   return (
-    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[9rem] w-[9rem] -translate-x-1/2 -translate-y-1/2 md:h-[16rem] md:w-[16rem]">
+    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 md:h-[8rem] md:w-[8rem]">
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
         alt="Navy planet"
         fill
         className="object-contain"
+        style={{
+          filter: `drop-shadow(0 0 20px ${NAVY_GLOW}) drop-shadow(0 0 26px ${NAVY_GLOW})`,
+        }}
       />
     </div>
   );

@@ -120,12 +120,13 @@ export default function IndexPage() {
   }, []);
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-(--blue) text-white">
-      <section
-        ref={sectionRef}
-        className="flex w-full flex-col items-center gap-0 px-4 py-4"
-      >
-        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+    <section
+      id="judges"
+      ref={sectionRef}
+      className="flex min-h-screen items-center justify-center overflow-x-hidden bg-(--blue) px-4 py-4 text-white md:overflow-x-visible"
+    >
+      <div className="container flex w-full flex-col items-center gap-0 overflow-x-hidden md:overflow-x-visible">
+        <h1 className="w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Judges
         </h1>
         <Carousel
@@ -138,16 +139,16 @@ export default function IndexPage() {
             api?.on("select", updateActiveIndex);
             updateActiveIndex();
           }}
-          className="-mt-8 w-full overflow-hidden"
+          className="-mt-8 w-full overflow-visible"
         >
-          <div className="relative">
-            <CarouselContent>
+          <div className="relative overflow-visible">
+            <CarouselContent allowOverflow>
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
                   className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/4"
                 >
-                  <div className="origin-center scale-75">
+                  <div className="origin-center scale-[0.55] md:scale-75">
                     <ProfileCard
                       profile={judge}
                       isInView={isInView}
@@ -163,7 +164,7 @@ export default function IndexPage() {
           <CarouselPrevious className="text-white-900 absolute top-1/2 left-10 z-20 size-12 -translate-y-1/2 rounded-full border-2 border-white/0 bg-white/0 opacity-100 shadow-2xl backdrop-blur-md hover:bg-white/50" />
           <CarouselNext className="text-white-900 absolute top-1/2 right-10 z-20 size-12 -translate-y-1/2 rounded-full border-2 border-white/0 bg-white/0 opacity-100 shadow-2xl backdrop-blur-md hover:bg-white/50" />
         </Carousel>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

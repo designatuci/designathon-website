@@ -132,13 +132,28 @@ function Carousel({
   );
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
+function CarouselContent({
+  className,
+  allowOverflow,
+  allowOverflowBreakpoint,
+  ...props
+}: React.ComponentProps<"div"> & {
+  allowOverflow?: boolean;
+  allowOverflowBreakpoint?: "sm" | "md" | "lg";
+}) {
   const { carouselRef, orientation } = useCarousel();
+
+  const overflowClass =
+    allowOverflowBreakpoint != null
+      ? `overflow-hidden ${allowOverflowBreakpoint}:overflow-visible`
+      : allowOverflow
+        ? "overflow-visible"
+        : "overflow-hidden";
 
   return (
     <div
       ref={carouselRef}
-      className="overflow-hidden"
+      className={overflowClass}
       data-slot="carousel-content"
     >
       <div

@@ -24,6 +24,15 @@ const luxuriousScript = localFont({
 export const metadata: Metadata = {
   title: "UCI Design-a-thon 2026 | Lost & Found",
   description: "UCI Design-a-thon",
+  openGraph: {
+    title: "UCI Design-a-thon 2026 | Lost & Found",
+    description: "UCI Design-a-thon",
+    images: [
+      {
+        url: "https://ucidesignathon.com/images/seasons/2026/seo/banner.png",
+      },
+    ],
+  },
 };
 
 type Props = {

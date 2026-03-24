@@ -126,7 +126,7 @@ export default function FAQ() {
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Frequently Asked Questions
         </h1>
-        <Accordion type="multiple" className="w-full">
+        <Accordion type="multiple" className="mt-8 w-full">
           {faqItems.map((item, index) => (
             <FAQItem key={index} item={item} index={index} />
           ))}

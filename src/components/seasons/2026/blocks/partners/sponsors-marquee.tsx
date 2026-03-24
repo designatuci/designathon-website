@@ -40,9 +40,9 @@ const SponsorsMarquee = ({
       style={{ minHeight: "140vh", position: "relative", zIndex: 2 }}
     >
       <div
+        className="top-[0%] md:top-[-12%]"
         style={{
           position: "absolute",
-          top: "-10%",
           left: "50%",
           transform: "translateX(-50%)",
           width: LOGOS_CONTAINER_W,

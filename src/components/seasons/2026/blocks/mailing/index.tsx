@@ -77,8 +77,8 @@ export default function MailingList() {
     }
   };
   return (
-    <section id="mailing" ref={ref} className="px-4 py-4 pb-[20%]">
-      <div className="container flex w-full flex-col">
+    <section id="mailing" ref={ref} className="px-4 pt-4 pb-[20%] xl:pt-12">
+      <div className="container flex w-full flex-col py-8 lg:py-0">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Mailing List
         </h1>

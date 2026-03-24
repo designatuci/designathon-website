@@ -1,7 +1,8 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const line1 = [
   {
@@ -221,12 +222,36 @@ function ShootingStars() {
     <div
       ref={containerRef}
       className="pointer-events-none absolute inset-0 overflow-hidden"
-      style={{ zIndex: 5 }}
     />
   );
 }
 
+const heroAssetUrls = [
+  ...line1.map((l) => l.src),
+  ...line2.map((l) => l.src),
+  "/images/seasons/2026/landing/hero/moon.svg",
+  "/images/seasons/2026/landing/hero/lostandfound.png",
+  "/images/seasons/2026/landing/hero/astronaunt_pointing.svg",
+  "/images/seasons/2026/landing/hero/alien.png",
+];
+
 export default function Hero() {
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+
+  useEffect(() => {
+    let numLoaded = 0;
+    const total = heroAssetUrls.length;
+
+    heroAssetUrls.forEach((src) => {
+      const img = document.createElement("img");
+      img.onload = img.onerror = () => {
+        numLoaded++;
+        if (numLoaded === total) setAssetsLoaded(true);
+      };
+      img.src = src;
+    });
+  }, []);
+
   return (
     <section className="relative flex min-h-[100svh] justify-center pt-28 pb-10 md:min-h-[120vh] md:pt-40 md:pb-16">
       <style>{`
@@ -238,111 +263,152 @@ export default function Hero() {
           0%, 100% { transform: translateY(0px) rotate(-15deg); }
           50%       { transform: translateY(-22px) rotate(-12deg); }
         }
+        @keyframes floatAlien {
+          0%, 100% { transform: translateY(0px) rotate(15deg); }
+          50%       { transform: translateY(-22px) rotate(12deg); }
+        }
       `}</style>
 
-      {/* Shooting stars layer — sits above background, below letters */}
-      <div className="z-0">
-        <ShootingStars />
-      </div>
-
-      {/* Moon */}
-      <Image
-        src="/images/seasons/2026/landing/hero/moon.svg"
-        width={80}
-        height={50}
-        alt="moon"
-        className="pointer-events-none absolute bottom-[-10%] left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2 md:bottom-[-23%]"
-        style={{
-          mixBlendMode: "screen",
-          filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
-        }}
-      />
-
-      {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
-      <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
-        <div
-          className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:1]"
-          style={{ "--letter-base": "150px" } as React.CSSProperties}
-        >
-          {/* Line 1 */}
-          <div className="flex max-w-full items-end justify-center gap-0">
-            {line1.map((l, i) => (
-              <Image
-                key={i}
-                src={l.src}
-                alt=""
-                width={150}
-                height={150}
-                className="pointer-events-none max-w-none object-contain"
-                style={
-                  {
-                    height:
-                      "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                    width: "auto",
-                    marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                    marginBottom: 0,
-                    marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    animation: `float ${l.duration} ease-in-out infinite`,
-                    animationDelay: l.delay,
-                    "--rot": l.rotate,
-                    filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
-
-          {/* Line 2 */}
-          <div
-            className="flex max-w-full items-end justify-center gap-0"
-            style={{
-              marginTop: "calc(-20px * var(--hero-m, 1))",
-            }}
-          >
-            {line2.map((l, i) => (
-              <Image
-                key={i}
-                src={l.src}
-                alt=""
-                width={150}
-                height={150}
-                className="pointer-events-none max-w-none object-contain"
-                style={
-                  {
-                    height:
-                      "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                    width: "auto",
-                    marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                    marginBottom: 0,
-                    marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                    animation: `float ${l.duration} ease-in-out infinite`,
-                    animationDelay: l.delay,
-                    "--rot": l.rotate,
-                    filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-          </div>
+      <div
+        className={cn(
+          "absolute inset-0",
+          "transition-all duration-1000 ease-out-quart",
+          "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
+          {
+            "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
+              assetsLoaded,
+          },
+        )}
+      >
+        {/* Shooting stars layer — behind all content (moon, letters, astronaut, alien) */}
+        <div className="absolute inset-0 z-[-1]">
+          <ShootingStars />
         </div>
-      </div>
 
-      {/* Astronaut */}
-      <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-60 md:left-[-10px] md:translate-x-0">
+        {/* Moon */}
         <Image
-          src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
-          width={500}
-          height={500}
-          alt="astronaunt_pointing"
-          className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px] xl:h-[500px]"
+          src="/images/seasons/2026/landing/hero/moon.svg"
+          width={80}
+          height={50}
+          alt="moon"
+          className="pointer-events-none absolute top-1/2 left-1/2 z-10 w-[90%] max-w-[750px] -translate-x-1/2 translate-y-[50%] md:-translate-y-[10%]"
           style={{
-            animation: "floatAstronaut 6s ease-in-out infinite",
-            filter:
-              "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+            mixBlendMode: "screen",
+            filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
           }}
         />
+
+        {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
+        <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
+          <div
+            className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
+            style={{ "--letter-base": "150px" } as React.CSSProperties}
+          >
+            {/* Line 1 */}
+            <div className="flex max-w-full items-end justify-center gap-0">
+              {line1.map((l, i) => (
+                <Image
+                  key={i}
+                  src={l.src}
+                  alt=""
+                  width={150}
+                  height={150}
+                  className="pointer-events-none max-w-none object-contain"
+                  style={
+                    {
+                      height:
+                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                      width: "auto",
+                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                      marginBottom: 0,
+                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      animation: `float ${l.duration} ease-in-out infinite`,
+                      animationDelay: l.delay,
+                      "--rot": l.rotate,
+                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </div>
+
+            {/* Line 2 */}
+            <div
+              className="flex max-w-full items-end justify-center gap-0"
+              style={{
+                marginTop: "calc(-20px * var(--hero-m, 1))",
+              }}
+            >
+              {line2.map((l, i) => (
+                <Image
+                  key={i}
+                  src={l.src}
+                  alt=""
+                  width={150}
+                  height={150}
+                  className="pointer-events-none max-w-none object-contain"
+                  style={
+                    {
+                      height:
+                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                      width: "auto",
+                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                      marginBottom: 0,
+                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                      animation: `float ${l.duration} ease-in-out infinite`,
+                      animationDelay: l.delay,
+                      "--rot": l.rotate,
+                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </div>
+
+            {/* Lost & Found */}
+            <Image
+              src="/images/seasons/2026/landing/hero/lostandfound.png"
+              alt="Lost & Found"
+              width={400}
+              height={80}
+              className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
+            />
+          </div>
+        </div>
+
+        {/* Astronaut */}
+        <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-[40%] md:left-[5%] md:translate-x-0 md:translate-y-[35%]">
+          <Image
+            src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
+            width={500}
+            height={500}
+            alt="astronaunt_pointing"
+            className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px]"
+            style={{
+              animation: "floatAstronaut 6s ease-in-out infinite",
+              filter:
+                "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+            }}
+          />
+        </div>
+
+        {/* Alien */}
+        <div className="absolute right-[10%] bottom-[35vh] -rotate-[20deg] md:right-[10%] md:bottom-[40%]">
+          <Image
+            src="/images/seasons/2026/landing/hero/alien.png"
+            width={500}
+            height={500}
+            alt="alien"
+            className="h-[60px] w-auto object-contain md:h-[200px]"
+            style={{
+              animation: "floatAlien 6s ease-in-out infinite",
+              filter:
+                "drop-shadow(0 0 18px rgba(105, 105, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+            }}
+          />
+        </div>
       </div>
     </section>
   );

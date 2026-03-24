@@ -2,25 +2,23 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-// ─────────────────────────────────────────────
-// Page content — swap these out for real copy
-// ─────────────────────────────────────────────
-const PAGES = [
-  "Design-a-thon is the largest student-run design hackathon in Southern California. Over a 3-day weekend, students design and prototype UI/UX solutions to real-world problems by creating working Figma prototypes and presenting their case study to industry judges.",
-  "This 3-day event brings together over 300 passionate students, both in-person and online. In 2025, 43% of participants competed in their first Design-a-thon, highlighting the event’s beginner-friendly environment and representing over 30 schools and 40+ majors nationwide.",
-  "We hope that this experience can help you acquire and grow both your soft and hard skills in empathizing with your users, defining a set of goals and needs, developing your product, and improving your confidence and creativity as a human-centric designer.",
-];
+const ABOUT_TEXT =
+  "Design-a-thon is the largest student-run design hackathon in Southern California. Over a 3-day weekend, students design and prototype UI/UX solutions to real-world problems by creating working Figma prototypes and presenting their case study to industry judges.";
 
 // ─────────────────────────────────────────────
 // Glitch-decode word component
 // ─────────────────────────────────────────────
 const GLITCH_CHARS = "!@#$%^&*ΨΦΔλξπ∑∞";
+const GLITCH_CHAR_COLOR = "rgba(120,120,120,0.7)";
 
 function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
-  const [display, setDisplay] = useState(word.replace(/\S/g, "·"));
+  const [display, setDisplay] = useState("");
   const [locked, setLocked] = useState(false);
+  const [glitchFrame, setGlitchFrame] = useState("");
+  const [isHoverGlitching, setIsHoverGlitching] = useState(false);
   const frameRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const iterRef = useRef(0);
+  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scramble = useCallback(() => {
     if (locked) return;
@@ -64,10 +62,55 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
   useEffect(() => {
     if (!revealed) {
       setLocked(false);
-      setDisplay(word.replace(/\S/g, "·"));
+      setDisplay("");
+      setGlitchFrame("");
+      setIsHoverGlitching(false);
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
       iterRef.current = 0;
     }
   }, [revealed, word]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setIsHoverGlitching(true);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHoverGlitching(false);
+      hoverTimeoutRef.current = null;
+    }, 1000);
+  }, []);
+
+  useEffect(
+    () => () => {
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    },
+    [],
+  );
+
+  // Hover glitch: scramble chars while isHoverGlitching
+  useEffect(() => {
+    if (!isHoverGlitching || !locked || word.length === 0) {
+      setGlitchFrame("");
+      return;
+    }
+    const tick = () => {
+      const next = word
+        .split("")
+        .map((char) => {
+          if (char === " ") return " ";
+          return Math.random() < 0.3
+            ? GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
+            : char;
+        })
+        .join("");
+      setGlitchFrame(next);
+    };
+    tick();
+    const id = setInterval(tick, 50);
+    return () => clearInterval(id);
+  }, [isHoverGlitching, locked, word]);
+
+  const displayToShow =
+    isHoverGlitching && locked && glitchFrame ? glitchFrame : display;
 
   return (
     <span
@@ -77,6 +120,8 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
         overflow: "hidden",
         verticalAlign: "bottom",
       }}
+      onMouseEnter={handleMouseEnter}
+      className="cursor-default"
     >
       {/* Invisible real word reserves space to prevent layout shift */}
       <span aria-hidden style={{ visibility: "hidden" }}>
@@ -91,7 +136,17 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
           transition: "color 0.1s",
         }}
       >
-        {display}
+        {isHoverGlitching && glitchFrame
+          ? displayToShow.split("").map((char, i) =>
+              GLITCH_CHARS.includes(char) ? (
+                <span key={i} style={{ color: GLITCH_CHAR_COLOR }}>
+                  {char}
+                </span>
+              ) : (
+                <span key={i}>{char}</span>
+              ),
+            )
+          : displayToShow}
       </span>
     </span>
   );
@@ -146,11 +201,6 @@ function AboutText({ text }: { text: string }) {
 // Exported: AboutBox
 // ─────────────────────────────────────────────
 export function AboutBox() {
-  const [page, setPage] = useState(0);
-  const total = PAGES.length;
-
-  const handleNext = () => setPage((p) => (p + 1) % total);
-
   return (
     <div className="relative z-10 flex h-full w-full flex-col justify-center md:w-[45%] lg:w-[42%]">
       {/* Vertical separator on the right edge */}
@@ -164,85 +214,13 @@ export function AboutBox() {
 
       {/* Inner content */}
       <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20">
-        {/* Eyebrow label */}
-        <p
-          className="mb-3 text-xs font-semibold tracking-[0.3em] uppercase"
-          style={{ color: "rgba(160,100,255,0.9)" }}
-        >
-          Design-a-thon 2026
-        </p>
-
         {/* Main heading */}
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           About
         </h1>
-
-        {/* Divider */}
-        <div
-          className="mb-6 h-px w-16"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(255,80,200,0.8), rgba(80,220,255,0.4))",
-          }}
-        />
-
-        {/* Body copy — re-animates per page */}
-        <div className="mb-10 min-h-[8rem] max-w-sm">
-          <AboutText text={PAGES[page]} />
-        </div>
-
-        {/* CTA button */}
-        <div>
-          <button
-            onClick={handleNext}
-            className="group relative overflow-hidden rounded-full border px-8 py-3 text-sm font-semibold tracking-[0.2em] text-white uppercase transition-all duration-300"
-            style={{
-              borderColor: "rgba(180,120,255,0.4)",
-              background: "rgba(180,120,255,0.05)",
-            }}
-          >
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-purple-600/30 to-pink-500/20 transition-transform duration-300 group-hover:translate-x-0" />
-            <span className="relative flex items-center gap-3">
-              {page < total - 1 ? "Next" : "Back"}
-              <svg
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-
-        {/* Step indicators — active page highlighted */}
-        <div className="mt-10 flex items-center gap-4">
-          {PAGES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setPage(i)}
-              className="font-mono tracking-widest transition-all"
-              style={{
-                color:
-                  i === page
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(255,255,255,0.25)",
-                fontSize: i === page ? "1.1rem" : "0.7rem",
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: 0,
-              }}
-            >
-              {String(i + 1).padStart(2, "0")}
-            </button>
-          ))}
+        {/* Body copy */}
+        <div className="mb-10 max-w-sm">
+          <AboutText text={ABOUT_TEXT} />
         </div>
       </div>
     </div>

@@ -20,23 +20,22 @@ export default function MeetCommittees() {
   };
 
   return (
-    <section id="team">
-      <div className="relative">
-        {/* Galaxy Background (UNCHANGED FROM YOUR V1) */}
+    <section id="team" className="overflow-visible">
+      <div className="relative overflow-visible pb-32">
+        {/* Galaxy Background */}
         <div
-          className="galaxy-bg pointer-events-none absolute w-full"
+          className="galaxy-bg pointer-events-none absolute -top-[350px] w-full md:top-[-200px]"
           style={{
-            top: "-200px",
-            height: "calc(100% + 200px)",
+            height: "calc(100% + 400px)",
             backgroundImage:
-              "url('/images/seasons/2026/landing/committees/galaxy.png')",
+              "url('/images/seasons/2026/landing/team/committees/galaxy.png')",
             backgroundSize: "100% auto",
             backgroundPosition: "center top",
             backgroundRepeat: "no-repeat",
           }}
         />
 
-        <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%] pb-[15%]">
+        <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%]">
           <style>{`
 
           .script-glow {
