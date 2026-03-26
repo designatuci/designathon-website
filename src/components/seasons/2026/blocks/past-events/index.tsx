@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import { motion, useInView } from "motion/react";
+import { useRef } from "react";
 import { eventsList, PlanetConfig } from "./events";
 
 function Planet({ config }: { config: PlanetConfig }) {
@@ -108,6 +110,30 @@ function Planet({ config }: { config: PlanetConfig }) {
 }
 
 export default function PastEvents() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, {
+    amount: 0.5,
+    once: true,
+  });
+
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const planetVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
     <section id="past-events" className="relative mt-8 overflow-visible py-4">
       <div className="relative container mx-auto min-h-full">
@@ -129,11 +155,19 @@ export default function PastEvents() {
           />
         </svg>
 
-        <div className="relative min-h-[1200px] w-full md:min-h-[1000px] lg:min-h-[1100px]">
+        <motion.div
+          ref={ref}
+          className="relative min-h-[1200px] w-full md:min-h-[1000px] lg:min-h-[1100px]"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
           {eventsList.map((planet) => (
-            <Planet key={planet.title} config={planet} />
+            <motion.div key={planet.title} variants={planetVariants}>
+              <Planet config={planet} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
