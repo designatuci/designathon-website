@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import { motion, useInView } from "motion/react";
+import { motion, useInView, type Variants } from "motion/react";
 import { useRef } from "react";
 import { eventsList, PlanetConfig } from "./events";
 
@@ -51,7 +51,7 @@ function Planet({ config }: { config: PlanetConfig }) {
 
       <DialogContent className="max-h-[90svh] overflow-y-auto">
         <DialogHeader className="items-start text-start">
-          <DialogTitle className="text-3xl font-semibold text-(--blue) sm:text-4xl">
+          <DialogTitle className="text-3xl font-semibold text-[#354f99] sm:text-4xl">
             {config.modalContent.title}
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -61,18 +61,18 @@ function Planet({ config }: { config: PlanetConfig }) {
 
         <div className="text-lg">
           <div className="flex gap-2">
-            <h3 className="font-semibold text-(--pink)">Theme</h3>
+            <h3 className="font-semibold text-[#f984a9]">Theme</h3>
             <p>{config.modalContent.theme}</p>
           </div>
 
           <div className="flex gap-2">
-            <h3 className="font-semibold text-(--pink)">Participants</h3>
+            <h3 className="font-semibold text-[#f984a9]">Participants</h3>
             <p>{config.modalContent.participants}</p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-3xl font-semibold text-(--blue)">
+          <h2 className="text-3xl font-semibold text-[#354f99]">
             Awarded Entries
           </h2>
 
@@ -82,7 +82,7 @@ function Planet({ config }: { config: PlanetConfig }) {
                 key={`${entry.title}-${index}`}
                 className="flex flex-col items-center rounded-xl border border-zinc-300 p-4"
               >
-                <h3 className="mb-2 text-lg font-semibold text-(--pink)">
+                <h3 className="mb-2 text-lg font-semibold text-[#f984a9]">
                   {entry.placement}
                 </h3>
 
@@ -116,7 +116,7 @@ export default function PastEvents() {
     once: true,
   });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     show: {
       transition: {
@@ -126,7 +126,7 @@ export default function PastEvents() {
     },
   };
 
-  const planetVariants = {
+  const planetVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,

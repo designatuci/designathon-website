@@ -70,7 +70,7 @@ export const eventsList: PlanetConfig[] = [
     sizeTablet: "md:h-[18rem] md:w-[18rem]",
     sizeDesktop: "lg:h-[22rem] lg:w-[22rem]",
     modalContent: {
-      title: "Design-a-thon 2022",
+      title: "Impact 2022",
       theme: "Impact",
       participants: "100+",
       entries: [
@@ -102,7 +102,7 @@ export const eventsList: PlanetConfig[] = [
     sizeTablet: "md:h-[22rem] md:w-[22rem]",
     sizeDesktop: "lg:h-[34rem] lg:w-[34rem]",
     modalContent: {
-      title: "Design-a-thon 2023",
+      title: "You Belong Here 2023",
       theme: "Community & Inclusivity",
       participants: "300+",
       entries: [
