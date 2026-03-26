@@ -116,7 +116,15 @@ export default function MailingList() {
         </div>
 
         <form className="w-full" onSubmit={handleSubmit}>
-          <Field id="email" label="Sign up for notifications!" required>
+          <Field
+            id="email"
+            label={
+              <span className="[font-family:var(--font-inria-sans)]">
+                Sign up for notifications!
+              </span>
+            }
+            required
+          >
             <div className="flex max-w-2xl items-stretch gap-4 rounded-2xl">
               <div className="min-w-0 flex-1 text-white backdrop-blur-md transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] [&_input]:h-12 [&_input]:border-0 [&_input]:focus:ring-2 [&_input]:focus:ring-purple-500/30 [&_input]:focus:ring-inset">
                 <Input
@@ -130,7 +138,7 @@ export default function MailingList() {
               <button
                 type="submit"
                 disabled={isSubmitting || submitted}
-                className="group relative h-12 overflow-hidden rounded-lg border border-purple-500/30 bg-white/5 px-6 text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] disabled:pointer-events-none disabled:opacity-60"
+                className="group relative h-12 overflow-hidden rounded-lg border border-purple-500/30 bg-white/5 px-6 [font-family:var(--font-inria-sans)] text-base font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] disabled:pointer-events-none disabled:opacity-60"
               >
                 {submitted
                   ? "Submitted!"

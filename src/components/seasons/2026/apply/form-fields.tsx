@@ -100,7 +100,7 @@ export const Field = ({
   children,
 }: {
   id: string;
-  label: string;
+  label: React.ReactNode;
   required?: boolean;
   optional?: boolean;
   charLimit?: number;
