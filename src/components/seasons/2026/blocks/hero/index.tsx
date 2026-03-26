@@ -226,7 +226,6 @@ function ShootingStars() {
   );
 }
 
-/** Assets required before the hero entrance runs (same idea as 2025’s canvas gate, but scoped to the main graphic, not every decoration). */
 const heroRevealUrls = [
   ...line1.map((l) => l.src),
   ...line2.map((l) => l.src),
