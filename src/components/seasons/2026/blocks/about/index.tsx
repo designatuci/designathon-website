@@ -18,8 +18,8 @@ export default function About() {
   const progress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative h-[80vh] md:h-[125vh]">
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <div ref={containerRef} className="relative h-[50vh] md:h-[125vh]">
+      <div className="sticky top-0 h-full overflow-hidden">
         <section
           id="about"
           className="relative flex h-full w-full overflow-hidden"
