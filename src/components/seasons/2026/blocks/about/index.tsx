@@ -15,7 +15,9 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
-  const progress = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  // Spend more scroll distance to move the planets, so they "slide" in
+  // instead of feeling like they teleport due to a fast progress ramp.
+  const progress = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   return (
     <div ref={containerRef} className="relative h-[50vh] md:h-[125vh]">
