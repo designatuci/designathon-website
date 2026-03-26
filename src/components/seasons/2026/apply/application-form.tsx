@@ -350,7 +350,7 @@ const ApplicationForm = ({ onSubmittingChange }: ApplicationFormProps) => {
               <TextArea
                 id="motivation"
                 name="motivation"
-                placeholder="Tell us what excites you about Design-O-Thon..."
+                placeholder="Tell us what excites you about Design-a-thon..."
                 rows={4}
                 maxLength={500}
                 required

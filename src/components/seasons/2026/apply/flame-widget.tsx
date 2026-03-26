@@ -79,7 +79,7 @@ export default function FlameWidget({ hidden = false }: { hidden?: boolean }) {
             .flame-widget {
                 transform: scale(0.65);
                 bottom: -70px !important;
-                right: 0px !important;
+                right: -40px !important;
             }
         }
       `}</style>
