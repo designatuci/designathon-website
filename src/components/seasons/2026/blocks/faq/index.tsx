@@ -124,7 +124,7 @@ export default function FAQ() {
     <section id="faq" className="flex justify-center px-4 py-4">
       <div className="container flex w-full flex-col">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
-          Faq
+          Frequently Asked Questions
         </h1>
         <Accordion type="multiple" className="mt-8 w-full">
           {faqItems.map((item, index) => (
