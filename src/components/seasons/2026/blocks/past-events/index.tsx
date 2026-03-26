@@ -109,7 +109,7 @@ function Planet({ config }: { config: PlanetConfig }) {
 
 export default function PastEvents() {
   return (
-    <section id="past-events" className="relative mt-8 overflow-hidden py-4">
+    <section id="past-events" className="relative mt-8 overflow-visible py-4">
       <div className="relative container mx-auto min-h-full">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:mb-48 xl:text-[7rem]">
           Past Events

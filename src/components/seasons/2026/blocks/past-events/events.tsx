@@ -169,9 +169,9 @@ export const eventsList: PlanetConfig[] = [
     position: "top-[80%] left-1/2 -translate-x-1/2",
     positionTablet: "md:top-[68%] md:left-[35%]",
     positionDesktop: "lg:top-[71%] lg:left-[42%]",
-    sizeMobile: "h-60 w-60",
-    sizeTablet: "md:h-[26rem] md:w-[26rem]",
-    sizeDesktop: "lg:h-[38rem] lg:w-[38rem]",
+    sizeMobile: "h-65 w-65",
+    sizeTablet: "md:h-[36rem] md:w-[36rem]",
+    sizeDesktop: "lg:h-[55rem] lg:w-[55rem]",
     modalContent: {
       title: "Beyond Our Horizons 2025",
       theme: "Innovation & Change",
