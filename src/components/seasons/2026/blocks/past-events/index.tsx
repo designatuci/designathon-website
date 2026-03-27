@@ -112,7 +112,7 @@ function Planet({ config }: { config: PlanetConfig }) {
 export default function PastEvents() {
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, {
-    amount: 0.5,
+    amount: 0.15,
     once: true,
   });
 

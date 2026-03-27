@@ -128,7 +128,7 @@ export const eventsList: PlanetConfig[] = [
     className: "rotate-[10deg] text-2xl md:text-4xl",
     position: "top-[58%] left-[8%]",
     positionTablet: "md:top-[30%] md:left-[60%]",
-    positionDesktop: "lg:top-[47%] lg:left-[46%] lg:translate-x-1/2",
+    positionDesktop: "lg:top-[47%] lg:left-[90%] lg:-translate-x-1/2",
     sizeMobile: "h-56 w-56",
     sizeTablet: "md:h-[24rem] md:w-[24rem]",
     sizeDesktop: "lg:h-[44rem] lg:w-[44rem]",
