@@ -16,9 +16,9 @@ export default function Stats() {
           ref={starsRef}
           className={cn(
             "pointer-events-none absolute inset-0 z-0 flex w-full items-center justify-end transition-all duration-700 ease-out-quart",
-            "not-motion-reduce:translate-x-10 not-motion-reduce:opacity-0",
+            "not-motion-reduce:opacity-0 sm:not-motion-reduce:translate-x-10",
             {
-              "not-motion-reduce:translate-x-0 not-motion-reduce:opacity-100":
+              "not-motion-reduce:opacity-100 sm:not-motion-reduce:translate-x-0":
                 starsInView,
             },
           )}
