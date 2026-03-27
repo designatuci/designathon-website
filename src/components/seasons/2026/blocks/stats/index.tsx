@@ -31,6 +31,24 @@ export default function Stats() {
             className="mt-30 h-auto w-full max-w-[300px] object-contain md:max-w-[1300px]"
           />
         </div>
+        <div
+          className={cn(
+            "pointer-events-none absolute top-2 left-1/2 z-0 -translate-x-1/2 transition-all delay-200 duration-700 ease-out-quart md:top-1/2 md:left-[75%] md:translate-x-0",
+            "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 sm:not-motion-reduce:translate-x-4",
+            {
+              "not-motion-reduce:scale-100 not-motion-reduce:opacity-100 sm:not-motion-reduce:translate-x-0":
+                starsInView,
+            },
+          )}
+        >
+          <Image
+            src="/images/seasons/2026/landing/stats/flame.png"
+            alt=""
+            width={200}
+            height={200}
+            className="h-auto w-full max-w-[100px] object-contain sm:max-w-[140px] md:max-w-[200px] lg:max-w-[250px]"
+          />
+        </div>
 
         <div className="items-top relative z-10 flex w-full justify-center pt-8 sm:pt-10 lg:pt-16">
           <div className="flex w-full max-w-[1920px] flex-col items-center justify-center gap-8 px-4">
