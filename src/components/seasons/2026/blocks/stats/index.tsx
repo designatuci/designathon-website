@@ -11,6 +11,20 @@ export default function Stats() {
 
   return (
     <section id="stats" className="relative w-full py-4 sm:py-20 lg:py-28">
+      <style>{`
+        @keyframes floatStatsFlame {
+          0%, 100% { transform: translateY(0px) rotate(-2deg); }
+          50%       { transform: translateY(-18px) rotate(2deg); }
+        }
+        .stats-flame-bob {
+          animation: floatStatsFlame 6s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .stats-flame-bob {
+            animation: none;
+          }
+        }
+      `}</style>
       <div className="relative mx-auto aspect-[1113/500] w-full">
         <div
           ref={starsRef}
@@ -41,13 +55,15 @@ export default function Stats() {
             },
           )}
         >
-          <Image
-            src="/images/seasons/2026/landing/stats/flame.png"
-            alt=""
-            width={200}
-            height={200}
-            className="h-auto w-full max-w-[100px] object-contain sm:max-w-[140px] md:max-w-[200px] lg:max-w-[250px]"
-          />
+          <div className="stats-flame-bob">
+            <Image
+              src="/images/seasons/2026/landing/stats/flame.png"
+              alt=""
+              width={200}
+              height={200}
+              className="h-auto w-full max-w-[100px] object-contain sm:max-w-[140px] md:max-w-[200px] lg:max-w-[250px]"
+            />
+          </div>
         </div>
 
         <div className="items-top relative z-10 flex w-full justify-center pt-8 sm:pt-10 lg:pt-16">
