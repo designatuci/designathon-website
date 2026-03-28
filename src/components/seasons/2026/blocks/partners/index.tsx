@@ -172,5 +172,4 @@ const partners: Organization[] = [
       rotation: 25,
     },
   },
-
 ];
