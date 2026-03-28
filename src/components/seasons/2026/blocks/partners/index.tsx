@@ -38,7 +38,7 @@ const partners: Organization[] = [
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/auntea_jenny.png",
       name: "Auntea Jenny",
-      rotation: -5,
+      rotation: 6,
     },
   },
   {
@@ -46,7 +46,7 @@ const partners: Organization[] = [
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
       name: "Raising Cane's",
-      rotation: -3,
+      rotation: -26,
     },
   },
   {
@@ -56,7 +56,7 @@ const partners: Organization[] = [
     id: "marquee1-4",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/postmates.png",
-      rotation: -10,
+      rotation: -17,
       name: "Postmates",
     },
   },
@@ -79,9 +79,9 @@ const partners: Organization[] = [
   {
     id: "marquee1-7",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/hero.jpg",
-      rotation: 3,
-      name: "Hero Cosmetics",
+      imageURL: "/images/seasons/2026/landing/partners/logos/im.png",
+      rotation: 30,
+      name: "Ingram Micro",
     },
   },
   {
@@ -119,16 +119,16 @@ const partners: Organization[] = [
   {
     id: "marquee1-12",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/im.png",
-      name: "Ingram Micro",
+      imageURL: "/images/seasons/2026/landing/partners/logos/hero.jpg",
+      name: "Hero Cosmetics",
       rotation: -20,
     },
   },
   {
     id: "marquee1-13",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/lovable.png",
-      name: "Lovable",
+      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
+      name: "Olive Garden",
       rotation: 0,
     },
   },
@@ -143,9 +143,9 @@ const partners: Organization[] = [
   {
     id: "marquee1-15",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
-      name: "Olive Garden",
-      rotation: 0,
+      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
+      name: "Tabi",
+      rotation: -10,
     },
   },
   {
@@ -159,8 +159,8 @@ const partners: Organization[] = [
   {
     id: "marquee1-17",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
-      name: "Tabi",
+      imageURL: "/images/seasons/2026/landing/partners/logos/lovable.png",
+      name: "Lovable",
       rotation: 7,
     },
   },
@@ -169,7 +169,8 @@ const partners: Organization[] = [
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
       name: "Tigawok",
-      rotation: -10,
+      rotation: 25,
     },
   },
+
 ];

@@ -92,9 +92,9 @@ const SponsorsMarquee = ({
               ${(100 + BEAM_BOT_W) / 2}% 45%, 
               ${(100 - BEAM_BOT_W) / 2}% 45%)`,
               maskImage:
-                "linear-gradient(to bottom, black 35%, transparent 46%)",
+                "linear-gradient(to bottom, black 35%, transparent 45%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, black 35%, transparent 46%)",
+                "linear-gradient(to bottom, black 35%, transparent 45%)",
               zIndex: 6,
               pointerEvents: "none",
             }}
@@ -126,7 +126,7 @@ const SponsorsMarquee = ({
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(180deg, rgba(56, 175, 190, 0.44) 0%, transparent 60%)",
+                  "linear-gradient(180deg, rgba(223, 98, 205, 0.44) 0%, transparent 60%)",
                 clipPath: `polygon(${(100 - BEAM_TOP_W * 0.4) / 2}% 0%, 
               ${(100 + BEAM_TOP_W * 0.4) / 2}% 0%, 
               ${(100 + BEAM_BOT_W * 0.5) / 2}% 100%, 
@@ -161,7 +161,7 @@ const SponsorsMarquee = ({
               const { left: beamLeft, right: beamRight } =
                 getBeamBoundsAtY(yPct);
               const beamW = beamRight - beamLeft;
-              const padding = -3;
+              const padding = -5;
 
               for (let col = 0; col < colsInRow; col++) {
                 if (logoIndex >= withContent.length) break;
