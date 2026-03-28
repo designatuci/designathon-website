@@ -190,7 +190,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 viewBox="0 0 18 18"
                 style={{
                   display: "block",
-                  margin: "0 auto 4px",
+                  margin: 0,
                   filter: isSelected
                     ? `drop-shadow(0 0 6px white) drop-shadow(0 0 12px white)`
                     : `drop-shadow(0 0 4px ${glow}) drop-shadow(0 0 8px ${glow})`,
@@ -209,11 +209,17 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 />
               </svg>
               <div
+                className="const-member-node-label"
                 style={{
+                  position: "absolute",
+                  left: "50%",
+                  top: "calc(100% + 4px)",
+                  transform: "translateX(-50%)",
                   fontSize: 10,
                   color: "white",
                   whiteSpace: "nowrap",
                   textShadow: "0 0 8px rgba(0,0,0,1)",
+                  pointerEvents: "none",
                 }}
               >
                 {members[i]?.name ?? ""}
@@ -287,12 +293,9 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           text-align: center;
           background: none;
           border: none;
-          padding: 6px;
+          padding: 8px;
           cursor: pointer;
           animation: memPop 0.5s cubic-bezier(0.22,1,0.36,1) forwards;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
         }
         .const-dummy-node {
           position: absolute;
