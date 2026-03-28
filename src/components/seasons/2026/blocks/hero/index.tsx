@@ -226,11 +226,15 @@ function ShootingStars() {
   );
 }
 
-const heroAssetUrls = [
+const heroRevealUrls = [
   ...line1.map((l) => l.src),
   ...line2.map((l) => l.src),
   "/images/seasons/2026/landing/hero/moon.svg",
   "/images/seasons/2026/landing/hero/lostandfound.png",
+];
+
+/** Warm cache; astronaut / alien don’t block the pop-in (often heavier PNGs). */
+const heroPrefetchUrls = [
   "/images/seasons/2026/landing/hero/astronaunt_pointing.svg",
   "/images/seasons/2026/landing/hero/alien.png",
 ];
@@ -240,14 +244,19 @@ export default function Hero() {
 
   useEffect(() => {
     let numLoaded = 0;
-    const total = heroAssetUrls.length;
+    const total = heroRevealUrls.length;
 
-    heroAssetUrls.forEach((src) => {
+    heroRevealUrls.forEach((src) => {
       const img = document.createElement("img");
       img.onload = img.onerror = () => {
         numLoaded++;
         if (numLoaded === total) setAssetsLoaded(true);
       };
+      img.src = src;
+    });
+
+    heroPrefetchUrls.forEach((src) => {
+      const img = document.createElement("img");
       img.src = src;
     });
   }, []);

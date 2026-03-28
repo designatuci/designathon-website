@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import { motion, useInView, type Variants } from "motion/react";
+import { useRef } from "react";
 import { eventsList, PlanetConfig } from "./events";
 
 function Planet({ config }: { config: PlanetConfig }) {
@@ -49,7 +51,7 @@ function Planet({ config }: { config: PlanetConfig }) {
 
       <DialogContent className="max-h-[90svh] overflow-y-auto">
         <DialogHeader className="items-start text-start">
-          <DialogTitle className="text-3xl font-semibold text-(--blue) sm:text-4xl">
+          <DialogTitle className="text-3xl font-semibold text-[#354f99] sm:text-4xl">
             {config.modalContent.title}
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -59,18 +61,18 @@ function Planet({ config }: { config: PlanetConfig }) {
 
         <div className="text-lg">
           <div className="flex gap-2">
-            <h3 className="font-semibold text-(--pink)">Theme</h3>
+            <h3 className="font-semibold text-[#f984a9]">Theme</h3>
             <p>{config.modalContent.theme}</p>
           </div>
 
           <div className="flex gap-2">
-            <h3 className="font-semibold text-(--pink)">Participants</h3>
+            <h3 className="font-semibold text-[#f984a9]">Participants</h3>
             <p>{config.modalContent.participants}</p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-3xl font-semibold text-(--blue)">
+          <h2 className="text-3xl font-semibold text-[#354f99]">
             Awarded Entries
           </h2>
 
@@ -80,7 +82,7 @@ function Planet({ config }: { config: PlanetConfig }) {
                 key={`${entry.title}-${index}`}
                 className="flex flex-col items-center rounded-xl border border-zinc-300 p-4"
               >
-                <h3 className="mb-2 text-lg font-semibold text-(--pink)">
+                <h3 className="mb-2 text-lg font-semibold text-[#f984a9]">
                   {entry.placement}
                 </h3>
 
@@ -108,8 +110,32 @@ function Planet({ config }: { config: PlanetConfig }) {
 }
 
 export default function PastEvents() {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const isInView = useInView(ref, {
+    amount: 0.15,
+    once: true,
+  });
+
+  const containerVariants: Variants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const planetVariants: Variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section id="past-events" className="relative mt-8 overflow-hidden py-4">
+    <section id="past-events" className="relative mt-8 overflow-visible py-4">
       <div className="relative container mx-auto min-h-full">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:mb-48 xl:text-[7rem]">
           Past Events
@@ -129,11 +155,19 @@ export default function PastEvents() {
           />
         </svg>
 
-        <div className="relative min-h-[1200px] w-full md:min-h-[1000px] lg:min-h-[1100px]">
+        <motion.div
+          ref={ref}
+          className="relative min-h-[1200px] w-full md:min-h-[1000px] lg:min-h-[1100px]"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "show" : "hidden"}
+        >
           {eventsList.map((planet) => (
-            <Planet key={planet.title} config={planet} />
+            <motion.div key={planet.title} variants={planetVariants}>
+              <Planet config={planet} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

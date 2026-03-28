@@ -1,5 +1,6 @@
 "use client";
 
+import { useInView } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const ABOUT_TEXT =
@@ -9,16 +10,12 @@ const ABOUT_TEXT =
 // Glitch-decode word component
 // ─────────────────────────────────────────────
 const GLITCH_CHARS = "!@#$%^&*ΨΦΔλξπ∑∞";
-const GLITCH_CHAR_COLOR = "rgba(120,120,120,0.7)";
 
 function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
   const [display, setDisplay] = useState("");
   const [locked, setLocked] = useState(false);
-  const [glitchFrame, setGlitchFrame] = useState("");
-  const [isHoverGlitching, setIsHoverGlitching] = useState(false);
   const frameRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const iterRef = useRef(0);
-  const hoverTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const scramble = useCallback(() => {
     if (locked) return;
@@ -63,54 +60,9 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
     if (!revealed) {
       setLocked(false);
       setDisplay("");
-      setGlitchFrame("");
-      setIsHoverGlitching(false);
-      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
       iterRef.current = 0;
     }
   }, [revealed, word]);
-
-  const handleMouseEnter = useCallback(() => {
-    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    setIsHoverGlitching(true);
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsHoverGlitching(false);
-      hoverTimeoutRef.current = null;
-    }, 1000);
-  }, []);
-
-  useEffect(
-    () => () => {
-      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-    },
-    [],
-  );
-
-  // Hover glitch: scramble chars while isHoverGlitching
-  useEffect(() => {
-    if (!isHoverGlitching || !locked || word.length === 0) {
-      setGlitchFrame("");
-      return;
-    }
-    const tick = () => {
-      const next = word
-        .split("")
-        .map((char) => {
-          if (char === " ") return " ";
-          return Math.random() < 0.3
-            ? GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
-            : char;
-        })
-        .join("");
-      setGlitchFrame(next);
-    };
-    tick();
-    const id = setInterval(tick, 50);
-    return () => clearInterval(id);
-  }, [isHoverGlitching, locked, word]);
-
-  const displayToShow =
-    isHoverGlitching && locked && glitchFrame ? glitchFrame : display;
 
   return (
     <span
@@ -120,7 +72,6 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
         overflow: "hidden",
         verticalAlign: "bottom",
       }}
-      onMouseEnter={handleMouseEnter}
       className="cursor-default"
     >
       {/* Invisible real word reserves space to prevent layout shift */}
@@ -136,17 +87,7 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
           transition: "color 0.1s",
         }}
       >
-        {isHoverGlitching && glitchFrame
-          ? displayToShow.split("").map((char, i) =>
-              GLITCH_CHARS.includes(char) ? (
-                <span key={i} style={{ color: GLITCH_CHAR_COLOR }}>
-                  {char}
-                </span>
-              ) : (
-                <span key={i}>{char}</span>
-              ),
-            )
-          : displayToShow}
+        {display}
       </span>
     </span>
   );
@@ -155,25 +96,27 @@ function GlitchWord({ word, revealed }: { word: string; revealed: boolean }) {
 // ─────────────────────────────────────────────
 // About body text — re-animates when `text` changes
 // ─────────────────────────────────────────────
-function AboutText({ text }: { text: string }) {
+function AboutText({ text, animate }: { text: string; animate: boolean }) {
   const words = text.split(" ");
   const [mountedAt, setMountedAt] = useState(() => Date.now());
   const [now, setNow] = useState(Date.now());
 
   // Reset timer whenever the text changes (new page)
   useEffect(() => {
+    if (!animate) return;
     setMountedAt(Date.now());
     setNow(Date.now());
-  }, [text]);
+  }, [text, animate]);
 
   useEffect(() => {
+    if (!animate) return;
     const start = Date.now();
     const id = setInterval(() => {
       setNow(Date.now());
       if (Date.now() - start > words.length * 20 + 400) clearInterval(id);
     }, 50);
     return () => clearInterval(id);
-  }, [text, words.length]);
+  }, [text, words.length, animate]);
 
   return (
     <div className="relative">
@@ -184,7 +127,7 @@ function AboutText({ text }: { text: string }) {
         style={{ letterSpacing: "0.05em", lineHeight: 1.85 }}
       >
         {words.map((word, i) => {
-          const revealed = now - mountedAt >= i * 20;
+          const revealed = animate && now - mountedAt >= i * 20;
           return (
             <span key={`${text}-${i}`}>
               <GlitchWord word={word} revealed={revealed} />
@@ -201,8 +144,17 @@ function AboutText({ text }: { text: string }) {
 // Exported: AboutBox
 // ─────────────────────────────────────────────
 export function AboutBox() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, {
+    amount: 0.15,
+    once: true,
+  });
+
   return (
-    <div className="relative z-10 flex h-full w-full flex-col justify-center md:w-[45%] lg:w-[42%]">
+    <div
+      ref={ref}
+      className="relative z-10 flex h-full w-full flex-col justify-center md:w-[45%] lg:w-[42%]"
+    >
       {/* Vertical separator on the right edge */}
       <div
         className="pointer-events-none absolute top-0 right-0 hidden h-full w-px md:block"
@@ -220,7 +172,7 @@ export function AboutBox() {
         </h1>
         {/* Body copy */}
         <div className="mb-10 max-w-sm">
-          <AboutText text={ABOUT_TEXT} />
+          <AboutText text={ABOUT_TEXT} animate={isInView} />
         </div>
       </div>
     </div>

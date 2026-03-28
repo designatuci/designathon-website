@@ -45,7 +45,7 @@ export default function ApplyPage() {
         }
     `}</style>
 
-      <main className="relative min-h-screen w-full bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
+      <main className="relative min-h-screen w-full overflow-x-hidden bg-[url('/images/seasons/2026/landing/gradient/background.webp')] bg-[length:100%_auto] bg-top bg-repeat">
         <FlameWidget hidden={isSubmitting} />
 
         {/* ── Ambient glows ── */}
@@ -105,7 +105,7 @@ export default function ApplyPage() {
           </div>
 
           <p className="mt-16 pb-8 text-center text-xs text-white/20">
-            © {new Date().getFullYear()} Design-O-Thon. All rights reserved.
+            © {new Date().getFullYear()} Design-a-thon. All rights reserved.
           </p>
         </div>
       </main>

@@ -70,7 +70,7 @@ export const eventsList: PlanetConfig[] = [
     sizeTablet: "md:h-[18rem] md:w-[18rem]",
     sizeDesktop: "lg:h-[22rem] lg:w-[22rem]",
     modalContent: {
-      title: "Design-a-thon 2022",
+      title: "Impact 2022",
       theme: "Impact",
       participants: "100+",
       entries: [
@@ -102,7 +102,7 @@ export const eventsList: PlanetConfig[] = [
     sizeTablet: "md:h-[22rem] md:w-[22rem]",
     sizeDesktop: "lg:h-[34rem] lg:w-[34rem]",
     modalContent: {
-      title: "Design-a-thon 2023",
+      title: "You Belong Here 2023",
       theme: "Community & Inclusivity",
       participants: "300+",
       entries: [
@@ -128,7 +128,7 @@ export const eventsList: PlanetConfig[] = [
     className: "rotate-[10deg] text-2xl md:text-4xl",
     position: "top-[58%] left-[8%]",
     positionTablet: "md:top-[30%] md:left-[60%]",
-    positionDesktop: "lg:top-[47%] lg:left-[46%] lg:translate-x-1/2",
+    positionDesktop: "lg:top-[47%] lg:left-[90%] lg:-translate-x-1/2",
     sizeMobile: "h-56 w-56",
     sizeTablet: "md:h-[24rem] md:w-[24rem]",
     sizeDesktop: "lg:h-[44rem] lg:w-[44rem]",
@@ -169,9 +169,9 @@ export const eventsList: PlanetConfig[] = [
     position: "top-[80%] left-1/2 -translate-x-1/2",
     positionTablet: "md:top-[68%] md:left-[35%]",
     positionDesktop: "lg:top-[71%] lg:left-[42%]",
-    sizeMobile: "h-60 w-60",
-    sizeTablet: "md:h-[26rem] md:w-[26rem]",
-    sizeDesktop: "lg:h-[38rem] lg:w-[38rem]",
+    sizeMobile: "h-65 w-65",
+    sizeTablet: "md:h-[36rem] md:w-[36rem]",
+    sizeDesktop: "lg:h-[55rem] lg:w-[55rem]",
     modalContent: {
       title: "Beyond Our Horizons 2025",
       theme: "Innovation & Change",

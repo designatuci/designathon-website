@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, MotionValue, useTransform } from "framer-motion";
+import { motion, MotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -59,7 +59,7 @@ export const PLANETS: PlanetConfig[] = [
     startAngle: Math.PI,
     scrollTravel: travelTo(Math.PI, -1),
     sizeMobile: "3rem",
-    sizeDesktop: "5rem",
+    sizeDesktop: "4rem",
     glowColor: "rgba(160, 100, 255, 0.5)",
   },
   {
@@ -76,8 +76,8 @@ export const PLANETS: PlanetConfig[] = [
     src: "/images/seasons/2026/landing/about/magneta.png",
     alt: "Magenta planet",
     orbitIndex: 2,
-    startAngle: -Math.PI / 3,
-    scrollTravel: travelTo(-Math.PI / 3, -1),
+    startAngle: -Math.PI,
+    scrollTravel: travelTo(-Math.PI, -1),
     sizeMobile: "4.5rem",
     sizeDesktop: "7rem",
     glowColor: "rgba(255, 80, 200, 0.15)",
@@ -137,9 +137,6 @@ function OrbitingPlanet({
           src={config.src}
           alt={config.alt}
           fill
-          style={{
-            filter: `drop-shadow(0 0 4px ${config.glowColor}) drop-shadow(0 0 10px ${config.glowColor})`,
-          }}
           className="object-contain"
         />
       </div>
@@ -196,19 +193,14 @@ function OrbitalRings() {
 // ─────────────────────────────────────────────
 // Centre planet
 // ─────────────────────────────────────────────
-const NAVY_GLOW = "rgba(96, 144, 239, 0.45)";
-
 function CentrePlanet() {
   return (
-    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 md:h-[8rem] md:w-[8rem]">
+    <div className="pointer-events-none absolute top-1/2 left-1/2 z-100 h-[5rem] w-[5rem] -translate-x-1/2 -translate-y-1/2 md:h-[9rem] md:w-[9rem]">
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
         alt="Navy planet"
         fill
         className="object-contain"
-        style={{
-          filter: `drop-shadow(0 0 20px ${NAVY_GLOW}) drop-shadow(0 0 26px ${NAVY_GLOW})`,
-        }}
       />
     </div>
   );
@@ -219,28 +211,24 @@ function CentrePlanet() {
 // ─────────────────────────────────────────────
 export function Planets({ progress }: { progress: MotionValue<number> }) {
   const radii = useOrbitRadii();
+  const smoothProgress = useSpring(progress, {
+    stiffness: 50,
+    damping: 22,
+    mass: 0.3,
+  });
 
   return (
-    <div className="relative hidden h-full md:block md:w-[55%] lg:w-[58%]">
-      {/* Radial glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 55% at 50% 50%, rgba(80,100,255,0.04) 0%, rgba(80,100,255,0.01) 30%, transparent 65%)",
-        }}
-      />
-
+    <div className="relative hidden h-full lg:block lg:w-[58%]">
       {/* Orbital system */}
       <div className="absolute inset-0">
         <OrbitalRings />
         <CentrePlanet />
-        <AlignmentLine progress={progress} />
+        <AlignmentLine progress={smoothProgress} />
         {PLANETS.map((planet) => (
           <OrbitingPlanet
             key={planet.src}
             config={planet}
-            progress={progress}
+            progress={smoothProgress}
             radii={radii}
           />
         ))}

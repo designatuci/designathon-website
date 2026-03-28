@@ -204,7 +204,7 @@ const SponsorsMarquee = ({
                   >
                     <label
                       htmlFor={`partner-${org.id}`}
-                      className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full text-center text-sm font-semibold whitespace-nowrap text-white opacity-0 transition-opacity duration-200 group-hover/logo:opacity-100"
+                      className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[calc(100%+8px)] text-center text-sm font-semibold whitespace-nowrap text-white opacity-0 transition-opacity duration-200 group-hover/logo:opacity-100"
                       style={{ textShadow: "0 0 8px rgba(180,140,255,0.8)" }}
                     >
                       {org.content!.name}

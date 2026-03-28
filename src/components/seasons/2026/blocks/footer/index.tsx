@@ -24,7 +24,7 @@ function Footer() {
           rel="noopener noreferrer"
           className="text-[clamp(0.75rem,2vw,1.5rem)] font-medium text-white transition-colors hover:text-white/90"
         >
-          Design at UCI 2026
+          © 2026 Design at UCI
         </Link>
         <nav className="flex flex-wrap items-center justify-center gap-3 md:gap-8">
           {footerLinks.map((link) => (
