@@ -233,12 +233,12 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           <Image
             src={star}
             alt={name}
-            width={80}
-            height={80}
+            width={62}
+            height={62}
             style={{
               display: "block",
               margin: "0 auto",
-              filter: `drop-shadow(0 0 20px ${glow}) drop-shadow(0 0 40px ${glow})`,
+              filter: `drop-shadow(0 0 14px ${glow}) drop-shadow(0 0 28px ${glow})`,
             }}
           />
         </div>

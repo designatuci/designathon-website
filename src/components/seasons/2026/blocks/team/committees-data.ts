@@ -13,65 +13,45 @@ export const COMMITTEES: Committee[] = [
     fdelay: 0,
     description:
       "Building and maintaining the Design-a-thon digital experience.",
-    constellationName: "Orion",
+    constellationName: "Dorado",
     constellation: {
       members: [
-        [100, 170],
-        [340, 170],
-        [100, 265],
-        [340, 265],
-        [340, 355],
+        [357, 124], // Jay
+        [193, 187], // Anna
+        [107, 271], // Johnson
+        [65, 276], // Abby
+        [82, 325], // Alice
       ],
-      dummies: [
-        [220, 215],
-        [220, 310],
-        [100, 355],
-      ],
-      director: [220, 105],
+      dummies: [],
+      director: [286, 170],
       lines: [
         [
-          [100, 170],
-          [220, 105],
+          [193, 187],
+          [286, 170],
         ],
         [
-          [340, 170],
-          [220, 105],
+          [286, 170],
+          [357, 124],
         ],
         [
-          [100, 170],
-          [220, 215],
+          [193, 187],
+          [107, 271],
         ],
         [
-          [340, 170],
-          [220, 215],
+          [286, 170],
+          [107, 271],
         ],
         [
-          [100, 265],
-          [220, 215],
+          [107, 271],
+          [65, 276],
         ],
         [
-          [340, 265],
-          [220, 215],
+          [107, 271],
+          [82, 325],
         ],
         [
-          [100, 265],
-          [220, 310],
-        ],
-        [
-          [340, 265],
-          [220, 310],
-        ],
-        [
-          [100, 355],
-          [220, 310],
-        ],
-        [
-          [340, 355],
-          [220, 310],
-        ],
-        [
-          [220, 215],
-          [220, 310],
+          [82, 325],
+          [65, 276],
         ],
       ],
     },
@@ -130,40 +110,47 @@ export const COMMITTEES: Committee[] = [
     fdelay: 0.5,
     description:
       "Coordinating venues, schedules, and supplies to keep the event running smoothly.",
-    constellationName: "Little Dipper",
+    constellationName: "Ursa Minor",
     constellation: {
       members: [
-        [120, 360],
-        [240, 370],
-        [250, 270],
-        [140, 250],
+        [197, 146], // Allison
+        [174, 205], // Evie
+        [190, 271], // Heidi
+        [230, 325], // Queena
       ],
-      dummies: [[200, 200]],
-      director: [290, 150],
+      dummies: [
+        [157, 290],
+        [199, 356],
+      ],
+      director: [221, 98],
       lines: [
         [
-          [120, 360],
-          [240, 370],
+          [221, 98],
+          [197, 146],
         ],
         [
-          [240, 370],
-          [250, 270],
+          [197, 146],
+          [174, 205],
         ],
         [
-          [250, 270],
-          [140, 250],
+          [174, 205],
+          [190, 271],
         ],
         [
-          [140, 250],
-          [120, 360],
+          [190, 271],
+          [157, 290],
         ],
         [
-          [140, 250],
-          [200, 200],
+          [190, 271],
+          [230, 325],
         ],
         [
-          [200, 200],
-          [290, 150],
+          [157, 290],
+          [199, 356],
+        ],
+        [
+          [230, 325],
+          [199, 356],
         ],
       ],
     },
@@ -215,46 +202,27 @@ export const COMMITTEES: Committee[] = [
     fdelay: 0.8,
     description:
       "Managing budgets and financial planning to keep the event on track.",
-    constellationName: "Triangulum",
+    constellationName: "Apus",
     constellation: {
       members: [
-        [120, 310],
-        [320, 310],
-        [220, 340],
+        [136, 211], // Sahana
+        [110, 156], // Gabrielle
+        [164, 203], // Emily
       ],
-      dummies: [
-        [170, 210],
-        [270, 210],
-      ],
-      director: [220, 120],
+      dummies: [],
+      director: [352, 248],
       lines: [
         [
-          [220, 120],
-          [170, 210],
+          [352, 248],
+          [136, 211],
         ],
         [
-          [220, 120],
-          [270, 210],
+          [136, 211],
+          [110, 156],
         ],
         [
-          [170, 210],
-          [120, 310],
-        ],
-        [
-          [270, 210],
-          [320, 310],
-        ],
-        [
-          [120, 310],
-          [220, 340],
-        ],
-        [
-          [320, 310],
-          [220, 340],
-        ],
-        [
-          [170, 210],
-          [270, 210],
+          [110, 156],
+          [164, 203],
         ],
       ],
     },
@@ -297,51 +265,47 @@ export const COMMITTEES: Committee[] = [
     fdelay: 0.3,
     description:
       "Spreading the word and building excitement around Design-a-thon.",
-    constellationName: "Corvus",
+    constellationName: "Serpens",
     constellation: {
       members: [
-        [220, 330],
-        [360, 210],
-        [280, 170],
-        [180, 140],
+        [83, 291],
+        [250, 218],
+        [275, 152],
+        [297, 123],
       ],
       dummies: [
-        [120, 260],
-        [140, 200],
+        [157, 228],
+        [259, 127],
       ],
-      director: [190, 70],
+      director: [190, 229],
       lines: [
         [
-          [220, 330],
-          [120, 260],
+          [83, 291],
+          [157, 228],
         ],
         [
-          [120, 260],
-          [140, 200],
+          [157, 228],
+          [190, 229],
         ],
         [
-          [140, 200],
-          [180, 140],
+          [190, 229],
+          [250, 218],
         ],
         [
-          [180, 140],
-          [280, 170],
+          [250, 218],
+          [275, 152],
         ],
         [
-          [280, 170],
-          [360, 210],
+          [275, 152],
+          [297, 123],
         ],
         [
-          [190, 70],
-          [180, 140],
+          [275, 152],
+          [259, 127],
         ],
         [
-          [190, 70],
-          [140, 200],
-        ],
-        [
-          [220, 330],
-          [280, 170],
+          [297, 123],
+          [259, 127],
         ],
       ],
     },
@@ -394,42 +358,43 @@ export const COMMITTEES: Committee[] = [
     fdelay: 1.2,
     description:
       "Crafting the visual identity that brings the cosmic theme to life.",
-    constellationName: "Triangulum Australe",
+    constellationName: "Corona Borealis",
     constellation: {
       members: [
-        [80, 300],
-        [220, 180],
-        [360, 300],
+        [298, 136], // Julianna
+        [184, 314], // Candice
+        [99, 191], // Sherry
       ],
       dummies: [
-        [150, 240],
-        [290, 240],
+        [126, 288],
+        [238, 306],
+        [340, 206],
       ],
-      director: [220, 280],
+      director: [296, 286],
       lines: [
         [
-          [80, 300],
-          [150, 240],
+          [99, 191],
+          [126, 288],
         ],
         [
-          [150, 240],
-          [220, 180],
+          [126, 288],
+          [184, 314],
         ],
         [
-          [220, 180],
-          [290, 240],
+          [184, 314],
+          [238, 306],
         ],
         [
-          [290, 240],
-          [360, 300],
+          [238, 306],
+          [296, 286],
         ],
         [
-          [150, 240],
-          [220, 280],
+          [296, 286],
+          [340, 206],
         ],
         [
-          [290, 240],
-          [220, 280],
+          [340, 206],
+          [298, 136],
         ],
       ],
     },
@@ -472,47 +437,32 @@ export const COMMITTEES: Committee[] = [
     fd: 5,
     fdelay: 1,
     description: "Securing sponsorships and building industry partnerships.",
-    constellationName: "Gemini",
+    constellationName: "Cassiopeia",
     constellation: {
       members: [
-        [40, 310],
-        [150, 370],
-        [290, 370],
-        [400, 310],
+        [113, 169], // Chloe
+        [197, 139], // Bharathi
+        [276, 233], // Tiffany
+        [297, 307], // William
       ],
-      dummies: [
-        [160, 230],
-        [280, 230],
-      ],
-      director: [220, 100],
+      dummies: [],
+      director: [209, 219],
       lines: [
         [
-          [40, 310],
-          [160, 230],
+          [113, 169],
+          [197, 139],
         ],
         [
-          [160, 230],
-          [220, 100],
+          [197, 139],
+          [209, 219],
         ],
         [
-          [150, 370],
-          [160, 230],
+          [209, 219],
+          [276, 233],
         ],
         [
-          [290, 370],
-          [280, 230],
-        ],
-        [
-          [280, 230],
-          [220, 100],
-        ],
-        [
-          [400, 310],
-          [280, 230],
-        ],
-        [
-          [160, 230],
-          [280, 230],
+          [276, 233],
+          [297, 307],
         ],
       ],
     },
