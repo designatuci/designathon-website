@@ -18,7 +18,7 @@ export const COMMITTEES: Committee[] = [
       members: [
         [357, 124], // Jay
         [193, 187], // Anna
-        [107, 271], // Johnson
+        [107, 261], // Johnson
         [65, 276], // Abby
         [82, 325], // Alice
       ],
@@ -35,18 +35,18 @@ export const COMMITTEES: Committee[] = [
         ],
         [
           [193, 187],
-          [107, 271],
+          [107, 261],
         ],
         [
           [286, 170],
-          [107, 271],
+          [107, 261],
         ],
         [
-          [107, 271],
+          [107, 261],
           [65, 276],
         ],
         [
-          [107, 271],
+          [107, 261],
           [82, 325],
         ],
         [
@@ -207,7 +207,7 @@ export const COMMITTEES: Committee[] = [
       members: [
         [136, 211], // Sahana
         [110, 156], // Gabrielle
-        [164, 203], // Emily
+        [184, 190], // Emily
       ],
       dummies: [],
       director: [352, 248],
@@ -222,7 +222,7 @@ export const COMMITTEES: Committee[] = [
         ],
         [
           [110, 156],
-          [164, 203],
+          [184, 190],
         ],
       ],
     },
@@ -268,10 +268,10 @@ export const COMMITTEES: Committee[] = [
     constellationName: "Serpens",
     constellation: {
       members: [
-        [83, 291],
-        [250, 218],
-        [275, 152],
-        [297, 123],
+        [83, 291], // Julia
+        [250, 218], // Paolo
+        [275, 167], // Vanessa
+        [297, 123], // Audrey
       ],
       dummies: [
         [157, 228],
@@ -293,14 +293,14 @@ export const COMMITTEES: Committee[] = [
         ],
         [
           [250, 218],
-          [275, 152],
+          [275, 162],
         ],
         [
-          [275, 152],
+          [275, 162],
           [297, 123],
         ],
         [
-          [275, 152],
+          [275, 162],
           [259, 127],
         ],
         [

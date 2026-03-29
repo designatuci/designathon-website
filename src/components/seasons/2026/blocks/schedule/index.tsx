@@ -308,7 +308,7 @@ export default function Itinerary() {
         />
       </div>
 
-      <div className="container relative" style={{ zIndex: 1 }}>
+      <div className="relative container" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* Header row: title left, tabs right */}
           <div
@@ -327,7 +327,6 @@ export default function Itinerary() {
 
             {/* Wrapper anchors the alien relative to the tab pill */}
             <div className="relative inline-flex flex-col items-center">
-
               {/* Alien hugging the top-right of the tab selector */}
               <div
                 className="pointer-events-none absolute"
@@ -354,7 +353,7 @@ export default function Itinerary() {
                   <TabsTrigger
                     key={day.date}
                     value={day.date}
-                    className="px-5 py-2.5 text-base !text-white [font-family:var(--font-inria-sans)] data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
+                    className="px-5 py-2.5 [font-family:var(--font-inria-sans)] text-base !text-white data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
                   >
                     {day.date}
                   </TabsTrigger>

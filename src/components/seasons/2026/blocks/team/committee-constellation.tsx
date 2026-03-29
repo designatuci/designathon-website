@@ -1,7 +1,19 @@
 "use client";
 
+import localFont from "next/font/local";
 import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+
+const luxurious = localFont({
+  src: "../../../../../app/2026-preview/fonts/LuxuriousScript-Regular.woff2",
+  display: "swap",
+});
+
+/** Same as `src/app/2026-preview/layout.tsx` → `./fonts/InriaSans-Regular.woff2` */
+const inriaSans = localFont({
+  src: "../../../../../app/2026-preview/fonts/InriaSans-Regular.woff2",
+  display: "swap",
+});
 
 export type CommitteeMember = {
   photo?: string;
@@ -359,10 +371,10 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               {constellationName}
             </div>
             <div
+              className={luxurious.className}
               style={{
                 fontSize: 26,
-                fontWeight: 300,
-                fontStyle: "italic",
+                fontWeight: 400,
                 color: "white",
                 lineHeight: 1.1,
                 textShadow: `0 0 16px ${glow}`,
@@ -423,11 +435,10 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 {constellationName}
               </div>
               <div
+                className={luxurious.className}
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 42,
-                  fontWeight: 300,
-                  fontStyle: "italic",
+                  fontWeight: 400,
                   lineHeight: 1,
                   color: "white",
                   textShadow: `0 0 20px ${glow}`,
@@ -496,6 +507,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 {/* Name */}
                 <div
+                  className={inriaSans.className}
                   style={{
                     fontSize: 22,
                     fontWeight: 400,
