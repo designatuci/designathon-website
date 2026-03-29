@@ -49,7 +49,7 @@ function Rules() {
         }}
       >
         <DOTImage
-          src="/images/seasons/2026/landing/partners/clouds-right.png"
+          src="/images/seasons/2026/landing/rules/clouds-right.png"
           alt=""
           width={800}
           height={400}
@@ -77,7 +77,7 @@ function Rules() {
         }}
       >
         <DOTImage
-          src="/images/seasons/2026/landing/partners/clouds-right.png"
+          src="/images/seasons/2026/landing/rules/clouds-right.png"
           alt=""
           width={800}
           height={400}
@@ -122,7 +122,7 @@ function Rules() {
         }}
       >
         <DOTImage
-          src="/images/seasons/2026/landing/partners/clouds-right.png"
+          src="/images/seasons/2026/landing/rules/clouds-right.png"
           alt=""
           width={800}
           height={400}
@@ -150,7 +150,7 @@ function Rules() {
         }}
       >
         <DOTImage
-          src="/images/seasons/2026/landing/partners/clouds-right.png"
+          src="/images/seasons/2026/landing/rules/clouds-right.png"
           alt=""
           width={800}
           height={400}
