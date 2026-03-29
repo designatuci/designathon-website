@@ -21,7 +21,7 @@ export default function MeetCommittees() {
 
   return (
     <section id="team" className="overflow-visible">
-      <div className="relative overflow-visible pb-32">
+      <div className="relative overflow-visible pb-16 sm:pb-32">
         {/* Galaxy Background */}
         <div
           className="galaxy-bg pointer-events-none absolute -top-[350px] w-full md:top-[-200px]"
@@ -35,7 +35,7 @@ export default function MeetCommittees() {
           }}
         />
 
-        <main className="relative flex min-h-screen w-full flex-col items-center justify-center bg-transparent pt-[5%]">
+        <main className="relative flex min-h-0 w-full flex-col items-center justify-start bg-transparent py-8 sm:min-h-screen sm:justify-center sm:py-0 sm:pt-[5%]">
           <style>{`
 
           .script-glow {
@@ -102,7 +102,12 @@ export default function MeetCommittees() {
           .desktop-canvas { display: block; }
 
           @media (max-width: 640px) {
-            .mobile-grid { display: grid; }
+            .mobile-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 8px;
+              align-items: start;
+            }
             .desktop-canvas { display: none; }
           }
 
@@ -112,13 +117,24 @@ export default function MeetCommittees() {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: flex-start;
             gap: 6px;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 12px 8px;
+            padding: 10px 6px;
             border-radius: 16px;
             transition: background 0.2s;
+            min-height: 0;
+          }
+
+          .mobile-star-slot {
+            display: flex;
+            height: 64px;
+            width: 100%;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
           }
 
           .mobile-star-card:active {
@@ -158,7 +174,7 @@ export default function MeetCommittees() {
 
           {/* Mobile Title */}
 
-          <div className="relative z-10 mb-6 px-4 text-center sm:hidden">
+          <div className="relative z-10 container mb-6 text-left sm:hidden">
             <div
               className={`${luxurious.className} script-glow text-6xl leading-none font-normal whitespace-nowrap text-white`}
             >
@@ -270,30 +286,26 @@ export default function MeetCommittees() {
 
           {/* Mobile grid */}
 
-          <div
-            className="mobile-grid relative z-10 mt-6 w-full max-w-sm px-4"
-            style={{ gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}
-          >
-            {COMMITTEES.map((c) => {
-              const mobileSize = Math.round(c.size * 0.42);
-
-              return (
-                <button
-                  key={c.id}
-                  className={`mobile-star-card focus:outline-none ${
-                    active === c.id ? "active" : ""
-                  }`}
-                  style={{ ["--glow" as string]: c.glow }}
-                  onClick={() => handleStarClick(c)}
-                >
+          <div className="mobile-grid relative z-10 mx-auto mt-6 w-full max-w-sm px-8">
+            {COMMITTEES.map((c) => (
+              <button
+                key={c.id}
+                className={`mobile-star-card focus:outline-none ${
+                  active === c.id ? "active" : ""
+                }`}
+                style={{ ["--glow" as string]: c.glow }}
+                onClick={() => handleStarClick(c)}
+              >
+                <div className="mobile-star-slot">
                   <Image
                     src={c.star}
                     alt={c.name}
-                    width={mobileSize}
-                    height={mobileSize}
+                    width={56}
+                    height={56}
+                    className="object-contain"
                     style={{
-                      width: mobileSize,
-                      height: mobileSize,
+                      width: 56,
+                      height: 56,
                       animation: `floatStar ${c.fd}s ease-in-out ${c.fdelay}s infinite`,
                       filter:
                         active === c.id
@@ -301,11 +313,11 @@ export default function MeetCommittees() {
                           : `drop-shadow(0 0 8px ${c.glow})`,
                     }}
                   />
+                </div>
 
-                  <span className="mobile-star-label">{c.name}</span>
-                </button>
-              );
-            })}
+                <span className="mobile-star-label">{c.name}</span>
+              </button>
+            ))}
           </div>
 
           <CommitteeConstellation

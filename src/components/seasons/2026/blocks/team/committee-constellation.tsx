@@ -425,10 +425,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           </div>
 
           {/* ── Member panel — bare text on desktop ── */}
-          <div
-            className="flex flex-col gap-4 sm:gap-5 sm:pl-4"
-            style={{ width: "100%", flexShrink: 0, maxWidth: 420 }}
-          >
+          <div className="flex w-full min-w-0 flex-shrink-0 flex-col gap-4 sm:w-[420px] sm:max-w-[420px] sm:min-w-[420px] sm:gap-5 sm:pl-4">
             {/* Header — desktop only */}
             <div className="hidden sm:block">
               <div className="mb-1 text-[9px] tracking-[0.35em] text-white/30 uppercase">
@@ -459,9 +456,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
             {/* Member card — glass on mobile, bare on desktop */}
             <div
               key={cardKey}
-              className="sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none"
+              className="w-full max-w-[420px] min-w-0 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none"
               style={{
-                width: 420,
                 boxSizing: "border-box",
                 borderRadius: 16,
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -514,6 +510,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     color: "white",
                     lineHeight: 1,
                     marginBottom: 3,
+                    overflowWrap: "anywhere",
+                    wordBreak: "break-word",
                   }}
                 >
                   {member?.name ?? ""}
@@ -527,6 +525,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     textTransform: "uppercase",
                     color: glow,
                     marginBottom: 10,
+                    overflowWrap: "anywhere",
+                    wordBreak: "break-word",
                   }}
                 >
                   {member?.role ?? ""}
@@ -540,6 +540,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                       gap: 6,
                       flexWrap: "wrap",
                       marginBottom: 8,
+                      minWidth: 0,
+                      maxWidth: "100%",
                     }}
                   >
                     {member?.year && (
@@ -553,6 +555,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                           borderRadius: 20,
                           padding: "2px 10px",
                           whiteSpace: "nowrap",
+                          maxWidth: "100%",
                         }}
                       >
                         {member.year}
@@ -568,7 +571,11 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                           border: "1px solid rgba(255,255,255,0.1)",
                           borderRadius: 20,
                           padding: "2px 10px",
-                          whiteSpace: "nowrap",
+                          maxWidth: "100%",
+                          whiteSpace: "normal",
+                          lineHeight: 1.35,
+                          overflowWrap: "anywhere",
+                          wordBreak: "break-word",
                         }}
                       >
                         {member.major}
@@ -593,6 +600,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                         lineHeight: 1.6,
                         fontStyle: "italic",
                         color: "rgba(200,190,220,0.75)",
+                        overflowWrap: "anywhere",
+                        wordBreak: "break-word",
                       }}
                     >
                       {member.funFact}
