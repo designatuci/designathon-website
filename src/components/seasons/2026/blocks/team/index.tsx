@@ -30,7 +30,7 @@ export default function MeetCommittees() {
             backgroundImage:
               "url('/images/seasons/2026/landing/team/committees/galaxy.png')",
             backgroundSize: "100% auto",
-            backgroundPosition: "center top",
+            backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
           }}
         />
@@ -161,12 +161,26 @@ export default function MeetCommittees() {
             color: white;
           }
 
-          /* MOBILE GALAXY POSITIONING ONLY */
+          /* Galaxy: center art behind “Meet The Committees” on all breakpoints */
 
           @media (max-width: 640px) {
             .galaxy-bg {
               background-size: 180% auto !important;
-              background-position: center 63% !important;
+              background-position: center center !important;
+            }
+          }
+
+          @media (min-width: 641px) and (max-width: 1023px) {
+            .galaxy-bg {
+              background-size: 110% auto !important;
+              background-position: center center !important;
+            }
+          }
+
+          @media (min-width: 1024px) {
+            .galaxy-bg {
+              background-size: 100% auto !important;
+              background-position: center center !important;
             }
           }
 

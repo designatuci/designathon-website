@@ -10,7 +10,10 @@ export default function Stats() {
   const starsInView = useInView(starsRef, { once: true, amount: 0.5 });
 
   return (
-    <section id="stats" className="relative w-full py-4 sm:py-20 lg:py-28">
+    <section
+      id="stats"
+      className="relative w-full min-w-0 overflow-x-clip py-4 sm:py-20 lg:py-28"
+    >
       <style>{`
         @keyframes floatStatsFlame {
           0%, 100% { transform: translateY(0px) rotate(-2deg); }
@@ -25,7 +28,7 @@ export default function Stats() {
           }
         }
       `}</style>
-      <div className="relative mx-auto aspect-[1113/500] w-full">
+      <div className="relative mx-auto aspect-[1113/500] w-full min-w-0 overflow-x-clip">
         <div
           ref={starsRef}
           className={cn(
