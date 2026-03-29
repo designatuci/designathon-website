@@ -29,7 +29,7 @@ export const eventTypeStyles: Record<
   logistics: {
     color: "#6b90ff",
     bg: "rgba(56,189,248,0.12)",
-    border: "rgba(56,189,248,0.3)",
+    border: "rgba(66, 56, 248, 0.3)",
   },
   ceremony: {
     color: "#a182ff",
@@ -44,7 +44,7 @@ export const eventTypeStyles: Record<
   food: {
     color: "#24fbf7",
     bg: "rgba(36, 251, 237, 0.12)",
-    border: "rgba(251,191,36,0.3)",
+    border: "rgba(36, 176, 251, 0.3)",
   },
   design: {
     color: "#ff9eff",
@@ -223,7 +223,7 @@ export const scheduleDays: ScheduleDay[] = [
     events: [
       {
         time: "08:00 AM",
-        endTime: "",
+        endTime: "10:00 AM",
         title: "Submission Deadline",
         location: "Devpost",
         zoom: false,

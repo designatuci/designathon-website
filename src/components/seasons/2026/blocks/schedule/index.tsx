@@ -1,7 +1,9 @@
 "use client";
 
+import DOTImage from "@components/common/dot-image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { useState } from "react";
+import { useInView } from "motion/react";
+import { useRef, useState } from "react";
 import {
   eventTypeStyles,
   scheduleDays,
@@ -112,6 +114,7 @@ function EventRow({
         >
           <span
             style={{
+              fontFamily: "var(--font-inria-sans)",
               fontSize: "0.8rem",
               color: "rgba(255, 255, 255, 0.81)",
               minWidth: "70px",
@@ -123,6 +126,7 @@ function EventRow({
 
           <div
             style={{
+              fontFamily: "var(--font-inria-sans)",
               padding: "0.35rem 1rem",
               borderRadius: "999px",
               background: isSelected ? style.bg : "rgba(255,255,255,0.06)",
@@ -139,6 +143,7 @@ function EventRow({
 
           <span
             style={{
+              fontFamily: "var(--font-inria-sans)",
               display: "flex",
               alignItems: "center",
               gap: "0.3rem",
@@ -157,6 +162,7 @@ function EventRow({
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               style={{
+                fontFamily: "var(--font-inria-sans)",
                 display: "flex",
                 alignItems: "center",
                 gap: "0.3rem",
@@ -183,6 +189,7 @@ function EventRow({
           {event.zoom && !event.zoomURL && (
             <span
               style={{
+                fontFamily: "var(--font-inria-sans)",
                 display: "flex",
                 alignItems: "center",
                 gap: "0.3rem",
@@ -214,6 +221,7 @@ function EventRow({
           >
             <div
               style={{
+                fontFamily: "var(--font-inria-sans)",
                 fontSize: "0.8rem",
                 color: style.color,
                 marginBottom: "0.5rem",
@@ -224,6 +232,7 @@ function EventRow({
             </div>
             <p
               style={{
+                fontFamily: "var(--font-inria-sans)",
                 color: "rgba(255,255,255,0.7)",
                 fontSize: "1rem",
                 lineHeight: "1.6",
@@ -258,17 +267,48 @@ function DayTimeline({ events }: { events: ScheduleEvent[] }) {
 }
 
 export default function Itinerary() {
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+
   return (
     <section
       id="schedule"
+      ref={ref}
       style={{
         minHeight: "100vh",
         padding: "3rem 1.5rem",
         position: "relative",
-        overflow: "hidden",
+        overflow: "clip",
       }}
     >
-      <div className="relative container">
+      {/* ── Rocket — center-right, behind content, tilted slightly ── */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          right: "-2%",
+          transform: "translateY(-50%) rotate(-15deg)",
+          width: "clamp(120px, 16vw, 260px)",
+          zIndex: 0,
+          opacity: 0.55,
+          transition: "opacity 1.5s ease-out",
+          pointerEvents: "none",
+          animation: isInView
+            ? "rocket-float 6s ease-in-out infinite"
+            : undefined,
+        }}
+      >
+        <DOTImage
+          src="/images/seasons/2026/landing/itinerary/rocket.png"
+          alt=""
+          width={400}
+          height={800}
+          sizes="260px"
+          className="h-auto w-full object-contain"
+        />
+      </div>
+
+      <div className="container relative" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* Header row: title left, tabs right */}
           <div
@@ -285,17 +325,42 @@ export default function Itinerary() {
               Itinerary
             </h1>
 
-            <TabsList className="border border-white/10 bg-white/5 backdrop-blur-md">
-              {scheduleDays.map((day) => (
-                <TabsTrigger
-                  key={day.date}
-                  value={day.date}
-                  className="!text-white data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
-                >
-                  {day.date}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            {/* Wrapper anchors the alien relative to the tab pill */}
+            <div className="relative inline-flex flex-col items-center">
+
+              {/* Alien hugging the top-right of the tab selector */}
+              <div
+                className="pointer-events-none absolute"
+                style={{
+                  top: "5px",
+                  right: "20px",
+                  zIndex: 10,
+                  animation: "rocket-float 4s ease-in-out infinite",
+                  animationDelay: "0.5s",
+                }}
+              >
+                <DOTImage
+                  src="/images/seasons/2026/landing/itinerary/alien-top.png"
+                  alt=""
+                  width={2360}
+                  height={1640}
+                  sizes="120px"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+
+              <TabsList className="border border-white/10 bg-white/5 px-2 py-2 backdrop-blur-md">
+                {scheduleDays.map((day) => (
+                  <TabsTrigger
+                    key={day.date}
+                    value={day.date}
+                    className="px-5 py-2.5 text-base !text-white [font-family:var(--font-inria-sans)] data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
+                  >
+                    {day.date}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
 
           {scheduleDays.map((day) => (
@@ -305,6 +370,13 @@ export default function Itinerary() {
           ))}
         </Tabs>
       </div>
+
+      <style>{`
+        @keyframes rocket-float {
+          0%, 100% { transform: translateY(calc(-80% + 8px)); }
+          50%       { transform: translateY(calc(-50% - 14px)) rotate(-15deg); }
+        }
+      `}</style>
     </section>
   );
 }
