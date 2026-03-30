@@ -34,7 +34,7 @@ const faqItems: FAQItem[] = [
       <span>
         Apply through our{" "}
         <Link
-          href="https://ucidesignathon.com"
+          href="https://ucidesignathon.com/apply"
           target="_blank"
           rel="noopener noreferrer"
           className="underline"
@@ -57,7 +57,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: "When is the registration deadline?",
-    answer: "April 9th, 2025 11:59 PM",
+    answer: "April 10th, 2025 11:59 PM PST",
   },
   {
     question: "How do I prepare?",
@@ -112,8 +112,44 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
       >
         {item.question}
       </AccordionTrigger>
-      <AccordionContent className="sm:text-md lg:text-md pl-10 text-base leading-loose text-zinc-200 xl:max-w-[95%] xl:text-lg">
-        {item.answer}
+      <AccordionContent className="pb-4 pl-10">
+        <div
+          style={{
+            padding: "1rem 1.25rem",
+            borderRadius: "0.75rem",
+            background: "rgba(195, 195, 195, 0.01)",
+            border: "1px solid rgba(88, 63, 247, 0.7)",
+            backdropFilter: "blur(12px)",
+            borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
+          {/* Glare streak */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: "2rem",
+              right: "2rem",
+              height: "2px",
+              borderRadius: "999px",
+              background: "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
+            }}
+          />
+          <p
+            style={{
+              fontFamily: "var(--font-inria-sans)",
+              color: "rgba(255,255,255,0.7)",
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              margin: 0,
+            }}
+            className="sm:text-base lg:text-lg xl:text-xl"
+          >
+            {item.answer}
+          </p>
+        </div>
       </AccordionContent>
     </AccordionItem>
   );
