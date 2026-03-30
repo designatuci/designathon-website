@@ -23,11 +23,13 @@ export default function Landing2026() {
       <Hero />
       <About />
       <Stats />
-      <Prompt />
+      {//<Prompt />
+      }
       <Schedule />
       <FAQ />
       <Prizes />
-      <Judges />
+      {//<Judges />>
+      }
       <Partners />
       <MeetCommittees />
       <Rules />
