@@ -1,7 +1,19 @@
 "use client";
 
+import localFont from "next/font/local";
 import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+
+const luxurious = localFont({
+  src: "../../../../../app/2026-preview/fonts/LuxuriousScript-Regular.woff2",
+  display: "swap",
+});
+
+/** Same as `src/app/2026-preview/layout.tsx` → `./fonts/InriaSans-Regular.woff2` */
+const inriaSans = localFont({
+  src: "../../../../../app/2026-preview/fonts/InriaSans-Regular.woff2",
+  display: "swap",
+});
 
 export type CommitteeMember = {
   photo?: string;
@@ -254,7 +266,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center"
+      className="fixed inset-0 z-50 flex min-w-0 items-center justify-center overflow-x-hidden px-3 sm:px-5 lg:px-6"
       style={{
         background: visible ? "rgba(2,1,14,0.85)" : "rgba(2,1,14,0)",
         transition: "background 0.5s ease, opacity 0.5s ease",
@@ -316,35 +328,35 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           overflow-y: auto;
           -webkit-overflow-scrolling: touch;
         }
-        @media (min-width: 640px) {
+        @media (min-width: 1024px) {
           .modal-sheet {
             max-height: none;
             overflow-y: visible;
           }
         }
         .canvas-wrap { width: 280px; height: 280px; }
-        @media (min-width: 640px) {
+        @media (min-width: 1024px) {
           .canvas-wrap { width: 440px; height: 440px; }
         }
         .modal-sheet::-webkit-scrollbar { display: none; }
         .modal-sheet { scrollbar-width: none; }
       `}</style>
 
-      {/* Close — desktop only */}
+      {/* Close — wide layout only (phones + tablets use header row close like mobile) */}
       <button
-        className="fixed top-6 right-7 z-10 hidden border-none bg-transparent text-2xl text-white/35 transition-colors hover:text-white sm:block"
+        className="fixed top-6 right-7 z-10 hidden border-none bg-transparent text-2xl text-white/35 transition-colors hover:text-white lg:block"
         style={{ cursor: "pointer" }}
         onClick={onClose}
       >
         ✕
       </button>
 
-      {/* Sheet / Modal — glass on mobile, transparent on desktop */}
+      {/* Sheet — frosted panel below lg (phones + tablets); transparent at lg+ so row layout floats on dim overlay */}
       <div
-        className="modal-sheet w-full border border-white/10 bg-[rgba(6,4,24,0.92)] shadow-2xl backdrop-blur-[40px] sm:w-auto sm:border-0 sm:bg-transparent sm:shadow-none sm:backdrop-blur-none"
+        className="modal-sheet w-full max-w-[min(1000px,100%)] min-w-0 border border-white/10 bg-[rgba(6,4,24,0.92)] shadow-2xl backdrop-blur-[40px] lg:w-auto lg:border-0 lg:bg-transparent lg:shadow-none lg:backdrop-blur-none"
         style={{
           padding: 0,
-          maxWidth: "min(1000px, 92vw)",
+          maxWidth: "min(1000px, min(92vw, 100%))",
           transform: visible
             ? "translateY(0) scale(1)"
             : "translateY(20px) scale(0.97)",
@@ -352,17 +364,17 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Mobile header row ── */}
-        <div className="flex items-center justify-between px-5 pt-3 pb-1 sm:hidden">
+        {/* ── Top header + close — same as mobile on phones & tablets (below lg) ── */}
+        <div className="flex items-center justify-between px-5 pt-3 pb-1 lg:hidden">
           <div>
             <div className="text-[8px] tracking-[0.3em] text-white/30 uppercase">
               {constellationName}
             </div>
             <div
+              className={luxurious.className}
               style={{
                 fontSize: 26,
-                fontWeight: 300,
-                fontStyle: "italic",
+                fontWeight: 400,
                 color: "white",
                 lineHeight: 1.1,
                 textShadow: `0 0 16px ${glow}`,
@@ -392,12 +404,12 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           </button>
         </div>
 
-        {/* ── Inner layout ── */}
-        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-8 sm:p-0">
-          {/* Constellation canvas — glass container on desktop only */}
-          <div className="canvas-wrap relative mx-auto flex-shrink-0 sm:mx-0 sm:rounded-2xl sm:border sm:border-white/10 sm:bg-[rgba(4,2,18,0.85)] sm:shadow-2xl sm:backdrop-blur-[40px]">
+        {/* ── Inner layout: stack until lg (1024px) so tablet / iPad Air fits ── */}
+        <div className="flex flex-col gap-4 p-5 lg:flex-row lg:items-center lg:gap-8 lg:p-0">
+          {/* Constellation canvas — glass frame only at lg+ */}
+          <div className="canvas-wrap relative mx-auto flex-shrink-0 lg:mx-0 lg:rounded-2xl lg:border lg:border-white/10 lg:bg-[rgba(4,2,18,0.85)] lg:shadow-2xl lg:backdrop-blur-[40px]">
             <div
-              className="absolute inset-0 sm:hidden"
+              className="absolute inset-0 lg:hidden"
               style={{ transform: "scale(0.636)", transformOrigin: "top left" }}
             >
               <div style={{ width: 440, height: 440, position: "relative" }}>
@@ -405,29 +417,25 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               </div>
             </div>
             <div
-              className="absolute inset-0 hidden sm:block"
+              className="absolute inset-0 hidden lg:block"
               style={{ width: 440, height: 440 }}
             >
               {renderCanvas()}
             </div>
           </div>
 
-          {/* ── Member panel — bare text on desktop ── */}
-          <div
-            className="flex flex-col gap-4 sm:gap-5 sm:pl-4"
-            style={{ width: "100%", flexShrink: 0, maxWidth: 420 }}
-          >
-            {/* Header — desktop only */}
-            <div className="hidden sm:block">
+          {/* ── Member panel ── */}
+          <div className="flex w-full max-w-[420px] min-w-0 flex-col gap-4 self-center lg:w-[420px] lg:max-w-[420px] lg:min-w-[420px] lg:flex-shrink-0 lg:gap-5 lg:pl-4">
+            {/* Large title block — wide two-column layout only (mobile/tablet use top row) */}
+            <div className="hidden lg:block">
               <div className="mb-1 text-[9px] tracking-[0.35em] text-white/30 uppercase">
                 {constellationName}
               </div>
               <div
+                className={luxurious.className}
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
                   fontSize: 42,
-                  fontWeight: 300,
-                  fontStyle: "italic",
+                  fontWeight: 400,
                   lineHeight: 1,
                   color: "white",
                   textShadow: `0 0 20px ${glow}`,
@@ -440,17 +448,16 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               </div>
             </div>
 
-            {/* Mobile member counter */}
-            <div className="text-[9px] tracking-[0.3em] text-white/30 uppercase sm:hidden">
+            {/* Member counter — under constellation on mobile + tablet (same as mobile) */}
+            <div className="text-[9px] tracking-[0.3em] text-white/30 uppercase lg:hidden">
               {safeIdx + 1} of {members.length} members
             </div>
 
             {/* Member card — glass on mobile, bare on desktop */}
             <div
               key={cardKey}
-              className="sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none"
+              className="w-full max-w-[420px] min-w-0 lg:border-0 lg:bg-transparent lg:p-0 lg:backdrop-blur-none"
               style={{
-                width: 420,
                 boxSizing: "border-box",
                 borderRadius: 16,
                 border: "1px solid rgba(255,255,255,0.1)",
@@ -496,12 +503,15 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               <div style={{ flex: 1, minWidth: 0 }}>
                 {/* Name */}
                 <div
+                  className={inriaSans.className}
                   style={{
                     fontSize: 22,
                     fontWeight: 400,
                     color: "white",
                     lineHeight: 1,
                     marginBottom: 3,
+                    overflowWrap: "anywhere",
+                    wordBreak: "break-word",
                   }}
                 >
                   {member?.name ?? ""}
@@ -515,6 +525,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     textTransform: "uppercase",
                     color: glow,
                     marginBottom: 10,
+                    overflowWrap: "anywhere",
+                    wordBreak: "break-word",
                   }}
                 >
                   {member?.role ?? ""}
@@ -528,6 +540,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                       gap: 6,
                       flexWrap: "wrap",
                       marginBottom: 8,
+                      minWidth: 0,
+                      maxWidth: "100%",
                     }}
                   >
                     {member?.year && (
@@ -541,6 +555,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                           borderRadius: 20,
                           padding: "2px 10px",
                           whiteSpace: "nowrap",
+                          maxWidth: "100%",
                         }}
                       >
                         {member.year}
@@ -556,7 +571,11 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                           border: "1px solid rgba(255,255,255,0.1)",
                           borderRadius: 20,
                           padding: "2px 10px",
-                          whiteSpace: "nowrap",
+                          maxWidth: "100%",
+                          whiteSpace: "normal",
+                          lineHeight: 1.35,
+                          overflowWrap: "anywhere",
+                          wordBreak: "break-word",
                         }}
                       >
                         {member.major}
@@ -581,6 +600,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                         lineHeight: 1.6,
                         fontStyle: "italic",
                         color: "rgba(200,190,220,0.75)",
+                        overflowWrap: "anywhere",
+                        wordBreak: "break-word",
                       }}
                     >
                       {member.funFact}
@@ -591,7 +612,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center gap-3 pb-2 sm:pb-0">
+            <div className="flex items-center gap-3 pb-2 lg:pb-0">
               <button
                 onClick={() => navigate(-1)}
                 disabled={safeIdx === 0}

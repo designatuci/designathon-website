@@ -35,8 +35,7 @@ function Rules() {
     <section
       id="rules"
       ref={ref}
-      // overflow-x-hidden clips side bleed without cutting off bottom
-      className="relative flex justify-center bg-(--blue) py-12"
+      className="relative flex justify-center overflow-x-clip bg-(--blue) py-12"
     >
       {/* ── LEFT: back cloud ── */}
       <div
@@ -207,7 +206,7 @@ function Rules() {
           >
             {/* Glass card */}
             <div
-              className="relative overflow-hidden rounded-2xl p-6 lg:p-10"
+              className="relative rounded-2xl p-6 lg:p-10"
               style={{
                 background: "rgba(195, 195, 195, 0.01)",
                 border: "1px solid rgba(88, 63, 247, 0.7)",

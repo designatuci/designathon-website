@@ -70,28 +70,12 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
     >
       <div
         className={cn(
-          "relative overflow-visible transition-all duration-500 ease-out",
+          "relative flex flex-col items-center overflow-visible transition-all duration-500 ease-out",
           isActive
             ? "h-[460px] w-[320px] scale-100"
             : "h-[340px] w-[260px] scale-90 opacity-50",
         )}
       >
-        {/* Outer glow halo — centered behind planet, circular, planet-matched color; subtler on mobile */}
-        {isActive && (
-          <div
-            className="pointer-events-none absolute inset-0 flex items-center justify-center"
-            aria-hidden
-          >
-            <div
-              className="aspect-square w-[min(100%,320px)] rounded-full opacity-50 blur-2xl md:opacity-100 md:blur-3xl"
-              style={{
-                background: `radial-gradient(circle at center, ${color.glow} 0%, transparent 70%)`,
-                transform: "scale(2)",
-              }}
-            />
-          </div>
-        )}
-
         {/* Planet as background — scaled up so planet is bigger, info stays same size */}
         <div
           className="absolute inset-0 flex items-center justify-center"
@@ -119,19 +103,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
               "relative overflow-hidden transition-all duration-500",
               isActive ? "h-44 w-44 rounded-full" : "h-32 w-32 rounded-full",
             )}
-            style={{
-              boxShadow: isActive
-                ? `0 0 0 3px ${color.ring}66, 0 0 24px ${color.glow}`
-                : "0 0 0 2px rgba(255,255,255,0.15)",
-            }}
           >
-            {/* Ring orbit line around portrait when active */}
-            {isActive && (
-              <div
-                className="pointer-events-none absolute -inset-3 rounded-full border opacity-40"
-                style={{ borderColor: color.ring, borderStyle: "dashed" }}
-              />
-            )}
             <DOTImage
               alt={profile.name}
               src={profile.imageURL}
@@ -142,93 +114,57 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
           </div>
         </div>
 
-        {/* Info */}
+        {/* Info — frosted panel so text stays readable on any planet color */}
         <div
           className={cn(
-            "relative z-10 flex flex-col items-center gap-1 px-6 text-center transition-all duration-500",
+            "relative z-10 w-full max-w-[min(100%,288px)] self-center transition-all duration-500",
             isActive ? "mt-5" : "mt-4",
           )}
         >
-          <h3
-            className={cn(
-              "leading-tight font-bold tracking-tight text-white transition-all duration-500",
-              isActive ? "text-2xl" : "text-lg",
-            )}
-          >
-            {profile.name}
-          </h3>
-
-          <p
-            className={cn(
-              "transition-all duration-500",
-              isActive
-                ? "text-sm font-medium text-white/70"
-                : "text-xs text-white/50",
-            )}
-          >
-            {profile.position}
-          </p>
-
-          {/* Company badge */}
           <div
             className={cn(
-              "mt-1 rounded-full px-3 py-0.5 transition-all duration-500",
-              isActive ? "opacity-100" : "opacity-60",
+              "flex w-full flex-col items-center justify-center gap-1.5 rounded-full border border-black/[0.06] text-center shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-500",
+              isActive ? "bg-black/45 px-6 py-3.5" : "bg-black/40 px-5 py-2.5",
             )}
-            style={{
-              background: isActive
-                ? `linear-gradient(90deg, ${color.streak}33, ${color.ring}33)`
-                : "rgba(255,255,255,0.08)",
-              border: `1px solid ${isActive ? `${color.ring}55` : "rgba(255,255,255,0.1)"}`,
-            }}
           >
-            <span
-              className="text-xs font-semibold tracking-wide"
-              style={{ color: isActive ? color.ring : "rgba(255,255,255,0.5)" }}
+            <h3
+              className={cn(
+                "leading-tight tracking-tight text-white transition-all duration-500",
+                isActive ? "text-2xl" : "text-lg",
+              )}
             >
-              {profile.company}
-            </span>
+              {profile.name}
+            </h3>
+
+            <p
+              className={cn(
+                "max-w-[260px] text-white/70 transition-all duration-500",
+                isActive ? "text-sm" : "text-xs",
+              )}
+            >
+              {profile.company
+                ? `${profile.position} @ ${profile.company}`
+                : profile.position}
+            </p>
+
+            {/* LinkedIn */}
+            {isActive && (
+              <Link
+                href={profile.linkedInURL}
+                className="mt-2 flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs text-white transition-all hover:scale-105 hover:brightness-110"
+                style={{
+                  background: `linear-gradient(135deg, ${color.streak}, ${color.ring})`,
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.25)",
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LinkedinIconStroke />
+                LinkedIn
+              </Link>
+            )}
           </div>
-
-          {/* LinkedIn */}
-          {isActive && (
-            <Link
-              href={profile.linkedInURL}
-              className="mt-3 flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold text-white transition-all hover:scale-105 hover:brightness-110"
-              style={{
-                background: `linear-gradient(135deg, ${color.streak}, ${color.ring})`,
-                boxShadow: `0 4px 16px ${color.glow}`,
-              }}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedinIconStroke />
-              LinkedIn
-            </Link>
-          )}
         </div>
-
-        {/* Bottom corner constellation dots */}
-        {isActive && (
-          <>
-            <div
-              className="absolute bottom-4 left-4 h-1 w-1 rounded-full opacity-60"
-              style={{ backgroundColor: color.ring }}
-            />
-            <div
-              className="absolute bottom-6 left-7 h-0.5 w-0.5 rounded-full opacity-40"
-              style={{ backgroundColor: color.ring }}
-            />
-            <div
-              className="absolute right-4 bottom-4 h-1 w-1 rounded-full opacity-60"
-              style={{ backgroundColor: color.ring }}
-            />
-            <div
-              className="absolute right-6 bottom-7 h-0.5 w-0.5 rounded-full opacity-30"
-              style={{ backgroundColor: color.ring }}
-            />
-          </>
-        )}
       </div>
     </div>
   );

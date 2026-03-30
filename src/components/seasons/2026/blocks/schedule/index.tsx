@@ -272,7 +272,34 @@ export default function Itinerary() {
         position: "relative",
       }}
     >
-      <div className="relative container" style={{ zIndex: 1 }}>
+      {/* ── Rocket — center-right, behind content, tilted slightly ── */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          right: "-2%",
+          transform: "translateY(-50%) rotate(-15deg)",
+          width: "clamp(120px, 16vw, 260px)",
+          zIndex: 0,
+          opacity: 0.55,
+          transition: "opacity 1.5s ease-out",
+          pointerEvents: "none",
+          animation: isInView
+            ? "rocket-float 6s ease-in-out infinite"
+            : undefined,
+        }}
+      >
+        <DOTImage
+          src="/images/seasons/2026/landing/itinerary/rocket.png"
+          alt=""
+          width={400}
+          height={800}
+          sizes="260px"
+          className="h-auto w-full object-contain"
+        />
+      </div>
+
+      <div className="container relative" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* ── Title row: title left, tab selector right aligned to baseline ── */}
           <div
@@ -289,9 +316,10 @@ export default function Itinerary() {
               Itinerary
             </h1>
 
-            {/* Tab selector with alien — baseline-aligned with title */}
-            <div className="relative inline-flex flex-col items-center self-end pb-2">
-              {/* Alien hugging top-right */}
+            {/* Wrapper anchors the alien relative to the tab pill */}
+            <div className="relative inline-flex flex-col items-center">
+
+              {/* Alien hugging the top-right of the tab selector */}
               <div
                 className="pointer-events-none absolute"
                 style={{
@@ -318,7 +346,7 @@ export default function Itinerary() {
                   <TabsTrigger
                     key={day.date}
                     value={day.date}
-                    className="!text-blue px-6 py-3 [font-family:var(--font-inria-sans)] text-lg font-semibold data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-white"
+                    className="px-5 py-2.5 text-base !text-white [font-family:var(--font-inria-sans)] data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
                   >
                     {day.date}
                   </TabsTrigger>

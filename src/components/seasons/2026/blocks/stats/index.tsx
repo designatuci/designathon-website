@@ -10,7 +10,10 @@ export default function Stats() {
   const starsInView = useInView(starsRef, { once: true, amount: 0.5 });
 
   return (
-    <section id="stats" className="relative w-full py-4 sm:py-20 lg:py-28">
+    <section
+      id="stats"
+      className="relative w-full min-w-0 overflow-x-clip py-4 sm:py-20 lg:py-28"
+    >
       <style>{`
         @keyframes floatStatsFlame {
           0%, 100% { transform: translateY(0px) rotate(-2deg); }
@@ -25,7 +28,7 @@ export default function Stats() {
           }
         }
       `}</style>
-      <div className="relative mx-auto aspect-[1113/500] w-full">
+      <div className="relative mx-auto aspect-[1113/500] w-full min-w-0 overflow-x-clip">
         <div
           ref={starsRef}
           className={cn(
@@ -66,7 +69,7 @@ export default function Stats() {
           </div>
         </div>
 
-        <div className="items-top relative z-10 flex w-full justify-center pt-8 sm:pt-10 lg:pt-16">
+        <div className="items-top relative z-10 flex w-full justify-center pt-8">
           <div className="flex w-full max-w-[1920px] flex-col items-center justify-center gap-8 px-4">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
               <StatsCard stats={250} label="projects" />

@@ -123,7 +123,7 @@ export default function IndexPage() {
     <section
       id="judges"
       ref={sectionRef}
-      className="flex min-h-screen items-center justify-center overflow-x-hidden bg-(--blue) px-4 py-4 text-white md:overflow-x-visible"
+      className="flex min-h-screen items-center justify-center overflow-x-clip bg-(--blue) px-4 py-4 text-white"
     >
       <div className="container flex w-full flex-col items-center gap-0 overflow-x-hidden md:overflow-x-visible">
         <h1 className="w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
@@ -133,22 +133,25 @@ export default function IndexPage() {
           opts={{
             loop: true,
             slidesToScroll: 1,
+            align: "center",
+            containScroll: "trimSnaps",
           }}
           setApi={(api) => {
             carouselApiRef.current = api;
             api?.on("select", updateActiveIndex);
             updateActiveIndex();
           }}
-          className="-mt-8 w-full overflow-visible"
+          className="-mt-8 w-full max-w-[100vw] overflow-visible"
         >
           <div className="relative overflow-visible">
-            <CarouselContent allowOverflow>
+            <CarouselContent allowOverflow className="xl:-ml-120">
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="md:p1-0 flex basis-full justify-center py-4 md:basis-1/4"
+                  className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/5 xl:pl-120"
                 >
-                  <div className="origin-center scale-[0.55] md:scale-75">
+                  {/* Scale to slide width: 3 planets (md–lg), 5 on xl+; mobile stays 1-up */}
+                  <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-90">
                     <ProfileCard
                       profile={judge}
                       isInView={isInView}
