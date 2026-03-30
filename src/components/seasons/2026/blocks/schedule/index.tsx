@@ -242,7 +242,6 @@ function EventRow({
             </div>
             <p
               style={{
-                fontFamily: "var(--font-inria-sans)",
                 color: "rgba(255,255,255,0.7)",
                 lineHeight: "1.6",
                 margin: 0,
