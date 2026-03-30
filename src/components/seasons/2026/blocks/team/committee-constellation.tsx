@@ -124,6 +124,10 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
       ? 0
       : Math.min(Math.max(0, currentIdx), members.length - 1);
   const member = members[safeIdx];
+  const photoSrc =
+    member?.photo && member.photo.trim().length > 0
+      ? member.photo
+      : "/images/seasons/2026/landing/team/nailong.png";
 
   const renderCanvas = () => (
     <>
@@ -487,8 +491,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 }}
               >
                 <Image
-                  src="/images/seasons/2026/landing/team/nailong.png"
-                  alt="nailong pic"
+                  src={photoSrc}
+                  alt={member?.name ? `${member.name} pic` : "Team member pic"}
                   width={64}
                   height={64}
                   style={{

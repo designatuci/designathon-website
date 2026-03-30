@@ -57,7 +57,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/jay-chan.png",
         name: "Jay Chan",
         role: "Director (Development)",
         year: "3rd Year",
@@ -65,7 +65,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I was born with 11 fingers!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/anna-kwan.png",
         name: "Anna Kwan",
         role: "Director (UI/UX)",
         year: "4th Year",
@@ -73,7 +73,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I've been to 11 countries!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/johnson-nguyen.jpg",
         name: "Johnson Nguyen",
         role: "Committee (Development)",
         year: "3rd Year",
@@ -81,7 +81,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "My favorite Eevee evolution is Sylveon.",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/abby-chang.jpg",
         name: "Abby Chang",
         role: "Committee (UI/UX)",
         year: "2nd Year",
@@ -89,7 +89,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I love doing my nails!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/alice-ger.png",
         name: "Alice Ger",
         role: "Committee (UI/UX)",
         year: "3rd Year",
@@ -156,7 +156,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/allison-huang.jpg",
         name: "Allison Huang",
         role: "Director",
         year: "2nd Year",
@@ -164,7 +164,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I prefer tea over coffee.",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/evie-ngo.png",
         name: "Evie Ngo",
         role: "Director",
         year: "3rd Year",
@@ -172,7 +172,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I've hosted a matcha pop-up I built by hand!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/heidi-tran.JPG",
         name: "Heidi Tran",
         role: "Committee",
         year: "4th Year",
@@ -181,7 +181,7 @@ export const COMMITTEES: Committee[] = [
           "I love SpongeBob and have been collecting SpongeBob trinkets since I was a kid!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/queena-liu.jpg",
         name: "Queena Liu",
         role: "Committee",
         year: "3rd Year",
@@ -228,7 +228,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/sahana-iyer.JPG",
         name: "Sahana Iyer",
         role: "Director",
         year: "3rd Year",
@@ -236,7 +236,8 @@ export const COMMITTEES: Committee[] = [
         funFact: "My favorite type of cheese is pepperjack!",
       },
       {
-        photo: "",
+        photo:
+          "/images/seasons/2026/landing/team/imported/gabrielle-landavora.jpg",
         name: "Gabrielle Neve Landavora",
         role: "Committee",
         year: "3rd Year",
@@ -244,7 +245,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I currently have a collection of around 20 perfumes!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/emily-ono.jpeg",
         name: "Emily Ono",
         role: "Committee",
         year: "2nd Year",
@@ -311,7 +312,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/julia-tjia.jpg",
         name: "Julia Tjia",
         role: "Director",
         year: "4th Year",
@@ -320,7 +321,7 @@ export const COMMITTEES: Committee[] = [
           "I've been in an episode of Girl Meets World as a background actor!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/paolo-brinas.jpg",
         name: "Paolo Brinas",
         role: "Committee",
         year: "4th Year",
@@ -328,7 +329,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I longboard dance!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/vanessa-chok.jpg",
         name: "Vanessa Chok",
         role: "Committee",
         year: "3rd Year",
@@ -337,7 +338,7 @@ export const COMMITTEES: Committee[] = [
           "I'm obsessed with collecting random paper scraps to put in my zines!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/audrey-zheng.jpg",
         name: "Audrey Zheng",
         role: "Committee",
         year: "1st Year",
@@ -400,7 +401,8 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo:
+          "/images/seasons/2026/landing/team/directors/julianna-nacorda.jpg",
         name: "Julianna Nacorda",
         role: "Director",
         year: "3rd Year",
@@ -409,7 +411,7 @@ export const COMMITTEES: Committee[] = [
           "I went camping, kayaking and hiking at Channel Islands National Park over the summer!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/candice-li.png",
         name: "Candice Li",
         role: "Committee",
         year: "2nd Year",
@@ -417,7 +419,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I am a smiski addict...",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/sherry-tram.jpg",
         name: "Sherry Tram",
         role: "Committee",
         year: "2nd Year",
@@ -468,7 +470,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/directors/chloe-chun.jpg",
         name: "Chloe Chun",
         role: "Director",
         year: "2nd Year",
@@ -476,7 +478,8 @@ export const COMMITTEES: Committee[] = [
         funFact: "I have a fear of birds.",
       },
       {
-        photo: "",
+        photo:
+          "/images/seasons/2026/landing/team/imported/bharathi-kaliraj.png",
         name: "Bharathi Kaliraj",
         role: "Committee",
         year: "2nd Year",
@@ -484,7 +487,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I've moved 17 times!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/tiffany-ng.jpg",
         name: "Tiffany Ng",
         role: "Committee",
         year: "3rd Year",
@@ -492,7 +495,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I have a huge fear of birds!",
       },
       {
-        photo: "",
+        photo: "/images/seasons/2026/landing/team/imported/william-vo.jpg",
         name: "William Vo",
         role: "Committee",
         year: "3rd Year",
