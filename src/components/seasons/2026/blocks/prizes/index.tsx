@@ -6,14 +6,17 @@ const prizes = [
   {
     title: "First Place",
     imageSrc: "/images/seasons/2026/landing/prizes/first.png",
+    subtitle: "1 winner",
   },
   {
     title: "Second Place",
     imageSrc: "/images/seasons/2026/landing/prizes/second.png",
+    subtitle: "1 winner",
   },
   {
     title: "Third Place",
     imageSrc: "/images/seasons/2026/landing/prizes/third.png",
+    subtitle: "1 winner",
   },
 ];
 
@@ -68,7 +71,7 @@ export default function Prizes() {
                 {prize.title}
               </p>
               <p className="text-sm tracking-wide text-white/70 md:text-base">
-                info here
+                {prize.subtitle}
               </p>
             </div>
           ))}
