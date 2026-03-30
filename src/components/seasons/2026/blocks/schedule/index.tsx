@@ -2,12 +2,8 @@
 
 import DOTImage from "@components/common/dot-image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
-import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import {
-  scheduleDays,
-  ScheduleEvent,
-} from "./schedule-events";
+import { scheduleDays, ScheduleEvent } from "./schedule-events";
 
 const ACCENT = "#38bdf8"; // sky-400
 const ACCENT_DIM = "rgba(56,189,248,0.15)";
@@ -56,7 +52,6 @@ function EventRow({
   isLast: boolean;
   onToggle: () => void;
 }) {
-
   return (
     <div style={{ display: "flex", gap: "1.25rem" }}>
       {/* Node + spine segment */}
@@ -266,7 +261,6 @@ function DayTimeline({ events }: { events: ScheduleEvent[] }) {
 
 export default function Itinerary() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
 
   return (
     <section
@@ -278,7 +272,6 @@ export default function Itinerary() {
         position: "relative",
       }}
     >
-
       <div className="relative container" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* ── Title row: title left, tab selector right aligned to baseline ── */}
@@ -333,7 +326,6 @@ export default function Itinerary() {
               </TabsList>
             </div>
           </div>
-
 
           {scheduleDays.map((day) => (
             <TabsContent key={day.date} value={day.date}>
