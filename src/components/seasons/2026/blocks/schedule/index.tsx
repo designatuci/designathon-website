@@ -201,57 +201,58 @@ function EventRow({
         </div>
 
         {isSelected && (
-  <div
-    style={{
-      marginTop: "0.5rem",
-      padding: "1rem 1.25rem",
-      borderRadius: "0.75rem",
-      // matches Rules card
-      background: "rgba(195, 195, 195, 0.01)",
-      border: "1px solid rgba(88, 63, 247, 0.7)",
-      backdropFilter: "blur(12px)",
-      borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
-      position: "relative",
-      overflow: "hidden",
-    }}
-    >
-      {/* Glare streak — exact same as Rules card */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "2rem",
-          right: "2rem",
-          height: "2px",
-          borderRadius: "999px",
-          background: "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
-        }}
-      />
+          <div
+            style={{
+              marginTop: "0.5rem",
+              padding: "1rem 1.25rem",
+              borderRadius: "0.75rem",
+              // matches Rules card
+              background: "rgba(195, 195, 195, 0.01)",
+              border: "1px solid rgba(88, 63, 247, 0.7)",
+              backdropFilter: "blur(12px)",
+              borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            {/* Glare streak — exact same as Rules card */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "2rem",
+                right: "2rem",
+                height: "2px",
+                borderRadius: "999px",
+                background:
+                  "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
+              }}
+            />
 
-      <div
-        style={{
-          fontFamily: "var(--font-inria-sans)",
-          fontSize: "1rem",
-          color: ACCENT,
-          marginBottom: "0.5rem",
-          letterSpacing: "0.08em",
-        }}
-      >
-        {event.time} – {event.endTime}
-      </div>
-      <p
-        style={{
-          fontFamily: "var(--font-inria-sans)",
-          color: "rgba(255,255,255,0.7)",
-          lineHeight: "1.6",
-          margin: 0,
-        }}
-        className="text-base sm:text-base lg:text-lg xl:text-xl"
-      >
-        {event.description}
-      </p>
-    </div>
-  )}
+            <div
+              style={{
+                fontFamily: "var(--font-inria-sans)",
+                fontSize: "1rem",
+                color: ACCENT,
+                marginBottom: "0.5rem",
+                letterSpacing: "0.08em",
+              }}
+            >
+              {event.time} – {event.endTime}
+            </div>
+            <p
+              style={{
+                fontFamily: "var(--font-inria-sans)",
+                color: "rgba(255,255,255,0.7)",
+                lineHeight: "1.6",
+                margin: 0,
+              }}
+              className="text-base sm:text-base lg:text-lg xl:text-xl"
+            >
+              {event.description}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
