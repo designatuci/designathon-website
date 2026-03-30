@@ -13,7 +13,7 @@ function Partners() {
   return (
     <section
       id="partners"
-      className="flex h-fit justify-center overflow-hidden bg-(--blue) py-12 pb-10 text-white xl:pb-0"
+      className="flex h-[120vh] justify-center overflow-hidden bg-(--blue) py-12 pb-10 text-white md:h-fit xl:pb-0"
     >
       <div className="flex w-full flex-col 3xl:max-w-[1920px]">
         <div

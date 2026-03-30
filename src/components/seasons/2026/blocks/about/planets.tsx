@@ -218,7 +218,7 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
   });
 
   return (
-    <div className="relative hidden h-full lg:block lg:w-[58%]">
+    <div className="relative hidden h-full md:block md:w-[55%] lg:w-[58%]">
       {/* Orbital system */}
       <div className="absolute inset-0">
         <OrbitalRings />
