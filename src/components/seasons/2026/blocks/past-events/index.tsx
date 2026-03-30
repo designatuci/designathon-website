@@ -24,6 +24,7 @@ function Planet({ config }: { config: PlanetConfig }) {
           config.positionTablet,
           config.positionDesktop,
           config.sizeMobile,
+          config.sizeTablet,
           config.sizeDesktop,
         )}
       >
@@ -51,7 +52,7 @@ function Planet({ config }: { config: PlanetConfig }) {
 
       <DialogContent className="max-h-[90svh] overflow-y-auto">
         <DialogHeader className="items-start text-start">
-          <DialogTitle className="text-3xl font-semibold text-[#354f99] sm:text-4xl">
+          <DialogTitle className="text-3xl font-semibold text-[#400C58] sm:text-4xl">
             {config.modalContent.title}
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -61,18 +62,18 @@ function Planet({ config }: { config: PlanetConfig }) {
 
         <div className="text-lg">
           <div className="flex gap-2">
-            <h3 className="font-semibold text-[#f984a9]">Theme</h3>
+            <h3 className="font-semibold text-[#565F7A]">Theme</h3>
             <p>{config.modalContent.theme}</p>
           </div>
 
           <div className="flex gap-2">
-            <h3 className="font-semibold text-[#f984a9]">Participants</h3>
+            <h3 className="font-semibold text-[#565F7A]">Participants</h3>
             <p>{config.modalContent.participants}</p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-3xl font-semibold text-[#354f99]">
+          <h2 className="text-3xl font-semibold text-[#400C58]">
             Awarded Entries
           </h2>
 
@@ -82,7 +83,7 @@ function Planet({ config }: { config: PlanetConfig }) {
                 key={`${entry.title}-${index}`}
                 className="flex flex-col items-center rounded-xl border border-zinc-300 p-4"
               >
-                <h3 className="mb-2 text-lg font-semibold text-[#f984a9]">
+                <h3 className="mb-2 text-lg font-semibold text-[#565F7A]">
                   {entry.placement}
                 </h3>
 
@@ -137,13 +138,29 @@ export default function PastEvents() {
   return (
     <section id="past-events" className="relative mt-8 overflow-visible py-4">
       <div className="relative container mx-auto min-h-full">
-        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:mb-48 xl:text-[7rem]">
+        <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl lg:mb-36 xl:mb-48 xl:text-[7rem]">
           Past Events
         </h1>
 
         <svg className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible sm:block">
+          {/* tablet */}
           <ellipse
-            cx="40%"
+            className="hidden md:block xl:hidden"
+            cx="30%"
+            cy="45%"
+            rx="62%"
+            ry="22%"
+            fill="none"
+            stroke="rgba(255,255,255,0.25)"
+            strokeWidth="1.5"
+            strokeDasharray="6 8"
+            transform="rotate(-40, 69%, 55%)"
+          />
+
+          {/* desktop */}
+          <ellipse
+            className="hidden xl:block"
+            cx="38%"
             cy="54%"
             rx="54%"
             ry="30%"
@@ -157,7 +174,7 @@ export default function PastEvents() {
 
         <motion.div
           ref={ref}
-          className="relative min-h-[1200px] w-full md:min-h-[1000px] lg:min-h-[1100px]"
+          className="relative min-h-[900px] w-full md:min-h-[1000px] lg:min-h-[900px] xl:min-h-[1100px]"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
