@@ -5,10 +5,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
 import {
-  eventTypeStyles,
   scheduleDays,
   ScheduleEvent,
 } from "./schedule-events";
+
+const ACCENT = "#38bdf8"; // sky-400
+const ACCENT_DIM = "rgba(56,189,248,0.15)";
+const ACCENT_BORDER = "rgba(56,189,248,0.25)";
 
 function LocationIcon() {
   return (
@@ -53,7 +56,6 @@ function EventRow({
   isLast: boolean;
   onToggle: () => void;
 }) {
-  const style = eventTypeStyles[event.type];
 
   return (
     <div style={{ display: "flex", gap: "1.25rem" }}>
@@ -72,9 +74,9 @@ function EventRow({
             width: "16px",
             height: "16px",
             borderRadius: "50%",
-            background: isSelected ? style.color : "rgba(255,255,255,0.2)",
-            border: `2px solid ${isSelected ? style.color : "rgba(255,255,255,0.3)"}`,
-            boxShadow: isSelected ? `0 0 16px ${style.color}` : "none",
+            background: ACCENT,
+            border: `2px solid ${ACCENT_BORDER}`,
+            boxShadow: `0 0 16px ${ACCENT_DIM}`,
             transition: "all 0.25s",
             cursor: "pointer",
             flexShrink: 0,
@@ -115,8 +117,8 @@ function EventRow({
           <span
             style={{
               fontFamily: "var(--font-inria-sans)",
-              fontSize: "0.8rem",
-              color: "rgba(255, 255, 255, 0.81)",
+              fontSize: "1rem",
+              color: "white",
               minWidth: "70px",
               letterSpacing: "0.05em",
             }}
@@ -127,16 +129,12 @@ function EventRow({
           <div
             style={{
               fontFamily: "var(--font-inria-sans)",
-              padding: "0.35rem 1rem",
-              borderRadius: "999px",
-              background: isSelected ? style.bg : "rgba(255,255,255,0.06)",
-              border: `1px solid ${isSelected ? style.color + "88" : "rgba(255,255,255,0.12)"}`,
-              color: isSelected ? style.color : "white",
-              fontSize: "0.9rem",
+              color: isSelected ? ACCENT : "white",
               fontWeight: "bold",
               transition: "all 0.25s",
               whiteSpace: "nowrap",
             }}
+            className="text-base sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl"
           >
             {event.title}
           </div>
@@ -147,7 +145,7 @@ function EventRow({
               display: "flex",
               alignItems: "center",
               gap: "0.3rem",
-              fontSize: "0.8rem",
+              fontSize: "1rem",
               color: "rgba(255, 255, 255, 0.81)",
             }}
           >
@@ -166,7 +164,7 @@ function EventRow({
                 display: "flex",
                 alignItems: "center",
                 gap: "0.3rem",
-                fontSize: "0.7rem",
+                fontSize: "0.75rem",
                 color: "#38bdf8",
                 background: "rgba(56,189,248,0.1)",
                 border: "1px solid rgba(56,189,248,0.25)",
@@ -193,7 +191,7 @@ function EventRow({
                 display: "flex",
                 alignItems: "center",
                 gap: "0.3rem",
-                fontSize: "0.7rem",
+                fontSize: "0.75rem",
                 color: "#38bdf8",
                 background: "rgba(56,189,248,0.1)",
                 border: "1px solid rgba(56,189,248,0.25)",
@@ -214,16 +212,16 @@ function EventRow({
               padding: "1rem 1.25rem",
               borderRadius: "0.75rem",
               background: "rgba(255,255,255,0.04)",
-              border: `1px solid ${style.border}`,
+              border: `1px solid ${ACCENT_BORDER}`,
               backdropFilter: "blur(12px)",
-              borderLeft: `3px solid ${style.color}`,
+              borderLeft: `3px solid ${ACCENT_DIM}`,
             }}
           >
             <div
               style={{
                 fontFamily: "var(--font-inria-sans)",
-                fontSize: "0.8rem",
-                color: style.color,
+                fontSize: "1rem",
+                color: ACCENT,
                 marginBottom: "0.5rem",
                 letterSpacing: "0.08em",
               }}
@@ -234,10 +232,10 @@ function EventRow({
               style={{
                 fontFamily: "var(--font-inria-sans)",
                 color: "rgba(255,255,255,0.7)",
-                fontSize: "1rem",
                 lineHeight: "1.6",
                 margin: 0,
               }}
+              className="text-base sm:text-base lg:text-lg xl:text-xl"
             >
               {event.description}
             </p>
@@ -278,64 +276,37 @@ export default function Itinerary() {
         minHeight: "100vh",
         padding: "3rem 1.5rem",
         position: "relative",
-        overflow: "clip",
       }}
     >
-      {/* ── Rocket — center-right, behind content, tilted slightly ── */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "-2%",
-          transform: "translateY(-50%) rotate(-15deg)",
-          width: "clamp(120px, 16vw, 260px)",
-          zIndex: 0,
-          opacity: 0.55,
-          transition: "opacity 1.5s ease-out",
-          pointerEvents: "none",
-          animation: isInView
-            ? "rocket-float 6s ease-in-out infinite"
-            : undefined,
-        }}
-      >
-        <DOTImage
-          src="/images/seasons/2026/landing/itinerary/rocket.png"
-          alt=""
-          width={400}
-          height={800}
-          sizes="260px"
-          className="h-auto w-full object-contain"
-        />
-      </div>
 
-      <div className="container relative" style={{ zIndex: 1 }}>
+      <div className="relative container" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
-          {/* Header row: title left, tabs right */}
+          {/* ── Title row: title left, tab selector right aligned to baseline ── */}
           <div
             style={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "flex-end",
               justifyContent: "space-between",
-              marginBottom: "2.5rem",
               gap: "1rem",
               flexWrap: "wrap",
+              marginBottom: "1rem",
             }}
           >
             <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
               Itinerary
             </h1>
 
-            {/* Wrapper anchors the alien relative to the tab pill */}
-            <div className="relative inline-flex flex-col items-center">
-
-              {/* Alien hugging the top-right of the tab selector */}
+            {/* Tab selector with alien — baseline-aligned with title */}
+            <div className="relative inline-flex flex-col items-center self-end pb-2">
+              {/* Alien hugging top-right */}
               <div
                 className="pointer-events-none absolute"
                 style={{
-                  top: "5px",
+                  top: "-65px",
                   right: "20px",
+                  width: "clamp(150px, 5vw, 200px)",
                   zIndex: 10,
-                  animation: "rocket-float 4s ease-in-out infinite",
+                  animation: "alien-float 4s ease-in-out infinite",
                   animationDelay: "0.5s",
                 }}
               >
@@ -344,7 +315,7 @@ export default function Itinerary() {
                   alt=""
                   width={2360}
                   height={1640}
-                  sizes="120px"
+                  sizes="70px"
                   className="h-auto w-full object-contain"
                 />
               </div>
@@ -354,7 +325,7 @@ export default function Itinerary() {
                   <TabsTrigger
                     key={day.date}
                     value={day.date}
-                    className="px-5 py-2.5 text-base !text-white [font-family:var(--font-inria-sans)] data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
+                    className="!text-blue px-6 py-3 [font-family:var(--font-inria-sans)] text-lg font-semibold data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-white"
                   >
                     {day.date}
                   </TabsTrigger>
@@ -362,6 +333,7 @@ export default function Itinerary() {
               </TabsList>
             </div>
           </div>
+
 
           {scheduleDays.map((day) => (
             <TabsContent key={day.date} value={day.date}>
@@ -372,9 +344,14 @@ export default function Itinerary() {
       </div>
 
       <style>{`
-        @keyframes rocket-float {
-          0%, 100% { transform: translateY(calc(-80% + 8px)); }
-          50%       { transform: translateY(calc(-50% - 14px)) rotate(-15deg); }
+       
+        @keyframes planet-float {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-16px); }
+        }
+          @keyframes alien-float {
+
+          50%       { transform: translateY(5%) rotate(15deg); }
         }
       `}</style>
     </section>
