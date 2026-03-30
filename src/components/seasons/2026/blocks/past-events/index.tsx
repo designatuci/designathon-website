@@ -15,6 +15,12 @@ import { useRef } from "react";
 import { eventsList, PlanetConfig } from "./events";
 
 function Planet({ config }: { config: PlanetConfig }) {
+  const gradientCss = config.modalGradient
+    ? `linear-gradient(to bottom, ${config.modalGradient.fromColor} ${config.modalGradient.fromStopPct}%, ${config.modalGradient.toColor} ${config.modalGradient.toStopPct}%)`
+    : "linear-gradient(to bottom, #FFEFF8 19%, #C1BAF0 86%)";
+
+  const is2021 = config.modalContent.title === "Design-a-thon 2021";
+
   return (
     <Dialog>
       <DialogTrigger
@@ -50,9 +56,20 @@ function Planet({ config }: { config: PlanetConfig }) {
         </div>
       </DialogTrigger>
 
-      <DialogContent className="max-h-[90svh] overflow-y-auto">
+      <DialogContent
+        className="max-h-[90svh] overflow-y-auto border-white/10 bg-transparent [font-family:var(--font-inria-sans)]"
+        style={{
+          backgroundColor: "transparent",
+          backgroundImage: gradientCss,
+        }}
+      >
         <DialogHeader className="items-start text-start">
-          <DialogTitle className="text-3xl font-semibold text-[#400C58] sm:text-4xl">
+          <DialogTitle
+            className={cn(
+              "text-3xl font-semibold sm:text-4xl",
+              is2021 ? "text-white" : "text-[#003847]",
+            )}
+          >
             {config.modalContent.title}
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -62,18 +79,41 @@ function Planet({ config }: { config: PlanetConfig }) {
 
         <div className="text-lg">
           <div className="flex gap-2">
-            <h3 className="font-semibold text-[#565F7A]">Theme</h3>
-            <p>{config.modalContent.theme}</p>
+            <h3
+              className={cn(
+                "font-semibold",
+                is2021 ? "text-white" : "text-[#003847]",
+              )}
+            >
+              Theme
+            </h3>
+            <p className={cn(is2021 ? "text-white/90" : undefined)}>
+              {config.modalContent.theme}
+            </p>
           </div>
 
           <div className="flex gap-2">
-            <h3 className="font-semibold text-[#565F7A]">Participants</h3>
-            <p>{config.modalContent.participants}</p>
+            <h3
+              className={cn(
+                "font-semibold",
+                is2021 ? "text-white" : "text-[#003847]",
+              )}
+            >
+              Participants
+            </h3>
+            <p className={cn(is2021 ? "text-white/90" : undefined)}>
+              {config.modalContent.participants}
+            </p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-3xl font-semibold text-[#400C58]">
+          <h2
+            className={cn(
+              "text-3xl font-semibold",
+              is2021 ? "text-white" : "text-[#003847]",
+            )}
+          >
             Awarded Entries
           </h2>
 
@@ -81,9 +121,9 @@ function Planet({ config }: { config: PlanetConfig }) {
             {config.modalContent.entries.map((entry, index) => (
               <div
                 key={`${entry.title}-${index}`}
-                className="flex flex-col items-center rounded-xl border border-zinc-300 p-4"
+                className="flex flex-col items-center rounded-xl border border-zinc-300 bg-white p-4"
               >
-                <h3 className="mb-2 text-lg font-semibold text-[#565F7A]">
+                <h3 className="mb-2 text-lg font-semibold text-[#003847]">
                   {entry.placement}
                 </h3>
 
@@ -136,13 +176,13 @@ export default function PastEvents() {
   };
 
   return (
-    <section id="past-events" className="relative mt-8 overflow-visible py-4">
+    <section id="past-events" className="relative mt-8 overflow-x-clip py-4">
       <div className="relative container mx-auto min-h-full">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl lg:mb-36 xl:mb-48 xl:text-[7rem]">
           Past Events
         </h1>
 
-        <svg className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible sm:block">
+        <svg className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-x-clip sm:block">
           {/* tablet */}
           <ellipse
             className="hidden md:block xl:hidden"

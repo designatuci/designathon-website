@@ -24,6 +24,12 @@ export interface PlanetConfig {
   sizeTablet?: string;
   sizeDesktop?: string;
   modalContent: EventModalContent;
+  modalGradient?: {
+    fromColor: string; // hex, with leading '#'
+    fromStopPct: number;
+    toColor: string; // hex, with leading '#'
+    toStopPct: number;
+  };
 }
 
 export const eventsList: PlanetConfig[] = [
@@ -57,6 +63,12 @@ export const eventsList: PlanetConfig[] = [
         },
       ],
     },
+    modalGradient: {
+      fromColor: "#001AFF",
+      fromStopPct: 0,
+      toColor: "#B200A3",
+      toStopPct: 100,
+    },
   },
   {
     src: "/images/seasons/2026/landing/about/blue.png",
@@ -89,6 +101,12 @@ export const eventsList: PlanetConfig[] = [
         },
       ],
     },
+    modalGradient: {
+      fromColor: "#B0E5C4",
+      fromStopPct: 0,
+      toColor: "#C1BAF0",
+      toStopPct: 100,
+    },
   },
   {
     src: "/images/seasons/2026/landing/about/yellow.png",
@@ -119,6 +137,12 @@ export const eventsList: PlanetConfig[] = [
           description: "Created by Mandy Wu, Lea Hidaka",
         },
       ],
+    },
+    modalGradient: {
+      fromColor: "#FFE988",
+      fromStopPct: 31,
+      toColor: "#447BF3",
+      toStopPct: 86,
     },
   },
   {
@@ -159,6 +183,12 @@ export const eventsList: PlanetConfig[] = [
             "Created by Sun Graham, Jocelyn Le, Ethan Zhao, and Sasha Shor",
         },
       ],
+    },
+    modalGradient: {
+      fromColor: "#FFFCED",
+      fromStopPct: 19,
+      toColor: "#F0C3BA",
+      toStopPct: 86,
     },
   },
   {
