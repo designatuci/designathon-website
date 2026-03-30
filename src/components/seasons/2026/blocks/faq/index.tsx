@@ -134,18 +134,18 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
               right: "2rem",
               height: "2px",
               borderRadius: "999px",
-              background: "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
+              background:
+                "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
             }}
           />
           <p
             style={{
-              fontFamily: "var(--font-inria-sans)",
               color: "rgba(255,255,255,0.7)",
               fontSize: "1rem",
               lineHeight: "1.6",
               margin: 0,
             }}
-            className="sm:text-base lg:text-lg xl:text-xl"
+            className="text-base sm:text-base lg:text-lg xl:text-xl"
           >
             {item.answer}
           </p>
