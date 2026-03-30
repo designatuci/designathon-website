@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -306,6 +307,49 @@ export default function Hero() {
             filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
           }}
         />
+
+        <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 -translate-y-[55%] md:translate-y-[60%]">
+          <div
+            className="relative flex flex-col items-center gap-2 text-center [font-family:var(--font-inria-sans)]"
+            style={{
+              padding: "1rem 1.25rem",
+              borderRadius: "0.75rem",
+              background: "rgba(195, 195, 195, 0.03)",
+              border: "1px solid rgba(88, 63, 247, 0.7)",
+              backdropFilter: "blur(12px)",
+              borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+              color: "rgba(255,255,255,0.7)",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: "2rem",
+                right: "2rem",
+                height: "2px",
+                borderRadius: "999px",
+                background:
+                  "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167, 139, 250, 0.5), transparent)",
+              }}
+            />
+
+            <div className="flex items-center gap-2">
+              <Calendar className="size-5 shrink-0 text-white/70" />
+              <p className="text-sm whitespace-nowrap sm:text-base">
+                April 24 - 26, 2026
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="size-5 shrink-0 text-white/70" />
+              <p className="text-sm whitespace-nowrap sm:text-base">
+                UC Irvine DCE
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
         <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
