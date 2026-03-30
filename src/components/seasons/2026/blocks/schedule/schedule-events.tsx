@@ -34,7 +34,7 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "06:30 PM",
         title: "Opening Ceremony",
         location: "DCE Yosemite",
-        zoom: true,
+        zoom: false,
         description:
           "Join us as we kick off the DAUCI Designathon! Meet your fellow participants, learn about the theme, and get ready to design!",
       },
@@ -180,7 +180,7 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "03:00 PM",
         title: "Opening Ceremoney",
         location: "DCE Yosemite",
-        zoom: true,
+        zoom: false,
         description:
           "Celebrate your achievement and prepare to start pitching!",
       },
@@ -198,7 +198,7 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "06:00 PM",
         title: "Top 10 Pitches",
         location: "DCE, Online",
-        zoom: true,
+        zoom: false,
         description:
           "Each top 10 team will give a 2-3 minute pitch of their product to a live panel of judges. Online teams will present to the judges on zoom at allotted times.",
       },
@@ -215,7 +215,7 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "07:30 PM",
         title: "Speaker Panel",
         location: "DCE Yosemite, Online",
-        zoom: true,
+        zoom: false,
         description:
           "Join us for a speaker panel with industry professionals. Learn about innovation, storytelling through design, and navigating careers in tech",
       },
@@ -224,7 +224,7 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "09:00 PM",
         title: "Closing Ceremony & Awards",
         location: "Main Hall",
-        zoom: true,
+        zoom: false,
         description:
           "Winners announced, awards presented. Celebrate an incredible weekend of design!",
       },

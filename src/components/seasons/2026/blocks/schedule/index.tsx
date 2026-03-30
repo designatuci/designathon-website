@@ -124,7 +124,7 @@ function EventRow({
           <div
             style={{
               fontFamily: "var(--font-inria-sans)",
-              color: isSelected ? ACCENT : "white",
+              color: "white",
               fontWeight: "bold",
               transition: "all 0.25s",
               whiteSpace: "nowrap",
@@ -201,41 +201,57 @@ function EventRow({
         </div>
 
         {isSelected && (
-          <div
-            style={{
-              marginTop: "0.5rem",
-              padding: "1rem 1.25rem",
-              borderRadius: "0.75rem",
-              background: "rgba(255,255,255,0.04)",
-              border: `1px solid ${ACCENT_BORDER}`,
-              backdropFilter: "blur(12px)",
-              borderLeft: `3px solid ${ACCENT_DIM}`,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-inria-sans)",
-                fontSize: "1rem",
-                color: ACCENT,
-                marginBottom: "0.5rem",
-                letterSpacing: "0.08em",
-              }}
-            >
-              {event.time} – {event.endTime}
-            </div>
-            <p
-              style={{
-                fontFamily: "var(--font-inria-sans)",
-                color: "rgba(255,255,255,0.7)",
-                lineHeight: "1.6",
-                margin: 0,
-              }}
-              className="text-base sm:text-base lg:text-lg xl:text-xl"
-            >
-              {event.description}
-            </p>
-          </div>
-        )}
+  <div
+    style={{
+      marginTop: "0.5rem",
+      padding: "1rem 1.25rem",
+      borderRadius: "0.75rem",
+      // matches Rules card
+      background: "rgba(195, 195, 195, 0.01)",
+      border: "1px solid rgba(88, 63, 247, 0.7)",
+      backdropFilter: "blur(12px)",
+      borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+      position: "relative",
+      overflow: "hidden",
+    }}
+    >
+      {/* Glare streak — exact same as Rules card */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: "2rem",
+          right: "2rem",
+          height: "2px",
+          borderRadius: "999px",
+          background: "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
+        }}
+      />
+
+      <div
+        style={{
+          fontFamily: "var(--font-inria-sans)",
+          fontSize: "1rem",
+          color: ACCENT,
+          marginBottom: "0.5rem",
+          letterSpacing: "0.08em",
+        }}
+      >
+        {event.time} – {event.endTime}
+      </div>
+      <p
+        style={{
+          fontFamily: "var(--font-inria-sans)",
+          color: "rgba(255,255,255,0.7)",
+          lineHeight: "1.6",
+          margin: 0,
+        }}
+        className="text-base sm:text-base lg:text-lg xl:text-xl"
+      >
+        {event.description}
+      </p>
+    </div>
+  )}
       </div>
     </div>
   );
@@ -272,34 +288,7 @@ export default function Itinerary() {
         position: "relative",
       }}
     >
-      {/* ── Rocket — center-right, behind content, tilted slightly ── */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          right: "-2%",
-          transform: "translateY(-50%) rotate(-15deg)",
-          width: "clamp(120px, 16vw, 260px)",
-          zIndex: 0,
-          opacity: 0.55,
-          transition: "opacity 1.5s ease-out",
-          pointerEvents: "none",
-          animation: isInView
-            ? "rocket-float 6s ease-in-out infinite"
-            : undefined,
-        }}
-      >
-        <DOTImage
-          src="/images/seasons/2026/landing/itinerary/rocket.png"
-          alt=""
-          width={400}
-          height={800}
-          sizes="260px"
-          className="h-auto w-full object-contain"
-        />
-      </div>
-
-      <div className="container relative" style={{ zIndex: 1 }}>
+      <div className="relative container" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* ── Title row: title left, tab selector right aligned to baseline ── */}
           <div
@@ -316,10 +305,9 @@ export default function Itinerary() {
               Itinerary
             </h1>
 
-            {/* Wrapper anchors the alien relative to the tab pill */}
-            <div className="relative inline-flex flex-col items-center">
-
-              {/* Alien hugging the top-right of the tab selector */}
+            {/* Tab selector with alien — baseline-aligned with title */}
+            <div className="relative inline-flex flex-col items-center self-end pb-2">
+              {/* Alien hugging top-right */}
               <div
                 className="pointer-events-none absolute"
                 style={{
@@ -336,7 +324,6 @@ export default function Itinerary() {
                   alt=""
                   width={2360}
                   height={1640}
-                  sizes="70px"
                   className="h-auto w-full object-contain"
                 />
               </div>
@@ -346,7 +333,7 @@ export default function Itinerary() {
                   <TabsTrigger
                     key={day.date}
                     value={day.date}
-                    className="px-5 py-2.5 text-base !text-white [font-family:var(--font-inria-sans)] data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-sky-300"
+                    className="!text-blue px-6 py-3 [font-family:var(--font-inria-sans)] text-lg font-semibold data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-white"
                   >
                     {day.date}
                   </TabsTrigger>
