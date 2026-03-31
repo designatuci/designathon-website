@@ -41,12 +41,12 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <body
+    <div
       data-theme="2026"
       className={`${inriaSans.variable} ${lekton.variable} ${luxuriousScript.variable}`}
     >
       {children}
-    </body>
+    </div>
   );
 }
 

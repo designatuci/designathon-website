@@ -41,12 +41,12 @@ type Props = {
 
 function Layout({ children }: Props) {
   return (
-    <body
+    <div
       data-theme="2025"
       className={`${satoshi.variable} ${radey.variable} ${permanentMarker.variable}`}
     >
       {children}
-    </body>
+    </div>
   );
 }
 
