@@ -9,6 +9,11 @@ type Subscription = {
   email: string;
 };
 
+function formatSheetsTimestamp(date = new Date()): string {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+}
+
 function requireString(value: unknown, fieldName: string): string {
   const str = String(value || "").trim();
   if (!str) throw new Error(`${fieldName} is required`);
@@ -60,7 +65,7 @@ export async function POST(request: Request) {
 
     const subscription: Subscription = {
       id: globalThis.crypto?.randomUUID?.() ?? String(Date.now()),
-      timestamp: new Date().toISOString(),
+      timestamp: formatSheetsTimestamp(),
       email: requireString(p.email, "Email"),
     };
 
