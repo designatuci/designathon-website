@@ -111,7 +111,7 @@ function LandingNavigationMobile() {
               className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-black transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
             >
               <Link
-                href="/2026-preview/apply"
+                href="/apply"
                 className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
               >
                 Apply
@@ -154,7 +154,7 @@ function LandingNavigationDesktop() {
         asChild
       >
         <Link
-          href="/2026-preview/apply"
+          href="/apply"
           className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
         >
           Apply

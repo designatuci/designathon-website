@@ -8,7 +8,7 @@ export default function RocketSuccess() {
   const router = useRouter();
 
   useEffect(() => {
-    const t = setTimeout(() => router.push("/2026-preview"), 8000);
+    const t = setTimeout(() => router.push("/"), 8000);
     return () => clearTimeout(t);
   }, [router]);
 

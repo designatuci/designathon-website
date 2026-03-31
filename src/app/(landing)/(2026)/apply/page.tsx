@@ -62,7 +62,7 @@ export default function ApplyPage() {
         <div className="relative z-10 container mx-auto px-6 py-8">
           {/* Back link */}
           <Link
-            href="/2026-preview"
+            href="/"
             className="font-lekton inline-flex items-center gap-1.5 text-sm text-purple-300/70 transition-transform hover:-translate-x-0.5 hover:text-purple-200"
           >
             <svg

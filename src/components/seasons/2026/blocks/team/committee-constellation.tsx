@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 const luxurious = localFont({
-  src: "../../../../../app/2026-preview/fonts/LuxuriousScript-Regular.woff2",
+  src: "../../../../../app/(landing)/(2026)/fonts/LuxuriousScript-Regular.woff2",
   display: "swap",
 });
 
-/** Same as `src/app/2026-preview/layout.tsx` → `./fonts/InriaSans-Regular.woff2` */
+/** Same as `src/app/(landing)/(2026)/layout.tsx` → `./fonts/InriaSans-Regular.woff2` */
 const inriaSans = localFont({
-  src: "../../../../../app/2026-preview/fonts/InriaSans-Regular.woff2",
+  src: "../../../../../app/(landing)/(2026)/fonts/InriaSans-Regular.woff2",
   display: "swap",
 });
 
