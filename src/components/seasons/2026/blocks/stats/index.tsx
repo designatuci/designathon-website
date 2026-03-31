@@ -38,7 +38,8 @@ export default function Stats() {
               "not-motion-reduce:opacity-100 sm:not-motion-reduce:translate-x-0":
                 starsInView,
             },
-          )}
+          )} style={{ transform: "translateY(25%)" }}
+
         >
           <Image
             src="/images/seasons/2026/landing/stats/stars.png"
