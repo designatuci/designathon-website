@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import { useRef, useState } from "react";
 import { scheduleDays, ScheduleEvent } from "./schedule-events";
 
-const ACCENT = "#38bdf8"; // sky-400
+const ACCENT = "#9a8aff"; // sky-400
 const ACCENT_DIM = "rgba(56,189,248,0.15)";
 const ACCENT_BORDER = "rgba(56,189,248,0.25)";
 
