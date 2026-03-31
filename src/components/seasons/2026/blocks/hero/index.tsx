@@ -1,8 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import AppsCloseCountdown from "@components/seasons/2026/blocks/hero/countdown-timer";
 import { Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
+import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 
 const line1 = [
@@ -240,6 +242,50 @@ const heroPrefetchUrls = [
   "/images/seasons/2026/landing/hero/alien.png",
 ];
 
+const heroInfoPanelStyle: CSSProperties = {
+  padding: "1rem 1.25rem",
+  borderRadius: "0.75rem",
+  background: "rgba(12, 8, 32, 0.88)",
+  border: "1px solid rgba(88, 63, 247, 0.75)",
+  backdropFilter: "blur(14px)",
+  borderLeft: "3px solid rgba(26, 64, 231, 0.45)",
+  color: "rgba(255,255,255,0.85)",
+  position: "relative",
+  overflow: "hidden",
+};
+
+const heroInfoPanelTopLineStyle: CSSProperties = {
+  position: "absolute",
+  top: 0,
+  left: "2rem",
+  right: "2rem",
+  height: "2px",
+  borderRadius: "999px",
+  background:
+    "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167, 139, 250, 0.5), transparent)",
+};
+
+function HeroInfoPanel({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative flex flex-col items-center gap-2 text-center [font-family:var(--font-inria-sans)]",
+        className,
+      )}
+      style={heroInfoPanelStyle}
+    >
+      <div style={heroInfoPanelTopLineStyle} aria-hidden />
+      {children}
+    </div>
+  );
+}
+
 export default function Hero() {
   const [assetsLoaded, setAssetsLoaded] = useState(false);
 
@@ -308,46 +354,25 @@ export default function Hero() {
           }}
         />
 
-        <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 -translate-y-[55%] md:translate-y-[60%]">
-          <div
-            className="relative flex flex-col items-center gap-2 text-center [font-family:var(--font-inria-sans)]"
-            style={{
-              padding: "1rem 1.25rem",
-              borderRadius: "0.75rem",
-              background: "rgba(195, 195, 195, 0.03)",
-              border: "1px solid rgba(88, 63, 247, 0.7)",
-              backdropFilter: "blur(12px)",
-              borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
-              color: "rgba(255,255,255,0.7)",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: "2rem",
-                right: "2rem",
-                height: "2px",
-                borderRadius: "999px",
-                background:
-                  "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167, 139, 250, 0.5), transparent)",
-              }}
-            />
-
-            <div className="flex items-center gap-2">
-              <Calendar className="size-5 shrink-0 text-white/70" />
-              <p className="text-sm whitespace-nowrap sm:text-base">
-                April 24 - 26, 2026
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="size-5 shrink-0 text-white/70" />
-              <p className="text-sm whitespace-nowrap sm:text-base">
-                UC Irvine DCE
-              </p>
-            </div>
+        <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 translate-y-[50%] md:translate-y-[0%]">
+          <div className="flex max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3">
+            <HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
+              <AppsCloseCountdown />
+            </HeroInfoPanel>
+            <HeroInfoPanel className="hidden md:flex">
+              <div className="flex items-center gap-2">
+                <Calendar className="size-5 shrink-0 text-white/70" />
+                <p className="text-sm whitespace-nowrap sm:text-base">
+                  April 24 - 26, 2026
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="size-5 shrink-0 text-white/70" />
+                <p className="text-sm whitespace-nowrap sm:text-base">
+                  UC Irvine DCE
+                </p>
+              </div>
+            </HeroInfoPanel>
           </div>
         </div>
 
