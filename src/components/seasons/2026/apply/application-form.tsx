@@ -141,7 +141,7 @@ const ApplicationForm = ({ onSubmittingChange }: ApplicationFormProps) => {
 
             <Field
               id="firstAthon"
-              label="Is this your first a-thon event?"
+              label="Is this your first a-thon event? (e.g., hackathon, datathon, designathon)"
               required
             >
               <Select

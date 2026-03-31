@@ -4,7 +4,7 @@ import { useInView } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const ABOUT_TEXT =
-  "Design-a-thon is the largest student-run design hackathon in Southern California. Over a 3-day weekend, students design and prototype UI/UX solutions to real-world problems by creating working Figma prototypes and presenting their case study to industry judges.";
+  "Design-a-thon is the largest student-run design hackathon in California. Over a 3-day weekend, students design and prototype UI/UX solutions to real-world problems by creating working Figma prototypes and presenting their case study to industry judges.";
 
 // ─────────────────────────────────────────────
 // Glitch-decode word component
