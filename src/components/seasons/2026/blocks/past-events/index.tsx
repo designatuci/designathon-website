@@ -176,7 +176,7 @@ export default function PastEvents() {
   };
 
   return (
-    <section id="past-events" className="relative mt-8 overflow-x-clip py-4">
+    <section id="past-events" className="relative my-40 overflow-x-clip py-4">
       <div className="relative container mx-auto min-h-full">
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl lg:mb-36 xl:mb-48 xl:text-[7rem]">
           Past Events
