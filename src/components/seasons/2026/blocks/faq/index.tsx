@@ -141,7 +141,6 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
           <p
             style={{
               color: "rgba(255,255,255,0.7)",
-              fontSize: "1rem",
               lineHeight: "1.6",
               margin: 0,
             }}
