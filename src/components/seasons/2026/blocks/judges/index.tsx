@@ -32,7 +32,8 @@ const judges: Judge[] = [
     position: "Senior Product Designer",
     company: "Ingram Micro",
     linkedInURL: "https://www.linkedin.com/in/justin-hn/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/justin_nguyen.jpeg",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/justin_nguyen.jpeg",
   },
   {
     name: "Jamie Lee",
@@ -53,7 +54,8 @@ const judges: Judge[] = [
     position: "UX UI Designer II",
     company: "CoStar",
     linkedInURL: "https://www.linkedin.com/in/nataliia-dykun/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/nataliia_dykun.jpeg",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/nataliia_dykun.jpeg",
   },
   {
     name: "Ryan Bell",
@@ -81,14 +83,16 @@ const judges: Judge[] = [
     position: "Product Designer",
     company: "Chartmetric",
     linkedInURL: "https://www.linkedin.com/in/ruijingyatang/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/ruijingya_tang.jpeg",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/ruijingya_tang.jpeg",
   },
   {
     name: "Nikki Robyn Apostol",
     position: "Product Designer",
     company: "eBay",
     linkedInURL: "https://www.linkedin.com/in/nikkirobyn/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/nikki_apostol.jpeg",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/nikki_apostol.jpeg",
   },
 ];
 
