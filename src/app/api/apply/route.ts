@@ -27,6 +27,11 @@ type Submission = {
 
 const submissions: Submission[] = [];
 
+function formatSheetsTimestamp(date = new Date()): string {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+}
+
 async function appendToSheet(s: Submission) {
   if (!process.env.GOOGLE_PRIVATE_KEY)
     throw new Error("Missing GOOGLE_PRIVATE_KEY");
@@ -98,7 +103,7 @@ export async function POST(request: Request) {
 
     const submission: Submission = {
       id: globalThis.crypto?.randomUUID?.() ?? String(Date.now()),
-      timestamp: new Date().toISOString(),
+      timestamp: formatSheetsTimestamp(),
       email: requireString(p.email, "Email"),
       name: requireString(p.name, "Name"),
       major: requireString(p.major, "Major"),
