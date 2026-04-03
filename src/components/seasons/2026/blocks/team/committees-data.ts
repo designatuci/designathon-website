@@ -57,7 +57,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "/images/seasons/2026/landing/team/directors/jay-chan.png",
+        photo: "/images/seasons/2026/landing/team/directors/jay-chan.jpg",
         name: "Jay Chan",
         role: "Director (Development)",
         year: "3rd Year",
@@ -65,7 +65,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I was born with 11 fingers!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/directors/anna-kwan.png",
+        photo: "/images/seasons/2026/landing/team/directors/anna-kwan.jpg",
         name: "Anna Kwan",
         role: "Director (UI/UX)",
         year: "4th Year",
@@ -89,7 +89,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I love doing my nails!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/imported/alice-ger.png",
+        photo: "/images/seasons/2026/landing/team/imported/alice-ger.jpg",
         name: "Alice Ger",
         role: "Committee (UI/UX)",
         year: "3rd Year",
@@ -164,7 +164,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I prefer tea over coffee.",
       },
       {
-        photo: "/images/seasons/2026/landing/team/directors/evie-ngo.png",
+        photo: "/images/seasons/2026/landing/team/directors/evie-ngo.jpg",
         name: "Evie Ngo",
         role: "Director",
         year: "3rd Year",
@@ -172,7 +172,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I've hosted a matcha pop-up I built by hand!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/imported/heidi-tran.JPG",
+        photo: "/images/seasons/2026/landing/team/imported/heidi-tran.jpg",
         name: "Heidi Tran",
         role: "Committee",
         year: "4th Year",
@@ -228,7 +228,7 @@ export const COMMITTEES: Committee[] = [
     },
     members: [
       {
-        photo: "/images/seasons/2026/landing/team/directors/sahana-iyer.JPG",
+        photo: "/images/seasons/2026/landing/team/directors/sahana-iyer.jpg",
         name: "Sahana Iyer",
         role: "Director",
         year: "3rd Year",
@@ -245,7 +245,7 @@ export const COMMITTEES: Committee[] = [
         funFact: "I currently have a collection of around 20 perfumes!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/imported/emily-ono.jpeg",
+        photo: "/images/seasons/2026/landing/team/imported/emily-ono.jpg",
         name: "Emily Ono",
         role: "Committee",
         year: "2nd Year",
@@ -411,7 +411,7 @@ export const COMMITTEES: Committee[] = [
           "I went camping, kayaking and hiking at Channel Islands National Park over the summer!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/imported/candice-li.png",
+        photo: "/images/seasons/2026/landing/team/imported/candice-li.jpg",
         name: "Candice Li",
         role: "Committee",
         year: "2nd Year",
@@ -479,7 +479,7 @@ export const COMMITTEES: Committee[] = [
       },
       {
         photo:
-          "/images/seasons/2026/landing/team/imported/bharathi-kaliraj.png",
+          "/images/seasons/2026/landing/team/imported/bharathi-kaliraj.jpg",
         name: "Bharathi Kaliraj",
         role: "Committee",
         year: "2nd Year",
