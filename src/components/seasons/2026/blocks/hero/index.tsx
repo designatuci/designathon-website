@@ -287,23 +287,24 @@ function HeroInfoPanel({
 }
 
 export default function Hero() {
-  const [heroEntered, setHeroEntered] = useState(false);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
-    const id = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (!cancelled) setHeroEntered(true);
-      });
+    let numLoaded = 0;
+    const total = heroRevealUrls.length;
+
+    heroRevealUrls.forEach((src) => {
+      const img = document.createElement("img");
+      img.onload = img.onerror = () => {
+        numLoaded++;
+        if (numLoaded === total) setAssetsLoaded(true);
+      };
+      img.src = src;
     });
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(id);
-    };
   }, []);
 
   useEffect(() => {
-    [...heroRevealUrls, ...heroPrefetchUrls].forEach((src) => {
+    heroPrefetchUrls.forEach((src) => {
       const img = document.createElement("img");
       img.src = src;
     });
@@ -333,7 +334,7 @@ export default function Hero() {
           "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
           {
             "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
-              heroEntered,
+              assetsLoaded,
           },
         )}
       >
