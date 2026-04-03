@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 
 const line1 = [
   {
-    src: `/images/seasons/2026/landing/hero/1.svg`,
+    src: `/images/seasons/2026/landing/hero/1.webp`,
     delay: `0s`,
     duration: `4s`,
     rotate: `-1deg`,
@@ -17,7 +17,7 @@ const line1 = [
     marginX: -24,
   },
   {
-    src: `/images/seasons/2026/landing/hero/2.svg`,
+    src: `/images/seasons/2026/landing/hero/2.webp`,
     delay: `0.25s`,
     duration: `5s`,
     rotate: `1deg`,
@@ -25,7 +25,7 @@ const line1 = [
     marginX: -38,
   },
   {
-    src: `/images/seasons/2026/landing/hero/3.svg`,
+    src: `/images/seasons/2026/landing/hero/3.webp`,
     delay: `0.5s`,
     duration: `6s`,
     rotate: `-2deg`,
@@ -33,7 +33,7 @@ const line1 = [
     marginX: -33,
   },
   {
-    src: `/images/seasons/2026/landing/hero/4.svg`,
+    src: `/images/seasons/2026/landing/hero/4.webp`,
     delay: `0.75s`,
     duration: `4s`,
     rotate: `2deg`,
@@ -41,7 +41,7 @@ const line1 = [
     marginX: -17,
   },
   {
-    src: `/images/seasons/2026/landing/hero/5.svg`,
+    src: `/images/seasons/2026/landing/hero/5.webp`,
     delay: `1s`,
     duration: `5s`,
     rotate: `-1deg`,
@@ -49,7 +49,7 @@ const line1 = [
     marginX: -33,
   },
   {
-    src: `/images/seasons/2026/landing/hero/6.svg`,
+    src: `/images/seasons/2026/landing/hero/6.webp`,
     delay: `1.25s`,
     duration: `6s`,
     rotate: `3deg`,
@@ -60,7 +60,7 @@ const line1 = [
 
 const line2 = [
   {
-    src: `/images/seasons/2026/landing/hero/7.svg`,
+    src: `/images/seasons/2026/landing/hero/7.webp`,
     delay: `0s`,
     duration: `4s`,
     rotate: `-1deg`,
@@ -68,7 +68,7 @@ const line2 = [
     marginX: -33,
   },
   {
-    src: `/images/seasons/2026/landing/hero/8.svg`,
+    src: `/images/seasons/2026/landing/hero/8.webp`,
     delay: `0.25s`,
     duration: `5s`,
     rotate: `1deg`,
@@ -76,7 +76,7 @@ const line2 = [
     marginX: -40,
   },
   {
-    src: `/images/seasons/2026/landing/hero/9.svg`,
+    src: `/images/seasons/2026/landing/hero/9.webp`,
     delay: `0.5s`,
     duration: `6s`,
     rotate: `-2deg`,
@@ -84,7 +84,7 @@ const line2 = [
     marginX: -40,
   },
   {
-    src: `/images/seasons/2026/landing/hero/10.svg`,
+    src: `/images/seasons/2026/landing/hero/10.webp`,
     delay: `0.75s`,
     duration: `4s`,
     rotate: `2deg`,
@@ -92,7 +92,7 @@ const line2 = [
     marginX: -32,
   },
   {
-    src: `/images/seasons/2026/landing/hero/11.svg`,
+    src: `/images/seasons/2026/landing/hero/11.webp`,
     delay: `1s`,
     duration: `5s`,
     rotate: `-1deg`,
@@ -100,7 +100,7 @@ const line2 = [
     marginX: -29,
   },
   {
-    src: `/images/seasons/2026/landing/hero/12.svg`,
+    src: `/images/seasons/2026/landing/hero/12.webp`,
     delay: `1.25s`,
     duration: `6s`,
     rotate: `3deg`,
@@ -125,8 +125,8 @@ function ShootingStars() {
       // shooting2 = faces right-down → enters from LEFT,  travels right+down
       const goingLeft = Math.random() < 0.5;
       const src = goingLeft
-        ? "/images/seasons/2026/landing/hero/shooting1.svg"
-        : "/images/seasons/2026/landing/hero/shooting2.svg";
+        ? "/images/seasons/2026/landing/hero/shooting1.webp"
+        : "/images/seasons/2026/landing/hero/shooting2.webp";
 
       // Random vertical start position (0–75% down the hero)
       const startYPercent = Math.random() * 75;
@@ -232,14 +232,14 @@ function ShootingStars() {
 const heroRevealUrls = [
   ...line1.map((l) => l.src),
   ...line2.map((l) => l.src),
-  "/images/seasons/2026/landing/hero/moon.svg",
-  "/images/seasons/2026/landing/hero/lostandfound.png",
+  "/images/seasons/2026/landing/hero/moon.webp",
+  "/images/seasons/2026/landing/hero/lostandfound.webp",
 ];
 
 /** Warm cache; astronaut / alien don’t block the pop-in (often heavier PNGs). */
 const heroPrefetchUrls = [
-  "/images/seasons/2026/landing/hero/astronaunt_pointing.svg",
-  "/images/seasons/2026/landing/hero/alien.png",
+  "/images/seasons/2026/landing/hero/astronaunt_pointing.webp",
+  "/images/seasons/2026/landing/hero/alien.webp",
 ];
 
 const heroInfoPanelStyle: CSSProperties = {
@@ -344,7 +344,7 @@ export default function Hero() {
 
         {/* Moon */}
         <Image
-          src="/images/seasons/2026/landing/hero/moon.svg"
+          src="/images/seasons/2026/landing/hero/moon.webp"
           width={80}
           height={50}
           alt="moon"
@@ -452,7 +452,7 @@ export default function Hero() {
 
             {/* Lost & Found */}
             <Image
-              src="/images/seasons/2026/landing/hero/lostandfound.png"
+              src="/images/seasons/2026/landing/hero/lostandfound.webp"
               alt="Lost & Found"
               width={400}
               height={80}
@@ -466,7 +466,7 @@ export default function Hero() {
         {/* Astronaut */}
         <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-[40%] md:left-[5%] md:translate-x-0 md:translate-y-[35%]">
           <Image
-            src="/images/seasons/2026/landing/hero/astronaunt_pointing.svg"
+            src="/images/seasons/2026/landing/hero/astronaunt_pointing.webp"
             width={500}
             height={500}
             alt="astronaunt_pointing"
@@ -482,7 +482,7 @@ export default function Hero() {
         {/* Alien */}
         <div className="absolute right-[10%] bottom-[35vh] -rotate-[20deg] md:right-[10%] md:bottom-[40%]">
           <Image
-            src="/images/seasons/2026/landing/hero/alien.png"
+            src="/images/seasons/2026/landing/hero/alien.webp"
             width={500}
             height={500}
             alt="alien"
