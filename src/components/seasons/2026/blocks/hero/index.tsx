@@ -287,22 +287,23 @@ function HeroInfoPanel({
 }
 
 export default function Hero() {
-  const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const [heroEntered, setHeroEntered] = useState(false);
 
   useEffect(() => {
-    let numLoaded = 0;
-    const total = heroRevealUrls.length;
-
-    heroRevealUrls.forEach((src) => {
-      const img = document.createElement("img");
-      img.onload = img.onerror = () => {
-        numLoaded++;
-        if (numLoaded === total) setAssetsLoaded(true);
-      };
-      img.src = src;
+    let cancelled = false;
+    const id = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (!cancelled) setHeroEntered(true);
+      });
     });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(id);
+    };
+  }, []);
 
-    heroPrefetchUrls.forEach((src) => {
+  useEffect(() => {
+    [...heroRevealUrls, ...heroPrefetchUrls].forEach((src) => {
       const img = document.createElement("img");
       img.src = src;
     });
@@ -332,7 +333,7 @@ export default function Hero() {
           "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
           {
             "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
-              assetsLoaded,
+              heroEntered,
           },
         )}
       >
@@ -347,6 +348,8 @@ export default function Hero() {
           width={80}
           height={50}
           alt="moon"
+          priority
+          sizes="(max-width: 768px) 90vw, 750px"
           className="pointer-events-none absolute top-1/2 left-1/2 z-10 w-[90%] max-w-[750px] -translate-x-1/2 translate-y-[50%] md:-translate-y-[10%]"
           style={{
             mixBlendMode: "screen",
@@ -391,6 +394,7 @@ export default function Hero() {
                   alt=""
                   width={150}
                   height={150}
+                  sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
                   className="pointer-events-none max-w-none object-contain"
                   style={
                     {
@@ -425,6 +429,7 @@ export default function Hero() {
                   alt=""
                   width={150}
                   height={150}
+                  sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
                   className="pointer-events-none max-w-none object-contain"
                   style={
                     {
@@ -451,6 +456,8 @@ export default function Hero() {
               alt="Lost & Found"
               width={400}
               height={80}
+              priority
+              sizes="(max-width: 768px) 200px, 320px"
               className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
             />
           </div>
