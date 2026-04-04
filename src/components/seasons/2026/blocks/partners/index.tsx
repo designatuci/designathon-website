@@ -51,6 +51,11 @@ const partners: Organization[] = [
   },
   {
     id: "marquee1-3",
+        content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
+      name: "Tigawok",
+      rotation: 25,
+    },
   },
   {
     id: "marquee1-4",
@@ -79,9 +84,9 @@ const partners: Organization[] = [
   {
     id: "marquee1-7",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/im.png",
-      rotation: 30,
-      name: "Ingram Micro",
+      imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
+      name: "Menya Hanabi",
+      rotation: 25,
     },
   },
   {
@@ -103,29 +108,13 @@ const partners: Organization[] = [
   {
     id: "marquee1-10",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/chartmetric.png",
-      name: "Chartmetric",
-      rotation: 3,
-    },
-  },
-  {
-    id: "marquee1-11",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/google.png",
-      name: "Google",
-      rotation: -2,
-    },
-  },
-  {
-    id: "marquee1-12",
-    content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/hero.jpg",
       name: "Hero Cosmetics",
       rotation: -20,
     },
   },
   {
-    id: "marquee1-13",
+    id: "marquee1-11",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
       name: "Olive Garden",
@@ -133,7 +122,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-14",
+    id: "marquee1-12",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
       name: "Monster",
@@ -141,7 +130,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-15",
+    id: "marquee1-13",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
       name: "Tabi",
@@ -149,27 +138,11 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-16",
+    id: "marquee1-14",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
       name: "Ryan Yang",
       rotation: 5,
-    },
-  },
-  {
-    id: "marquee1-17",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/lovable.png",
-      name: "Lovable",
-      rotation: 7,
-    },
-  },
-  {
-    id: "marquee1-18",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
-      name: "Tigawok",
-      rotation: 25,
     },
   },
 ];
