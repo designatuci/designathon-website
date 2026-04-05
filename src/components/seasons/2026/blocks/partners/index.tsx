@@ -51,7 +51,7 @@ const partners: Organization[] = [
   },
   {
     id: "marquee1-3",
-        content: {
+    content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
       name: "Tigawok",
       rotation: 25,
