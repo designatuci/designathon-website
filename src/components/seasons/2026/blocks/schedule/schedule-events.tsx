@@ -90,10 +90,10 @@ export const scheduleDays: ScheduleDay[] = [
       {
         time: "11:30 AM",
         endTime: "11:30 AM",
-        title: "Hack Workshop",
+        title: "Workshop: Hackathons 101",
         location: "Room 2030",
         zoom: false,
-        description: "Collaborate with mentors from Hack@UCI!",
+        description: "Collaborate with mentors from Hack@UCI! Learn how to approach hack-a-thons and work under pressure.",
       },
       {
         time: "01:00 PM",
@@ -123,7 +123,7 @@ export const scheduleDays: ScheduleDay[] = [
       {
         time: "05:00 PM",
         endTime: "05:30 PM",
-        title: "Commit the Change Workshop",
+        title: "Workshop: Ideation",
         location: "Room 2030",
         zoom: false,
         description: "Collaborate with mentors from UCI's Commit the Change!",

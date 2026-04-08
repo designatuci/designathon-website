@@ -46,105 +46,131 @@ const partners: Organization[] = [
   {
     id: "marquee1-2",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
-      name: "Raising Cane's",
-      rotation: -26,
+      imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
+      name: "Bluety",
+      rotation: -10,
     },
   },
-  {
+    {
     id: "marquee1-3",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
-      name: "Tigawok",
-      rotation: 25,
+      imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
+      name: "Raising Cane's",
+      rotation: -10,
     },
   },
   {
     id: "marquee1-4",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/postmates.png",
-      rotation: -17,
-      name: "Postmates",
+      imageURL: "/images/seasons/2026/landing/partners/logos/amazon.png",
+      name: "Amazon",
+      rotation: 0,
     },
   },
-  {
+    {
     id: "marquee1-5",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/drg.jpg",
-      rotation: 3,
-      name: "Dr. G",
+      imageURL: "/images/seasons/2026/landing/partners/logos/eat.jpg",
+      name: "Eat Studio",
+      rotation: 6,
     },
   },
-  {
+    {
     id: "marquee1-6",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
-      rotation: 3,
-      name: "Bluety",
+      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
+      name: "Microsoft Copilot",
+      rotation: -10,
     },
   },
   {
     id: "marquee1-7",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
-      name: "Menya Hanabi",
-      rotation: 25,
+      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.webp",
+      name: "Doordash",
+      rotation: 8,
     },
   },
   {
     id: "marquee1-8",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
-      rotation: -3,
-      name: "UCI SPFB",
+      imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
+      name: "Menya Hanabi",
+      rotation: 20,
     },
   },
   {
     id: "marquee1-9",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
-      name: "Microsoft Copilot",
-      rotation: 20,
+      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
+      name: "Olive Garden",
+      rotation: 6,
     },
   },
   {
     id: "marquee1-10",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/hero.jpg",
-      name: "Hero Cosmetics",
-      rotation: -20,
+      imageURL: "/images/seasons/2026/landing/partners/logos/postmates.png",
+      name: "Postmates",
+      rotation: -10,
     },
   },
   {
     id: "marquee1-11",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
-      name: "Olive Garden",
-      rotation: 0,
+      imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
+      name: "UCI SPFB",
+      rotation: 6,
     },
   },
   {
     id: "marquee1-12",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
-      name: "Monster",
+      imageURL: "/images/seasons/2026/landing/partners/logos/notability.png",
+      name: "Notability",
       rotation: 10,
     },
   },
-  {
+    {
     id: "marquee1-13",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
-      name: "Tabi",
-      rotation: -10,
+      imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
+      name: "Monster Energy",
+      rotation: -15,
     },
   },
+
   {
     id: "marquee1-14",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
-      name: "Ryan Yang",
-      rotation: 5,
+      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
+      name: "Tigawok",
+      rotation: 8,
     },
   },
+  {
+    id: "marquee1-15",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
+      name: "Ryan Yang",
+      rotation: 0,
+    },
+  },
+    {
+    id: "marquee1-16",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
+      name: "Tabi",
+      rotation: 6,
+    },
+  },
+    {
+    id: "marquee1-18",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.webp",
+      name: "Uber Eats",
+      rotation: 6,
+    },
+  },
+
 ];
