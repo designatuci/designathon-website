@@ -282,13 +282,12 @@ export default function Itinerary() {
     <section
       id="schedule"
       ref={ref}
+      className="relative py-12"
       style={{
-        minHeight: "100vh",
-        padding: "3rem 1.5rem",
         position: "relative",
       }}
     >
-      <div className="relative container" style={{ zIndex: 1 }}>
+      <div className="relative container mx-auto w-full" style={{ zIndex: 1 }}>
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* ── Title row: title left, tab selector right aligned to baseline ── */}
           <div

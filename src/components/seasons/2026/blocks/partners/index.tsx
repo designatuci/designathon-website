@@ -15,14 +15,16 @@ function Partners() {
       id="partners"
       className="flex h-[120vh] justify-center overflow-hidden bg-(--blue) py-12 pb-10 text-white md:h-fit xl:pb-0"
     >
-      <div className="flex w-full flex-col 3xl:max-w-[1920px]">
-        <div
-          className="relative flex flex-col sm:gap-8"
-          data-status="incomplete"
-        >
-          <h1 className="container [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+      <div
+        className="mx-auto flex w-full max-w-[1920px] flex-col sm:gap-8"
+        data-status="incomplete"
+      >
+        <div className="container mx-auto w-full">
+          <h1 className="w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
             Partners
           </h1>
+        </div>
+        <div className="relative w-full">
           <SponsorsMarquee organizations={partners} />
         </div>
       </div>

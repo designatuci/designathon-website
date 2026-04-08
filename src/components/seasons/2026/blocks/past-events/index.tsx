@@ -181,8 +181,10 @@ export default function PastEvents() {
         <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl lg:mb-36 xl:mb-48 xl:text-[7rem]">
           Past Events
         </h1>
+      </div>
 
-        <svg className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-x-clip sm:block">
+      <div className="relative mx-auto w-full max-w-[1920px]">
+        <svg className="pointer-events-none absolute inset-x-0 -top-45 hidden h-full w-full overflow-x-clip sm:block">
           {/* tablet */}
           <ellipse
             className="hidden md:block xl:hidden"

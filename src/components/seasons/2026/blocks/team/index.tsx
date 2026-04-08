@@ -21,10 +21,10 @@ export default function MeetCommittees() {
 
   return (
     <section id="team" className="overflow-visible">
-      <div className="relative overflow-visible pb-16 sm:pb-32">
+      <div className="relative container mx-auto w-full overflow-visible">
         {/* Galaxy Background */}
         <div
-          className="galaxy-bg pointer-events-none absolute -top-[350px] w-full md:top-[-200px]"
+          className="galaxy-bg pointer-events-none absolute -top-[350px] left-1/2 w-screen max-w-[1920px] -translate-x-1/2 md:top-[-200px]"
           style={{
             height: "calc(100% + 400px)",
             backgroundImage:
@@ -35,7 +35,7 @@ export default function MeetCommittees() {
           }}
         />
 
-        <main className="relative flex min-h-0 w-full flex-col items-center justify-start bg-transparent py-8 sm:min-h-screen sm:justify-center sm:py-0 sm:pt-[5%]">
+        <main className="relative flex min-h-0 w-full flex-col items-center justify-start bg-transparent sm:min-h-screen sm:justify-center 3xl:min-h-[900px] 3xl:justify-start">
           <style>{`
 
           .script-glow {

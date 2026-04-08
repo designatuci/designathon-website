@@ -24,7 +24,7 @@ export default function Prizes() {
   return (
     <section
       id="prizes"
-      className="flex min-h-[70vh] justify-center bg-(--blue) px-4 py-12 text-white"
+      className="flex justify-center bg-(--blue) px-4 py-12 text-white"
     >
       <style>{`
         @keyframes prize-bob {

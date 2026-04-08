@@ -20,11 +20,14 @@ export default function About() {
   const progress = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative h-[50vh] md:h-[125vh]">
-      <div className="sticky top-0 h-full overflow-hidden">
+    <div
+      ref={containerRef}
+      className="relative h-[60vh] overflow-x-clip md:h-[min(125vh,1200px)]"
+    >
+      <div className="sticky top-0 flex h-full justify-center overflow-hidden">
         <section
           id="about"
-          className="relative flex h-full w-full overflow-hidden"
+          className="relative flex h-full w-screen max-w-[1920px] overflow-hidden"
         >
           <AboutBox />
           <Planets progress={progress} />

@@ -13,7 +13,7 @@ type SponsorsMarqueeProps = {
 
 const BEAM_TOP_W = 0;
 const BEAM_BOT_W = 200;
-const LOGOS_CONTAINER_W = "100vw";
+const LOGOS_CONTAINER_W = "100%";
 
 const SponsorsMarquee = ({
   className,
@@ -36,11 +36,17 @@ const SponsorsMarquee = ({
   return (
     <div
       ref={sectionRef}
-      className={cn("relative w-full overflow-visible", className)}
-      style={{ minHeight: "140vh", position: "relative", zIndex: 2 }}
+      className={cn(
+        "relative min-h-[140vh] w-full overflow-visible 3xl:min-h-[1100px]",
+        className,
+      )}
+      style={{
+        position: "relative",
+        zIndex: 2,
+      }}
     >
       <div
-        className="top-[0%] md:top-[-4%] lg:top-[-12%]"
+        className="top-[2%] md:top-[-8%] lg:top-[-10%]"
         style={{
           position: "absolute",
           left: "50%",

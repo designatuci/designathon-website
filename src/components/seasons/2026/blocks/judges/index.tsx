@@ -142,12 +142,15 @@ export default function IndexPage() {
     <section
       id="judges"
       ref={sectionRef}
-      className="flex min-h-screen items-center justify-center overflow-x-clip bg-(--blue) px-4 py-4 text-white"
+      className="overflow-x-clip bg-(--blue) py-12 text-white"
     >
-      <div className="container flex w-full flex-col items-center gap-0 overflow-x-hidden md:overflow-x-visible">
+      <div className="container mx-auto flex w-full flex-col items-center gap-0 px-4">
         <h1 className="w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
           Judges
         </h1>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-[1920px] px-4">
         <Carousel
           opts={{
             loop: true,
@@ -160,17 +163,17 @@ export default function IndexPage() {
             api?.on("select", updateActiveIndex);
             updateActiveIndex();
           }}
-          className="-mt-8 w-full max-w-[100vw] overflow-visible"
+          className="-mt-8 w-full max-w-full overflow-hidden"
         >
-          <div className="relative overflow-visible">
-            <CarouselContent allowOverflow className="xl:-ml-120">
+          <div className="relative overflow-hidden">
+            <CarouselContent>
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/5 xl:pl-120"
+                  className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/4"
                 >
-                  {/* Scale to slide width: 3 planets (md–lg), 5 on xl+; mobile stays 1-up */}
-                  <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-90">
+                  {/* 1-up mobile; 3 across from md up — clipped to container like Prizes/FAQ */}
+                  <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-[0.78]">
                     <ProfileCard
                       profile={judge}
                       isInView={isInView}
