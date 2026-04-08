@@ -46,6 +46,12 @@ const faqItems: FAQItem[] = [
   },
   {
     question:
+      "Can team participation be split (i.e. some participants in-person, some online)?",
+    answer:
+      "No, all team members must be either in-person or online. We will not be able to accommodate split team participation, so please make sure all team members are available to participate in-person or online. Please note that there will be no differences in judging between in-person and online participants.",
+  },
+  {
+    question:
       "I don't have prior knowledge in design. Can I still participate?",
     answer:
       "Of course! Design is all around us. We will provide opportunities and resources for beginners to get started, such as workshops, mentor office hours, and more.",

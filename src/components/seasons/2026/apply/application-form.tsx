@@ -266,7 +266,7 @@ const ApplicationForm = ({ onSubmittingChange }: ApplicationFormProps) => {
 
             <Field
               id="attendanceMode"
-              label="Where do you plan to attend?"
+              label="How do you plan on attending?"
               required
             >
               <Select
