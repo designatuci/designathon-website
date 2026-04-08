@@ -51,7 +51,7 @@ const partners: Organization[] = [
       rotation: -10,
     },
   },
-    {
+  {
     id: "marquee1-3",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
@@ -67,7 +67,7 @@ const partners: Organization[] = [
       rotation: 0,
     },
   },
-    {
+  {
     id: "marquee1-5",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/eat.jpg",
@@ -75,7 +75,7 @@ const partners: Organization[] = [
       rotation: 6,
     },
   },
-    {
+  {
     id: "marquee1-6",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
@@ -131,7 +131,7 @@ const partners: Organization[] = [
       rotation: 10,
     },
   },
-    {
+  {
     id: "marquee1-13",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
@@ -156,7 +156,7 @@ const partners: Organization[] = [
       rotation: 0,
     },
   },
-    {
+  {
     id: "marquee1-16",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
@@ -164,7 +164,7 @@ const partners: Organization[] = [
       rotation: 6,
     },
   },
-    {
+  {
     id: "marquee1-18",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.webp",
@@ -172,5 +172,4 @@ const partners: Organization[] = [
       rotation: 6,
     },
   },
-
 ];
