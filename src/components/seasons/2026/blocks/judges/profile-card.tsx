@@ -49,7 +49,7 @@ const planetColors: Record<
   }, // Yellow
 };
 
-const PLANET_COUNT = 6;
+const PLANET_COUNT = 5; // TEMP: VOID SATURN FOR NOW
 
 function ProfileCard({ profile, isInView, index, isActive }: Props) {
   const planetNumber = (index % PLANET_COUNT) + 1;

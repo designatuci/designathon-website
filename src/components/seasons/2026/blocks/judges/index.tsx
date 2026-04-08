@@ -94,6 +94,35 @@ const judges: Judge[] = [
     imageURL:
       "/images/seasons/2026/landing/judges/headshots/nikki_apostol.jpeg",
   },
+  {
+    name: "Nicole Roberts",
+    position: "Senior Product Designer",
+    company: "Instacart",
+    linkedInURL: "https://www.linkedin.com/in/nicolearoberts/",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/nicole_roberts.jpeg",
+  },
+  {
+    name: "Lucy Han",
+    position: "Associate Product Builder",
+    company: "LinkedIn",
+    linkedInURL: "https://www.linkedin.com/in/lucyxhan/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/lucy_han.jpeg",
+  },
+  {
+    name: "Tanvi Pisal",
+    position: "UX Designer",
+    company: "Apple",
+    linkedInURL: "https://www.linkedin.com/in/tanvipisal/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/tanvi_pisal.jpeg",
+  },
+  {
+    name: "Iris Li",
+    position: "Product Designer",
+    company: "Meta",
+    linkedInURL: "https://www.linkedin.com/in/irisdesign/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/iris_li.jpeg",
+  },
 ];
 
 export default function IndexPage() {
