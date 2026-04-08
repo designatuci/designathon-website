@@ -1,6 +1,6 @@
 "use client";
 import { useInView } from "motion/react";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 import {
   Carousel,
@@ -125,9 +125,14 @@ const judges: Judge[] = [
   },
 ];
 
+const JUDGES_INITIAL_INDEX = Math.max(
+  0,
+  judges.findIndex((j) => j.name === "Lucy Han"),
+);
+
 export default function IndexPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const carouselApiRef = useRef<UseEmblaCarouselType[1]>(null);
+  const [activeIndex, setActiveIndex] = useState(JUDGES_INITIAL_INDEX);
+  const carouselApiRef = useRef<UseEmblaCarouselType[1] | null>(null);
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(sectionRef, {
     once: true,
@@ -137,6 +142,27 @@ export default function IndexPage() {
     if (!carouselApiRef.current) return;
     setActiveIndex(carouselApiRef.current.selectedScrollSnap());
   }, []);
+
+  const carouselOpts = useMemo(
+    () => ({
+      loop: true,
+      slidesToScroll: 1,
+      align: "center" as const,
+      startIndex: JUDGES_INITIAL_INDEX,
+    }),
+    [],
+  );
+
+  const setCarouselApi = useCallback(
+    (api: UseEmblaCarouselType[1] | undefined) => {
+      carouselApiRef.current = api ?? null;
+      if (!api) return;
+      api.off("select", updateActiveIndex);
+      api.on("select", updateActiveIndex);
+      updateActiveIndex();
+    },
+    [updateActiveIndex],
+  );
 
   return (
     <section
@@ -150,30 +176,21 @@ export default function IndexPage() {
         </h1>
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1920px] px-4">
+      <div className="relative mx-auto w-full max-w-[1920px] px-4 xl:px-0">
         <Carousel
-          opts={{
-            loop: true,
-            slidesToScroll: 1,
-            align: "center",
-            containScroll: "trimSnaps",
-          }}
-          setApi={(api) => {
-            carouselApiRef.current = api;
-            api?.on("select", updateActiveIndex);
-            updateActiveIndex();
-          }}
+          opts={carouselOpts}
+          setApi={setCarouselApi}
           className="-mt-8 w-full max-w-full overflow-hidden"
         >
           <div className="relative overflow-hidden">
-            <CarouselContent>
+            <CarouselContent className="xl:-ml-0">
               {judges.map((judge, index) => (
                 <CarouselItem
                   key={judge.name}
-                  className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/4"
+                  className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/4 xl:pl-0"
                 >
-                  {/* 1-up mobile; 3 across from md up — clipped to container like Prizes/FAQ */}
-                  <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-[0.78]">
+                  {/* 1-up mobile; 3 md–lg; 4 on xl (1/4) — edge-to-edge like Partners; Lucy Han start */}
+                  <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-[0.68]">
                     <ProfileCard
                       profile={judge}
                       isInView={isInView}
