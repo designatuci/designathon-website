@@ -83,7 +83,7 @@ const SponsorsMarquee = ({
             top: "calc(min(280px, 36vw) * 0.55)",
             left: 0,
             right: 0,
-            bottom: "-50%",
+            bottom: "-65%",
             zIndex: 6,
           }}
         >
@@ -222,7 +222,7 @@ const SponsorsMarquee = ({
                       width={120}
                       height={120}
                       sizes={`${sizeVw}vw`}
-                      className="h-auto w-full object-contain transition-transform duration-200 group-hover/logo:scale-110"
+                      className="h-auto w-full rounded-[10px] object-contain transition-transform duration-200 group-hover/logo:scale-110"
                     />
                   </div>,
                 );

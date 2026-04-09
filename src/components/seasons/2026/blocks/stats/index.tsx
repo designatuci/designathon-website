@@ -49,16 +49,7 @@ export default function Stats() {
             className="mt-30 h-auto w-full max-w-[300px] object-contain md:max-w-[1300px]"
           />
         </div>
-        <div
-          className={cn(
-            "pointer-events-none absolute top-2 left-1/2 z-0 -translate-x-1/2 transition-all delay-200 duration-700 ease-out-quart md:top-1/2 md:left-[75%] md:translate-x-0",
-            "not-motion-reduce:scale-95 not-motion-reduce:opacity-0 sm:not-motion-reduce:translate-x-4",
-            {
-              "not-motion-reduce:scale-100 not-motion-reduce:opacity-100 sm:not-motion-reduce:translate-x-0":
-                starsInView,
-            },
-          )}
-        >
+        <div className="pointer-events-none absolute top-2 left-1/2 z-0 -translate-x-1/2 md:top-1/2 md:left-[20%] md:translate-x-0">
           <div className="stats-flame-bob">
             <Image
               src="/images/seasons/2026/landing/stats/flame.png"

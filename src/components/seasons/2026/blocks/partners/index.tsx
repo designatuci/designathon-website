@@ -62,7 +62,7 @@ const partners: Organization[] = [
   {
     id: "marquee1-4",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/amazon.png",
+      imageURL: "/images/seasons/2026/landing/partners/logos/amazon.jpeg",
       name: "Amazon",
       rotation: 0,
     },
@@ -86,7 +86,7 @@ const partners: Organization[] = [
   {
     id: "marquee1-7",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.webp",
+      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
       name: "Doordash",
       rotation: 8,
     },
@@ -102,7 +102,7 @@ const partners: Organization[] = [
   {
     id: "marquee1-9",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpg",
+      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpeg",
       name: "Olive Garden",
       rotation: 6,
     },
@@ -110,8 +110,8 @@ const partners: Organization[] = [
   {
     id: "marquee1-10",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/postmates.png",
-      name: "Postmates",
+      imageURL: "/images/seasons/2026/landing/partners/logos/chipotle.png",
+      name: "Chipotle",
       rotation: -10,
     },
   },
@@ -126,7 +126,7 @@ const partners: Organization[] = [
   {
     id: "marquee1-12",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/notability.png",
+      imageURL: "/images/seasons/2026/landing/partners/logos/notability.jpeg",
       name: "Notability",
       rotation: 10,
     },
@@ -167,7 +167,7 @@ const partners: Organization[] = [
   {
     id: "marquee1-18",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.webp",
+      imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.png",
       name: "Uber Eats",
       rotation: 6,
     },
