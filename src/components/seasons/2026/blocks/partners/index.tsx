@@ -172,4 +172,20 @@ const partners: Organization[] = [
       rotation: 6,
     },
   },
+  {
+    id: "marquee1-19",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/lego.png",
+      name: "LEGO",
+      rotation: -8,
+    },
+  },
+  {
+    id: "marquee1-20",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/ant_center.jpg",
+      name: "ANTrepreneur Center",
+      rotation: 8,
+    },
+  },
 ];

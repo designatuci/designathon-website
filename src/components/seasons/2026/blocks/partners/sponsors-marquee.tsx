@@ -78,13 +78,9 @@ const SponsorsMarquee = ({
 
         {/* Beam + logos container */}
         <div
+          className="absolute right-0 bottom-[-55%] left-0 z-[6] md:bottom-[-80%]"
           style={{
-            position: "absolute",
             top: "calc(min(280px, 36vw) * 0.55)",
-            left: 0,
-            right: 0,
-            bottom: "-65%",
-            zIndex: 6,
           }}
         >
           {/* Beam shape */}
