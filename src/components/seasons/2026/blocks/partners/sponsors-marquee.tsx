@@ -186,7 +186,7 @@ const SponsorsMarquee = ({
                 elements.push(
                   <div
                     key={org.id}
-                    className="group/logo"
+                    className="group/logo h-[clamp(48px,var(--logo-size-vw),92px)] w-[clamp(48px,var(--logo-size-vw),92px)] md:h-[clamp(46px,var(--logo-size-vw),100px)] md:w-[clamp(46px,var(--logo-size-vw),100px)]"
                     style={
                       {
                         overflow: "visible",
@@ -194,13 +194,12 @@ const SponsorsMarquee = ({
                         left: `${xPct}%`,
                         top: `${yPct}%`,
                         transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
-                        width: `clamp(50px, ${sizeVw}vw, 120px)`,
-                        height: `clamp(50px, ${sizeVw}vw, 120px)`,
                         opacity: isInView ? 1 : 0,
                         transition: "opacity 0.4s ease",
                         animation: `logo-bob ${wiggleDuration}s ease-in-out ${wiggleDelay}s infinite`,
                         zIndex: 15,
                         "--logo-r": `${rotation}deg`,
+                        "--logo-size-vw": `${sizeVw}vw`,
                       } as React.CSSProperties
                     }
                   >
@@ -217,7 +216,7 @@ const SponsorsMarquee = ({
                       alt={org.content!.name}
                       width={120}
                       height={120}
-                      sizes={`${sizeVw}vw`}
+                      sizes="(min-width: 768px) 9vw, 12vw"
                       className="h-auto w-full rounded-[10px] object-contain transition-transform duration-200 group-hover/logo:scale-110"
                     />
                   </div>,
