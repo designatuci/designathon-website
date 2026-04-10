@@ -110,7 +110,8 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Workshop: From 0 to 1 - Figma Crash Course",
         location: "DCE Yosemite",
         zoom: false,
-        description: "A beginner-to-intermediate crash course covering essential Figma tools and workflows to help participants quickly start designing their solutions. Presented by Figma.",
+        description:
+          "A beginner-to-intermediate crash course covering essential Figma tools and workflows to help participants quickly start designing their solutions. Presented by Figma.",
       },
       {
         time: "05:00 PM",
@@ -127,7 +128,8 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Dinner",
         location: "DCE Courtyard",
         zoom: false,
-        description: "Wrap up a long day of hard work! Dinner provided for all in-person participants.",
+        description:
+          "Wrap up a long day of hard work! Dinner provided for all in-person participants.",
       },
       {
         time: "07:00 PM",
@@ -135,7 +137,8 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Workshop: Design to Demo - Pitching and Storytelling",
         location: "DCE Yosemite",
         zoom: false,
-        description: "Learn how to transform your solution into a compelling demo through effective storytelling, structured presentations, and strong product pitching techniques.",
+        description:
+          "Learn how to transform your solution into a compelling demo through effective storytelling, structured presentations, and strong product pitching techniques.",
       },
       {
         time: "08:30 PM",
@@ -183,8 +186,7 @@ export const scheduleDays: ScheduleDay[] = [
         title: "Lunch",
         location: "DCE Courtyard",
         zoom: false,
-        description:
-          "Grab a quick bite and get ready to present your work!",
+        description: "Grab a quick bite and get ready to present your work!",
       },
       {
         time: "03:00 PM",
