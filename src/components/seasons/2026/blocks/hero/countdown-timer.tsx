@@ -10,6 +10,10 @@ function getAppsCloseDeadline(): Date {
   return fromZonedTime(new Date(2026, 3, 10, 23, 59, 59), pacificTimeZone);
 }
 
+function getExtendedAppsCloseDeadline(): Date {
+  return fromZonedTime(new Date(2026, 3, 13, 23, 59, 59), pacificTimeZone);
+}
+
 function CountdownPart({ value, unit }: { value: string; unit: string }) {
   return (
     <div className="w-fit min-w-[2.5rem] sm:min-w-[2.75rem]">
@@ -24,6 +28,7 @@ function CountdownPart({ value, unit }: { value: string; unit: string }) {
 /** Inner content only; wrap with `HeroInfoPanel` in the hero. */
 export default function AppsCloseCountdown() {
   const deadline = useMemo(() => getAppsCloseDeadline(), []);
+  const extendedDeadline = useMemo(() => getExtendedAppsCloseDeadline(), []);
 
   const [timeLeft, setTimeLeft] = useState({
     days: "--",
@@ -31,10 +36,15 @@ export default function AppsCloseCountdown() {
     minutes: "--",
     seconds: "--",
   });
+  const [isExtended, setIsExtended] = useState(false);
 
   useEffect(() => {
     const updateCountdown = () => {
-      const secondsLeft = differenceInSeconds(deadline, new Date());
+      const now = new Date();
+      const shouldUseExtended = differenceInSeconds(deadline, now) <= 0;
+      const activeDeadline = shouldUseExtended ? extendedDeadline : deadline;
+      const secondsLeft = differenceInSeconds(activeDeadline, now);
+      setIsExtended(shouldUseExtended);
 
       if (secondsLeft <= 0) {
         setTimeLeft({
@@ -62,11 +72,13 @@ export default function AppsCloseCountdown() {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [deadline]);
+  }, [deadline, extendedDeadline]);
 
   return (
     <>
-      <span className="text-sm text-white/80 sm:text-base">Apps close in:</span>
+      <span className="text-sm text-white/80 sm:text-base">
+        {isExtended ? "Apps extended! Apps close in:" : "Apps close in:"}
+      </span>
       <div className="flex items-start justify-center gap-1.5 text-center text-[#9eb4e8] sm:gap-2">
         <CountdownPart value={timeLeft.days} unit="days" />
         <span className="relative top-0.5 text-lg font-bold sm:text-xl">:</span>

@@ -81,7 +81,7 @@ Each season defines its own fonts in the layout file.
 
 - **Inria Sans**: Primary font (local)
 - **Lekton**: Body / UI accent (Google font)
-- **Luxurious Script**: Decorative font (local)
+- **Luxurious Script**: Title font (local)
 
 Themes are controlled via `data-theme` attribute on the body element.
 
