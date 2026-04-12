@@ -38,93 +38,21 @@ const partners: Organization[] = [
   {
     id: "marquee1-1",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/auntea_jenny.png",
-      name: "Auntea Jenny",
-      rotation: 6,
-    },
-  },
-  {
-    id: "marquee1-2",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
-      name: "Bluety",
-      rotation: -10,
-    },
-  },
-  {
-    id: "marquee1-3",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
-      name: "Raising Cane's",
-      rotation: -10,
-    },
-  },
-  {
-    id: "marquee1-4",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/amazon.jpeg",
-      name: "Amazon",
-      rotation: 0,
-    },
-  },
-  {
-    id: "marquee1-5",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/eat.jpg",
-      name: "Eat Studio",
-      rotation: 6,
-    },
-  },
-  {
-    id: "marquee1-6",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
-      name: "Microsoft Copilot",
-      rotation: -10,
-    },
-  },
-  {
-    id: "marquee1-7",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
-      name: "Doordash",
-      rotation: 8,
-    },
-  },
-  {
-    id: "marquee1-8",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
-      name: "Menya Hanabi",
-      rotation: 20,
-    },
-  },
-  {
-    id: "marquee1-9",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpeg",
-      name: "Olive Garden",
-      rotation: 6,
-    },
-  },
-  {
-    id: "marquee1-10",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/chipotle.png",
-      name: "Chipotle",
-      rotation: -10,
-    },
-  },
-  {
-    id: "marquee1-11",
-    content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
       name: "UCI SPFB",
       rotation: 6,
     },
   },
   {
-    id: "marquee1-12",
+    id: "marquee1-2",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/gemini.png",
+      name: "Google Gemini",
+      rotation: 6,
+    },
+  },
+  {
+    id: "marquee1-3",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/notability.jpeg",
       name: "Notability",
@@ -132,24 +60,39 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-13",
+    id: "marquee1-4",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
-      name: "Monster Energy",
-      rotation: -15,
-    },
-  },
-
-  {
-    id: "marquee1-14",
-    content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
-      name: "Tigawok",
+      imageURL: "/images/seasons/2026/landing/partners/logos/ant_center.jpg",
+      name: "ANTrepreneur Center",
       rotation: 8,
     },
   },
   {
-    id: "marquee1-15",
+    id: "marquee1-5",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/auntea_jenny.png",
+      name: "Auntea Jenny",
+      rotation: 6,
+    },
+  },
+  {
+    id: "marquee1-6",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
+      name: "Menya Hanabi",
+      rotation: 20,
+    },
+  },
+  {
+    id: "marquee1-7",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/eat.jpg",
+      name: "Eat Studio",
+      rotation: 6,
+    },
+  },
+  {
+    id: "marquee1-8",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
       name: "Ryan Yang",
@@ -157,15 +100,63 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-16",
+    id: "marquee1-9",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/tabi.png",
-      name: "Tabi",
+      imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
+      name: "Bluety",
+      rotation: -10,
+    },
+  },
+  {
+    id: "marquee1-10",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
+      name: "Raising Cane's",
+      rotation: -10,
+    },
+  },
+  {
+    id: "marquee1-11",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/og.jpeg",
+      name: "Olive Garden",
       rotation: 6,
     },
   },
   {
-    id: "marquee1-18",
+    id: "marquee1-12",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
+      name: "Tigawok",
+      rotation: 8,
+    },
+  },
+  {
+    id: "marquee1-13",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/amazon.jpeg",
+      name: "Amazon",
+      rotation: 0,
+    },
+  },
+  {
+    id: "marquee1-14",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
+      name: "Microsoft Copilot",
+      rotation: -10,
+    },
+  },
+  {
+    id: "marquee1-15",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
+      name: "Doordash",
+      rotation: 8,
+    },
+  },
+  {
+    id: "marquee1-16",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.png",
       name: "Uber Eats",
@@ -173,7 +164,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-19",
+    id: "marquee1-17",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/lego.png",
       name: "LEGO",
@@ -181,11 +172,19 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-20",
+    id: "marquee1-18",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/ant_center.jpg",
-      name: "ANTrepreneur Center",
-      rotation: 8,
+      imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
+      name: "Monster Energy",
+      rotation: -15,
+    },
+  },
+  {
+    id: "marquee1-19",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/chipotle.png",
+      name: "Chipotle",
+      rotation: -10,
     },
   },
 ];
