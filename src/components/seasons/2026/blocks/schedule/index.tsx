@@ -332,7 +332,7 @@ export default function Itinerary() {
                   <TabsTrigger
                     key={day.date}
                     value={day.date}
-                    className="px-6 py-3 [font-family:var(--font-inria-sans)] text-lg font-semibold text-white/45 dark:text-white/45 data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-white dark:data-[state=active]:!text-white data-[state=active]:shadow-none"
+                    className="px-6 py-3 [font-family:var(--font-inria-sans)] text-lg font-semibold text-white/45 data-[state=active]:border-sky-400/40 data-[state=active]:bg-sky-400/20 data-[state=active]:!text-white data-[state=active]:shadow-none dark:text-white/45 dark:data-[state=active]:!text-white"
                   >
                     {day.date}
                   </TabsTrigger>
