@@ -123,6 +123,48 @@ const judges: Judge[] = [
     linkedInURL: "https://www.linkedin.com/in/irisdesign/",
     imageURL: "/images/seasons/2026/landing/judges/headshots/iris_li.jpeg",
   },
+  {
+    name: "Jenna Tanner",
+    position: "Senior Product Designer",
+    company: "TeamSnap",
+    linkedInURL: "https://www.linkedin.com/in/jenna-tanner-101672135/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/jenna_tanner.jpeg",
+  },
+  {
+    name: "Victor Tran",
+    position: "Product Design Intern",
+    company: "SAP",
+    linkedInURL: "https://www.linkedin.com/in/tran-victor/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/victor_tran.jpeg",
+  },
+  {
+    name: "John Daniel Norombaba",
+    position: "Masters Student",
+    company: "UCI Informatics",
+    linkedInURL: "https://www.linkedin.com/in/norombabajd/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/john_daniel.jpeg",
+  },
+  {
+    name: "Shirley Guo",
+    position: "Founding UX Designer",
+    company: "Suger",
+    linkedInURL: "https://www.linkedin.com/in/diashirley/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/shirley_guo.jpeg",
+  },
+  {
+    name: "Andrew Huang",
+    position: "Product Designer",
+    company: "Oracle",
+    linkedInURL: "https://www.linkedin.com/in/andrew-huang-art/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/andrew_huang.jpeg",
+  },
+  {
+    name: "Selina Che",
+    position: "Senior Digital Product Designer",
+    company: "Nike",
+    linkedInURL: "https://www.linkedin.com/in/selinache",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/selina_che.jpeg",
+  },
 ];
 
 const JUDGES_INITIAL_INDEX = Math.max(
