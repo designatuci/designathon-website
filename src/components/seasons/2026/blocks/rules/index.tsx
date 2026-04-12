@@ -9,7 +9,7 @@ import {
   CarouselItem,
 } from "@components/ui/carousel";
 import { useInView } from "motion/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { startTransition, useEffect, useMemo, useRef, useState } from "react";
 
 function Rules() {
   const [api, setApi] = useState<CarouselApi>();
@@ -18,9 +18,23 @@ function Rules() {
   useEffect(() => {
     if (!api) return;
     setCurrent(api.selectedScrollSnap() + 1);
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
+    const onSelect = () => {
+      startTransition(() => {
+        setCurrent(api.selectedScrollSnap() + 1);
+      });
+    };
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    const id = requestAnimationFrame(() => {
+      api.reInit();
     });
+    return () => cancelAnimationFrame(id);
   }, [api]);
 
   const dots = useMemo(
@@ -197,7 +211,7 @@ function Rules() {
             {/* Floating rule card — z-10 */}
             <div
               className={cn(
-                "relative z-10 w-full max-w-2xl transition-all duration-[1.5s] ease-out-quart",
+                "relative z-10 w-full max-w-2xl transition-[opacity,transform] duration-[1.5s] ease-out-quart",
                 "not-motion-reduce:translate-y-6 not-motion-reduce:opacity-0",
                 {
                   "not-motion-reduce:translate-y-0 not-motion-reduce:opacity-100":
@@ -207,17 +221,24 @@ function Rules() {
             >
               {/* Glass card */}
               <div
-                className="relative rounded-2xl p-6 lg:p-10"
+                className="relative overflow-hidden rounded-2xl"
                 style={{
-                  background: "rgba(195, 195, 195, 0.01)",
-                  border: "1px solid rgba(88, 63, 247, 0.7)",
-                  backdropFilter: "blur(12px)",
-                  borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+                  border: "1px solid rgba(88, 63, 247, 0.75)",
+                  borderLeft: "3px solid rgba(26, 64, 231, 0.45)",
                 }}
               >
+                <div
+                  className="pointer-events-none absolute inset-0 z-0 rounded-2xl"
+                  style={{
+                    background: "rgba(12, 8, 32, 0.88)",
+                    backdropFilter: "blur(14px)",
+                    WebkitBackdropFilter: "blur(14px)",
+                  }}
+                  aria-hidden
+                />
                 {/* Top glare streak */}
                 <div
-                  className="absolute top-0 right-8 left-8 h-[2px] rounded-full"
+                  className="absolute top-0 right-8 left-8 z-[1] h-[2px] rounded-full"
                   style={{
                     background:
                       "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
@@ -225,13 +246,13 @@ function Rules() {
                 />
 
                 {/* Carousel */}
-                <div className="relative z-10">
+                <div className="relative z-10 p-6 text-[rgba(255,255,255,0.85)] lg:p-10">
                   <Carousel
-                    opts={{ align: "start" }}
+                    opts={{ align: "start", duration: 18 }}
                     className="w-full"
                     setApi={setApi}
                   >
-                    <CarouselContent className="m-0">
+                    <CarouselContent className="m-0 will-change-[transform]">
                       {rules.map((rule, index) => (
                         <CarouselItem
                           key={index}
@@ -305,15 +326,15 @@ function Rules() {
 export default Rules;
 
 function RuleItem({ children }: { children: React.ReactNode }) {
-  return (
-    <li className="relative ml-6 bg-no-repeat before:absolute before:top-2 before:-left-4 before:block before:size-3 before:bg-[url(/images/seasons/2025/landing/star.svg)] before:bg-contain before:content-[''] lg:ml-8 lg:before:-left-8 lg:before:size-6">
-      {children}
-    </li>
-  );
+  return <li>{children}</li>;
 }
 
 function RuleList({ children }: { children: React.ReactNode }) {
-  return <ul className="list-outside space-y-1 lg:space-y-2">{children}</ul>;
+  return (
+    <ul className="list-outside list-disc space-y-1 pl-5 marker:text-white/80 lg:space-y-2 lg:pl-6">
+      {children}
+    </ul>
+  );
 }
 
 const rules: React.ReactNode[] = [
