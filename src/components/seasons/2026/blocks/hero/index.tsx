@@ -311,11 +311,11 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100svh] justify-center pt-28 pb-10 md:min-h-[120vh] md:pt-40 md:pb-16">
+    <section className="relative flex w-full min-h-[100svh] flex-col justify-center overflow-visible pt-16 pb-8 sm:pt-20 md:block md:min-h-[120vh] md:pt-28 md:pb-16">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
-          50%       { transform: translateY(-18px) rotate(calc(var(--rot) * -1)); }
+          50%       { transform: translateY(calc(var(--float-amplitude, 18px) * -1)) rotate(calc(var(--rot) * -1)); }
         }
         @keyframes floatAstronaut {
           0%, 100% { transform: translateY(0px) rotate(-15deg); }
@@ -329,7 +329,7 @@ export default function Hero() {
 
       <div
         className={cn(
-          "absolute inset-0",
+          "absolute inset-0 z-20 max-md:relative max-md:inset-auto max-md:z-30 max-md:min-h-0 max-md:flex-1",
           "transition-all duration-1000 ease-out-quart",
           "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
           {
@@ -338,54 +338,31 @@ export default function Hero() {
           },
         )}
       >
-        {/* Shooting stars layer — behind all content (moon, letters, astronaut, alien) */}
+        {/* Shooting stars layer — behind letters / timer */}
         <div className="absolute inset-0 z-[-1]">
           <ShootingStars />
         </div>
 
-        {/* Moon */}
-        <Image
-          src="/images/seasons/2026/landing/hero/moon.webp"
-          width={80}
-          height={50}
-          alt="moon"
-          priority
-          sizes="(max-width: 768px) 90vw, 750px"
-          className="pointer-events-none absolute top-1/2 left-1/2 z-10 w-[90%] max-w-[750px] -translate-x-1/2 translate-y-[50%] md:-translate-y-[10%]"
-          style={{
-            mixBlendMode: "screen",
-            filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
-          }}
-        />
-
-        <div className="pointer-events-none absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 translate-y-[50%] md:translate-y-[0%]">
-          <div className="flex max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3">
-            <HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
-              <AppsCloseCountdown />
-            </HeroInfoPanel>
-            <HeroInfoPanel className="hidden md:flex">
-              <div className="flex items-center gap-2">
-                <Calendar className="size-5 shrink-0 text-white/70" />
-                <p className="text-sm whitespace-nowrap sm:text-base">
-                  April 24 - 26, 2026
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="size-5 shrink-0 text-white/70" />
-                <p className="text-sm whitespace-nowrap sm:text-base">
-                  UC Irvine DCE
-                </p>
-              </div>
-            </HeroInfoPanel>
-          </div>
-        </div>
-
-        {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
-        <div className="absolute top-[20vh] left-1/2 flex w-full max-w-5xl -translate-x-1/2 flex-col items-center gap-0 px-2 sm:top-[17vh] sm:px-0 md:top-[15vh]">
+        {/* Title + timer + date: one column on mobile (like archive/2025); md+ unwraps via contents for absolute layout */}
+        <div
+          className={cn(
+            "mx-auto w-full max-w-5xl",
+            "max-md:relative max-md:z-20 max-md:flex max-md:flex-col max-md:items-center max-md:gap-1.5 max-md:px-2 max-md:pb-8",
+            "md:contents",
+          )}
+        >
+          {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
           <div
-            className="flex flex-col items-center [--hero-m:0.48] sm:[--hero-m:0.72] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
-            style={{ "--letter-base": "150px" } as React.CSSProperties}
+            className={cn(
+              "z-[12] flex w-full max-w-5xl flex-col items-center gap-0 sm:px-0",
+              "max-md:relative max-md:mt-10 max-md:w-full max-md:translate-x-0",
+              "md:absolute md:top-[15vh] md:left-1/2 md:-translate-x-1/2 md:z-auto md:px-2",
+            )}
           >
+            <div
+              className="flex flex-col items-center [--float-amplitude:7px] [--hero-m:0.48] sm:[--hero-m:0.72] md:[--float-amplitude:18px] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
+              style={{ "--letter-base": "150px" } as React.CSSProperties}
+            >
             {/* Line 1 */}
             <div className="flex max-w-full items-end justify-center gap-0">
               {line1.map((l, i) => (
@@ -451,7 +428,7 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Lost & Found */}
+            {/* Lost & Found — max-md margins eat extra transparent padding in the asset */}
             <Image
               src="/images/seasons/2026/landing/hero/lostandfound.webp"
               alt="Lost & Found"
@@ -459,39 +436,123 @@ export default function Hero() {
               height={80}
               priority
               sizes="(max-width: 768px) 200px, 320px"
-              className="pointer-events-none -mt-20 ml-4 w-full max-w-[200px] object-contain object-center md:-mt-38 md:max-w-xs"
+              className="pointer-events-none -mt-[5.5rem] ml-4 block h-auto w-full max-w-[200px] object-contain object-center max-md:-mb-12 md:-mt-38 md:mb-0 md:max-w-xs"
             />
+            </div>
+          </div>
+
+          <div
+            className={cn(
+              "flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3",
+              "max-md:pointer-events-auto md:pointer-events-none md:absolute md:left-1/2 md:top-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
+            )}
+          >
+            <HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
+              <AppsCloseCountdown />
+            </HeroInfoPanel>
+            <HeroInfoPanel className="flex w-fit min-w-0 max-w-[calc(100vw-2rem)] self-center">
+              <div className="flex items-center gap-2">
+                <Calendar className="size-5 shrink-0 text-white/70" />
+                <p className="text-sm whitespace-nowrap sm:text-base">
+                  April 24 - 26, 2026
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="size-5 shrink-0 text-white/70" />
+                <p className="text-sm whitespace-nowrap sm:text-base">
+                  UC Irvine DCE
+                </p>
+              </div>
+            </HeroInfoPanel>
           </div>
         </div>
+      </div>
 
-        {/* Astronaut */}
-        <div className="absolute bottom-[26vh] left-1/2 -translate-x-1/2 rotate-[20deg] md:bottom-[40%] md:left-[5%] md:translate-x-0 md:translate-y-[35%]">
-          <Image
-            src="/images/seasons/2026/landing/hero/astronaunt_pointing.webp"
-            width={500}
-            height={500}
-            alt="astronaunt_pointing"
-            className="h-[160px] w-auto object-contain sm:h-[200px] md:h-[280px] lg:h-[380px]"
-            style={{
-              animation: "floatAstronaut 6s ease-in-out infinite",
-              filter:
-                "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
-            }}
-          />
-        </div>
+      {/* Moon + astronaut + alien: mobile = in-flow strip (like archive/2025 canvas row); md = full-bleed overlay */}
+      <div
+        className={cn(
+          "pointer-events-none z-[5] flex w-full shrink-0 flex-col items-center gap-1 px-3 pb-6 pt-2",
+          "max-md:z-0 max-md:mt-auto",
+          "md:absolute md:inset-0 md:mt-0 md:gap-0 md:p-0",
+          "transition-all duration-1000 ease-out-quart",
+          "not-motion-reduce:translate-y-24 not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
+          {
+            "not-motion-reduce:translate-y-0 not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
+              assetsLoaded,
+          },
+        )}
+      >
+        {/* Mobile: astronaut + alien in a row above moon (no overlap); whole strip z-0 under timer/title. Desktop: md:contents. */}
+        <div
+          className={cn(
+            "max-md:relative max-md:z-0 max-md:mx-auto max-md:flex max-md:w-full max-md:max-w-lg max-md:flex-col max-md:items-center max-md:gap-1 max-md:pb-2",
+            "md:contents",
+          )}
+        >
+          <div
+            className={cn(
+              "relative max-md:min-h-[min(26vw,8.25rem)] max-md:w-full",
+              "md:contents",
+            )}
+          >
+            <div
+              className={cn(
+                "flex rotate-[20deg] justify-center",
+                "max-md:absolute max-md:bottom-2 max-md:left-1/2 max-md:z-[1] max-md:-translate-x-1/2",
+                "md:absolute md:bottom-[44%] md:left-[5%] md:z-auto md:translate-x-0 md:translate-y-[35%] md:rotate-[20deg]",
+              )}
+            >
+              <Image
+                src="/images/seasons/2026/landing/hero/astronaunt_pointing.webp"
+                width={500}
+                height={500}
+                alt="astronaunt_pointing"
+                className="h-[min(42vw,11rem)] w-auto object-contain sm:h-[min(38vw,12rem)] md:h-[280px] lg:h-[380px]"
+                style={{
+                  animation: "floatAstronaut 6s ease-in-out infinite",
+                  filter:
+                    "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+                }}
+              />
+            </div>
 
-        {/* Alien */}
-        <div className="absolute right-[10%] bottom-[35vh] -rotate-[20deg] md:right-[10%] md:bottom-[40%]">
+            <div
+              className={cn(
+                "flex -rotate-[20deg] justify-center",
+                "max-md:absolute max-md:bottom-[5.5rem] max-md:right-[10%] max-md:z-[1] max-md:left-auto",
+                "md:absolute md:right-[10%] md:bottom-[40%] md:z-auto md:-rotate-[20deg]",
+              )}
+            >
+              <Image
+                src="/images/seasons/2026/landing/hero/alien.webp"
+                width={500}
+                height={500}
+                alt="alien"
+                className="h-[min(18vw,4.25rem)] w-auto object-contain md:h-[200px]"
+                style={{
+                  animation: "floatAlien 6s ease-in-out infinite",
+                  filter:
+                    "drop-shadow(0 0 18px rgba(105, 105, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+                }}
+              />
+            </div>
+          </div>
+
           <Image
-            src="/images/seasons/2026/landing/hero/alien.webp"
-            width={500}
-            height={500}
-            alt="alien"
-            className="h-[60px] w-auto object-contain md:h-[200px]"
+            src="/images/seasons/2026/landing/hero/moon.webp"
+            width={80}
+            height={50}
+            alt="moon"
+            priority
+            sizes="(max-width: 768px) 92vw, 750px"
+            className={cn(
+              "pointer-events-none z-[1] h-auto w-[min(92vw,26rem)] max-w-none object-contain",
+              "max-md:relative max-md:mx-auto max-md:-mt-2",
+              "md:absolute md:top-1/2 md:left-1/2 md:z-10 md:w-[90%] md:max-w-[750px] md:-translate-x-1/2 md:translate-y-[50%] md:-translate-y-[10%]",
+            )}
             style={{
-              animation: "floatAlien 6s ease-in-out infinite",
-              filter:
-                "drop-shadow(0 0 18px rgba(105, 105, 252, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
+              mixBlendMode: "screen",
+              filter: "drop-shadow(0 0 40px rgba(168, 130, 215, 0.6))",
             }}
           />
         </div>
