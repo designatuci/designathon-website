@@ -548,7 +548,7 @@ export default function Hero() {
             className={cn(
               "pointer-events-none z-[1] h-auto w-[min(92vw,26rem)] max-w-none object-contain",
               "max-md:relative max-md:mx-auto max-md:-mt-2",
-              "md:absolute md:top-1/2 md:left-1/2 md:z-10 md:w-[90%] md:max-w-[750px] md:-translate-x-1/2 md:-translate-y-[10%] md:translate-y-[50%]",
+              "md:absolute md:top-1/2 md:left-1/2 md:z-10 md:w-[90%] md:max-w-[750px] md:[transform:translate(-50%,-10%)]",
             )}
             style={{
               mixBlendMode: "screen",
