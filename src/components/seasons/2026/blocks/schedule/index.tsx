@@ -96,17 +96,24 @@ function EventRow({
       </div>
 
       {/* Row content */}
-      <div style={{ flex: 1, paddingBottom: isLast ? 0 : "1.75rem" }}>
+      <div
+        style={{
+          flex: 1,
+          minWidth: 0,
+          paddingBottom: isLast ? 0 : "1.75rem",
+        }}
+      >
         <div
           onClick={onToggle}
           style={{
             display: "flex",
-            alignItems: "center",
+            alignItems: "flex-start",
             gap: "1rem",
             cursor: "pointer",
             padding: "0.4rem 1rem 0.4rem 0",
             transition: "all 0.25s",
             flexWrap: "wrap",
+            minWidth: 0,
           }}
         >
           <span
@@ -114,9 +121,11 @@ function EventRow({
               fontFamily: "var(--font-inria-sans)",
               fontSize: "1rem",
               color: "white",
-              minWidth: "70px",
+              minWidth: "3.5rem",
+              flexShrink: 0,
               letterSpacing: "0.05em",
             }}
+            className="sm:min-w-[70px]"
           >
             {event.time}
           </span>
@@ -127,9 +136,12 @@ function EventRow({
               color: "white",
               fontWeight: "bold",
               transition: "all 0.25s",
-              whiteSpace: "nowrap",
+              minWidth: 0,
+              flex: "1 1 12rem",
+              overflowWrap: "anywhere",
+              wordBreak: "break-word",
             }}
-            className="text-base sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl"
+            className="max-w-full text-base sm:text-lg lg:text-xl xl:text-2xl 3xl:text-3xl"
           >
             {event.title}
           </div>
@@ -282,15 +294,16 @@ export default function Itinerary() {
     <section
       id="schedule"
       ref={ref}
-      className="relative py-12"
+      className="relative z-10 py-12"
       style={{
         position: "relative",
       }}
     >
-      <div className="relative container mx-auto w-full" style={{ zIndex: 1 }}>
+      <div className="relative z-10 container mx-auto w-full">
         <Tabs defaultValue={scheduleDays[0].date}>
           {/* ── Title row: title left, tab selector right aligned to baseline ── */}
           <div
+            className="relative isolate"
             style={{
               display: "flex",
               alignItems: "flex-end",
@@ -300,20 +313,19 @@ export default function Itinerary() {
               marginBottom: "1rem",
             }}
           >
-            <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+            <h1 className="relative z-30 [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
               Itinerary
             </h1>
 
             {/* Tab selector with alien — baseline-aligned with title */}
-            <div className="relative inline-flex flex-col items-center self-end pb-2">
-              {/* Alien hugging top-right */}
+            <div className="relative z-10 inline-flex flex-col items-center self-end pb-2">
+              {/* Alien stays under the “Itinerary” title on overlap */}
               <div
-                className="pointer-events-none absolute"
+                className="pointer-events-none absolute max-md:z-[5] md:z-[10]"
                 style={{
                   top: "-65px",
                   right: "20px",
                   width: "clamp(150px, 5vw, 200px)",
-                  zIndex: 10,
                   animation: "alien-float 4s ease-in-out infinite",
                   animationDelay: "0.5s",
                 }}

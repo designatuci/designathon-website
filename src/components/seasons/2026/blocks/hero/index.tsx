@@ -311,7 +311,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex w-full min-h-[100svh] flex-col justify-center overflow-visible pt-16 pb-8 sm:pt-20 md:block md:min-h-[120vh] md:pt-28 md:pb-16">
+    <section className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-visible pt-16 pb-8 sm:pt-20 md:block md:min-h-[120vh] md:pt-28 md:pb-16">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
@@ -356,101 +356,101 @@ export default function Hero() {
             className={cn(
               "z-[12] flex w-full max-w-5xl flex-col items-center gap-0 sm:px-0",
               "max-md:relative max-md:mt-10 max-md:w-full max-md:translate-x-0",
-              "md:absolute md:top-[15vh] md:left-1/2 md:-translate-x-1/2 md:z-auto md:px-2",
+              "md:absolute md:top-[15vh] md:left-1/2 md:z-auto md:-translate-x-1/2 md:px-2",
             )}
           >
             <div
               className="flex flex-col items-center [--float-amplitude:7px] [--hero-m:0.48] sm:[--hero-m:0.72] md:[--float-amplitude:18px] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
               style={{ "--letter-base": "150px" } as React.CSSProperties}
             >
-            {/* Line 1 */}
-            <div className="flex max-w-full items-end justify-center gap-0">
-              {line1.map((l, i) => (
-                <Image
-                  key={i}
-                  src={l.src}
-                  alt=""
-                  width={150}
-                  height={150}
-                  sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
-                  className="pointer-events-none max-w-none object-contain"
-                  style={
-                    {
-                      height:
-                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                      width: "auto",
-                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                      marginBottom: 0,
-                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                      animation: `float ${l.duration} ease-in-out infinite`,
-                      animationDelay: l.delay,
-                      "--rot": l.rotate,
-                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                    } as React.CSSProperties
-                  }
-                />
-              ))}
-            </div>
+              {/* Line 1 */}
+              <div className="flex max-w-full items-end justify-center gap-0">
+                {line1.map((l, i) => (
+                  <Image
+                    key={i}
+                    src={l.src}
+                    alt=""
+                    width={150}
+                    height={150}
+                    sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
+                    className="pointer-events-none max-w-none object-contain"
+                    style={
+                      {
+                        height:
+                          "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                        width: "auto",
+                        marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                        marginBottom: 0,
+                        marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                        marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                        animation: `float ${l.duration} ease-in-out infinite`,
+                        animationDelay: l.delay,
+                        "--rot": l.rotate,
+                        filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                      } as React.CSSProperties
+                    }
+                  />
+                ))}
+              </div>
 
-            {/* Line 2 */}
-            <div
-              className="flex max-w-full items-end justify-center gap-0"
-              style={{
-                marginTop: "calc(-20px * var(--hero-m, 1))",
-              }}
-            >
-              {line2.map((l, i) => (
-                <Image
-                  key={i}
-                  src={l.src}
-                  alt=""
-                  width={150}
-                  height={150}
-                  sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
-                  className="pointer-events-none max-w-none object-contain"
-                  style={
-                    {
-                      height:
-                        "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                      width: "auto",
-                      marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                      marginBottom: 0,
-                      marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                      marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                      animation: `float ${l.duration} ease-in-out infinite`,
-                      animationDelay: l.delay,
-                      "--rot": l.rotate,
-                      filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                    } as React.CSSProperties
-                  }
-                />
-              ))}
-            </div>
+              {/* Line 2 */}
+              <div
+                className="flex max-w-full items-end justify-center gap-0"
+                style={{
+                  marginTop: "calc(-20px * var(--hero-m, 1))",
+                }}
+              >
+                {line2.map((l, i) => (
+                  <Image
+                    key={i}
+                    src={l.src}
+                    alt=""
+                    width={150}
+                    height={150}
+                    sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
+                    className="pointer-events-none max-w-none object-contain"
+                    style={
+                      {
+                        height:
+                          "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                        width: "auto",
+                        marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                        marginBottom: 0,
+                        marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                        marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                        animation: `float ${l.duration} ease-in-out infinite`,
+                        animationDelay: l.delay,
+                        "--rot": l.rotate,
+                        filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                      } as React.CSSProperties
+                    }
+                  />
+                ))}
+              </div>
 
-            {/* Lost & Found — max-md margins eat extra transparent padding in the asset */}
-            <Image
-              src="/images/seasons/2026/landing/hero/lostandfound.webp"
-              alt="Lost & Found"
-              width={400}
-              height={80}
-              priority
-              sizes="(max-width: 768px) 200px, 320px"
-              className="pointer-events-none -mt-[5.5rem] ml-4 block h-auto w-full max-w-[200px] object-contain object-center max-md:-mb-12 md:-mt-38 md:mb-0 md:max-w-xs"
-            />
+              {/* Lost & Found — max-md margins eat extra transparent padding in the asset */}
+              <Image
+                src="/images/seasons/2026/landing/hero/lostandfound.webp"
+                alt="Lost & Found"
+                width={400}
+                height={80}
+                priority
+                sizes="(max-width: 768px) 200px, 320px"
+                className="pointer-events-none -mt-[5.5rem] ml-4 block h-auto w-full max-w-[200px] object-contain object-center max-md:-mb-12 md:-mt-38 md:mb-0 md:max-w-xs"
+              />
             </div>
           </div>
 
           <div
             className={cn(
               "flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3",
-              "max-md:pointer-events-auto md:pointer-events-none md:absolute md:left-1/2 md:top-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
+              "max-md:pointer-events-auto md:pointer-events-none md:absolute md:top-1/2 md:left-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
             )}
           >
             <HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
               <AppsCloseCountdown />
             </HeroInfoPanel>
-            <HeroInfoPanel className="flex w-fit min-w-0 max-w-[calc(100vw-2rem)] self-center">
+            <HeroInfoPanel className="flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-white/70" />
                 <p className="text-sm whitespace-nowrap sm:text-base">
@@ -471,7 +471,7 @@ export default function Hero() {
       {/* Moon + astronaut + alien: mobile = in-flow strip (like archive/2025 canvas row); md = full-bleed overlay */}
       <div
         className={cn(
-          "pointer-events-none z-[5] flex w-full shrink-0 flex-col items-center gap-1 px-3 pb-6 pt-2",
+          "pointer-events-none z-[5] flex w-full shrink-0 flex-col items-center gap-1 px-3 pt-2 pb-6",
           "max-md:z-0 max-md:mt-auto",
           "md:absolute md:inset-0 md:mt-0 md:gap-0 md:p-0",
           "transition-all duration-1000 ease-out-quart",
@@ -519,7 +519,7 @@ export default function Hero() {
             <div
               className={cn(
                 "flex -rotate-[20deg] justify-center",
-                "max-md:absolute max-md:bottom-[5.5rem] max-md:right-[10%] max-md:z-[1] max-md:left-auto",
+                "max-md:absolute max-md:right-[10%] max-md:bottom-[5.5rem] max-md:left-auto max-md:z-[1]",
                 "md:absolute md:right-[10%] md:bottom-[40%] md:z-auto md:-rotate-[20deg]",
               )}
             >
@@ -548,7 +548,7 @@ export default function Hero() {
             className={cn(
               "pointer-events-none z-[1] h-auto w-[min(92vw,26rem)] max-w-none object-contain",
               "max-md:relative max-md:mx-auto max-md:-mt-2",
-              "md:absolute md:top-1/2 md:left-1/2 md:z-10 md:w-[90%] md:max-w-[750px] md:-translate-x-1/2 md:translate-y-[50%] md:-translate-y-[10%]",
+              "md:absolute md:top-1/2 md:left-1/2 md:z-10 md:w-[90%] md:max-w-[750px] md:-translate-x-1/2 md:-translate-y-[10%] md:translate-y-[50%]",
             )}
             style={{
               mixBlendMode: "screen",
