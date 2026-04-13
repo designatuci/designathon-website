@@ -282,9 +282,10 @@ export default function MeetCommittees() {
                 <Image
                   src={c.star}
                   alt={c.name}
+                  draggable={false}
                   width={c.size}
                   height={c.size}
-                  className="star-img"
+                  className="star-img select-none"
                   style={{
                     width: c.size,
                     height: c.size,
@@ -314,9 +315,10 @@ export default function MeetCommittees() {
                   <Image
                     src={c.star}
                     alt={c.name}
+                    draggable={false}
                     width={56}
                     height={56}
-                    className="object-contain"
+                    className="object-contain select-none"
                     style={{
                       width: 56,
                       height: 56,

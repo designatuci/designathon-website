@@ -55,12 +55,13 @@ export default function Prizes() {
               className="flex flex-col items-center gap-4 text-center"
             >
               <div
-                className="prize-bob relative h-52 w-52 overflow-hidden md:h-64 md:w-64"
+                className="prize-bob relative h-52 w-52 overflow-hidden select-none md:h-64 md:w-64"
                 style={{ animationDelay: `${index * 0.25}s` }}
               >
                 <Image
                   src={prize.imageSrc}
                   alt=""
+                  draggable={false}
                   fill
                   className="object-contain"
                   sizes="(max-width: 768px) 208px, 256px"

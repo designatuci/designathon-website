@@ -132,7 +132,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
   const renderCanvas = () => (
     <>
       <svg
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 select-none"
         width="440"
         height="440"
         style={{ overflow: "visible" }}
@@ -191,7 +191,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           return (
             <button
               key={i}
-              className={`const-member-node ${isSelected ? "highlighted" : ""}`}
+              className={`const-member-node select-none ${isSelected ? "highlighted" : ""}`}
               style={{
                 left: x,
                 top: y,
@@ -255,8 +255,10 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           <Image
             src={star}
             alt={name}
+            draggable={false}
             width={62}
             height={62}
+            className="select-none"
             style={{
               display: "block",
               margin: "0 auto",
@@ -493,8 +495,10 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 <Image
                   src={photoSrc}
                   alt={member?.name ? `${member.name} pic` : "Team member pic"}
+                  draggable={false}
                   width={64}
                   height={64}
+                  className="select-none"
                   style={{
                     objectFit: "cover",
                     width: "100%",

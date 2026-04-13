@@ -78,7 +78,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
       >
         {/* Planet as background — scaled up so planet is bigger, info stays same size */}
         <div
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center select-none"
           style={{
             transform: `${planetOffset} scale(${planetScale})`,
           }}
@@ -88,6 +88,7 @@ function ProfileCard({ profile, isInView, index, isActive }: Props) {
             <Image
               src={planetSrc}
               alt=""
+              draggable={false}
               fill
               className="object-contain"
               sizes="320px"

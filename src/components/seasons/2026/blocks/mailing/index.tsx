@@ -98,9 +98,10 @@ export default function MailingList() {
                   : "/images/seasons/2026/landing/mailing/alien-begging.png"
               }
               alt="alien mascot"
+              draggable={false}
               width={180}
               height={180}
-              className="alien-float pointer-events-none"
+              className="alien-float pointer-events-none select-none"
             />
             <motion.div
               className="comic-bubble"

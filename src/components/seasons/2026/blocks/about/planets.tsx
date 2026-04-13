@@ -136,6 +136,7 @@ function OrbitingPlanet({
         <Image
           src={config.src}
           alt={config.alt}
+          draggable={false}
           fill
           className="object-contain"
         />
@@ -199,6 +200,7 @@ function CentrePlanet() {
       <Image
         src="/images/seasons/2026/landing/about/navy.png"
         alt="Navy planet"
+        draggable={false}
         fill
         className="object-contain"
       />
@@ -218,7 +220,7 @@ export function Planets({ progress }: { progress: MotionValue<number> }) {
   });
 
   return (
-    <div className="relative hidden h-full md:block md:w-[55%] lg:w-[58%]">
+    <div className="relative hidden h-full select-none md:block md:w-[55%] lg:w-[58%]">
       {/* Orbital system */}
       <div className="absolute inset-0">
         <OrbitalRings />

@@ -146,6 +146,7 @@ function ShootingStars() {
       const img = document.createElement("img");
       img.src = src;
       img.alt = "";
+      img.draggable = false;
       img.style.cssText = `
         position: absolute;
         top: ${startYPercent}%;
@@ -275,7 +276,7 @@ function HeroInfoPanel({
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center gap-2 text-center [font-family:var(--font-inria-sans)]",
+        "pointer-events-auto relative flex flex-col items-center gap-2 text-center [font-family:var(--font-inria-sans)] select-text",
         className,
       )}
       style={heroInfoPanelStyle}
@@ -311,7 +312,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-visible pt-16 pb-8 sm:pt-20 md:block md:min-h-[120vh] md:pt-28 md:pb-16">
+    <section className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-visible pt-16 pb-8 select-none sm:pt-20 md:block md:min-h-[120vh] md:pt-28 md:pb-16">
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
@@ -370,6 +371,7 @@ export default function Hero() {
                     key={i}
                     src={l.src}
                     alt=""
+                    draggable={false}
                     width={150}
                     height={150}
                     sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
@@ -405,6 +407,7 @@ export default function Hero() {
                     key={i}
                     src={l.src}
                     alt=""
+                    draggable={false}
                     width={150}
                     height={150}
                     sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
@@ -432,6 +435,7 @@ export default function Hero() {
               <Image
                 src="/images/seasons/2026/landing/hero/lostandfound.webp"
                 alt="Lost & Found"
+                draggable={false}
                 width={400}
                 height={80}
                 priority
@@ -443,7 +447,7 @@ export default function Hero() {
 
           <div
             className={cn(
-              "flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3",
+              "flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3 select-text",
               "max-md:pointer-events-auto md:pointer-events-none md:absolute md:top-1/2 md:left-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
             )}
           >
@@ -507,6 +511,7 @@ export default function Hero() {
                 width={500}
                 height={500}
                 alt="astronaunt_pointing"
+                draggable={false}
                 className="h-[min(42vw,11rem)] w-auto object-contain sm:h-[min(38vw,12rem)] md:h-[280px] lg:h-[380px]"
                 style={{
                   animation: "floatAstronaut 6s ease-in-out infinite",
@@ -528,6 +533,7 @@ export default function Hero() {
                 width={500}
                 height={500}
                 alt="alien"
+                draggable={false}
                 className="h-[min(18vw,4.25rem)] w-auto object-contain md:h-[200px]"
                 style={{
                   animation: "floatAlien 6s ease-in-out infinite",
@@ -543,6 +549,7 @@ export default function Hero() {
             width={80}
             height={50}
             alt="moon"
+            draggable={false}
             priority
             sizes="(max-width: 768px) 92vw, 750px"
             className={cn(

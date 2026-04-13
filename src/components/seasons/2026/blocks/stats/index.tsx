@@ -44,9 +44,10 @@ export default function Stats() {
           <Image
             src="/images/seasons/2026/landing/stats/stars.png"
             alt=""
+            draggable={false}
             width={1113}
             height={671}
-            className="mt-30 h-auto w-full max-w-[300px] object-contain md:max-w-[1300px]"
+            className="mt-30 h-auto w-full max-w-[300px] object-contain select-none md:max-w-[1300px]"
           />
         </div>
         <div className="pointer-events-none absolute top-2 left-1/2 z-0 -translate-x-1/2 md:top-1/2 md:left-[20%] md:translate-x-0">
@@ -54,9 +55,10 @@ export default function Stats() {
             <Image
               src="/images/seasons/2026/landing/stats/flame.png"
               alt=""
+              draggable={false}
               width={200}
               height={200}
-              className="h-auto w-full max-w-[100px] object-contain sm:max-w-[140px] md:max-w-[200px] lg:max-w-[250px]"
+              className="h-auto w-full max-w-[100px] object-contain select-none sm:max-w-[140px] md:max-w-[200px] lg:max-w-[250px]"
             />
           </div>
         </div>
