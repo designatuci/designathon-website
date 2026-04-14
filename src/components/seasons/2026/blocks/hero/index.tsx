@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import AppsCloseCountdown from "@components/seasons/2026/blocks/hero/countdown-timer";
 import { Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
