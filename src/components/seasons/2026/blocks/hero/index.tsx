@@ -451,9 +451,9 @@ export default function Hero() {
               "max-md:pointer-events-auto md:pointer-events-none md:absolute md:top-1/2 md:left-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
             )}
           >
-            <HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
+            {/*<HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
               <AppsCloseCountdown />
-            </HeroInfoPanel>
+            </HeroInfoPanel> */}
             <HeroInfoPanel className="flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-white/70" />
