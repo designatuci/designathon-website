@@ -6,6 +6,7 @@ export interface Organization {
     imageURL: string;
     rotation: number;
     name: string;
+    websiteUrl?: string;
   };
 }
 
@@ -41,6 +42,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
       name: "UCI SPFB",
       rotation: 6,
+      websiteUrl: "https://asuci.uci.edu/spfb/",
     },
   },
   {
@@ -49,6 +51,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/gemini.png",
       name: "Google Gemini",
       rotation: 6,
+      websiteUrl: "https://gemini.google.com/",
     },
   },
   {
@@ -57,6 +60,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/notability.jpeg",
       name: "Notability",
       rotation: 10,
+      websiteUrl: "https://notability.com/",
     },
   },
   {
@@ -65,6 +69,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/ant_center.jpg",
       name: "ANTrepreneur Center",
       rotation: 8,
+      websiteUrl: "https://antrepreneur.uci.edu/",
     },
   },
   {
@@ -73,6 +78,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/auntea_jenny.png",
       name: "Auntea Jenny",
       rotation: 6,
+      websiteUrl: "https://aunteajenny.us/",
     },
   },
   {
@@ -81,6 +87,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
       name: "Menya Hanabi",
       rotation: 20,
+      websiteUrl: "https://menyahanabiusa.com/",
     },
   },
   {
@@ -89,6 +96,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/eat.jpg",
       name: "Eat Studio",
       rotation: 6,
+      websiteUrl: "https://eat.studio/",
     },
   },
   {
@@ -97,6 +105,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
       name: "Ryan Yang",
       rotation: 0,
+      websiteUrl: "https://ryqn.dev/",
     },
   },
   {
@@ -105,6 +114,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
       name: "Bluety",
       rotation: -10,
+      websiteUrl: "https://bybluety.com/",
     },
   },
   {
@@ -113,6 +123,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
       name: "Raising Cane's",
       rotation: -10,
+      websiteUrl: "https://raisingcanes.com/",
     },
   },
   {
@@ -121,6 +132,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/og.jpeg",
       name: "Olive Garden",
       rotation: 6,
+      websiteUrl: "https://www.olivegarden.com/",
     },
   },
   {
@@ -129,6 +141,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
       name: "Tigawok",
       rotation: 8,
+      websiteUrl: "https://www.tigawok.com/",
     },
   },
   {
@@ -137,6 +150,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/amazon.jpeg",
       name: "Amazon",
       rotation: 0,
+      websiteUrl: "https://www.amazon.com/",
     },
   },
   {
@@ -145,6 +159,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
       name: "Microsoft Copilot",
       rotation: -10,
+      websiteUrl: "https://copilot.microsoft.com/",
     },
   },
   {
@@ -153,6 +168,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
       name: "Doordash",
       rotation: 8,
+      websiteUrl: "https://www.doordash.com/",
     },
   },
   {
@@ -161,6 +177,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.png",
       name: "Uber Eats",
       rotation: 6,
+      websiteUrl: "https://www.ubereats.com/",
     },
   },
   {
@@ -169,6 +186,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/lego.png",
       name: "LEGO",
       rotation: -8,
+      websiteUrl: "https://www.lego.com/",
     },
   },
   {
@@ -177,6 +195,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
       name: "Monster Energy",
       rotation: -15,
+      websiteUrl: "https://www.monsterenergy.com/",
     },
   },
   {
@@ -185,6 +204,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/chipotle.png",
       name: "Chipotle",
       rotation: -10,
+      websiteUrl: "https://www.chipotle.com/",
     },
   },
 ];

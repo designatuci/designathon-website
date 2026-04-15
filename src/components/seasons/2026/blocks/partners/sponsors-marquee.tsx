@@ -210,15 +210,45 @@ const SponsorsMarquee = ({
                     >
                       {org.content!.name}
                     </label>
-                    <DOTImage
-                      id={`partner-${org.id}`}
-                      src={org.content!.imageURL}
-                      alt={org.content!.name}
-                      width={120}
-                      height={120}
-                      sizes="(min-width: 768px) 9vw, 12vw"
-                      className="h-auto w-full rounded-[10px] object-contain transition-transform duration-200 group-hover/logo:scale-110"
-                    />
+                    {(() => {
+                      const websiteUrl = org.content!.websiteUrl;
+                      const name = org.content!.name;
+                      const imageURL = org.content!.imageURL;
+
+                      if (websiteUrl) {
+                        return (
+                          <a
+                            href={websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block rounded-[10px] outline-offset-4 focus-visible:ring-2 focus-visible:ring-white/70"
+                            aria-label={`${name} (opens in a new tab)`}
+                          >
+                            <DOTImage
+                              id={`partner-${org.id}`}
+                              src={imageURL}
+                              alt=""
+                              width={120}
+                              height={120}
+                              sizes="(min-width: 768px) 9vw, 12vw"
+                              className="h-auto w-full rounded-[10px] object-contain transition-transform duration-200 group-hover/logo:scale-110"
+                            />
+                          </a>
+                        );
+                      }
+
+                      return (
+                        <DOTImage
+                          id={`partner-${org.id}`}
+                          src={imageURL}
+                          alt={name}
+                          width={120}
+                          height={120}
+                          sizes="(min-width: 768px) 9vw, 12vw"
+                          className="h-auto w-full rounded-[10px] object-contain transition-transform duration-200 group-hover/logo:scale-110"
+                        />
+                      );
+                    })()}
                   </div>,
                 );
               }
