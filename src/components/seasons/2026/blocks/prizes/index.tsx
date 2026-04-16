@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
 
 // ─── data ─────────────────────────────────────────────────────────────────────
 
@@ -11,12 +11,22 @@ const generalPrizes = [
     rank: "1st place",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/first.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/first-place.png",
-    items: ["4× Sony Headphones", "4× Annual Notability Pro", "4× $100 Visa Gift Cards"],
+    items: [
+      "4× Sony Headphones",
+      "4× Annual Notability Pro",
+      "4× $100 Visa Gift Cards",
+    ],
     featured: false,
     // sponsor logos — replace src with actual paths
     sponsors: [
-      { name: "Gemini",     logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png" },
-      { name: "Notability", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability.png" },
+      {
+        name: "Gemini",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png",
+      },
+      {
+        name: "Notability",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+      },
     ],
   },
   {
@@ -24,11 +34,22 @@ const generalPrizes = [
     rank: "2nd place",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/second.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/2.png",
-    items: ["4× Anker Power Banks", "4× Annual Notability Pro", "4× $50 Visa Gift Cards", "2× Bluety Goodie Bags"],
+    items: [
+      "4× Anker Power Banks",
+      "4× Annual Notability Pro",
+      "4× $50 Visa Gift Cards",
+      "2× Bluety Goodie Bags",
+    ],
     featured: false,
     sponsors: [
-      { name: "Gemini",     logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png" },
-      { name: "Notability", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability.png" },
+      {
+        name: "Gemini",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png",
+      },
+      {
+        name: "Notability",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+      },
     ],
   },
   {
@@ -36,11 +57,21 @@ const generalPrizes = [
     rank: "3rd place",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/third.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/third.png",
-    items: ["4× Echo Dots", "4× Annual Notability Pro", "4× Bluety Goodie Bags"],
+    items: [
+      "4× Echo Dots",
+      "4× Annual Notability Pro",
+      "4× Bluety Goodie Bags",
+    ],
     featured: false,
     sponsors: [
-      { name: "Gemini",     logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png" },
-      { name: "Notability", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability.png" },
+      {
+        name: "Gemini",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/gemini.png",
+      },
+      {
+        name: "Notability",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+      },
     ],
   },
 ];
@@ -59,10 +90,18 @@ const professionalPrizes = [
     ],
     featured: false,
     sponsors: [
-      { name: "Menya Hanabi", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/menya.png" },
-      { name: "Auntea Jenny", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/auntea.png" },
-      { name: "EAT Studio", logoSrc: "/images/seasons/2026/landing/prizes/sponsors/eat.png" },
-
+      {
+        name: "Menya Hanabi",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/menya.png",
+      },
+      {
+        name: "Auntea Jenny",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/auntea.png",
+      },
+      {
+        name: "EAT Studio",
+        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/eat.png",
+      },
     ],
   },
 ];
@@ -71,7 +110,8 @@ const specialPrizes = [
   {
     id: "begin",
     rank: "Beginner's prize",
-    planetSrc: "/images/seasons/2026/landing/prizes/planets/beginners_planet.png",
+    planetSrc:
+      "/images/seasons/2026/landing/prizes/planets/beginners_planet.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/beginners.png",
     items: ["4× Chaism Matcha Powder", "4× Joiish Matcha Kit"],
     featured: false,
@@ -91,7 +131,12 @@ const specialPrizes = [
     rank: "People's choice",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/peoples.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/peoples.png",
-    items: ["4× Apple AirTags + Case", "4× Chipotle Gift Cards", "5× Cane's Box Combo Gift Cards", "2× Bluety Gift Bag"],
+    items: [
+      "4× Apple AirTags + Case",
+      "4× Chipotle Gift Cards",
+      "5× Cane's Box Combo Gift Cards",
+      "2× Bluety Gift Bag",
+    ],
     featured: false,
     sponsors: [] as { name: string; logoSrc: string }[],
   },
@@ -134,9 +179,9 @@ function PrizeCard({ prize }: { prize: Prize }) {
         "relative w-full cursor-pointer overflow-hidden rounded-2xl text-left",
         "border backdrop-blur-md",
         "transition-[transform,border-color,box-shadow] duration-200",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40",
+        "focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none",
         open || prize.featured
-          ? "border-[rgba(111,252,226,0.75)] [border-left:3px_solid_rgba(111,252,226,0.45)] shadow-[0_0_24px_rgba(111,252,226,0.15)]"
+          ? "border-[rgba(111,252,226,0.75)] shadow-[0_0_24px_rgba(111,252,226,0.15)] [border-left:3px_solid_rgba(111,252,226,0.45)]"
           : "border-[rgba(88,63,247,0.55)] [border-left:3px_solid_rgba(26,64,231,0.32)] hover:border-[rgba(88,63,247,0.85)] hover:shadow-[0_8px_32px_rgba(88,63,247,0.18)]",
         "hover:-translate-y-0.5",
       ].join(" ")}
@@ -149,9 +194,10 @@ function PrizeCard({ prize }: { prize: Prize }) {
           open ? "opacity-100" : "opacity-40",
         ].join(" ")}
         style={{
-          background: open || prize.featured
-            ? "linear-gradient(90deg,transparent,rgba(111,252,226,0.95),rgba(255,217,122,0.5),transparent)"
-            : "linear-gradient(90deg,transparent,rgba(111,252,226,0.82),rgba(167,139,250,0.5),transparent)",
+          background:
+            open || prize.featured
+              ? "linear-gradient(90deg,transparent,rgba(111,252,226,0.95),rgba(255,217,122,0.5),transparent)"
+              : "linear-gradient(90deg,transparent,rgba(111,252,226,0.82),rgba(167,139,250,0.5),transparent)",
         }}
       />
 
@@ -175,7 +221,9 @@ function PrizeCard({ prize }: { prize: Prize }) {
           style={{
             width: open ? 0 : 80,
             height: open ? 0 : 80,
-            filter: open ? "none" : "drop-shadow(0 0 12px rgba(255,255,255,0.72))",
+            filter: open
+              ? "none"
+              : "drop-shadow(0 0 12px rgba(255,255,255,0.72))",
           }}
         >
           {!open && (
@@ -189,7 +237,7 @@ function PrizeCard({ prize }: { prize: Prize }) {
           )}
         </div>
 
-        <p className="text-l font-bold uppercase tracking-[0.14em] text-[rgba(111,252,226,0.7)]">
+        <p className="text-l font-bold tracking-[0.14em] text-[rgba(111,252,226,0.7)] uppercase">
           {prize.rank}
         </p>
 
@@ -209,7 +257,7 @@ function PrizeCard({ prize }: { prize: Prize }) {
               />
             </div>
 
-            <ul className="list-none text-center text-m leading-[1.9] text-white/80">
+            <ul className="text-m list-none text-center leading-[1.9] text-white/80">
               {prize.items.map((item) => (
                 <li
                   key={item}
@@ -234,7 +282,7 @@ function PrizeCard({ prize }: { prize: Prize }) {
                       alt={s.name}
                       fill
                       className="object-contain"
-                      sizes="64px"
+                      sizes="70px"
                     />
                   </div>
                 ))}
@@ -242,7 +290,7 @@ function PrizeCard({ prize }: { prize: Prize }) {
             )}
           </>
         ) : (
-          <p className="text-xs text-white/40">tap to reveal</p>
+          <p className="text-s text-white/40">tap to reveal</p>
         )}
       </div>
     </button>
@@ -252,7 +300,8 @@ function PrizeCard({ prize }: { prize: Prize }) {
 // ─── track section ────────────────────────────────────────────────────────────
 
 // uniform pill color across all tracks
-const PILL = "bg-[rgba(184,164,255,0.15)] text-[#b8a4ff] border-[rgba(184,164,255,0.35)]";
+const PILL =
+  "bg-[rgba(184,164,255,0.15)] text-[#b8a4ff] border-[rgba(184,164,255,0.35)]";
 
 function TrackSection({
   pill,
@@ -275,7 +324,7 @@ function TrackSection({
       <div className="mb-5 flex min-w-0 flex-col">
         <span
           className={[
-            "mb-2 inline-block self-start rounded-full border px-3 py-0.5 text-[14px] font-bold uppercase tracking-[0.14em]",
+            "mb-2 inline-block self-start rounded-full border px-3 py-0.5 text-[14px] font-bold tracking-[0.14em] uppercase",
             PILL,
           ].join(" ")}
         >
@@ -284,12 +333,10 @@ function TrackSection({
         <p className="[font-family:var(--font-luxurious-script)] text-5xl font-normal text-white md:text-6xl">
           {name}
         </p>
-        <p className="mt-1 w-full text-sm leading-relaxed text-white/80 md:text-base [font-family:var(--font-inria-sans)]">
+        <p className="mt-1 w-full [font-family:var(--font-inria-sans)] text-sm leading-relaxed text-white/80 md:text-base">
           {desc}
         </p>
-        {sponsor && (
-          <p className="mt-1 text-m text-white/60">{sponsor}</p>
-        )}
+        {sponsor && <p className="text-m mt-1 text-white/60">{sponsor}</p>}
       </div>
 
       {/* cards side by side */}
@@ -334,7 +381,7 @@ export default function Prizes() {
           Prizes
         </h1>
 
-        <p className="mb-10 mt-2 w-full text-sm tracking-wide text-white/40 md:text-base">
+        <p className="mt-2 mb-10 w-full text-sm tracking-wide text-white/40 md:text-base">
           Tap a card to reveal what&apos;s waiting for you.
         </p>
 
@@ -346,7 +393,7 @@ export default function Prizes() {
           prizes={generalPrizes}
         />
 
-        <hr className="my-2 border-none border-t border-[rgba(88,63,247,0.2)]" />
+        <hr className="my-2 border-t border-none border-[rgba(88,63,247,0.2)]" />
 
         <div className="my-8">
           <TrackSection
@@ -359,7 +406,7 @@ export default function Prizes() {
           />
         </div>
 
-        <hr className="my-2 border-none border-t border-[rgba(88,63,247,0.2)]" />
+        <hr className="my-2 border-t border-none border-[rgba(88,63,247,0.2)]" />
 
         <div className="mt-8">
           <TrackSection
