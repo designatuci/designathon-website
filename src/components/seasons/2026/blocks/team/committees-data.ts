@@ -338,7 +338,7 @@ export const COMMITTEES: Committee[] = [
           "I'm obsessed with collecting random paper scraps to put in my zines!",
       },
       {
-        photo: "/images/seasons/2026/landing/team/imported/audrey-zheng.jpg",
+        photo: "/images/seasons/2026/landing/team/imported/audrey-zheng.png",
         name: "Audrey Zheng",
         role: "Committee",
         year: "1st Year",

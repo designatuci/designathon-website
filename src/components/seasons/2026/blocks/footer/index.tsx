@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 const footerLinks = [
-  { name: "Instagram", href: "https://www.instagram.com/designatuci/" },
+  { name: "Instagram", href: "https://www.instagram.com/ucidesignathon/" },
   { name: "Discord", href: "https://discord.com/invite/MBVrKe9" },
   {
     name: "YouTube",
