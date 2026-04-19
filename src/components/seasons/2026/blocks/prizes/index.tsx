@@ -25,7 +25,8 @@ const generalPrizes = [
       },
       {
         name: "Notability",
-        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+        logoSrc:
+          "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
       },
     ],
   },
@@ -48,7 +49,8 @@ const generalPrizes = [
       },
       {
         name: "Notability",
-        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+        logoSrc:
+          "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
       },
     ],
   },
@@ -70,7 +72,8 @@ const generalPrizes = [
       },
       {
         name: "Notability",
-        logoSrc: "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
+        logoSrc:
+          "/images/seasons/2026/landing/prizes/sponsors/notability_logo.png",
       },
     ],
   },

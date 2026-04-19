@@ -343,91 +343,93 @@ export default function Hero() {
           <ShootingStars />
         </div>
 
-        {/* Title + timer + date: one column on mobile (like archive/2025); md+ unwraps via contents for absolute layout */}
+        {/* Title + lost & found + timer + date: one top-anchored column (like archive/2025), not centered with the moon */}
         <div
           className={cn(
-            "mx-auto w-full max-w-5xl",
-            "max-md:relative max-md:z-20 max-md:flex max-md:flex-col max-md:items-center max-md:gap-1.5 max-md:px-2 max-md:pb-8",
-            "md:contents",
+            "relative z-20 mx-auto flex w-full max-w-5xl flex-col items-center gap-1.5 px-2 pb-8",
+            "max-md:mt-10 md:gap-2 md:pt-[15vh]",
           )}
         >
           {/* Floating letters — --hero-m scales letter size + overlap on small screens */}
           <div
             className={cn(
               "z-[12] flex w-full max-w-5xl flex-col items-center gap-0 sm:px-0",
-              "max-md:relative max-md:mt-10 max-md:w-full max-md:translate-x-0",
-              "md:absolute md:top-[15vh] md:left-1/2 md:z-auto md:-translate-x-1/2 md:px-2",
+              "relative w-full translate-x-0 md:px-2",
             )}
           >
             <div
               className="flex flex-col items-center [--float-amplitude:7px] [--hero-m:0.48] sm:[--hero-m:0.72] md:[--float-amplitude:18px] md:[--hero-m:0.88] lg:[--hero-m:0.88]"
               style={{ "--letter-base": "150px" } as React.CSSProperties}
             >
-              {/* Line 1 */}
-              <div className="flex max-w-full items-end justify-center gap-0">
-                {line1.map((l, i) => (
-                  <Image
-                    key={i}
-                    src={l.src}
-                    alt=""
-                    draggable={false}
-                    width={150}
-                    height={150}
-                    sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
-                    className="pointer-events-none max-w-none object-contain"
-                    style={
-                      {
-                        height:
-                          "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                        width: "auto",
-                        marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                        marginBottom: 0,
-                        marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                        marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                        animation: `float ${l.duration} ease-in-out infinite`,
-                        animationDelay: l.delay,
-                        "--rot": l.rotate,
-                        filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                      } as React.CSSProperties
-                    }
-                  />
-                ))}
-              </div>
+              <div className="flex w-full flex-col items-center md:mt-3">
+                {/* Line 1 */}
+                <div className="flex max-w-full items-end justify-center gap-0">
+                  {line1.map((l, i) => (
+                    <Image
+                      key={i}
+                      src={l.src}
+                      alt=""
+                      draggable={false}
+                      width={150}
+                      height={150}
+                      sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
+                      className="pointer-events-none max-w-none object-contain"
+                      style={
+                        {
+                          height:
+                            "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                          width: "auto",
+                          marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                          marginBottom: 0,
+                          marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                          marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                          animation: `float ${l.duration} ease-in-out infinite`,
+                          animationDelay: l.delay,
+                          "--rot": l.rotate,
+                          filter:
+                            "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                        } as React.CSSProperties
+                      }
+                    />
+                  ))}
+                </div>
 
-              {/* Line 2 */}
-              <div
-                className="flex max-w-full items-end justify-center gap-0"
-                style={{
-                  marginTop: "calc(-20px * var(--hero-m, 1))",
-                }}
-              >
-                {line2.map((l, i) => (
-                  <Image
-                    key={i}
-                    src={l.src}
-                    alt=""
-                    draggable={false}
-                    width={150}
-                    height={150}
-                    sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
-                    className="pointer-events-none max-w-none object-contain"
-                    style={
-                      {
-                        height:
-                          "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
-                        width: "auto",
-                        marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
-                        marginBottom: 0,
-                        marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                        marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
-                        animation: `float ${l.duration} ease-in-out infinite`,
-                        animationDelay: l.delay,
-                        "--rot": l.rotate,
-                        filter: "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
-                      } as React.CSSProperties
-                    }
-                  />
-                ))}
+                {/* Line 2 */}
+                <div
+                  className="flex max-w-full items-end justify-center gap-0"
+                  style={{
+                    marginTop: "calc(-20px * var(--hero-m, 1))",
+                  }}
+                >
+                  {line2.map((l, i) => (
+                    <Image
+                      key={i}
+                      src={l.src}
+                      alt=""
+                      draggable={false}
+                      width={150}
+                      height={150}
+                      sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, 132px"
+                      className="pointer-events-none max-w-none object-contain"
+                      style={
+                        {
+                          height:
+                            "calc(var(--letter-base, 150px) * var(--hero-m, 1))",
+                          width: "auto",
+                          marginTop: `calc(${l.marginY}px * var(--hero-m, 1))`,
+                          marginBottom: 0,
+                          marginLeft: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                          marginRight: `calc(${l.marginX}px * var(--hero-m, 1))`,
+                          animation: `float ${l.duration} ease-in-out infinite`,
+                          animationDelay: l.delay,
+                          "--rot": l.rotate,
+                          filter:
+                            "drop-shadow(0 0 20px rgba(160, 80, 255, 0.8))",
+                        } as React.CSSProperties
+                      }
+                    />
+                  ))}
+                </div>
               </div>
 
               {/* Lost & Found — max-md margins eat extra transparent padding in the asset */}
@@ -439,21 +441,16 @@ export default function Hero() {
                 height={80}
                 priority
                 sizes="(max-width: 768px) 200px, 320px"
-                className="pointer-events-none -mt-[5.5rem] ml-4 block h-auto w-full max-w-[200px] object-contain object-center max-md:-mb-12 md:-mt-38 md:mb-0 md:max-w-xs"
+                className="pointer-events-none relative z-[1] -mt-[5.5rem] ml-4 block h-auto w-full max-w-[200px] object-contain object-center max-md:-mb-8 md:-mt-[9.5rem] md:mb-0 md:max-w-xs"
               />
             </div>
           </div>
 
-          <div
-            className={cn(
-              "flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center gap-3 select-text",
-              "max-md:pointer-events-auto md:pointer-events-none md:absolute md:top-1/2 md:left-1/2 md:z-20 md:-translate-x-1/2 md:translate-y-[0%]",
-            )}
-          >
+          <div className="relative z-30 -mx-2 flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center select-text">
             {/*<HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
               <AppsCloseCountdown />
             </HeroInfoPanel> */}
-            <HeroInfoPanel className="flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center">
+            <HeroInfoPanel className="relative z-30 -mt-2 flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center md:-mt-[7.25rem]">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-white/70" />
                 <p className="text-sm whitespace-nowrap sm:text-base">
