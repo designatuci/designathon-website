@@ -111,10 +111,12 @@ function LandingNavigationMobile() {
               className="rounded-xl bg-(--pink) px-6 py-5 text-lg font-bold text-black transition-transform duration-300 ease-out-quart hover:scale-105 hover:bg-(--pink)"
             >
               <Link
-                href="/apply"
+                href="https://ucidesignathon26.devpost.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
               >
-                Apply
+                Devpost
               </Link>
             </Button>
           </div>
@@ -154,10 +156,12 @@ function LandingNavigationDesktop() {
         asChild
       >
         <Link
-          href="/apply"
+          href="https://ucidesignathon26.devpost.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="z-50 rounded bg-white px-6 py-2 font-medium text-black transition-colors hover:bg-gray-200"
         >
-          Apply
+          Devpost
         </Link>
       </Button>
     </div>
