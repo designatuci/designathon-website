@@ -10,6 +10,7 @@ type Props = {
   isInView: boolean;
   index: number;
   isActive: boolean;
+  planetNumber: number;
 };
 
 // Accent colors per planet — glow, ring, streak all match each planet's colors
@@ -42,22 +43,19 @@ const planetColors: Record<
     ring: "#7eb8e6",
     streak: "#5a9ed9",
   }, // Light blue
-  6: {
-    glow: "rgba(235, 210, 80, 0.5)",
-    ring: "#e8c850",
-    streak: "#d4b020",
-  }, // Yellow
 };
 
-const PLANET_COUNT = 5; // TEMP: VOID SATURN FOR NOW
-
-function ProfileCard({ profile, isInView, index, isActive }: Props) {
-  const planetNumber = (index % PLANET_COUNT) + 1;
+function ProfileCard({
+  profile,
+  isInView,
+  index,
+  isActive,
+  planetNumber,
+}: Props) {
   const color = planetColors[planetNumber] ?? planetColors[1];
   const planetSrc = `/images/seasons/2026/landing/judges/planets/${planetNumber}.png`;
-  const planetScale = planetNumber === 1 ? 1.6 : planetNumber === 6 ? 2.4 : 1.5;
-  const planetOffset =
-    planetNumber === 6 ? "translate(20px, -20px)" : "translate(0, 0)";
+  const planetScale = planetNumber === 1 ? 1.6 : 1.5;
+  const planetOffset = "translate(0, 0)";
 
   return (
     <div

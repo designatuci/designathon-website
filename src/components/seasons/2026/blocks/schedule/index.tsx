@@ -218,7 +218,6 @@ function EventRow({
               marginTop: "0.5rem",
               padding: "1rem 1.25rem",
               borderRadius: "0.75rem",
-              // matches Hero timer/date panel
               background: "rgba(12, 8, 32, 0.88)",
               border: "1px solid rgba(88, 63, 247, 0.75)",
               backdropFilter: "blur(14px)",

@@ -28,6 +28,28 @@ export interface Planet {
 
 const judges: Judge[] = [
   {
+    name: "Christy Seguritan",
+    position: "UI/UX Design Associate",
+    company: "Deloitte Digital",
+    linkedInURL: "https://www.linkedin.com/in/christyseg/",
+    imageURL:
+      "/images/seasons/2026/landing/judges/headshots/christy_seguritan.jpeg",
+  },
+  {
+    name: "Haven Park",
+    position: "Product Designer",
+    company: "Folio",
+    linkedInURL: "https://www.linkedin.com/in/havenpark/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/haven_park.jpeg",
+  },
+  {
+    name: "Lucy Han",
+    position: "Associate Product Builder",
+    company: "LinkedIn",
+    linkedInURL: "https://www.linkedin.com/in/lucyxhan/",
+    imageURL: "/images/seasons/2026/landing/judges/headshots/lucy_han.jpeg",
+  },
+  {
     name: "Justin Nguyen",
     position: "Senior Product Designer",
     company: "Ingram Micro",
@@ -103,13 +125,6 @@ const judges: Judge[] = [
       "/images/seasons/2026/landing/judges/headshots/nicole_roberts.jpeg",
   },
   {
-    name: "Lucy Han",
-    position: "Associate Product Builder",
-    company: "LinkedIn",
-    linkedInURL: "https://www.linkedin.com/in/lucyxhan/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/lucy_han.jpeg",
-  },
-  {
     name: "Tanvi Pisal",
     position: "UX Designer",
     company: "Apple",
@@ -167,10 +182,19 @@ const judges: Judge[] = [
   },
 ];
 
-const JUDGES_INITIAL_INDEX = Math.max(
+const JUDGES_INITIAL_INDEX = Math.min(2, judges.length - 1);
+const PLANET_COUNT = 5;
+const LUCY_INDEX = Math.max(
   0,
-  judges.findIndex((j) => j.name === "Lucy Han"),
+  judges.findIndex((judge) => judge.name === "Lucy Han"),
 );
+
+function getBasePlanetNumberForCard(index: number) {
+  const relativeIndex = index - LUCY_INDEX;
+  const wrapped =
+    (((relativeIndex * 2) % PLANET_COUNT) + PLANET_COUNT) % PLANET_COUNT;
+  return wrapped + 1;
+}
 
 export default function IndexPage() {
   const [activeIndex, setActiveIndex] = useState(JUDGES_INITIAL_INDEX);
@@ -194,6 +218,31 @@ export default function IndexPage() {
     }),
     [],
   );
+  const planetNumbers = useMemo(() => {
+    const assigned = judges.map((_, index) =>
+      getBasePlanetNumberForCard(index),
+    );
+    if (assigned.length < 2) return assigned;
+
+    const firstIndex = 0;
+    const lastIndex = assigned.length - 1;
+
+    // Prevent the loop seam (last -> first) from repeating the same planet.
+    if (assigned[firstIndex] === assigned[lastIndex]) {
+      const previousToLast = assigned[lastIndex - 1];
+      for (let candidate = 1; candidate <= PLANET_COUNT; candidate++) {
+        if (
+          candidate !== assigned[firstIndex] &&
+          candidate !== previousToLast
+        ) {
+          assigned[lastIndex] = candidate;
+          break;
+        }
+      }
+    }
+
+    return assigned;
+  }, []);
 
   const setCarouselApi = useCallback(
     (api: UseEmblaCarouselType[1] | undefined) => {
@@ -231,13 +280,14 @@ export default function IndexPage() {
                   key={judge.name}
                   className="flex basis-full justify-center py-4 md:basis-1/3 xl:basis-1/4 xl:pl-0"
                 >
-                  {/* 1-up mobile; 3 md–lg; 4 on xl (1/4) — edge-to-edge like Partners; Lucy Han start */}
+                  {/* 1-up mobile; 3 md–lg; 4 on xl (1/4) — edge-to-edge like Partners; start centered on 3rd judge */}
                   <div className="origin-center scale-[0.52] md:scale-[0.62] lg:scale-[0.68] xl:scale-[0.68]">
                     <ProfileCard
                       profile={judge}
                       isInView={isInView}
                       index={index}
                       isActive={index === activeIndex}
+                      planetNumber={planetNumbers[index]}
                     />
                   </div>
                 </CarouselItem>
