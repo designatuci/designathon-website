@@ -5,6 +5,7 @@ import { Calendar, MapPin } from "lucide-react";
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import AppsCloseCountdown from "./countdown-timer";
 
 const line1 = [
   {
@@ -236,9 +237,9 @@ const heroRevealUrls = [
   "/images/seasons/2026/landing/hero/lostandfound.webp",
 ];
 
-/** Warm cache; astronaut / alien don’t block the pop-in (often heavier PNGs). */
+/** Warm cache; rocket / alien don’t block the pop-in (often heavier PNGs). */
 const heroPrefetchUrls = [
-  "/images/seasons/2026/landing/hero/astronaunt_pointing.webp",
+  "/images/seasons/2026/landing/hero/rocket.webp",
   "/images/seasons/2026/landing/hero/alien.webp",
 ];
 
@@ -317,7 +318,7 @@ export default function Hero() {
           0%, 100% { transform: translateY(0px) rotate(var(--rot)); }
           50%       { transform: translateY(calc(var(--float-amplitude, 18px) * -1)) rotate(calc(var(--rot) * -1)); }
         }
-        @keyframes floatAstronaut {
+        @keyframes floatRocket {
           0%, 100% { transform: translateY(0px) rotate(-15deg); }
           50%       { transform: translateY(-22px) rotate(-12deg); }
         }
@@ -447,10 +448,10 @@ export default function Hero() {
           </div>
 
           <div className="relative z-30 -mx-2 flex w-full max-w-[calc(100vw-1.5rem)] flex-col items-center select-text">
-            {/*<HeroInfoPanel className="flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px]">
+            <HeroInfoPanel className="relative z-30 -mt-2 flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px] md:-mt-[7.25rem]">
               <AppsCloseCountdown />
-            </HeroInfoPanel> */}
-            <HeroInfoPanel className="relative z-30 -mt-2 flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center md:-mt-[7.25rem]">
+            </HeroInfoPanel>
+            <HeroInfoPanel className="relative z-30 mt-1 flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center md:mt-2">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-white/70" />
                 <p className="text-sm whitespace-nowrap sm:text-base">
@@ -468,7 +469,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Moon + astronaut + alien: mobile = in-flow strip (like archive/2025 canvas row); md = full-bleed overlay */}
+      {/* Moon + rocket + alien: mobile = in-flow strip (like archive/2025 canvas row); md = full-bleed overlay */}
       <div
         className={cn(
           "pointer-events-none z-[5] flex w-full shrink-0 flex-col items-center gap-1 px-3 pt-2 pb-6",
@@ -482,7 +483,7 @@ export default function Hero() {
           },
         )}
       >
-        {/* Mobile: astronaut + alien in a row above moon (no overlap); whole strip z-0 under timer/title. Desktop: md:contents. */}
+        {/* Mobile: rocket + alien in a row above moon (no overlap); whole strip z-0 under timer/title. Desktop: md:contents. */}
         <div
           className={cn(
             "max-md:relative max-md:z-0 max-md:mx-auto max-md:flex max-md:w-full max-md:max-w-lg max-md:flex-col max-md:items-center max-md:gap-1 max-md:pb-2",
@@ -503,14 +504,14 @@ export default function Hero() {
               )}
             >
               <Image
-                src="/images/seasons/2026/landing/hero/astronaunt_pointing.webp"
+                src="/images/seasons/2026/landing/hero/rocket.webp"
                 width={500}
                 height={500}
-                alt="astronaunt_pointing"
+                alt="rocket"
                 draggable={false}
                 className="h-[min(42vw,11rem)] w-auto object-contain sm:h-[min(38vw,12rem)] md:h-[280px] lg:h-[380px]"
                 style={{
-                  animation: "floatAstronaut 6s ease-in-out infinite",
+                  animation: "floatRocket 6s ease-in-out infinite",
                   filter:
                     "drop-shadow(0 0 18px rgba(160, 80, 255, 0.9)) drop-shadow(0 0 40px rgba(168, 130, 215, 0.5))",
                 }}

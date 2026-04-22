@@ -7,11 +7,13 @@ import { useEffect, useMemo, useState } from "react";
 const pacificTimeZone = "America/Los_Angeles";
 
 function getAppsCloseDeadline(): Date {
-  return fromZonedTime(new Date(2026, 3, 10, 23, 59, 59), pacificTimeZone);
+  // Friday, 4/24/2026 at 5:00 PM PT
+  return fromZonedTime(new Date(2026, 3, 24, 17, 0, 0), pacificTimeZone);
 }
 
 function getExtendedAppsCloseDeadline(): Date {
-  return fromZonedTime(new Date(2026, 3, 13, 23, 59, 59), pacificTimeZone);
+  // Sunday, 4/26/2026 at 8:00 AM PT
+  return fromZonedTime(new Date(2026, 3, 26, 8, 0, 0), pacificTimeZone);
 }
 
 function CountdownPart({ value, unit }: { value: string; unit: string }) {
@@ -27,8 +29,11 @@ function CountdownPart({ value, unit }: { value: string; unit: string }) {
 
 /** Inner content only; wrap with `HeroInfoPanel` in the hero. */
 export default function AppsCloseCountdown() {
-  const deadline = useMemo(() => getAppsCloseDeadline(), []);
-  const extendedDeadline = useMemo(() => getExtendedAppsCloseDeadline(), []);
+  const eventStartDeadline = useMemo(() => getAppsCloseDeadline(), []);
+  const designingStartDeadline = useMemo(
+    () => getExtendedAppsCloseDeadline(),
+    [],
+  );
 
   const [timeLeft, setTimeLeft] = useState({
     days: "--",
@@ -36,15 +41,17 @@ export default function AppsCloseCountdown() {
     minutes: "--",
     seconds: "--",
   });
-  const [isExtended, setIsExtended] = useState(false);
+  const [eventHasStarted, setEventHasStarted] = useState(false);
 
   useEffect(() => {
     const updateCountdown = () => {
       const now = new Date();
-      const shouldUseExtended = differenceInSeconds(deadline, now) <= 0;
-      const activeDeadline = shouldUseExtended ? extendedDeadline : deadline;
+      const hasEventStarted = now >= eventStartDeadline;
+      const activeDeadline = hasEventStarted
+        ? designingStartDeadline
+        : eventStartDeadline;
       const secondsLeft = differenceInSeconds(activeDeadline, now);
-      setIsExtended(shouldUseExtended);
+      setEventHasStarted(hasEventStarted);
 
       if (secondsLeft <= 0) {
         setTimeLeft({
@@ -72,12 +79,12 @@ export default function AppsCloseCountdown() {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [deadline, extendedDeadline]);
+  }, [eventStartDeadline, designingStartDeadline]);
 
   return (
     <>
       <span className="text-sm text-white/80 sm:text-base">
-        {isExtended ? "Apps extended! Apps close in:" : "Apps close in:"}
+        {eventHasStarted ? "Designing starts in:" : "Event starts in:"}
       </span>
       <div className="flex items-start justify-center gap-1.5 text-center text-[#9eb4e8] sm:gap-2">
         <CountdownPart value={timeLeft.days} unit="days" />
