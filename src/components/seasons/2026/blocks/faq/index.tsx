@@ -123,10 +123,10 @@ function FAQItem({ item, index }: { item: FAQItem; index: number }) {
           style={{
             padding: "1rem 1.25rem",
             borderRadius: "0.75rem",
-            background: "rgba(195, 195, 195, 0.01)",
-            border: "1px solid rgba(88, 63, 247, 0.7)",
-            backdropFilter: "blur(12px)",
-            borderLeft: "3px solid rgba(26, 64, 231, 0.32)",
+            background: "rgba(12, 8, 32, 0.88)",
+            border: "1px solid rgba(88, 63, 247, 0.75)",
+            backdropFilter: "blur(14px)",
+            borderLeft: "3px solid rgba(26, 64, 231, 0.45)",
             position: "relative",
             overflow: "hidden",
           }}
