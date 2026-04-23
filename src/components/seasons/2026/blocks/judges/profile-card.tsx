@@ -11,6 +11,7 @@ type Props = {
   index: number;
   isActive: boolean;
   planetNumber: number;
+  onSelect?: () => void;
 };
 
 // Accent colors per planet — glow, ring, streak all match each planet's colors
@@ -51,6 +52,7 @@ function ProfileCard({
   index,
   isActive,
   planetNumber,
+  onSelect,
 }: Props) {
   const color = planetColors[planetNumber] ?? planetColors[1];
   const planetSrc = `/images/seasons/2026/landing/judges/planets/${planetNumber}.png`;
@@ -61,10 +63,12 @@ function ProfileCard({
     <div
       className={cn(
         "relative flex h-[460px] w-[320px] flex-shrink-0 items-center justify-center opacity-0 transition-all duration-700 ease-out",
+        "cursor-pointer",
         isInView && "opacity-100",
         isActive ? "z-20" : "z-10",
       )}
       style={{ transitionDelay: `${index * 60}ms` }}
+      onClick={onSelect}
     >
       <div
         className={cn(
