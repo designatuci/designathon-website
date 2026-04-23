@@ -312,7 +312,7 @@ export default function Itinerary() {
               marginBottom: "1rem",
             }}
           >
-            <h1 className="relative z-30 [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+            <h1 className="relative z-30 pb-12 [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:pb-0 md:text-9xl xl:text-[7rem]">
               Itinerary
             </h1>
 

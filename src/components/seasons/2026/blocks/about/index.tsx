@@ -22,7 +22,7 @@ export default function About() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[60vh] overflow-x-clip md:h-[min(125vh,1200px)]"
+      className="relative h-[48vh] overflow-x-clip md:h-[min(125vh,1200px)]"
     >
       <div className="sticky top-0 flex h-full justify-center overflow-hidden">
         <section

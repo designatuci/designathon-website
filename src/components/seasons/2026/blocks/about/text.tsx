@@ -171,7 +171,7 @@ export function AboutBox() {
           About
         </h1>
         {/* Body copy */}
-        <div className="mb-10 max-w-sm">
+        <div className="mb-0 max-w-sm sm:mb-10">
           <AboutText text={ABOUT_TEXT} animate={isInView} />
         </div>
       </div>
