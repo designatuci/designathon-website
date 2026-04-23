@@ -85,7 +85,7 @@ export const COMMITTEES: Committee[] = [
         name: "Abby Chang",
         role: "Committee (UI/UX)",
         year: "2nd Year",
-        major: "Art & Digital Information Systems",
+        major: ["Art", "Digital Information Systems"],
         funFact: "I love doing my nails!",
       },
       {
@@ -93,7 +93,7 @@ export const COMMITTEES: Committee[] = [
         name: "Alice Ger",
         role: "Committee (UI/UX)",
         year: "3rd Year",
-        major: "Data Science & Informatics",
+        major: ["Data Science", "Informatics"],
         funFact: "I am a Kirby-holic for life!",
       },
     ],
@@ -232,7 +232,7 @@ export const COMMITTEES: Committee[] = [
         name: "Sahana Iyer",
         role: "Director",
         year: "3rd Year",
-        major: "Business Administration & Criminology",
+        major: ["Business Administration", "Criminology"],
         funFact: "My favorite type of cheese is pepperjack!",
       },
       {
@@ -241,7 +241,7 @@ export const COMMITTEES: Committee[] = [
         name: "Gabrielle Neve Landavora",
         role: "Committee",
         year: "3rd Year",
-        major: "Informatics & Health Informatics",
+        major: ["Informatics", "Health Informatics"],
         funFact: "I currently have a collection of around 20 perfumes!",
       },
       {
@@ -316,7 +316,7 @@ export const COMMITTEES: Committee[] = [
         name: "Julia Tjia",
         role: "Director",
         year: "4th Year",
-        major: "Computer Science & Innovation and Entrepreneurship",
+        major: ["Computer Science", "Innovation and Entrepreneurship"],
         funFact:
           "I've been in an episode of Girl Meets World as a background actor!",
       },
@@ -406,7 +406,7 @@ export const COMMITTEES: Committee[] = [
         name: "Julianna Nacorda",
         role: "Director",
         year: "3rd Year",
-        major: "Software Engineering & Health Informatics",
+        major: ["Software Engineering", "Health Informatics"],
         funFact:
           "I went camping, kayaking and hiking at Channel Islands National Park over the summer!",
       },
@@ -423,7 +423,7 @@ export const COMMITTEES: Committee[] = [
         name: "Sherry Tram",
         role: "Committee",
         year: "2nd Year",
-        major: "Informatics & Digital Arts",
+        major: ["Informatics", "Digital Arts"],
         funFact: "I've never had gum before.",
       },
     ],
@@ -474,7 +474,7 @@ export const COMMITTEES: Committee[] = [
         name: "Chloe Chun",
         role: "Director",
         year: "2nd Year",
-        major: "Business Economics & Informatics",
+        major: ["Business Economics", "Informatics"],
         funFact: "I have a fear of birds.",
       },
       {

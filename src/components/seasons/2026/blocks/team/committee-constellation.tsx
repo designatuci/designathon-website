@@ -20,7 +20,7 @@ export type CommitteeMember = {
   name: string;
   role: string;
   year?: string;
-  major?: string;
+  major?: string | string[];
   funFact?: string;
 };
 
@@ -124,6 +124,13 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
       ? 0
       : Math.min(Math.max(0, currentIdx), members.length - 1);
   const member = members[safeIdx];
+  const majorBubbles = Array.isArray(member?.major)
+    ? member.major
+        .map((major) => major.trim())
+        .filter((major) => major.length > 0)
+    : member?.major
+      ? [member.major.trim()]
+      : [];
   const photoSrc =
     member?.photo && member.photo.trim().length > 0
       ? member.photo
@@ -361,9 +368,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
         style={{
           padding: 0,
           maxWidth: "min(1000px, min(92vw, 100%))",
-          transform: visible
-            ? "translateY(0) scale(1)"
-            : "translateY(20px) scale(0.97)",
+          transform: visible ? "translateY(0)" : "translateY(20px)",
           transition: "transform 0.8s cubic-bezier(0.22,1,0.36,1)",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -539,7 +544,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 </div>
 
                 {/* Year & Major */}
-                {(member?.year || member?.major) && (
+                {(member?.year || majorBubbles.length > 0) && (
                   <div
                     style={{
                       display: "flex",
@@ -567,26 +572,28 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                         {member.year}
                       </span>
                     )}
-                    {member?.major && (
-                      <span
-                        style={{
-                          fontSize: 10,
-                          letterSpacing: "0.1em",
-                          color: "rgba(255,255,255,0.45)",
-                          background: "rgba(255,255,255,0.06)",
-                          border: "1px solid rgba(255,255,255,0.1)",
-                          borderRadius: 20,
-                          padding: "2px 10px",
-                          maxWidth: "100%",
-                          whiteSpace: "normal",
-                          lineHeight: 1.35,
-                          overflowWrap: "anywhere",
-                          wordBreak: "break-word",
-                        }}
-                      >
-                        {member.major}
-                      </span>
-                    )}
+                    {member?.major &&
+                      majorBubbles.map((major) => (
+                        <span
+                          key={major}
+                          style={{
+                            fontSize: 10,
+                            letterSpacing: "0.1em",
+                            color: "rgba(255,255,255,0.45)",
+                            background: "rgba(255,255,255,0.06)",
+                            border: "1px solid rgba(255,255,255,0.1)",
+                            borderRadius: 20,
+                            padding: "2px 10px",
+                            maxWidth: "100%",
+                            whiteSpace: "normal",
+                            lineHeight: 1.35,
+                            overflowWrap: "anywhere",
+                            wordBreak: "break-word",
+                          }}
+                        >
+                          {major}
+                        </span>
+                      ))}
                   </div>
                 )}
 
@@ -622,6 +629,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               <button
                 onClick={() => navigate(-1)}
                 disabled={safeIdx === 0}
+                className="select-none"
                 style={{
                   width: 34,
                   height: 34,
@@ -636,6 +644,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                   cursor: safeIdx === 0 ? "default" : "pointer",
                   opacity: safeIdx === 0 ? 0.2 : 1,
                   transition: "all 0.2s",
+                  userSelect: "none",
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 ←
@@ -665,6 +675,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
               <button
                 onClick={() => navigate(1)}
                 disabled={safeIdx === members.length - 1}
+                className="select-none"
                 style={{
                   width: 34,
                   height: 34,
@@ -680,6 +691,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                     safeIdx === members.length - 1 ? "default" : "pointer",
                   opacity: safeIdx === members.length - 1 ? 0.2 : 1,
                   transition: "all 0.2s",
+                  userSelect: "none",
+                  WebkitTapHighlightColor: "transparent",
                 }}
               >
                 →
