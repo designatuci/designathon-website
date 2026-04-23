@@ -116,7 +116,7 @@ export const scheduleDays: ScheduleDay[] = [
       },
       {
         time: "05:00 PM",
-        endTime: "64:00 PM",
+        endTime: "06:00 PM",
         title: "Workshop: Hi-fidelity to Prototype [Design @ UCI]",
         location: "DCE Yosemite",
         zoom: false,
@@ -124,8 +124,8 @@ export const scheduleDays: ScheduleDay[] = [
           "Explore how to turn high-fidelity designs into interactive prototypes, with best practices for preparing polished, testable, and presentation-ready work. Presented by Design at UCI.",
       },
       {
-        time: "05:00 PM",
-        endTime: "06:00 PM",
+        time: "06:00 PM",
+        endTime: "07:00 PM",
         title: "Dinner",
         location: "DCE Courtyard",
         zoom: false,
@@ -186,14 +186,14 @@ export const scheduleDays: ScheduleDay[] = [
         time: "03:00 PM",
         endTime: "05:30 PM",
         title: "Judging",
-        location: "DCE 2020, DCE 2030, DCE 2040, Devpost",
+        location: "DCE 2030, DCE 2040, Devpost",
         zoom: false,
         description:
-          "Judges review all submitted designs. Top teams will be selected to present. Meanwhile, hangout in Yosemite for a fun social!",
+          "Judges review all submitted designs. Top teams will be selected to present.",
       },
       {
-        time: "05:30 PM",
-        endTime: "06:30 PM",
+        time: "05:50 PM",
+        endTime: "08:00 PM",
         title: "Top 10 Pitches",
         location: "DCE, Online",
         zoom: false,
@@ -202,7 +202,7 @@ export const scheduleDays: ScheduleDay[] = [
       },
       {
         time: "06:00 PM",
-        endTime: "06:30 PM",
+        endTime: "06:45 PM",
         title: "Dinner",
         location: "DCE Courtyard",
         zoom: false,
@@ -211,7 +211,7 @@ export const scheduleDays: ScheduleDay[] = [
       },
       {
         time: "06:45 PM",
-        endTime: "07:30 PM",
+        endTime: "08:00 PM",
         title: "Speaker Panel",
         location: "DCE Yosemite, Online",
         zoom: false,
