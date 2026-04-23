@@ -196,7 +196,6 @@ export default function PastEvents() {
             stroke="rgba(255,255,255,0.25)"
             strokeWidth="1.5"
             strokeDasharray="6 8"
-            transform="rotate(-40, 69%, 55%)"
           />
 
           {/* desktop */}
@@ -210,7 +209,6 @@ export default function PastEvents() {
             stroke="rgba(255,255,255,0.25)"
             strokeWidth="1.5"
             strokeDasharray="6 8"
-            transform="rotate(-40, 69%, 55%)"
           />
         </svg>
 

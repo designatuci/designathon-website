@@ -509,6 +509,7 @@ export default function Hero() {
                 height={500}
                 alt="rocket"
                 draggable={false}
+                priority
                 className="h-[min(42vw,11rem)] w-auto object-contain sm:h-[min(38vw,12rem)] md:h-[280px] lg:h-[380px]"
                 style={{
                   animation: "floatRocket 6s ease-in-out infinite",
