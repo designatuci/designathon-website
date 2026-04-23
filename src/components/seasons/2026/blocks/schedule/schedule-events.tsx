@@ -156,7 +156,7 @@ export const scheduleDays: ScheduleDay[] = [
     events: [
       {
         time: "08:00 AM",
-        endTime: "10:00 AM",
+        endTime: "08:00 AM",
         title: "Submission Deadline",
         location: "Devpost",
         zoom: false,

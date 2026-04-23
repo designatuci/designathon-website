@@ -88,7 +88,7 @@ const professionalPrizes = [
     items: [
       "Guaranteed Cup Design Collaboration",
       "Resume + Portfolio Review with EAT Studio",
-      "$400 at Menya Hanabi + Exclusive T-Shirts",
+      "4x $100 Menya Hanabi Gift Cards + Exclusive T-Shirts",
       "4× $100 Visa Gift Cards",
     ],
     featured: false,
@@ -279,7 +279,6 @@ function PrizeCard({ prize }: { prize: Prize }) {
                     key={s.name}
                     className="relative h-6 w-16 opacity-60 grayscale transition-[opacity,filter] hover:opacity-90 hover:grayscale-0"
                   >
-                    {/* replace with actual logo — src is the path */}
                     <Image
                       src={s.logoSrc}
                       alt={s.name}
