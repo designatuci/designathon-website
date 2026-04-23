@@ -274,9 +274,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
     <div
       className="fixed inset-0 z-50 flex min-w-0 items-center justify-center overflow-x-hidden px-3 sm:px-5 lg:px-6"
       style={{
-        background: visible ? "rgba(2,1,14,0.85)" : "rgba(2,1,14,0)",
-        transition: "background 0.5s ease, opacity 0.5s ease",
-        opacity: visible ? 1 : 0,
+        background: "rgba(2,1,14,0.85)",
         pointerEvents: committee ? "auto" : "none",
       }}
       onClick={(e) => {
@@ -302,8 +300,8 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           50%      { opacity:0.5; }
         }
         @keyframes cardIn {
-          from { opacity:0; transform:translateX(16px); }
-          to   { opacity:1; transform:translateX(0); }
+          from { opacity:0; transform:translateY(16px); }
+          to   { opacity:1; transform:translateY(0); }
         }
         .const-member-node {
           position: absolute;
@@ -366,7 +364,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
           transform: visible
             ? "translateY(0) scale(1)"
             : "translateY(20px) scale(0.97)",
-          transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
+          transition: "transform 0.8s cubic-bezier(0.22,1,0.36,1)",
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -473,7 +471,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
                 display: "flex",
                 gap: 14,
                 alignItems: "flex-start",
-                animation: "cardIn 0.35s cubic-bezier(0.22,1,0.36,1) forwards",
+                animation: "cardIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards",
               }}
             >
               {/* Photo */}
