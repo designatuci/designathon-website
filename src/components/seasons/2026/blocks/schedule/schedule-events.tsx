@@ -185,20 +185,20 @@ export const scheduleDays: ScheduleDay[] = [
       {
         time: "03:00 PM",
         endTime: "05:30 PM",
-        title: "Judging",
-        location: "DCE 2030, DCE 2040, Devpost",
+        title: "Round 1 Judging",
+        location: "DCE 2030, DCE 2040, Online",
         zoom: false,
         description:
-          "Judges review all submitted designs. Top teams will be selected to present.",
+          "All participants will have 10 minutes to present to their assigned judge(s). Please arrive a few minutes early with your full team and check in at the proctor table outside the room, or in the Zoom call if attending online.",
       },
       {
         time: "05:50 PM",
         endTime: "08:00 PM",
-        title: "Top 10 Pitches",
-        location: "DCE, Online",
+        title: "Round 2 Judging",
+        location: "DCE 2030, DCE 2040, Online",
         zoom: false,
         description:
-          "Each top 10 team will give a 2-3 minute pitch of their product to a live panel of judges. Online teams will present to the judges on zoom at allotted times.",
+          "Top teams will be selected to present their full case study and prototype demonstration during a 10-minute session. Please arrive a few minutes early with your full team and check in with the proctors.",
       },
       {
         time: "06:00 PM",
