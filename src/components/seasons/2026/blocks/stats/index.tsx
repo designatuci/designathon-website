@@ -39,7 +39,7 @@ export default function Stats() {
                 starsInView,
             },
           )}
-          style={{ transform: "translateY(25%)" }}
+          style={{ transform: "translateY(18%)" }}
         >
           <Image
             src="/images/seasons/2026/landing/stats/stars.png"
@@ -47,7 +47,7 @@ export default function Stats() {
             draggable={false}
             width={1113}
             height={671}
-            className="mt-30 h-auto w-full max-w-[300px] object-contain select-none md:max-w-[1300px]"
+            className="mt-24 h-auto w-full max-w-[300px] object-contain select-none md:mt-30 md:max-w-[1300px]"
           />
         </div>
         <div className="pointer-events-none absolute top-2 left-1/2 z-0 -translate-x-1/2 md:top-1/2 md:left-[20%] md:translate-x-0">

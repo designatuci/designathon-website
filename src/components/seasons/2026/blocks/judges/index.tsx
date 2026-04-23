@@ -254,6 +254,10 @@ export default function IndexPage() {
     },
     [updateActiveIndex],
   );
+  const handleCardSelect = useCallback((index: number) => {
+    if (!carouselApiRef.current) return;
+    carouselApiRef.current.scrollTo(index);
+  }, []);
 
   return (
     <section
@@ -288,6 +292,7 @@ export default function IndexPage() {
                       index={index}
                       isActive={index === activeIndex}
                       planetNumber={planetNumbers[index]}
+                      onSelect={() => handleCardSelect(index)}
                     />
                   </div>
                 </CarouselItem>

@@ -11,76 +11,52 @@ import {
 type Props = {
   rules: React.ReactNode[];
   api: CarouselApi | undefined;
-  setApi: (api: CarouselApi) => void;
+  setApi: (api: CarouselApi | undefined) => void;
   current: number;
   dots: null[];
-  transparent?: boolean;
 };
 
-function RuleCard({
-  rules,
-  api,
-  setApi,
-  current,
-  dots,
-  transparent = false,
-}: Props) {
+function RuleCard({ rules, api, setApi, current, dots }: Props) {
   return (
     <div
-      className={cn(
-        "relative overflow-hidden rounded-2xl p-6 lg:p-8",
-        transparent && "p-0",
-      )}
+      className="relative overflow-hidden rounded-2xl"
+      style={{
+        border: "1px solid rgba(88, 63, 247, 0.75)",
+        borderLeft: "3px solid rgba(26, 64, 231, 0.45)",
+      }}
     >
-      {/* Glass card background — hidden when transparent */}
-      {!transparent && (
-        <>
-          <div
-            className="absolute inset-0 rounded-2xl"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              borderRadius: "1rem",
-            }}
-          />
-          <div
-            className="absolute top-0 right-8 left-8 h-[2px] rounded-full"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute inset-0 opacity-20"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, white 1px, transparent 1px)",
-              backgroundSize: "30px 30px",
-              borderRadius: "1rem",
-              maskImage:
-                "radial-gradient(ellipse at center, black 30%, transparent 80%)",
-            }}
-          />
-          <div className="absolute bottom-4 left-4 h-1 w-1 rounded-full bg-white/60" />
-          <div className="absolute bottom-6 left-7 h-0.5 w-0.5 rounded-full bg-white/40" />
-          <div className="absolute right-4 bottom-4 h-1 w-1 rounded-full bg-white/60" />
-          <div className="absolute right-6 bottom-7 h-0.5 w-0.5 rounded-full bg-white/30" />
-        </>
-      )}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 rounded-2xl"
+        style={{
+          background: "rgba(12, 8, 32, 0.88)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute top-0 right-8 left-8 z-[1] h-[2px] rounded-full"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
+        }}
+      />
 
-      {/* Carousel */}
-      <div className="relative z-10">
-        <Carousel opts={{ align: "start" }} className="w-full" setApi={setApi}>
-          <CarouselContent className="m-0">
+      <div className="relative z-10 p-6 text-[rgba(255,255,255,0.85)] lg:p-10">
+        <Carousel
+          opts={{ align: "start", duration: 18 }}
+          className="w-full"
+          setApi={setApi}
+        >
+          <CarouselContent className="m-0 will-change-[transform]">
             {rules.map((rule, index) => (
-              <CarouselItem key={index} className="basis-full py-4 select-none">
-                <div className="flex flex-col gap-3">
-                  <span className="text-xs font-medium tracking-widest text-white/50">
-                    RULE {index + 1} / {rules.length}
+              <CarouselItem key={index} className="basis-full py-2 select-none">
+                <div className="flex flex-col gap-4">
+                  <span className="[font-family:var(--font-lekton)] text-xs font-medium tracking-widest text-sky-400/70">
+                    RULE {String(index + 1).padStart(2, "0")} /{" "}
+                    {String(rules.length).padStart(2, "0")}
                   </span>
-                  <div className="space-y-2 text-base text-white lg:text-xl">
+                  <div className="space-y-2 [font-family:var(--font-lekton)] text-base leading-relaxed text-white lg:text-xl">
                     {rule}
                   </div>
                 </div>
@@ -89,11 +65,10 @@ function RuleCard({
           </CarouselContent>
         </Carousel>
 
-        {/* Dots + arrows */}
-        <div className="mt-2 flex items-center gap-4">
+        <div className="mt-6 flex items-center justify-center gap-4">
           <button
             onClick={() => api?.scrollPrev()}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-colors hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/15 text-white transition-colors select-none hover:border-sky-400/70 hover:bg-sky-500/30"
           >
             ←
           </button>
@@ -106,15 +81,15 @@ function RuleCard({
                 className={cn(
                   "rounded-full transition-all duration-200",
                   current === index + 1
-                    ? "h-2 w-5 bg-white"
-                    : "h-2 w-2 bg-white/30",
+                    ? "h-2 w-5 bg-sky-400"
+                    : "h-2 w-2 bg-sky-400/30",
                 )}
               />
             ))}
           </div>
           <button
             onClick={() => api?.scrollNext()}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-colors hover:bg-white/10"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/15 text-white transition-colors select-none hover:border-sky-400/70 hover:bg-sky-500/30"
           >
             →
           </button>

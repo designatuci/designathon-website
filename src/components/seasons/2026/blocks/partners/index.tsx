@@ -86,7 +86,7 @@ const partners: Organization[] = [
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/menya.jpg",
       name: "Menya Hanabi",
-      rotation: 20,
+      rotation: 12,
       websiteUrl: "https://menyahanabiusa.com/",
     },
   },
@@ -102,14 +102,32 @@ const partners: Organization[] = [
   {
     id: "marquee1-8",
     content: {
-      imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
-      name: "Ryan Yang",
-      rotation: 0,
-      websiteUrl: "https://ryqn.dev/",
+      imageURL: "/images/seasons/2026/landing/partners/logos/figma.png",
+      name: "Figma",
+      rotation: -8,
+      websiteUrl: "https://www.figma.com/",
     },
   },
   {
     id: "marquee1-9",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/poppi.png",
+      name: "poppi",
+      rotation: -8,
+      websiteUrl: "https://drinkpoppi.com/",
+    },
+  },
+  {
+    id: "marquee1-10",
+    content: {
+      imageURL: "/images/seasons/2026/landing/partners/logos/Ryan Yang.png",
+      name: "Ryan Yang",
+      rotation: 10,
+      websiteUrl: "https://ryqn.dev/",
+    },
+  },
+  {
+    id: "marquee1-11",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/bluety.jpg",
       name: "Bluety",
@@ -118,7 +136,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-10",
+    id: "marquee1-12",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/canes.png",
       name: "Raising Cane's",
@@ -127,7 +145,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-11",
+    id: "marquee1-13",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/og.jpeg",
       name: "Olive Garden",
@@ -136,7 +154,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-12",
+    id: "marquee1-14",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/tigawok.jpg",
       name: "Tigawok",
@@ -145,16 +163,16 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-13",
+    id: "marquee1-15",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/amazon.jpeg",
       name: "Amazon",
-      rotation: 0,
+      rotation: 30,
       websiteUrl: "https://www.amazon.com/",
     },
   },
   {
-    id: "marquee1-14",
+    id: "marquee1-16",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/copilot.png",
       name: "Microsoft Copilot",
@@ -163,7 +181,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-15",
+    id: "marquee1-17",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/doordash.png",
       name: "Doordash",
@@ -172,7 +190,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-16",
+    id: "marquee1-18",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/uber_eats.png",
       name: "Uber Eats",
@@ -181,7 +199,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-17",
+    id: "marquee1-19",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/lego.png",
       name: "LEGO",
@@ -190,7 +208,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-18",
+    id: "marquee1-20",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/monsters.png",
       name: "Monster Energy",
@@ -199,7 +217,7 @@ const partners: Organization[] = [
     },
   },
   {
-    id: "marquee1-19",
+    id: "marquee1-21",
     content: {
       imageURL: "/images/seasons/2026/landing/partners/logos/chipotle.png",
       name: "Chipotle",

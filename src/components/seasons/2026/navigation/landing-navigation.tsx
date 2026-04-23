@@ -60,6 +60,7 @@ export default function LandingNavigation() {
             alt="Designathon logo"
             width={40}
             height={40}
+            priority
           />
         </Link>
         <div>

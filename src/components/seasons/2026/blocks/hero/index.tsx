@@ -323,8 +323,8 @@ export default function Hero() {
           50%       { transform: translateY(-22px) rotate(-12deg); }
         }
         @keyframes floatAlien {
-          0%, 100% { transform: translateY(0px) rotate(15deg); }
-          50%       { transform: translateY(-22px) rotate(12deg); }
+          0%, 100% { transform: translateY(0px) rotate(10deg); }
+          50%       { transform: translateY(-22px) rotate(8deg); }
         }
       `}</style>
 
@@ -451,7 +451,7 @@ export default function Hero() {
             <HeroInfoPanel className="relative z-30 -mt-2 flex min-w-[min(100vw-2rem,280px)] sm:min-w-[300px] md:-mt-[7.25rem]">
               <AppsCloseCountdown />
             </HeroInfoPanel>
-            <HeroInfoPanel className="relative z-30 mt-1 flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center md:mt-2">
+            <HeroInfoPanel className="relative z-30 mt-4 flex w-fit max-w-[calc(100vw-2rem)] min-w-0 self-center md:mt-2">
               <div className="flex items-center gap-2">
                 <Calendar className="size-5 shrink-0 text-white/70" />
                 <p className="text-sm whitespace-nowrap sm:text-base">
@@ -498,8 +498,8 @@ export default function Hero() {
           >
             <div
               className={cn(
-                "flex rotate-[20deg] justify-center",
-                "max-md:absolute max-md:bottom-2 max-md:left-1/2 max-md:z-[1] max-md:-translate-x-1/2",
+                "flex justify-center max-md:-rotate-[10deg]",
+                "max-md:absolute max-md:bottom-[-2rem] max-md:left-[6%] max-md:z-[1]",
                 "md:absolute md:bottom-[44%] md:left-[5%] md:z-auto md:translate-x-0 md:translate-y-[35%] md:rotate-[20deg]",
               )}
             >
@@ -509,6 +509,7 @@ export default function Hero() {
                 height={500}
                 alt="rocket"
                 draggable={false}
+                priority
                 className="h-[min(42vw,11rem)] w-auto object-contain sm:h-[min(38vw,12rem)] md:h-[280px] lg:h-[380px]"
                 style={{
                   animation: "floatRocket 6s ease-in-out infinite",
@@ -520,8 +521,8 @@ export default function Hero() {
 
             <div
               className={cn(
-                "flex -rotate-[20deg] justify-center",
-                "max-md:absolute max-md:right-[10%] max-md:bottom-[5.5rem] max-md:left-auto max-md:z-[1]",
+                "flex justify-center max-md:rotate-[15deg]",
+                "max-md:absolute max-md:right-[10%] max-md:bottom-[3.25rem] max-md:left-auto max-md:z-[1]",
                 "md:absolute md:right-[10%] md:bottom-[40%] md:z-auto md:-rotate-[20deg]",
               )}
             >

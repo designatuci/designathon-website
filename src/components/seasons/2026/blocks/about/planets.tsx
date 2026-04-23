@@ -131,6 +131,7 @@ function OrbitingPlanet({
           width: size,
           height: size,
           transform: "translate(-50%, -50%)",
+          position: "relative",
         }}
       >
         <Image
@@ -138,6 +139,7 @@ function OrbitingPlanet({
           alt={config.alt}
           draggable={false}
           fill
+          sizes={size}
           className="object-contain"
         />
       </div>
@@ -202,6 +204,7 @@ function CentrePlanet() {
         alt="Navy planet"
         draggable={false}
         fill
+        sizes="(max-width: 767px) 5rem, 9rem"
         className="object-contain"
       />
     </div>

@@ -151,6 +151,10 @@ const SponsorsMarquee = ({
                 remaining -= count;
                 cols = Math.min(cols + 1, 5);
               }
+              if (rows.length > 1 && rows[rows.length - 1] <= 2) {
+                rows[rows.length - 2] += rows[rows.length - 1];
+                rows.pop();
+              }
               return rows;
             };
             const pyramidRows = buildPyramidRows(withContent.length);

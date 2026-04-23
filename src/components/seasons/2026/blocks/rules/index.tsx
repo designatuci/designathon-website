@@ -2,14 +2,10 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
-import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@components/ui/carousel";
+import { CarouselApi } from "@components/ui/carousel";
 import { useInView } from "motion/react";
 import { startTransition, useEffect, useMemo, useRef, useState } from "react";
+import RuleCard from "./rules-card";
 
 function Rules() {
   const [api, setApi] = useState<CarouselApi>();
@@ -52,56 +48,10 @@ function Rules() {
       className="relative flex justify-center overflow-x-clip bg-(--blue) py-12"
     >
       <div className="relative mx-auto w-full max-w-[1920px]">
-        {/* ── LEFT: back cloud ── */}
-        <div
-          className="pointer-events-none absolute bottom-20"
-          style={{
-            bottom: "15%",
-            right: "75%",
-            width: "clamp(400px, 30vw, 500px)",
-            zIndex: 2,
-          }}
-        >
-          <DOTImage
-            src="/images/seasons/2026/landing/rules/clouds-right.png"
-            alt=""
-            width={800}
-            height={400}
-            sizes="40vw"
-            className="h-auto w-full scale-x-[-1] object-contain"
-          />
-        </div>
-
-        {/* ── LEFT: front cloud (animated, above back cloud) ── */}
+        {/* ── LEFT: flame + ufo pair (bobs together) ── */}
         <div
           className={cn(
             "absolute transition-all duration-[1.5s] ease-out-quart",
-            "not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
-            {
-              "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
-                isInView,
-            },
-          )}
-          style={{
-            bottom: "5%",
-            right: "70%",
-            width: "clamp(200px, 28vw, 400px)",
-            zIndex: 20,
-            animation: "card-float 5s ease-in-out infinite",
-          }}
-        >
-          <DOTImage
-            src="/images/seasons/2026/landing/rules/clouds-right.png"
-            alt=""
-            width={800}
-            height={400}
-            sizes="30vw"
-            className="h-auto w-full scale-x-[-1] object-contain"
-          />
-        </div>
-        <div
-          className={cn(
-            "pointer-events-none absolute transition-all duration-[1.5s] ease-out-quart",
             "not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
             {
               "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
@@ -112,71 +62,54 @@ function Rules() {
             bottom: "15%",
             right: "75%",
             width: "clamp(80px, 15vw, 180px)",
-            zIndex: 30, // above card (z-10) and all clouds
-            animation: "mascot-float 4s ease-in-out infinite",
-          }}
-        >
-          <DOTImage
-            src="/images/seasons/2026/landing/rules/flame_point.png"
-            alt="Mascot"
-            width={300}
-            height={400}
-            sizes="180px"
-            className="h-auto w-full object-contain"
-          />
-        </div>
-
-        {/* ── RIGHT: back cloud (static, dimmed) ── */}
-        <div
-          className="pointer-events-none absolute right-0 bottom-0"
-          style={{
-            width: "clamp(240px, 38vw, 540px)",
-            zIndex: 2,
-            transform: "translateX(14%) translateY(10%)",
-          }}
-        >
-          <DOTImage
-            src="/images/seasons/2026/landing/rules/clouds-right.png"
-            alt=""
-            width={800}
-            height={400}
-            sizes="40vw"
-            className="h-auto w-full scale-x-[-1] object-contain"
-          />
-        </div>
-
-        {/* ── RIGHT: front cloud (animated) ── */}
-        <div
-          className={cn(
-            "absolute transition-all duration-[1.5s] ease-out-quart",
-            "not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
-            {
-              "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
-                isInView,
-            },
-          )}
-          style={{
-            bottom: "-10%",
-            right: "8%",
-            width: "clamp(200px, 28vw, 400px)",
-            zIndex: 20,
+            height: "clamp(120px, 18vw, 220px)",
+            zIndex: 40,
             animation: "card-float 5s ease-in-out infinite",
           }}
         >
-          <DOTImage
-            src="/images/seasons/2026/landing/rules/clouds-right.png"
-            alt=""
-            width={800}
-            height={400}
-            sizes="30vw"
-            className="h-auto w-full scale-x-[-1] object-contain"
-          />
+          <div
+            className="pointer-events-none absolute"
+            style={{
+              bottom: "0%",
+              right: "0%",
+              width: "clamp(80px, 15vw, 180px)",
+              zIndex: 30, // above card (z-10)
+            }}
+          >
+            <DOTImage
+              src="/images/seasons/2026/landing/rules/flame_sit.webp"
+              alt="Mascot"
+              width={300}
+              height={400}
+              sizes="180px"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <div
+            className="absolute"
+            style={{
+              top: "55%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "clamp(200px, 28vw, 400px)",
+              zIndex: 20,
+            }}
+          >
+            <DOTImage
+              src="/images/seasons/2026/landing/rules/ufo.webp"
+              alt=""
+              width={800}
+              height={400}
+              sizes="30vw"
+              className="h-auto w-full scale-x-[-1] object-contain"
+            />
+          </div>
         </div>
 
-        {/* ── MASCOT */}
+        {/* ── RIGHT: alien + rocket pair (bobs together) ── */}
         <div
           className={cn(
-            "pointer-events-none absolute transition-all duration-[1.5s] ease-out-quart",
+            "rules-right-pair absolute transition-all duration-[1.5s] ease-out-quart",
             "not-motion-reduce:scale-95 not-motion-reduce:opacity-0",
             {
               "not-motion-reduce:scale-100 not-motion-reduce:opacity-100":
@@ -187,16 +120,122 @@ function Rules() {
             bottom: "4%",
             right: "16%",
             width: "clamp(80px, 10vw, 180px)",
-            zIndex: 30, // above card (z-10) and all clouds
-            animation: "mascot-float 4s ease-in-out infinite",
+            height: "clamp(120px, 16vw, 220px)",
+            zIndex: 40,
+            animation: "card-float 5s ease-in-out infinite",
+          }}
+        >
+          <div
+            className="pointer-events-none absolute"
+            style={{
+              bottom: "0%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "clamp(140px, 18vw, 300px)",
+              zIndex: 30, // above card (z-10)
+            }}
+          >
+            <DOTImage
+              src="/images/seasons/2026/landing/rules/alien_sit.webp"
+              alt="Mascot"
+              width={300}
+              height={400}
+              sizes="300px"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+          <div
+            className="absolute"
+            style={{
+              top: "36%",
+              left: "50%",
+              transform: "translateX(-50%) rotate(25deg)",
+              width: "clamp(200px, 28vw, 400px)",
+              zIndex: 20,
+            }}
+          >
+            <DOTImage
+              src="/images/seasons/2026/landing/rules/rocket.webp"
+              alt=""
+              width={800}
+              height={400}
+              sizes="30vw"
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Static stars (do not bob with pairs) */}
+        <div
+          className="rules-top-two-star pointer-events-none absolute"
+          style={{
+            top: "30%",
+            left: "12%",
+            width: "clamp(28px, 3.4vw, 56px)",
+            transform: "rotate(90deg)",
+            zIndex: 45,
           }}
         >
           <DOTImage
-            src="/images/seasons/2026/landing/rules/alien_point.png"
-            alt="Mascot"
-            width={300}
-            height={400}
-            sizes="180px"
+            src="/images/seasons/2026/landing/rules/two_star.webp"
+            alt=""
+            width={120}
+            height={120}
+            sizes="56px"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute"
+          style={{
+            top: "88%",
+            left: "28%",
+            width: "clamp(40px, 4.6vw, 72px)",
+            zIndex: 45,
+          }}
+        >
+          <DOTImage
+            src="/images/seasons/2026/landing/rules/three_star.webp"
+            alt=""
+            width={160}
+            height={160}
+            sizes="72px"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+        <div
+          className="rules-top-three-star pointer-events-none absolute"
+          style={{
+            top: "28%",
+            left: "68%",
+            width: "clamp(40px, 4.6vw, 74px)",
+            zIndex: 45,
+          }}
+        >
+          <DOTImage
+            src="/images/seasons/2026/landing/rules/three_star.webp"
+            alt=""
+            width={160}
+            height={160}
+            sizes="74px"
+            className="h-auto w-full object-contain"
+          />
+        </div>
+        <div
+          className="pointer-events-none absolute"
+          style={{
+            top: "96%",
+            left: "69%",
+            width: "clamp(28px, 3.4vw, 56px)",
+            zIndex: 45,
+          }}
+        >
+          <DOTImage
+            src="/images/seasons/2026/landing/rules/two_star.webp"
+            alt=""
+            width={120}
+            height={120}
+            sizes="56px"
             className="h-auto w-full object-contain"
           />
         </div>
@@ -219,91 +258,13 @@ function Rules() {
                 },
               )}
             >
-              {/* Glass card */}
-              <div
-                className="relative overflow-hidden rounded-2xl"
-                style={{
-                  border: "1px solid rgba(88, 63, 247, 0.75)",
-                  borderLeft: "3px solid rgba(26, 64, 231, 0.45)",
-                }}
-              >
-                <div
-                  className="pointer-events-none absolute inset-0 z-0 rounded-2xl"
-                  style={{
-                    background: "rgba(12, 8, 32, 0.88)",
-                    backdropFilter: "blur(14px)",
-                    WebkitBackdropFilter: "blur(14px)",
-                  }}
-                  aria-hidden
-                />
-                {/* Top glare streak */}
-                <div
-                  className="absolute top-0 right-8 left-8 z-[1] h-[2px] rounded-full"
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, rgba(111, 252, 226, 0.82), rgba(167,139,250,0.5), transparent)",
-                  }}
-                />
-
-                {/* Carousel */}
-                <div className="relative z-10 p-6 text-[rgba(255,255,255,0.85)] lg:p-10">
-                  <Carousel
-                    opts={{ align: "start", duration: 18 }}
-                    className="w-full"
-                    setApi={setApi}
-                  >
-                    <CarouselContent className="m-0 will-change-[transform]">
-                      {rules.map((rule, index) => (
-                        <CarouselItem
-                          key={index}
-                          className="basis-full py-2 select-none"
-                        >
-                          <div className="flex flex-col gap-4">
-                            <span className="[font-family:var(--font-lekton)] text-xs font-medium tracking-widest text-sky-400/70">
-                              RULE {String(index + 1).padStart(2, "0")} /{" "}
-                              {String(rules.length).padStart(2, "0")}
-                            </span>
-                            <div className="space-y-2 [font-family:var(--font-lekton)] text-base leading-relaxed text-white lg:text-xl">
-                              {rule}
-                            </div>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-
-                  {/* Dots + arrows — centered, sky blue */}
-                  <div className="mt-6 flex items-center justify-center gap-4">
-                    <button
-                      onClick={() => api?.scrollPrev()}
-                      className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/15 text-white transition-colors hover:border-sky-400/70 hover:bg-sky-500/30"
-                    >
-                      ←
-                    </button>
-                    <div className="hidden items-center gap-2 sm:flex">
-                      {dots.map((_, index) => (
-                        <button
-                          key={index}
-                          title={`Rule ${index + 1}`}
-                          onClick={() => api?.scrollTo(index)}
-                          className={cn(
-                            "rounded-full transition-all duration-200",
-                            current === index + 1
-                              ? "h-2 w-5 bg-sky-400"
-                              : "h-2 w-2 bg-sky-400/30",
-                          )}
-                        />
-                      ))}
-                    </div>
-                    <button
-                      onClick={() => api?.scrollNext()}
-                      className="flex h-9 w-9 items-center justify-center rounded-full border border-sky-400/40 bg-sky-500/15 text-white transition-colors hover:border-sky-400/70 hover:bg-sky-500/30"
-                    >
-                      →
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <RuleCard
+                rules={rules}
+                api={api}
+                setApi={setApi}
+                current={current}
+                dots={dots}
+              />
             </div>
           </div>
         </div>
@@ -317,6 +278,16 @@ function Rules() {
         @keyframes mascot-float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 768px) {
+          .rules-right-pair {
+            bottom: 12% !important;
+            right: 3% !important;
+          }
+          .rules-top-two-star,
+          .rules-top-three-star {
+            display: none !important;
+          }
         }
       `}</style>
     </section>
