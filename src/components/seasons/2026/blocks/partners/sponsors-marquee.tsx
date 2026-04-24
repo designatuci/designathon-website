@@ -57,6 +57,7 @@ const SponsorsMarquee = ({
       >
         {/* UFO */}
         <div
+          className="pointer-events-none"
           style={{
             width: "clamp(220px, 28vw, 350px)",
             margin: "0 auto",
