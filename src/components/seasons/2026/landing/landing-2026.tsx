@@ -12,6 +12,7 @@ import Prizes from "@components/seasons/2026/blocks/prizes";
 // import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
 import Schedule from "@components/seasons/2026/blocks/schedule";
+import Speakers from "@components/seasons/2026/blocks/speakers";
 import Stats from "@components/seasons/2026/blocks/stats";
 import MeetCommittees from "@components/seasons/2026/blocks/team";
 import LandingNavigation from "@components/seasons/2026/navigation/landing-navigation";
@@ -26,6 +27,7 @@ export default function Landing2026() {
       {/* <Prompt /> */}
       <Schedule />
       <Prizes />
+      <Speakers />
       <Judges />
       <Partners />
       <MeetCommittees />
