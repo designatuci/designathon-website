@@ -31,10 +31,11 @@ export const scheduleDays: ScheduleDay[] = [
       },
       {
         time: "06:00 PM",
-        endTime: "06:30 PM",
+        endTime: "07:00 PM",
         title: "Opening Ceremony",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Join us as we kick off the DAUCI Designathon! Meet your fellow participants, learn about the theme, and get ready to design!",
       },
@@ -52,7 +53,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "08:00 PM",
         title: "Workshop: Designing at Hackathon Speed [Hack @ UCI]",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Learn how to design effectively under hackathon constraints through rapid ideation, prioritization, and collaboration strategies to move from idea to execution fast. Presented by Hack@UCI.",
       },
@@ -102,7 +104,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "1:00 PM",
         title: "Workshop: Ideation and Brainstorming [Commit the Change]",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "A guided session on brainstorming techniques to help teams generate, refine, and select strong solution ideas during the early stages of the design process. Presented by Commit the Change.",
       },
@@ -111,7 +114,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "04:00 PM",
         title: "Workshop: From 0 → 1 Figma Crash Course [Figma]",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "A beginner-to-intermediate crash course covering essential Figma tools and workflows to help participants quickly start designing their solutions. Presented by Figma.",
       },
@@ -120,7 +124,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "06:00 PM",
         title: "Workshop: Hi-fidelity to Prototype [Design @ UCI]",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Explore how to turn high-fidelity designs into interactive prototypes, with best practices for preparing polished, testable, and presentation-ready work. Presented by Design at UCI.",
       },
@@ -139,7 +144,8 @@ export const scheduleDays: ScheduleDay[] = [
         title:
           "Workshop: Design to Demo: Pitching & Storytelling [Product @ UCI]",
         location: "DCE Yosemite",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Learn how to transform your solution into a compelling demo through effective storytelling, structured presentations, and strong product pitching techniques. Presented by Product at UCI.",
       },
@@ -217,8 +223,9 @@ export const scheduleDays: ScheduleDay[] = [
         time: "06:45 PM",
         endTime: "08:00 PM",
         title: "Speaker Panel",
-        location: "DCE Yosemite, Online",
-        zoom: false,
+        location: "DCE Yosemite",
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Join us for a speaker panel with industry professionals. Learn about innovation, storytelling through design, and navigating careers in tech.",
       },
@@ -226,8 +233,9 @@ export const scheduleDays: ScheduleDay[] = [
         time: "08:30 PM",
         endTime: "09:00 PM",
         title: "Closing Ceremony & Awards",
-        location: "DCE Yosemite, Online",
-        zoom: false,
+        location: "DCE Yosemite",
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Winners announced, awards presented. Celebrate an incredible weekend of design!",
       },
