@@ -196,6 +196,11 @@ function getBasePlanetNumberForCard(index: number) {
   return wrapped + 1;
 }
 
+function getLoopDistance(from: number, to: number, total: number) {
+  const direct = Math.abs(from - to);
+  return Math.min(direct, total - direct);
+}
+
 export default function IndexPage() {
   const [activeIndex, setActiveIndex] = useState(JUDGES_INITIAL_INDEX);
   const carouselApiRef = useRef<UseEmblaCarouselType[1] | null>(null);
@@ -275,9 +280,9 @@ export default function IndexPage() {
         <Carousel
           opts={carouselOpts}
           setApi={setCarouselApi}
-          className="-mt-8 w-full max-w-full overflow-hidden"
+          className="-mt-8 w-full max-w-full overflow-visible"
         >
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-visible">
             <CarouselContent className="xl:-ml-0">
               {judges.map((judge, index) => (
                 <CarouselItem
@@ -292,6 +297,11 @@ export default function IndexPage() {
                       index={index}
                       isActive={index === activeIndex}
                       planetNumber={planetNumbers[index]}
+                      distanceFromActive={getLoopDistance(
+                        index,
+                        activeIndex,
+                        judges.length,
+                      )}
                       onSelect={() => handleCardSelect(index)}
                     />
                   </div>

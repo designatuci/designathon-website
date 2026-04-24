@@ -11,6 +11,7 @@ type Props = {
   index: number;
   isActive: boolean;
   planetNumber: number;
+  distanceFromActive?: number;
   onSelect?: () => void;
 };
 
@@ -52,11 +53,20 @@ function ProfileCard({
   index,
   isActive,
   planetNumber,
+  distanceFromActive = 0,
   onSelect,
 }: Props) {
   const color = planetColors[planetNumber] ?? planetColors[1];
   const planetSrc = `/images/seasons/2026/landing/judges/planets/${planetNumber}.png`;
   const planetScale = planetNumber === 1 ? 1.6 : 1.5;
+  const distanceScale =
+    distanceFromActive === 0
+      ? 1
+      : distanceFromActive === 1
+        ? 0.92
+        : distanceFromActive === 2
+          ? 0.84
+          : 0.78;
   const planetOffset = "translate(0, 0)";
 
   return (
@@ -82,11 +92,24 @@ function ProfileCard({
         <div
           className="absolute inset-0 flex items-center justify-center select-none"
           style={{
-            transform: `${planetOffset} scale(${planetScale})`,
+            transform: `${planetOffset} scale(${planetScale * distanceScale})`,
           }}
           aria-hidden
         >
           <div className="relative h-full w-full">
+            <div
+              className={cn(
+                "pointer-events-none absolute top-1/2 left-1/2 aspect-square w-[104%] -translate-x-1/2 -translate-y-1/2 rounded-full",
+                "transition-all duration-700 ease-out",
+                isActive ? "scale-100 opacity-100" : "scale-90 opacity-0",
+              )}
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.44) 35%, rgba(255,255,255,0.24) 58%, rgba(255,255,255,0.1) 78%, rgba(255,255,255,0) 100%)",
+                filter:
+                  "blur(12px) drop-shadow(0 0 16px rgba(255,255,255,0.4)) drop-shadow(0 0 28px rgba(255,255,255,0.2))",
+              }}
+            />
             <Image
               src={planetSrc}
               alt=""
