@@ -55,7 +55,7 @@ export default function Prompt() {
               className="h-auto w-full object-contain"
             />
           </div>
-          <div className="absolute top-0 right-[4%] hidden mt-20 max-w-[95px] translate-y-[220px] sm:right-[6%] sm:mt-12 sm:max-w-[110px] sm:translate-y-[250px] md:block md:right-[8%] md:mt-32 md:max-w-[120px] md:translate-y-[320px] lg:right-[10%] lg:max-w-[140px] lg:translate-y-[360px] xl:right-[12%] xl:max-w-[160px] xl:translate-y-[420px] 2xl:right-[14%] 2xl:mt-0 2xl:translate-y-[420px] 3xl:right-[14%] 3xl:translate-y-[460px]">
+          <div className="absolute top-0 right-[4%] mt-20 hidden max-w-[95px] translate-y-[220px] sm:right-[6%] sm:mt-12 sm:max-w-[110px] sm:translate-y-[250px] md:right-[8%] md:mt-32 md:block md:max-w-[120px] md:translate-y-[320px] lg:right-[10%] lg:max-w-[140px] lg:translate-y-[360px] xl:right-[12%] xl:max-w-[160px] xl:translate-y-[420px] 2xl:right-[14%] 2xl:mt-0 2xl:translate-y-[420px] 3xl:right-[14%] 3xl:translate-y-[460px]">
             <div className="prompt-floating-bob">
               <DOTImage
                 src="/images/seasons/2026/landing/prompt/floating.png"
