@@ -181,6 +181,7 @@ const SponsorsMarquee = ({
                     : beamLeft +
                       padding +
                       (col / (colsInRow - 1)) * (beamW - padding * 2);
+                const xNudgePct = org.content?.xNudgePct ?? 0;
 
                 const rotation = org.content!.rotation;
                 const sizeVw = 8 + Math.abs(Math.sin(i * 3.1)) * 4; // 8–12vw
@@ -195,7 +196,7 @@ const SponsorsMarquee = ({
                       {
                         overflow: "visible",
                         position: "absolute",
-                        left: `${xPct}%`,
+                        left: `${xPct + xNudgePct}%`,
                         top: `${yPct}%`,
                         transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
                         opacity: isInView ? 1 : 0,

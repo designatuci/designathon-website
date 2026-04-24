@@ -5,6 +5,7 @@ export interface Organization {
   content?: {
     imageURL: string;
     rotation: number;
+    xNudgePct?: number;
     name: string;
     websiteUrl?: string;
   };
@@ -42,6 +43,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/spfb.png",
       name: "UCI SPFB",
       rotation: 6,
+      xNudgePct: 6,
       websiteUrl: "https://asuci.uci.edu/spfb/",
     },
   },
@@ -51,6 +53,7 @@ const partners: Organization[] = [
       imageURL: "/images/seasons/2026/landing/partners/logos/gemini.png",
       name: "Google Gemini",
       rotation: 6,
+      xNudgePct: -6,
       websiteUrl: "https://gemini.google.com/",
     },
   },

@@ -500,7 +500,7 @@ export default function Hero() {
               className={cn(
                 "flex justify-center max-md:-rotate-[10deg]",
                 "max-md:absolute max-md:bottom-[-2rem] max-md:left-[6%] max-md:z-[1]",
-                "md:absolute md:bottom-[44%] md:left-[5%] md:z-auto md:translate-x-0 md:translate-y-[35%] md:rotate-[20deg]",
+                "md:absolute md:bottom-[44%] md:left-[5%] md:z-auto md:translate-x-0 md:translate-y-[35%] md:rotate-[35deg]",
               )}
             >
               <Image

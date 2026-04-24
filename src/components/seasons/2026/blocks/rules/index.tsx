@@ -45,7 +45,7 @@ function Rules() {
     <section
       id="rules"
       ref={ref}
-      className="relative flex justify-center overflow-x-clip bg-(--blue) py-12"
+      className="relative flex justify-center overflow-x-clip bg-(--blue) py-12 lg:pb-30"
     >
       <div className="relative mx-auto w-full max-w-[1920px]">
         {/* ── LEFT: flame + ufo pair (bobs together) ── */}
