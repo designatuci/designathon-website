@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import DOTImage from "@components/common/dot-image";
+import Link from "next/link";
 
 function PromptCard({
   children,
@@ -29,16 +30,41 @@ export default function Prompt() {
       id="prompt"
       className="relative overflow-hidden pt-1 pb-0 sm:pt-2 xl:py-4"
     >
+      <style>{`
+        @keyframes floatPromptBuddy {
+          0%, 100% { transform: translateY(0px) rotate(-2deg); }
+          50%       { transform: translateY(-18px) rotate(2deg); }
+        }
+        .prompt-floating-bob {
+          animation: floatPromptBuddy 6s ease-in-out infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .prompt-floating-bob {
+            animation: none;
+          }
+        }
+      `}</style>
       <div className="pointer-events-none relative z-0 select-none">
-        <div className="container mx-auto">
-          <div className="mt-20 max-w-[1000px] -translate-x-[35%] sm:mt-12 sm:-translate-x-[35%] md:mt-32 md:-translate-x-[32%] lg:-translate-x-[31%] xl:-translate-x-[39%] 2xl:mt-0 2xl:-translate-x-[56%] 3xl:-translate-x-[46%]">
+        <div className="relative container mx-auto">
+          <div className="mt-20 max-w-[1000px] -translate-x-[35%] sm:mt-12 sm:-translate-x-[35%] md:mt-32 md:-translate-x-[32%] lg:max-w-[760px] lg:-translate-x-[31%] xl:max-w-[800px] xl:-translate-x-[39%] 2xl:mt-0 2xl:-translate-x-[56%] 3xl:-translate-x-[46%]">
             <DOTImage
-              src="/images/seasons/2026/landing/prompt/hanging-saturn.webp"
+              src="/images/seasons/2026/landing/prompt/saturn.webp"
               alt=""
               width={1000}
               height={1000}
               className="h-auto w-full object-contain"
             />
+          </div>
+          <div className="absolute top-0 right-[4%] hidden mt-20 max-w-[95px] translate-y-[220px] sm:right-[6%] sm:mt-12 sm:max-w-[110px] sm:translate-y-[250px] md:block md:right-[8%] md:mt-32 md:max-w-[120px] md:translate-y-[320px] lg:right-[10%] lg:max-w-[140px] lg:translate-y-[360px] xl:right-[12%] xl:max-w-[160px] xl:translate-y-[420px] 2xl:right-[14%] 2xl:mt-0 2xl:translate-y-[420px] 3xl:right-[14%] 3xl:translate-y-[460px]">
+            <div className="prompt-floating-bob">
+              <DOTImage
+                src="/images/seasons/2026/landing/prompt/floating.png"
+                alt=""
+                width={565}
+                height={565}
+                className="h-auto w-full object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -51,12 +77,19 @@ export default function Prompt() {
           <div className="grid gap-12 lg:grid-cols-2">
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
-                General Track
+                <Link
+                  href="https://docs.google.com/document/d/1SII6ROtsOYz5-IwK792cB8LspOzqxtCY_FYzCRiwPSU/edit?tab=t.0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-85"
+                >
+                  General Track
+                </Link>
               </h2>
               <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                 Chaos into Clarity
               </h3>
-              <p className="text-base text-white sm:text-base lg:text-lg xl:text-xl">
+              <p className="text-sm text-white sm:text-sm lg:text-base xl:text-lg">
                 Notability empowers people to capture ideas, organize thoughts,
                 and express creativity — whether through notes, sketches, or
                 multimedia. In a world full of information, ideas, and
@@ -98,12 +131,19 @@ export default function Prompt() {
             </PromptCard>
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
-                Professional Track
+                <Link
+                  href="https://docs.google.com/document/d/1TSBmhWT85qSURjU2ZNt1lvYL6Je6I0B_VagHZOkevcc/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-opacity hover:opacity-85"
+                >
+                  Professional Track
+                </Link>
               </h2>
               <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
                 Constellations of Possibility
               </h3>
-              <p className="text-base text-white sm:text-base lg:text-lg xl:text-xl">
+              <p className="text-sm text-white sm:text-sm lg:text-base xl:text-lg">
                 EAT Studio helps brands shape bold identities and meaningful
                 design experiences, working with companies like Amazon, Netflix,
                 Adidas, Red Bull, Activision, Warner Bros., NBCUniversal,
