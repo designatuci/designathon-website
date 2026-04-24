@@ -177,12 +177,17 @@ function PrizeCard({ prize }: { prize: Prize }) {
     }, 200);
   }, [flipping]);
 
+  /** Same height front/back (~1.5× prior 168 / 176). */
+  const cardHeightClass =
+    "min-h-[252px] max-h-[252px] sm:min-h-[264px] sm:max-h-[264px]";
+
   return (
     <button
       onClick={toggle}
       aria-expanded={open}
       className={[
         "relative w-full cursor-pointer overflow-hidden rounded-2xl text-left",
+        cardHeightClass,
         "border backdrop-blur-md",
         "transition-[transform,border-color,box-shadow] duration-200",
         "focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:outline-none",
@@ -209,93 +214,99 @@ function PrizeCard({ prize }: { prize: Prize }) {
 
       <div
         className={[
-          "flex flex-col items-center justify-center gap-3 px-5 text-center",
-          "transition-[opacity,transform] duration-[180ms]",
-          // min-height expands when open to give room to prize image
-          open ? "min-h-[340px] py-5" : "min-h-[220px] py-6",
+          "flex h-full min-h-0 flex-col items-center text-center",
+          "px-4 transition-[opacity,transform] duration-[180ms] sm:px-5",
+          open
+            ? "justify-center overflow-hidden py-1 sm:py-1.5"
+            : "justify-center gap-1.5 py-4 sm:gap-2 sm:py-5",
           flipping ? "scale-[0.93] opacity-0" : "scale-100 opacity-100",
         ].join(" ")}
       >
-        {/* planet — floats + glows, fades up and away when opened */}
-        <div
-          className={[
-            "relative shrink-0 transition-[opacity,transform,width,height] duration-500",
-            open
-              ? "pointer-events-none -translate-y-4 opacity-0"
-              : "motion-safe:animate-[floatY_3s_ease-in-out_infinite]",
-          ].join(" ")}
-          style={{
-            width: open ? 0 : 80,
-            height: open ? 0 : 80,
-            filter: open
-              ? "none"
-              : "drop-shadow(0 0 12px rgba(255,255,255,0.72))",
-          }}
-        >
-          {!open && (
-            <Image
-              src={prize.planetSrc}
-              alt=""
-              fill
-              className="object-contain"
-              sizes="80px"
-            />
-          )}
-        </div>
-
-        <p className="text-l font-bold tracking-[0.14em] text-[rgba(111,252,226,0.7)] uppercase">
-          {prize.rank}
-        </p>
-
-        {open ? (
+        {!open && (
           <>
-            {/* prize image — larger, floats gently */}
+            {/* planet — floats + glows */}
             <div
-              className="relative w-full max-w-[220px] motion-safe:animate-[floatY_3.5s_ease-in-out_infinite] sm:max-w-[260px]"
-              style={{ height: "clamp(140px, 22vw, 200px)" }}
+              className={[
+                "relative shrink-0 transition-[opacity,transform,width,height] duration-500",
+                "motion-safe:animate-[floatY_3s_ease-in-out_infinite]",
+              ].join(" ")}
+              style={{
+                width: 78,
+                height: 78,
+                filter: "drop-shadow(0 0 10px rgba(255,255,255,0.65))",
+              }}
+            >
+              <Image
+                src={prize.planetSrc}
+                alt=""
+                fill
+                className="pointer-events-none object-contain select-none"
+                sizes="78px"
+                draggable={false}
+              />
+            </div>
+
+            <p className="shrink-0 text-sm leading-tight font-bold tracking-[0.12em] text-[rgba(111,252,226,0.7)] uppercase sm:text-base">
+              {prize.rank}
+            </p>
+
+            <p className="text-xs leading-tight text-white/40 sm:text-sm">
+              tap to reveal
+            </p>
+          </>
+        )}
+
+        {open && (
+          <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-1.5 overflow-hidden py-0.5 text-center sm:gap-2 sm:py-1">
+            <p className="shrink-0 text-[11px] leading-tight font-bold tracking-[0.12em] text-[rgba(111,252,226,0.7)] uppercase sm:text-xs">
+              {prize.rank}
+            </p>
+
+            <div
+              className="relative w-full max-w-[120px] shrink-0 motion-safe:animate-[floatY_3.5s_ease-in-out_infinite] sm:max-w-[140px]"
+              style={{ height: "clamp(52px, 11vw, 72px)" }}
             >
               <Image
                 src={prize.imageSrc}
                 alt={`${prize.rank} prize`}
                 fill
-                className="object-contain"
-                sizes="(max-width: 640px) 220px, 260px"
+                className="pointer-events-none object-contain select-none"
+                sizes="(max-width: 640px) 120px, 140px"
+                draggable={false}
               />
             </div>
 
-            <ul className="text-m list-none text-center leading-[1.9] text-white/80">
+            <ul className="w-full max-w-[min(100%,20rem)] list-none space-y-px text-center text-[10px] leading-snug text-white/80 sm:text-[11px] sm:leading-snug">
               {prize.items.map((item) => (
                 <li
                   key={item}
-                  className="before:mr-1 before:text-[rgba(255,255,255,0.45)] before:content-['·']"
+                  className="before:mr-0.5 before:text-[rgba(255,255,255,0.4)] before:content-['·']"
                 >
                   {item}
                 </li>
               ))}
             </ul>
 
-            {/* sponsor logos */}
             {prize.sponsors.length > 0 && (
-              <div className="mt-1 flex items-center justify-center gap-3">
+              <div className="mt-0.5 flex shrink-0 items-center justify-center gap-2">
                 {prize.sponsors.map((s) => (
                   <div
                     key={s.name}
-                    className="relative h-6 w-16 opacity-60 grayscale transition-[opacity,filter] hover:opacity-90 hover:grayscale-0"
+                    className="relative h-4 w-11 opacity-60 grayscale transition-[opacity,filter] hover:opacity-90 hover:grayscale-0 sm:h-5 sm:w-12"
                   >
                     <Image
                       src={s.logoSrc}
                       alt={s.name}
                       fill
-                      className="object-contain"
+                      className="pointer-events-none object-contain select-none"
                       sizes="70px"
+                      draggable={false}
                     />
                   </div>
                 ))}
               </div>
             )}
-          </>
-        ) : (
-          <p className="text-s text-white/40">tap to reveal</p>
+          </div>
         )}
       </div>
     </button>
@@ -382,13 +393,9 @@ export default function Prizes() {
       `}</style>
 
       <div className="container w-full">
-        <h1 className="w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+        <h1 className="mb-6 w-full text-left [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:mb-6 md:text-9xl xl:text-[7rem]">
           Prizes
         </h1>
-
-        <p className="mt-2 mb-10 w-full text-sm tracking-wide text-white/40 md:text-base">
-          Tap a card to reveal what&apos;s waiting for you.
-        </p>
 
         <TrackSection
           pill="General track"
