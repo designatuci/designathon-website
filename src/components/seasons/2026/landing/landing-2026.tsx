@@ -9,6 +9,7 @@ import MailingList from "@components/seasons/2026/blocks/mailing";
 import Partners from "@components/seasons/2026/blocks/partners";
 import PastEvents from "@components/seasons/2026/blocks/past-events";
 import Prizes from "@components/seasons/2026/blocks/prizes";
+// import Prompt from "@components/seasons/2026/blocks/prompt";
 import Rules from "@components/seasons/2026/blocks/rules";
 import Schedule from "@components/seasons/2026/blocks/schedule";
 import Stats from "@components/seasons/2026/blocks/stats";
@@ -22,9 +23,7 @@ export default function Landing2026() {
       <Hero />
       <About />
       <Stats />
-      {
-        //<Prompt />
-      }
+      {/* <Prompt /> */}
       <Schedule />
       <Prizes />
       <Judges />
