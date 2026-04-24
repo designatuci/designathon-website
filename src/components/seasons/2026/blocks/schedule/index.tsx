@@ -312,12 +312,17 @@ export default function Itinerary() {
               marginBottom: "1rem",
             }}
           >
-            <h1 className="relative z-30 pb-12 [font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:pb-0 md:text-9xl xl:text-[7rem]">
-              Itinerary
-            </h1>
+            <div className="relative z-30 flex flex-col items-start">
+              <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal text-white md:text-9xl xl:text-[7rem]">
+                Itinerary
+              </h1>
+              <p className="mt-1 text-sm tracking-wide text-white/40 md:mt-2 md:text-base">
+                All times are in PST.
+              </p>
+            </div>
 
             {/* Tab selector with alien — baseline-aligned with title */}
-            <div className="relative z-10 inline-flex flex-col items-center self-end pb-2">
+            <div className="relative z-10 mt-10 inline-flex flex-col items-center self-end pb-2 md:mt-0">
               {/* Alien stays under the “Itinerary” title on overlap */}
               <div
                 className="pointer-events-none absolute max-md:z-[5] md:z-[10]"
