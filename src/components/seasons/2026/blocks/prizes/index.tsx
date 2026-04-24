@@ -196,7 +196,7 @@ function PrizeCard({ prize }: { prize: Prize }) {
           : "border-[rgba(88,63,247,0.55)] [border-left:3px_solid_rgba(26,64,231,0.32)] hover:border-[rgba(88,63,247,0.85)] hover:shadow-[0_8px_32px_rgba(88,63,247,0.18)]",
         "hover:-translate-y-0.5",
       ].join(" ")}
-      style={{ background: "rgba(195,195,195,0.01)" }}
+      style={{ background: "rgba(12, 8, 32, 0.88)" }}
     >
       {/* glare streak */}
       <div
@@ -240,25 +240,47 @@ function PrizeCard({ prize }: { prize: Prize }) {
                 src={prize.planetSrc}
                 alt=""
                 fill
-                className="pointer-events-none object-contain select-none"
+                className={[
+                  "pointer-events-none object-contain select-none",
+                  prize.id === "pro" ? "scale-[1.5]" : "",
+                ].join(" ")}
                 sizes="78px"
                 draggable={false}
               />
             </div>
 
-            <p className="shrink-0 text-sm leading-tight font-bold tracking-[0.12em] text-[rgba(111,252,226,0.7)] uppercase sm:text-base">
+            <p className="shrink-0 text-sm leading-tight font-bold tracking-[0.12em] text-[#9eb4e8] uppercase sm:text-base">
               {prize.rank}
             </p>
 
-            <p className="text-xs leading-tight text-white/40 sm:text-sm">
-              tap to reveal
-            </p>
+            {prize.sponsors.length > 0 && (
+              <div className="mt-1 flex shrink-0 items-center justify-center gap-2">
+                {prize.sponsors.map((s) => (
+                  <div
+                    key={s.name}
+                    className={[
+                      "relative h-4 w-11 opacity-60 grayscale transition-[opacity,filter] hover:opacity-90 hover:grayscale-0 sm:h-5 sm:w-12",
+                      s.name === "Notability" ? "translate-y-[2px]" : "",
+                    ].join(" ")}
+                  >
+                    <Image
+                      src={s.logoSrc}
+                      alt={s.name}
+                      fill
+                      className="pointer-events-none object-contain select-none"
+                      sizes="70px"
+                      draggable={false}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </>
         )}
 
         {open && (
           <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-1.5 overflow-hidden py-0.5 text-center sm:gap-2 sm:py-1">
-            <p className="shrink-0 text-[11px] leading-tight font-bold tracking-[0.12em] text-[rgba(111,252,226,0.7)] uppercase sm:text-xs">
+            <p className="shrink-0 text-[11px] leading-tight font-bold tracking-[0.12em] text-[#9eb4e8] uppercase sm:text-xs">
               {prize.rank}
             </p>
 
@@ -286,26 +308,6 @@ function PrizeCard({ prize }: { prize: Prize }) {
                 </li>
               ))}
             </ul>
-
-            {prize.sponsors.length > 0 && (
-              <div className="mt-0.5 flex shrink-0 items-center justify-center gap-2">
-                {prize.sponsors.map((s) => (
-                  <div
-                    key={s.name}
-                    className="relative h-4 w-11 opacity-60 grayscale transition-[opacity,filter] hover:opacity-90 hover:grayscale-0 sm:h-5 sm:w-12"
-                  >
-                    <Image
-                      src={s.logoSrc}
-                      alt={s.name}
-                      fill
-                      className="pointer-events-none object-contain select-none"
-                      sizes="70px"
-                      draggable={false}
-                    />
-                  </div>
-                ))}
-              </div>
-            )}
           </div>
         )}
       </div>
