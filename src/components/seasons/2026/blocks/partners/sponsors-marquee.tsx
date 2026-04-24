@@ -185,6 +185,20 @@ const SponsorsMarquee = ({
 
                 const rotation = org.content!.rotation;
                 const sizeVw = 8 + Math.abs(Math.sin(i * 3.1)) * 4; // 8–12vw
+                const isBottomSevenRow =
+                  rowIndex === totalRows - 1 && colsInRow === 7;
+                const isRowAboveBottom =
+                  rowIndex === totalRows - 2 && colsInRow === 5;
+                const adjustedSizeVw = isBottomSevenRow
+                  ? sizeVw * 0.82
+                  : isRowAboveBottom
+                    ? sizeVw * 0.9
+                    : sizeVw;
+                const logoScale = isBottomSevenRow
+                  ? 0.88
+                  : isRowAboveBottom
+                    ? 0.94
+                    : 1;
                 const wiggleDelay = (i * 0.37) % 2;
                 const wiggleDuration = 1.8 + ((i * 0.23) % 1.2);
 
@@ -204,7 +218,8 @@ const SponsorsMarquee = ({
                         animation: `logo-bob ${wiggleDuration}s ease-in-out ${wiggleDelay}s infinite`,
                         zIndex: 15,
                         "--logo-r": `${rotation}deg`,
-                        "--logo-size-vw": `${sizeVw}vw`,
+                        "--logo-size-vw": `${adjustedSizeVw}vw`,
+                        "--logo-scale": logoScale,
                       } as React.CSSProperties
                     }
                   >
@@ -270,8 +285,8 @@ const SponsorsMarquee = ({
           50% { transform: translateY(-12px); }
         }
         @keyframes logo-bob {
-          0%, 100% { transform: translate(-50%, -50%) rotate(var(--logo-r)) translateY(0px); }
-          50% { transform: translate(-50%, -50%) rotate(var(--logo-r)) translateY(-8px); }
+          0%, 100% { transform: translate(-50%, -50%) rotate(var(--logo-r)) scale(var(--logo-scale, 1)) translateY(0px); }
+          50% { transform: translate(-50%, -50%) rotate(var(--logo-r)) scale(var(--logo-scale, 1)) translateY(-8px); }
         }
       `}</style>
     </div>
