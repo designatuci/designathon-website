@@ -13,7 +13,7 @@ function PromptCard({
   return (
     <div
       className={cn(
-        "relative rounded-2xl border border-l-[3px] border-[rgba(88,63,247,0.75)] border-l-[rgba(26,64,231,0.45)] bg-[rgba(12,8,32,0.88)] p-6 backdrop-blur-[12px] lg:p-10",
+        "relative h-full w-full rounded-2xl border border-l-[3px] border-[rgba(88,63,247,0.75)] border-l-[rgba(26,64,231,0.45)] bg-[rgba(12,8,32,0.88)] p-6 backdrop-blur-[12px] lg:p-10",
         className,
       )}
     >
@@ -29,36 +29,117 @@ export default function Prompt() {
       id="prompt"
       className="relative overflow-hidden pt-1 pb-0 sm:pt-2 xl:py-4"
     >
-      <div className="pointer-events-none absolute -top-2 left-0 w-full max-w-[1000px] select-none sm:top-14 md:-top-[100px] lg:-top-[125px] xl:h-[1000px] 2xl:-top-[175px]">
-        <DOTImage
-          src="/images/seasons/2026/landing/prompt/saturn.png"
-          alt=""
-          width={500}
-          height={500}
-          className="h-auto w-full object-contain"
-        />
+      <div className="pointer-events-none relative z-0 select-none">
+        <div className="container mx-auto">
+          <div className="mt-20 max-w-[1000px] -translate-x-[35%] sm:mt-12 sm:-translate-x-[35%] md:mt-32 md:-translate-x-[32%] lg:-translate-x-[31%] xl:-translate-x-[39%] 2xl:mt-0 2xl:-translate-x-[56%] 3xl:-translate-x-[46%]">
+            <DOTImage
+              src="/images/seasons/2026/landing/prompt/hanging-saturn.webp"
+              alt=""
+              width={1000}
+              height={1000}
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="relative z-10 container mx-auto">
-        <div className="flex flex-col justify-center gap-8 pt-[525px] md:pt-[1000px] lg:pt-[1100px] 2xl:pt-[1100px]">
+      <div className="relative z-10 container mx-auto -mt-[350px] md:-mt-[650px] lg:-mt-[775px] 2xl:-mt-[800px]">
+        <div className="flex flex-col justify-center gap-8 pt-[350px] md:pt-[650px] lg:pt-[775px] 2xl:pt-[800px]">
           <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal md:text-8xl xl:text-[7rem]">
-            Prompt
+            Prompts
           </h1>
-
-          <PromptCard>
-            <p className="text-base text-[rgba(255,255,255,0.7)] sm:text-base lg:text-lg xl:text-xl">
-              A digital cosmos for the undiscovered and the forgotten. <br />
-              <br />
-              Like matter scattered across a nebula, valuable aspects of
-              everyday life become forgotten and unrecognized. <br />
-              <br />
-              In a world where both objects and memories can slip into the void,
-              this challenge asks you to bridge the cosmic gap between lost and
-              found. Create a solution that not only helps people recover what’s
-              missing, but also reveals what they didn’t realize was gone -
-              transforming forgotten pieces into constellations of meaning.
-            </p>
-          </PromptCard>
+          <div className="grid gap-12 lg:grid-cols-2">
+            <PromptCard>
+              <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
+                General Track
+              </h2>
+              <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
+                Chaos into Clarity
+              </h3>
+              <p className="text-base text-white sm:text-base lg:text-lg xl:text-xl">
+                Notability empowers people to capture ideas, organize thoughts,
+                and express creativity — whether through notes, sketches, or
+                multimedia. In a world full of information, ideas, and
+                distractions, finding clarity can be a challenge. Thoughts come
+                in fragments, inspiration arrives all at once, and meaning can
+                easily get lost in the noise. From classrooms to creative
+                spaces, Notability helps{" "}
+                <strong>
+                  turn scattered thoughts into something clear and
+                  meaningful.{" "}
+                </strong>
+                <br />
+                <br />
+                Inspired by Google Gemini, we reimagine how technology and
+                design can work together to organize ideas, spark creativity,
+                and bring clarity to complexity. While Google gives us access to
+                endless information, tools like Gemini help bring it together
+                into clarity. This track invites participants of all backgrounds
+                to explore{" "}
+                <strong>
+                  how design can help transform chaos into clarity
+                </strong>{" "}
+                — shaping experiences that make sense of the overwhelming, the
+                messy, and the undefined. <br />
+                <br />
+                Rather than focusing on perfect solutions, this track emphasizes
+                exploration, process, and perspective. How can design create
+                moments of understanding? How can it guide someone from
+                confusion to confidence, from noise to meaning? Whether
+                you&apos;re an artist, engineer, writer, or just someone with an
+                idea, this track is about{" "}
+                <strong>making design approachable and meaningful.</strong>
+                <br />
+                <br />
+                <span className="text-red-500">*</span> All participants of this
+                track <strong>must use</strong> Notability and Gemini as tools
+                to ideate.
+              </p>
+            </PromptCard>
+            <PromptCard>
+              <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
+                Professional Track
+              </h2>
+              <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
+                Constellations of Possibility
+              </h3>
+              <p className="text-base text-white sm:text-base lg:text-lg xl:text-xl">
+                EAT Studio helps brands shape bold identities and meaningful
+                design experiences, working with companies like Amazon, Netflix,
+                Adidas, Red Bull, Activision, Warner Bros., NBCUniversal,
+                Samsung, and Twitch. <br />
+                <br />
+                Some of the most meaningful ideas begin as fragments — an early
+                concept, a bold vision, or a new way of seeing the world. This
+                track explores{" "}
+                <strong>how design can bring those ideas to life</strong> while
+                staying rooted in real communities and cultural experiences.{" "}
+                <br />
+                <br />
+                Inspired by Irvine staples, Menya Hanabi and Auntea Jenny,
+                brands rooted in flavor, culture, and community, participants
+                will design products, identities, or experiences that not only
+                feel compelling as brands, but also{" "}
+                <strong>
+                  resonate deeply with the people they serve.
+                </strong>{" "}
+                Like a memorable meal or a go-to neighborhood spot, the
+                strongest brands create connection, evoke emotion, and become
+                part of everyday rituals.
+                <br />
+                <br />
+                Consider how design can translate culture, memory, and
+                experience into something tangible. Whether it&apos;s designing
+                community-driven experiences or launching a concept that bridges
+                culture, memory, and identity through thoughtful design,
+                participants are{" "}
+                <strong>
+                  encouraged to turn creative sparks into constellations of
+                  possibility.
+                </strong>{" "}
+              </p>
+            </PromptCard>
+          </div>
         </div>
       </div>
     </section>
