@@ -12,9 +12,9 @@ const generalPrizes = [
     planetSrc: "/images/seasons/2026/landing/prizes/planets/first.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/first-place.png",
     items: [
-      "4× Sony Headphones",
-      "4× Annual Notability Pro",
-      "4× $100 Visa Gift Cards",
+      "4x Sony Headphones",
+      "4x Annual Notability Pro",
+      "4x $100 Visa Gift Cards",
     ],
     featured: false,
     // sponsor logos — replace src with actual paths
@@ -36,10 +36,10 @@ const generalPrizes = [
     planetSrc: "/images/seasons/2026/landing/prizes/planets/second.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/2.png",
     items: [
-      "4× Anker Power Banks",
-      "4× Annual Notability Pro",
-      "4× $50 Visa Gift Cards",
-      "2× Bluety Goodie Bags",
+      "4x Anker Power Banks",
+      "4x Bluety Gift Bags",
+      "4x Annual Notability Pro",
+      "4x $50 Visa Gift Cards",
     ],
     featured: false,
     sponsors: [
@@ -59,11 +59,7 @@ const generalPrizes = [
     rank: "3rd place",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/third.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/third.png",
-    items: [
-      "4× Echo Dots",
-      "4× Annual Notability Pro",
-      "4× Bluety Goodie Bags",
-    ],
+    items: ["4x Echo Dots", "4x Bluety Gift Bags", "4x Annual Notability Pro"],
     featured: false,
     sponsors: [
       {
@@ -86,10 +82,10 @@ const professionalPrizes = [
     planetSrc: "/images/seasons/2026/landing/prizes/planets/prof.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/professional.png",
     items: [
-      "Guaranteed Cup Design Collaboration",
-      "Resume + Portfolio Review with EAT Studio",
-      "4x $100 Menya Hanabi Gift Cards + Exclusive T-Shirts",
-      "4× $100 Visa Gift Cards",
+      "Design a Auntea Jenny Cup Opportunity",
+      "1:1 Resume/Portfolio Review with EAT Studio",
+      "4x $100 Menya Hanabi Gift Cards + 4x Exclusive T-Shirts",
+      "4x $100 Visa Gift Cards",
     ],
     featured: false,
     sponsors: [
@@ -116,7 +112,7 @@ const specialPrizes = [
     planetSrc:
       "/images/seasons/2026/landing/prizes/planets/beginners_planet.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/beginners.png",
-    items: ["4× Chaism Matcha Powder", "4× Joiish Matcha Kit"],
+    items: ["4x Joiish Matcha Kit", "4x Chaism Ceremonial Grade Matcha Powder"],
     featured: false,
     sponsors: [] as { name: string; logoSrc: string }[],
   },
@@ -125,7 +121,13 @@ const specialPrizes = [
     rank: "Most novel",
     planetSrc: "/images/seasons/2026/landing/prizes/planets/novel_planet.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/novel.png",
-    items: ["4× LEGO 3-in-1 Building Sets", "4× LEGO Large Sets"],
+    items: [
+      "4x LEGO 3in1 Building Toy Lego Sets",
+      "1x LEGO Bricklink Pursuit of Flight Set",
+      "1x LEGO Bricklink Popcorn Wagon Set",
+      "1x LEGO Love Birds Set",
+      "1x LEGO Bonsai Tree Set",
+    ],
     featured: false,
     sponsors: [] as { name: string; logoSrc: string }[],
   },
@@ -135,10 +137,11 @@ const specialPrizes = [
     planetSrc: "/images/seasons/2026/landing/prizes/planets/peoples.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/peoples.png",
     items: [
-      "4× Apple AirTags + Case",
-      "4× Chipotle Gift Cards",
-      "5× Cane's Box Combo Gift Cards",
-      "2× Bluety Gift Bag",
+      "4x Apple AirTags",
+      "4x Apple AirTag Cases",
+      "4x Chipotle Entree Gift Cards",
+      "5x Cane's Box Combo Gift Cards",
+      "2x Bluety Gift Bag",
     ],
     featured: false,
     sponsors: [] as { name: string; logoSrc: string }[],
