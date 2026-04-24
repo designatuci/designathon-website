@@ -75,7 +75,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "10:30 AM",
         title: "Check-In",
         location: "DCE Courtyard",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Check back in for day 2. Make sure you bring your badges!",
       },
@@ -170,7 +171,8 @@ export const scheduleDays: ScheduleDay[] = [
         endTime: "03:00 PM",
         title: "Check-In",
         location: "DCE Courtyard",
-        zoom: false,
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description: "Last day! Check in and prepare your final submissions.",
       },
       {
@@ -186,8 +188,9 @@ export const scheduleDays: ScheduleDay[] = [
         time: "03:00 PM",
         endTime: "05:30 PM",
         title: "Round 1 Judging",
-        location: "DCE 2030, DCE 2040, Online",
-        zoom: false,
+        location: "DCE 2030, DCE 2040",
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "All participants will have 10 minutes to present to their assigned judge(s). Please arrive a few minutes early with your full team and check in at the proctor table outside the room, or in the Zoom call if attending online.",
       },
@@ -195,8 +198,9 @@ export const scheduleDays: ScheduleDay[] = [
         time: "05:50 PM",
         endTime: "08:00 PM",
         title: "Round 2 Judging",
-        location: "DCE 2030, DCE 2040, Online",
-        zoom: false,
+        location: "DCE 2030, DCE 2040",
+        zoom: true,
+        zoomURL: "https://uci.zoom.us/j/91795525081",
         description:
           "Top teams will be selected to present their full case study and prototype demonstration during a 10-minute session. Please arrive a few minutes early with your full team and check in with the proctors.",
       },
