@@ -82,11 +82,11 @@ const professionalPrizes = [
     planetSrc: "/images/seasons/2026/landing/prizes/planets/prof.png",
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/professional.png",
     items: [
-      "Design a Auntea Jenny Cup Opportunity" /*ANNA + $50 Auntea Jenny" /*/,
+      "Design a Auntea Jenny Cup Opportunity + $50 Auntea Jenny",
       "1:1 Resume/Portfolio Review with EAT Studio",
       "4x $100 Menya Hanabi Gift Cards + 4x Exclusive T-Shirts",
       "4x $100 Visa Gift Cards",
-      /*ANNA: "4x $50 Figma Gift Cards", */
+      "4x $50 Figma Gift Cards",
     ],
     featured: false,
     sponsors: [
@@ -115,7 +115,8 @@ const specialPrizes = [
     imageSrc: "/images/seasons/2026/landing/prizes/prizes/beginners.png",
     items: [
       "4x Joiish Matcha Kit",
-      "4x Chaism Ceremonial Grade Matcha Powder" /*ANNA: "4x Figma Gift Cards" */,
+      "4x Chaism Ceremonial Grade Matcha Powder",
+      "4x Figma Gift Cards",
     ],
     featured: false,
     sponsors: [] as { name: string; logoSrc: string }[],
