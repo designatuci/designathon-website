@@ -139,13 +139,6 @@ const judges: Judge[] = [
     imageURL: "/images/seasons/2026/landing/judges/headshots/iris_li.jpeg",
   },
   {
-    name: "Jenna Tanner",
-    position: "Senior Product Designer",
-    company: "TeamSnap",
-    linkedInURL: "https://www.linkedin.com/in/jenna-tanner-101672135/",
-    imageURL: "/images/seasons/2026/landing/judges/headshots/jenna_tanner.jpeg",
-  },
-  {
     name: "Victor Tran",
     position: "Product Design Intern",
     company: "SAP",

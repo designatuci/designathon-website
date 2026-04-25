@@ -75,14 +75,14 @@ export default function Prompt() {
             Prompts
           </h1>
           <p className="mt-1 text-sm tracking-wide text-white/40 md:mt-2 md:text-base">
-                Click on track titles to see the judging rubrics.
-                </p>
+            Click on track titles to see the judging rubrics.
+          </p>
           <div className="grid gap-12 lg:grid-cols-2">
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
-                  General Track
+                General Track
               </h2>
-              <h3 className="underline hover:text-purple-400 mb-2 text-2xl font-bold text-teal-200 [font-family:var(--font-inria-sans)] lg:text-3xl">
+              <h3 className="mb-2 [font-family:var(--font-inria-sans)] text-2xl font-bold text-teal-200 underline hover:text-purple-400 lg:text-3xl">
                 <Link
                   href="https://docs.google.com/document/d/1SII6ROtsOYz5-IwK792cB8LspOzqxtCY_FYzCRiwPSU/edit?tab=t.0"
                   target="_blank"
@@ -134,9 +134,9 @@ export default function Prompt() {
             </PromptCard>
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
-                  Professional Track
+                Professional Track
               </h2>
-              <h3 className="underline hover:text-purple-400 mb-2 text-2xl font-bold text-teal-200 [font-family:var(--font-inria-sans)] lg:text-3xl">
+              <h3 className="mb-2 [font-family:var(--font-inria-sans)] text-2xl font-bold text-teal-200 underline hover:text-purple-400 lg:text-3xl">
                 <Link
                   href="https://docs.google.com/document/d/1TSBmhWT85qSURjU2ZNt1lvYL6Je6I0B_VagHZOkevcc/edit?usp=sharing"
                   target="_blank"
