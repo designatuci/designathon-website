@@ -74,20 +74,23 @@ export default function Prompt() {
           <h1 className="[font-family:var(--font-luxurious-script)] text-6xl font-normal md:text-8xl xl:text-[7rem]">
             Prompts
           </h1>
+          <p className="mt-1 text-sm tracking-wide text-white/40 md:mt-2 md:text-base">
+                Click on track titles to see the judging rubrics.
+                </p>
           <div className="grid gap-12 lg:grid-cols-2">
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
+                  General Track
+              </h2>
+              <h3 className="underline hover:text-purple-400 mb-2 text-2xl font-bold text-teal-200 [font-family:var(--font-inria-sans)] lg:text-3xl">
                 <Link
                   href="https://docs.google.com/document/d/1SII6ROtsOYz5-IwK792cB8LspOzqxtCY_FYzCRiwPSU/edit?tab=t.0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-opacity hover:opacity-85"
                 >
-                  General Track
+                  Chaos into Clarity
                 </Link>
-              </h2>
-              <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
-                Chaos into Clarity
               </h3>
               <p className="text-sm text-white sm:text-sm lg:text-base xl:text-lg">
                 Notability empowers people to capture ideas, organize thoughts,
@@ -131,17 +134,17 @@ export default function Prompt() {
             </PromptCard>
             <PromptCard>
               <h2 className="mb-4 text-center [font-family:var(--font-luxurious-script)] text-5xl font-bold font-normal text-white sm:mb-8 md:text-6xl">
+                  Professional Track
+              </h2>
+              <h3 className="underline hover:text-purple-400 mb-2 text-2xl font-bold text-teal-200 [font-family:var(--font-inria-sans)] lg:text-3xl">
                 <Link
                   href="https://docs.google.com/document/d/1TSBmhWT85qSURjU2ZNt1lvYL6Je6I0B_VagHZOkevcc/edit?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="transition-opacity hover:opacity-85"
                 >
-                  Professional Track
+                  Constellations of Possibility
                 </Link>
-              </h2>
-              <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
-                Constellations of Possibility
               </h3>
               <p className="text-sm text-white sm:text-sm lg:text-base xl:text-lg">
                 EAT Studio helps brands shape bold identities and meaningful
