@@ -84,7 +84,7 @@ export default function AppsCloseCountdown() {
   return (
     <>
       <span className="text-sm text-white/80 sm:text-base">
-        {eventHasStarted ? "Designing starts in:" : "Event starts in:"}
+        {eventHasStarted ? "Designing ends in:" : "Event starts in:"}
       </span>
       <div className="flex items-start justify-center gap-1.5 text-center text-[#9eb4e8] sm:gap-2">
         <CountdownPart value={timeLeft.days} unit="days" />
