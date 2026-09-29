@@ -5,13 +5,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 
 const luxurious = localFont({
-  src: "../../../../../app/archive/2026/fonts/LuxuriousScript-Regular.woff2",
+  src: "../../../../../app/(landing)/(2027)/fonts/LuxuriousScript-Regular.woff2",
   display: "swap",
 });
 
 /** Same as `src/app/(landing)/(2026)/layout.tsx` → `./fonts/InriaSans-Regular.woff2` */
 const inriaSans = localFont({
-  src: "../../../../../app/archive/2026/fonts/InriaSans-Regular.woff2",
+  src: "../../../../../app/(landing)/(2027)/fonts/InriaSans-Regular.woff2",
   display: "swap",
 });
 
@@ -134,7 +134,7 @@ export default function CommitteeConstellation({ committee, onClose }: Props) {
   const photoSrc =
     member?.photo && member.photo.trim().length > 0
       ? member.photo
-      : "/images/seasons/2026/landing/team/nailong.png";
+      : "/images/seasons/2027/landing/team/nailong.png";
 
   const renderCanvas = () => (
     <>

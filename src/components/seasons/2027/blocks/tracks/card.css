@@ -1,0 +1,556 @@
+/* ─── Color tokens — edit these to retheme everything ──────────────────────── */
+:root {
+  /* Glass card */
+  --card-glass-bg-start: rgba(255, 255, 255, 0.07);
+  --card-glass-bg-end: rgba(255, 255, 255, 0.03);
+  --card-glass-border: rgba(255, 255, 255, 0.12);
+  --card-glass-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --card-glass-shadow-hover:
+    0 30px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(80, 120, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  /* Featured card */
+  --card-featured-bg: #192271;
+  --card-featured-border: rgba(255, 255, 255, 0.2);
+  --card-featured-shadow:
+    0 20px 60px rgba(59, 91, 219, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --card-featured-shadow-hover: 0 30px 80px rgba(59, 91, 219, 0.6);
+
+  /* Blobs (decorative glows) */
+  --blob-top-glass: radial-gradient(
+    circle,
+    rgba(60, 100, 255, 0.35) 0%,
+    rgba(100, 60, 255, 0.15) 50%,
+    transparent 70%
+  );
+  --blob-bottom-glass: radial-gradient(
+    circle,
+    rgba(0, 200, 180, 0.15) 0%,
+    transparent 70%
+  );
+  --blob-top-featured: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  --blob-bottom-featured: radial-gradient(
+    circle,
+    rgba(100, 180, 255, 0.15) 0%,
+    transparent 70%
+  );
+
+  /* Icon box */
+  --icon-box-bg: rgba(255, 255, 255, 0.08);
+  --icon-box-border: rgba(255, 255, 255, 0.12);
+
+  /* Badge — glass variant */
+  --badge-color: #8baeff;
+  --badge-bg: rgba(80, 120, 255, 0.15);
+  --badge-border: rgba(80, 120, 255, 0.3);
+
+  /* Badge — featured variant */
+  --badge-featured-color: #ffffff;
+  --badge-featured-bg: rgba(255, 255, 255, 0.18);
+  --badge-featured-border: rgba(255, 255, 255, 0.3);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-muted-featured: rgba(255, 255, 255, 0.7);
+  --text-perk: rgba(255, 255, 255, 0.72);
+  --text-perk-featured: rgba(255, 255, 255, 0.9);
+
+  /* Divider */
+  --divider-color: rgba(255, 255, 255, 0.1);
+
+  /* Check icon — glass */
+  --check-circle-fill: rgba(59, 91, 219, 0.25);
+  --check-path-stroke: #6b9fff;
+
+  /* Check icon — featured */
+  --check-circle-fill-featured: rgba(255, 255, 255, 0.2);
+  --check-path-stroke-featured: #ffffff;
+
+  /* People's Choice award — warm gold */
+  --award-pc-bg: #1a0011;
+  --award-pc-border: rgba(255, 60, 229, 0.25);
+  --award-pc-shadow: 0 20px 60px rgba(180, 0, 153, 0.35);
+  --award-pc-shadow-hover: 0 30px 70px rgba(180, 0, 153, 0.35);
+  --award-pc-blob-top: radial-gradient(
+    circle,
+    rgba(255, 0, 234, 0.3) 0%,
+    transparent 70%
+  );
+  --award-pc-blob-bottom: radial-gradient(
+    circle,
+    rgba(255, 0, 234, 0.15) 0%,
+    transparent 70%
+  );
+  --award-pc-icon-bg: rgba(255, 60, 229, 0.25);
+  --award-pc-icon-border: rgba(255, 60, 229, 0.25);
+  --award-pc-icon-stroke: #f9d1fe;
+  --award-pc-icon-fill: rgba(255, 60, 229, 0.25);
+  --award-pc-name-color: #f9d1fe;
+  --award-pc-desc-color: #ec86fa;
+  --award-pc-divider: rgba(255, 60, 229, 0.25);
+  --award-pc-prize-color: #f9d1fe;
+  --award-pc-prize-label: #ec86fa;
+
+  /* Most Novel award — cool violet */
+  --award-mn-bg: #0d0a1a;
+  --award-mn-border: rgba(180, 130, 255, 0.25);
+  --award-mn-shadow: 0 20px 60px rgba(120, 60, 220, 0.35);
+  --award-mn-shadow-hover: 0 30px 70px rgba(140, 80, 255, 0.5);
+  --award-mn-blob-top: radial-gradient(
+    circle,
+    rgba(180, 130, 255, 0.3) 0%,
+    transparent 70%
+  );
+  --award-mn-blob-bottom: radial-gradient(
+    circle,
+    rgba(100, 60, 255, 0.15) 0%,
+    transparent 70%
+  );
+  --award-mn-icon-bg: rgba(180, 130, 255, 0.12);
+  --award-mn-icon-border: rgba(180, 130, 255, 0.25);
+  --award-mn-icon-stroke: #c084fc;
+  --award-mn-icon-fill: rgba(180, 130, 255, 0.15);
+  --award-mn-name-color: #e9d5ff;
+  --award-mn-desc-color: rgba(220, 190, 255, 0.55);
+  --award-mn-divider: rgba(180, 130, 255, 0.12);
+  --award-mn-prize-color: #c084fc;
+  --award-mn-prize-label: rgba(180, 130, 255, 0.5);
+}
+
+/* ════════════════════════════════════════════════════════
+   TRACK CARDS
+   ════════════════════════════════════════════════════════ */
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+
+.track-grid {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── Card base ─────────────────────────────────────────────────────────────── */
+
+.track-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 32px;
+  width: 260px;
+  overflow: hidden;
+  cursor: default;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+/* ─── Glass variant ─────────────────────────────────────────────────────────── */
+
+.track-card--glass {
+  background: linear-gradient(
+    160deg,
+    var(--card-glass-bg-start) 0%,
+    var(--card-glass-bg-end) 100%
+  );
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-glass-shadow);
+}
+
+.track-card--glass.track-card--hovered {
+  transform: translateY(-4px);
+  box-shadow: var(--card-glass-shadow-hover);
+}
+
+.track-card--glass .blob--top {
+  background: var(--blob-top-glass);
+}
+.track-card--glass .blob--bottom {
+  background: var(--blob-bottom-glass);
+}
+
+/* ─── Featured variant ──────────────────────────────────────────────────────── */
+
+.track-card--featured {
+  background: var(--card-featured-bg);
+  border: 1px solid var(--card-featured-border);
+  box-shadow: var(--card-featured-shadow);
+}
+
+.track-card--featured.track-card--hovered {
+  transform: translateY(-4px);
+  box-shadow: var(--card-featured-shadow-hover);
+}
+
+.track-card--featured .blob--top {
+  background: var(--blob-top-featured);
+}
+.track-card--featured .blob--bottom {
+  background: var(--blob-bottom-featured);
+}
+
+/* ─── Decorative blobs ──────────────────────────────────────────────────────── */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.blob--top {
+  top: -30px;
+  right: -20px;
+  width: 160px;
+  height: 160px;
+}
+
+.blob--bottom {
+  bottom: 20px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+}
+
+/* ─── Header row ────────────────────────────────────────────────────────────── */
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--icon-box-bg);
+  border: 1px solid var(--icon-box-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ─── Badge ─────────────────────────────────────────────────────────────────── */
+
+.badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--badge-color);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.badge--featured {
+  color: var(--badge-featured-color);
+  background: var(--badge-featured-bg);
+  border-color: var(--badge-featured-border);
+}
+
+/* ─── Text ──────────────────────────────────────────────────────────────────── */
+
+.track-name {
+  margin: 12px 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.track-tagline {
+  margin: 0 0 20px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.track-tagline--featured {
+  color: var(--text-muted-featured);
+}
+
+/* ─── Divider ───────────────────────────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background: var(--divider-color);
+  margin-bottom: 18px;
+}
+
+/* ─── Perks list ────────────────────────────────────────────────────────────── */
+
+.perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-perk);
+}
+
+.perk--featured {
+  color: var(--text-perk-featured);
+}
+
+/* ─── Check icon ────────────────────────────────────────────────────────────── */
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.check-icon .check-circle {
+  fill: var(--check-circle-fill);
+}
+
+.check-icon .check-path {
+  stroke: var(--check-path-stroke);
+  fill: none;
+}
+
+.check-icon--featured .check-circle {
+  fill: var(--check-circle-fill-featured);
+}
+
+.check-icon--featured .check-path {
+  stroke: var(--check-path-stroke-featured);
+}
+
+/* ─── Prize row ─────────────────────────────────────────────────────────────── */
+
+.prize-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.prize-amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.prize-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.prize-label--featured {
+  color: var(--text-muted-featured);
+}
+
+/* ════════════════════════════════════════════════════════
+   AWARD CARDS — People's Choice & Most Novel
+   General recognition awards, not track-specific.
+   Centred layout, circular icon, no perks list.
+   ════════════════════════════════════════════════════════ */
+
+/* ─── Grid ──────────────────────────────────────────────────────────────────── */
+
+.award-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  align-self: stretch;
+}
+
+/* ─── Card base ─────────────────────────────────────────────────────────────── */
+
+.award-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 28px 32px;
+  width: 260px;
+  overflow: hidden;
+  cursor: default;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease;
+}
+
+.award-card--hovered {
+  transform: translateY(-4px);
+}
+
+/* ─── Blobs ─────────────────────────────────────────────────────────────────── */
+
+.award-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(24px);
+}
+
+.award-blob--top {
+  top: -40px;
+  right: -30px;
+  width: 180px;
+  height: 180px;
+}
+
+.award-blob--bottom {
+  bottom: -20px;
+  left: -40px;
+  width: 140px;
+  height: 140px;
+}
+
+/* ─── People's Choice ───────────────────────────────────────────────────────── */
+
+.award-card--peoples-choice {
+  background: var(--award-pc-bg);
+  border: 1px solid var(--award-pc-border);
+  box-shadow: var(--award-pc-shadow);
+}
+
+.award-card--peoples-choice.award-card--hovered {
+  box-shadow: var(--award-pc-shadow-hover);
+}
+
+.award-card--peoples-choice .award-blob--top {
+  background: var(--award-pc-blob-top);
+}
+.award-card--peoples-choice .award-blob--bottom {
+  background: var(--award-pc-blob-bottom);
+}
+.award-card--peoples-choice .award-icon-wrap {
+  background: var(--award-pc-icon-bg);
+  border-color: var(--award-pc-icon-border);
+}
+.award-card--peoples-choice .award-icon-path {
+  stroke: var(--award-pc-icon-stroke);
+  fill: var(--award-pc-icon-fill);
+}
+.award-card--peoples-choice .award-name {
+  color: var(--award-pc-name-color);
+}
+.award-card--peoples-choice .award-description {
+  color: var(--award-pc-desc-color);
+}
+.award-card--peoples-choice .award-divider {
+  background: var(--award-pc-divider);
+}
+.award-card--peoples-choice .award-prize-amount {
+  color: var(--award-pc-prize-color);
+}
+.award-card--peoples-choice .award-prize-label {
+  color: var(--award-pc-prize-label);
+}
+
+/* ─── Most Novel ────────────────────────────────────────────────────────────── */
+
+.award-card--most-novel {
+  background: var(--award-mn-bg);
+  border: 1px solid var(--award-mn-border);
+  box-shadow: var(--award-mn-shadow);
+}
+
+.award-card--most-novel.award-card--hovered {
+  box-shadow: var(--award-mn-shadow-hover);
+}
+
+.award-card--most-novel .award-blob--top {
+  background: var(--award-mn-blob-top);
+}
+.award-card--most-novel .award-blob--bottom {
+  background: var(--award-mn-blob-bottom);
+}
+.award-card--most-novel .award-icon-wrap {
+  background: var(--award-mn-icon-bg);
+  border-color: var(--award-mn-icon-border);
+}
+.award-card--most-novel .award-icon-path {
+  stroke: var(--award-mn-icon-stroke);
+  fill: var(--award-mn-icon-fill);
+}
+.award-card--most-novel .award-name {
+  color: var(--award-mn-name-color);
+}
+.award-card--most-novel .award-description {
+  color: var(--award-mn-desc-color);
+}
+.award-card--most-novel .award-divider {
+  background: var(--award-mn-divider);
+}
+.award-card--most-novel .award-prize-amount {
+  color: var(--award-mn-prize-color);
+}
+.award-card--most-novel .award-prize-label {
+  color: var(--award-mn-prize-label);
+}
+
+/* ─── Award card internals ──────────────────────────────────────────────────── */
+
+.award-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.award-name {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.award-description {
+  margin: 0 0 20px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.award-divider {
+  height: 1px;
+  margin-bottom: 18px;
+}
+
+.award-prize-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+}
+
+.award-prize-amount {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.award-prize-label {
+  font-size: 12px;
+}
